@@ -2,7 +2,6 @@ package service.impl;
 
 import isvz.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
 import org.apache.log4j.Logger;
-import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import service.ISVZService;
@@ -14,7 +13,6 @@ import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import java.io.StringReader;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 
 
 public class ISVZServiceImpl implements ISVZService {
@@ -33,17 +31,11 @@ public class ISVZServiceImpl implements ISVZService {
             restTemplate.getMessageConverters()
                     .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
 
-
-
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.setAccept(Arrays.asList(MediaType.ALL));
-
-
-            HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-            final ResponseEntity<String> exchange = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
-            final String body = exchange.getBody();
-            System.out.println(body);
+//            HttpHeaders headers = new HttpHeaders();
+//            headers.setAccept(Arrays.asList(MediaType.ALL));
+//            HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+//            final ResponseEntity<String> exchange = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
+//            final String body = exchange.getBody();
 
 
             final String xmlInString = restTemplate.getForObject(uri, String.class);
@@ -54,7 +46,6 @@ public class ISVZServiceImpl implements ISVZService {
             final JAXBElement<ProfilStructure> root = unmarshaller.unmarshal(source, ProfilStructure.class);
             return root.getValue();
         }catch (Exception e){
-            e.printStackTrace();
             logger.error(uri + ", E: " + e.getMessage());
             return null;
         }
