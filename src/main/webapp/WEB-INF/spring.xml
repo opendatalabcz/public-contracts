@@ -19,4 +19,6 @@
        </bean>
        <bean class="service.impl.InsertIntoDBServiceImpl"/>
        <bean class="service.impl.ISVZServiceImpl"/>
+       <bean class="crawler.ISVZCrawler"/>
+
 </beans>

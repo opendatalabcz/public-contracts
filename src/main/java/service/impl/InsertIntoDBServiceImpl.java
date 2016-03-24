@@ -1,8 +1,9 @@
 package service.impl;
 
+import db.DatabaseConnectionFactory;
+import isvz.isvs.micr.schemas.businesstypes.v2.SubjektObchodniJmenoType;
 import isvz.isvs.micr.schemas.corecomponenttypes.v1.CenaType;
 import isvz.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.*;
-import db.DatabaseConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import service.InsertIntoDBService;
 
@@ -15,107 +16,114 @@ public class InsertIntoDBServiceImpl implements InsertIntoDBService {
     @Autowired
     private DatabaseConnectionFactory databaseConnectionFactory;
 
+    private Connection connection;
+
     @Override
     public void saveSubmitter(ProfilStructure profilStructure) throws SQLException {
 
 
-        final Connection connection = databaseConnectionFactory.getConnection();
+        connection = databaseConnectionFactory.getConnection();
 
 
         final ZadavatelStructure submitter = profilStructure.getZadavatel();
         final long submitterId = saveSubmitter(submitter, connection);
         final List<ZakazkaStructure> contracts = profilStructure.getZakazka();
         for (ZakazkaStructure contract : contracts) {
-            final String code1 = contract.getVz().getKodVzNaUsvzis().getValue();
-            final String code2 = contract.getVz().getKodVzNaProfilu().getValue();
-            final String name = contract.getVz().getNazevVz().getValue();
-            final String state = contract.getVz().getStavVz().getValue();
-            final String kind = contract.getVz().getDruhZadavacihoRizeni().getValue();
-            final long contractId = saveContract(connection, submitterId, code1, code2, name, state, kind);
+            final KodVZNaUsvzisType kodVzNaUsvzis = contract.getVz().getKodVzNaUsvzis();
+            final String code1 = kodVzNaUsvzis == null ? null : kodVzNaUsvzis.getValue();
+
+            final KodVzNaProfiluType kodVzNaProfilu = contract.getVz().getKodVzNaProfilu();
+            final String code2 = kodVzNaProfilu == null ? null : kodVzNaProfilu.getValue();
+
+            final NazevVZType nazevVz = contract.getVz().getNazevVz();
+            final String name = nazevVz == null ? null : nazevVz.getValue();
+
+            final StavVZType stavVz = contract.getVz().getStavVz();
+            final String state = stavVz == null ? null : stavVz.getValue();
+
+            final DruhZadavacihoRizeniType druhZadavacihoRizeni = contract.getVz().getDruhZadavacihoRizeni();
+            final String kind = druhZadavacihoRizeni == null ? null : druhZadavacihoRizeni.getValue();
+
+            final long contractId = saveContract(submitterId, code1, code2, name, state, kind);
 
             final List<UchazecStructure> candidates = contract.getUchazec();
-            saveCandidates(connection, contractId, candidates);
+            saveCandidates(contractId, candidates);
             final List<DodavatelStructure> suppliers = contract.getDodavatel();
-            saveSuppliers(connection, contractId, suppliers);
-
-
+            saveSuppliers(contractId, suppliers);
         }
-
-
     }
 
-    private void saveSuppliers(Connection connection, long contractId, List<DodavatelStructure> suppliers) throws SQLException {
+    private void saveSuppliers(long contractId, List<DodavatelStructure> suppliers) throws SQLException {
         for (DodavatelStructure supplier : suppliers) {
-            final String supplierIco = supplier.getIco().getValue();
-            final String supplierName = supplier.getNazevDodavatele().getValue();
+            final IcoType ico = supplier.getIco();
+            final String supplierIco = ico == null ? null : ico.getValue();
+            final SubjektObchodniJmenoType nazevDodavatele = supplier.getNazevDodavatele();
+            final String supplierName = nazevDodavatele == null ? null : nazevDodavatele.getValue();
             final CenaType cenaCelkemDleSmlouvyDPH = supplier.getCenaCelkemDleSmlouvyDPH();
             final Double price;
-            if(cenaCelkemDleSmlouvyDPH == null){
+            if (cenaCelkemDleSmlouvyDPH == null) {
                 price = null;
-            }else{
+            } else {
                 price = cenaCelkemDleSmlouvyDPH.getValue().doubleValue();
             }
-            final long supplierId = saveSupplier(connection, contractId, supplierIco, supplierName, price);
+            final long supplierId = saveSupplier(contractId, supplierIco, supplierName, price);
 
             final List<SubdodavatelStructure> subsuppliers = supplier.getSubdodavatel();
-            saveSubsuppliers(connection, supplierId, subsuppliers);
+            saveSubsuppliers(supplierId, subsuppliers);
 
         }
     }
 
-    private void saveSubsuppliers(Connection connection, long supplierId, List<SubdodavatelStructure> subsuppliers) throws SQLException {
+    private void saveSubsuppliers(long supplierId, List<SubdodavatelStructure> subsuppliers) throws SQLException {
         for (SubdodavatelStructure subsupplier : subsuppliers) {
-            final String subsupplierIco = subsupplier.getIcoSub().getValue();
-            final String subsupplierName = subsupplier.getNazevSub().getValue();
-            saveSubsupplier(connection, supplierId, subsupplierIco, subsupplierName);
+            final IcoType icoSub = subsupplier.getIcoSub();
+            final String subsupplierIco = icoSub == null ? null : icoSub.getValue();
+            final SubjektObchodniJmenoType nazevSub = subsupplier.getNazevSub();
+            final String subsupplierName = nazevSub == null ? null : nazevSub.getValue();
+            saveSubsupplier(supplierId, subsupplierIco, subsupplierName);
         }
     }
 
-    private void saveSubsupplier(Connection connection, long supplierId, String subsupplierIco, String subsupplierName) throws SQLException {
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO subsupplier (ico,name, subsupplier_id) VALUES (?,?,?);");
-        preparedStatement.setString(1, subsupplierIco);
-        preparedStatement.setString(2, subsupplierName);
-        preparedStatement.setLong(3, supplierId);
+    private void saveSubsupplier(long supplierId, String subsupplierIco, String subsupplierName) throws SQLException {
+        final long companyId = saveCompany(subsupplierIco, subsupplierName);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO subsupplier (company_id, supplier_id) VALUES (?,?);");
+        preparedStatement.setLong(1, companyId);
+        preparedStatement.setLong(2, supplierId);
         preparedStatement.executeUpdate();
     }
 
-    private long saveSupplier(Connection connection, long contractId, String supplierIco, String supplierName, Double price) throws SQLException {
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO supplier (ico,name, price, contract_id) VALUES (?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setString(1, supplierIco);
-        preparedStatement.setString(2, supplierName);
-        preparedStatement.setDouble(3, price == null ? -1d : price);
-        preparedStatement.setLong(4, contractId);
+    private long saveSupplier(long contractId, String supplierIco, String supplierName, Double price) throws SQLException {
+        final long companyId = saveCompany(supplierIco, supplierName);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO supplier (company_id, price, contract_id) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setLong(1, companyId);
+        preparedStatement.setDouble(2, price == null ? -1d : price);
+        preparedStatement.setLong(3, contractId);
         preparedStatement.executeUpdate();
         ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();
         return rs.getLong(1);
     }
 
-    private void saveCandidates(Connection connection, long contractId, List<UchazecStructure> candidates) throws SQLException {
+    private void saveCandidates(long contractId, List<UchazecStructure> candidates) throws SQLException {
         for (UchazecStructure candidate : candidates) {
             final String ico = candidate.getIco().getValue();
             final String candidateName = candidate.getNazevUchazece().getValue();
-            final List<NabidkaStructure> offers = candidate.getNabidka();
-            final Double price;
-            if (!offers.isEmpty()) {
-                price = offers.get(0).getNabidkovaCenaSDph().getValue().doubleValue();
-            } else {
-                price = null;
-            }
-            saveCandidate(connection, contractId, ico, candidateName, price);
+            final CenaType cenaSDph = candidate.getCenaSDph();
+            final Double price = cenaSDph == null ? null : cenaSDph.getValue().doubleValue();
+            saveCandidate(contractId, ico, candidateName, price);
         }
     }
 
-    private void saveCandidate(Connection connection, long contractId, String ico, String candidateName, Double price) throws SQLException {
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO candidate (ico,name, price, contract_id) VALUES (?,?,?,?);");
-        preparedStatement.setString(1, ico);
-        preparedStatement.setString(2, candidateName);
-        preparedStatement.setDouble(3, price == null ? -1d : price);
-        preparedStatement.setLong(4, contractId);
+    private void saveCandidate(long contractId, String ico, String candidateName, Double price) throws SQLException {
+        final long companyId = saveCompany(ico, candidateName);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO candidate (company_id, price, contract_id) VALUES (?,?,?);");
+        preparedStatement.setLong(1, companyId);
+        preparedStatement.setDouble(2, price == null ? -1d : price);
+        preparedStatement.setLong(3, contractId);
         preparedStatement.executeUpdate();
     }
 
-    private long saveContract(Connection connection, long submitterId, String code1, String code2, String name, String state, String kind) throws SQLException {
+    private long saveContract(long submitterId, String code1, String code2, String name, String state, String kind) throws SQLException {
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contract (code1,code2, name, state, kind, submitter_id) VALUES (?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, code1);
         preparedStatement.setString(2, code2);
@@ -130,14 +138,34 @@ public class InsertIntoDBServiceImpl implements InsertIntoDBService {
     }
 
     private long saveSubmitter(ZadavatelStructure submitter, Connection connection) throws SQLException {
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO submitter (ico,name) VALUES (?,?);", Statement.RETURN_GENERATED_KEYS);
         final String ico = submitter.getIcoVlastni().getValue();
-        preparedStatement.setString(1, ico);
         final String submitterName = submitter.getNazevZadavatele().getValue();
-        preparedStatement.setString(2, submitterName);
+        final long companyId = saveCompany(ico, submitterName);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO submitter (company_id) VALUES (?);", Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setLong(1, companyId);
         preparedStatement.executeUpdate();
         ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();
         return rs.getLong(1);
+    }
+
+    private long saveCompany(String ico, String name) throws SQLException {
+        if (ico != null) {
+            final PreparedStatement selectStatement = connection.prepareStatement("Select company_id from company where ico = ?");
+            selectStatement.setString(1, ico);
+            ResultSet rs = selectStatement.executeQuery();
+            if (rs.next()) {
+                Long companyId = rs.getLong("company_id");
+                return companyId;
+            }
+        }
+        final PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO company (ico,name) VALUES (?,?);", Statement.RETURN_GENERATED_KEYS);
+        insertStatement.setString(1, ico);
+        insertStatement.setString(2, name);
+        insertStatement.executeUpdate();
+        ResultSet rs2 = insertStatement.getGeneratedKeys();
+        rs2.next();
+        return rs2.getLong(1);
+
     }
 }

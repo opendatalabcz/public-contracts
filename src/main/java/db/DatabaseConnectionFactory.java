@@ -16,9 +16,6 @@ public class DatabaseConnectionFactory {
         try {
             Class.forName("org.postgresql.Driver");
             String url = "jdbc:postgresql://" + server + ":" + port + "/" + database;
-            System.out.println(url);
-            System.out.println(user);
-            System.out.println(pass);
             connection = DriverManager.getConnection(url, user, pass);
         } catch (Exception e) {
             e.printStackTrace();

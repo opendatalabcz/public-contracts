@@ -1,4 +1,4 @@
-import isvz.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
+import crawler.ISVZCrawler;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -6,6 +6,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import service.ISVZService;
 import service.InsertIntoDBService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,15 +24,23 @@ public class TestForDevelopers {
     private InsertIntoDBService insertIntoDBService;
     @Autowired
     private ISVZService isvzService;
+    @Autowired
+    private ISVZCrawler isvzCrawler;
 
     @org.junit.Test
     public void test() {
-        final ProfilStructure profilStructure = isvzService.findProfilStructure("https://www.softender.cz/cah/");
         try {
-            insertIntoDBService.saveSubmitter(profilStructure);
+            isvzCrawler.crawl();
+        } catch (IOException e) {
+            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @org.junit.Test
+    public void test2() {
+            isvzService.findProfilStructure("http://soad.profilzadavatele.cz/");
 
     }
 }
