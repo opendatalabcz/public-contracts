@@ -19,7 +19,7 @@
         <property name="pass" value="${db.target.pass}"/>
     </bean>
 
-    <bean class="service.impl.DatabaseServiceImpl"/>
+    <bean class="service.impl.DatabaseServiceRenamedImpl"/>
     <bean class="service.impl.ISVZServiceImpl"/>
     <bean class="service.impl.ISVZCrawlerServiceImpl"/>
 
