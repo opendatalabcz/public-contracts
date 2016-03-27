@@ -162,3 +162,55 @@ ALTER TABLE ONLY subsupplier
 ADD CONSTRAINT fk_subsupplier_company FOREIGN KEY (company_id) REFERENCES company (company_id);
 
 
+CREATE TABLE data
+(
+  data_id BIGINT NOT NULL,
+  url     TEXT,
+  ico     TEXT,
+  name    TEXT
+
+
+);
+
+CREATE SEQUENCE data_data_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+ALTER SEQUENCE data_data_id_seq OWNED BY data.data_id;
+
+ALTER TABLE ONLY data ALTER COLUMN data_id SET DEFAULT nextval(
+    'data_data_id_seq' :: REGCLASS);
+
+
+ALTER TABLE data ADD PRIMARY KEY (data_id);
+
+
+CREATE TABLE retrieval
+(
+  retrieval_id     BIGINT NOT NULL,
+  year             INT,
+  complete         BOOLEAN,
+  last_day         DATE,
+  number_of_errors INTEGER
+
+
+);
+
+CREATE SEQUENCE retrieval_retrieval_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+ALTER SEQUENCE retrieval_retrieval_id_seq OWNED BY retrieval.retrieval_id;
+
+ALTER TABLE ONLY retrieval ALTER COLUMN retrieval_id SET DEFAULT nextval(
+    'retrieval_retrieval_id_seq' :: REGCLASS);
+
+
+ALTER TABLE retrieval ADD PRIMARY KEY (retrieval_id);
+

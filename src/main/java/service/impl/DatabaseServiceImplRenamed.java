@@ -7,7 +7,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.CenaType;
 import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import service.DatabaseService;
+import service.DatabaseServiceRenamed;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class DatabaseServiceImplRenamed implements DatabaseService {
+public class DatabaseServiceImplRenamed implements DatabaseServiceRenamed {
 
     @Autowired
     private DatabaseConnectionFactory databaseConnectionFactory;

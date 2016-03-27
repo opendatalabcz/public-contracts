@@ -19,9 +19,9 @@
         <property name="pass" value="${db.target.pass}"/>
     </bean>
 
-    <bean class="service.impl.InsertIntoDBServiceImpl"/>
+    <bean class="service.impl.DatabaseServiceImplRenamed"/>
     <bean class="service.impl.ISVZServiceImpl"/>
-    <bean class="crawler.ISVZCrawler"/>
+    <bean class="service.impl.ISVZCrawlerServiceImpl"/>
 
 
 
