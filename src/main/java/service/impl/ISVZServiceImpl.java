@@ -69,6 +69,7 @@ public class ISVZServiceImpl implements ISVZService {
                 return root.getValue();
             }
         } catch (Exception e) {
+            e.printStackTrace();
             logger.error(url + ", E: " + e.getMessage());
             return null;
         }

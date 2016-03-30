@@ -63,13 +63,8 @@ public class TestForDevelopers {
 
     @org.junit.Test
     public void test3(){
-//         isvzService.findProfilStructure("https://sokolov-vychod.cz/vz/zadavatel/mas-sokolovsko", 2015, null);
-//         isvzService.findProfilStructure("https://veza.cz/Contracts.aspx/1087", 2015, null);
-//         isvzService.findProfilStructure("https://pro-za.cz/contracts/6d76a7", 2015, null);
+         isvzService.findProfilStructure("https://veza.cz/Contracts.aspx/1087", 2015, null);
+         isvzService.findProfilStructure("https://pro-za.cz/contracts/6d76a7", 2015, null);
          isvzService.findProfilStructure("https://www.egordion.cz/nabidkaGORDION/profilNIDV", 2015, null);
-//         isvzService.findProfilStructure("https://www.tenderarena.cz/profily/NIDV/", 2015, null);
-
-
-
     }
 }
