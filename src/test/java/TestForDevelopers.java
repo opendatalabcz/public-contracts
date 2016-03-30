@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import service.DatabaseServiceRenamed;
+import service.DatabaseService;
 import service.ISVZCrawlerService;
 import service.ISVZService;
 
@@ -19,7 +19,7 @@ import java.util.List;
 public class TestForDevelopers {
 
     @Autowired
-    private DatabaseServiceRenamed databaseService;
+    private DatabaseService databaseService;
     @Autowired
     private ISVZService isvzService;
     @Autowired
@@ -37,14 +37,14 @@ public class TestForDevelopers {
     public void test2() throws SQLException {
         final Date lastDate;
         try {
-             lastDate = databaseService.loadRetrievalLastDate(2015);
+             lastDate = databaseService.loadRetrievalLastDate(2014);
         } catch (RuntimeException e) {
             return;
         }
         final List<CompanyDto> companyDtos = databaseService.loadSubmitters();
         int numberOfErrors = 0;
         for (CompanyDto companyDto : companyDtos) {
-            final ProfilStructure profilStructure = isvzService.findProfilStructure(companyDto.getUrl(), 2015, lastDate);
+            final ProfilStructure profilStructure = isvzService.findProfilStructure(companyDto.getUrl(), 2014, lastDate);
 
             try {
                 databaseService.saveSubmitter(profilStructure);
@@ -54,10 +54,22 @@ public class TestForDevelopers {
 
         }
         final DateTime now = DateTime.now();
-        final DateTime lastDayOfTheYear = new DateTime(2015, 12, 31, 0, 0);
+        final DateTime lastDayOfTheYear = new DateTime(2014, 12, 31, 0, 0);
         final boolean after = now.isAfter(lastDayOfTheYear);
 
-        databaseService.saveRetrieval(2015, after, lastDayOfTheYear.toDate(), numberOfErrors);
+        databaseService.saveRetrieval(2014, after, lastDayOfTheYear.toDate(), numberOfErrors);
+
+    }
+
+    @org.junit.Test
+    public void test3(){
+//         isvzService.findProfilStructure("https://sokolov-vychod.cz/vz/zadavatel/mas-sokolovsko", 2015, null);
+//         isvzService.findProfilStructure("https://veza.cz/Contracts.aspx/1087", 2015, null);
+//         isvzService.findProfilStructure("https://pro-za.cz/contracts/6d76a7", 2015, null);
+         isvzService.findProfilStructure("https://www.egordion.cz/nabidkaGORDION/profilNIDV", 2015, null);
+//         isvzService.findProfilStructure("https://www.tenderarena.cz/profily/NIDV/", 2015, null);
+
+
 
     }
 }
