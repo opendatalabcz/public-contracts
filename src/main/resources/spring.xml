@@ -5,20 +5,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <context:property-placeholder location="classpath*:public-contract.properties"
+                                  ignore-unresolvable="true"/>
 
-       <context:property-placeholder location="classpath*:db.properties"
-                                     ignore-unresolvable="true"/>
 
-
-       <bean class="db.DatabaseConnectionFactory">
-              <property name="server" value="${db.target.server}"/>
-              <property name="port" value="${db.target.port}"/>
-              <property name="database" value="${db.target.database}"/>
-              <property name="user" value="${db.target.user}"/>
-              <property name="pass" value="${db.target.pass}"/>
-       </bean>
-       <bean class="service.impl.DatabaseServiceImpl"/>
-       <bean class="service.impl.ISVZServiceImpl"/>
-       <bean class="service.impl.ISVZCrawlerServiceImpl"/>
+    <bean class="db.DatabaseConnectionFactory">
+        <property name="server" value="${db.target.server}"/>
+        <property name="port" value="${db.target.port}"/>
+        <property name="database" value="${db.target.database}"/>
+        <property name="user" value="${db.target.user}"/>
+        <property name="pass" value="${db.target.pass}"/>
+    </bean>
+    <bean class="service.impl.DatabaseServiceImpl"/>
+    <bean class="service.impl.ISVZServiceImpl"/>
+    <bean class="service.impl.ISVZCrawlerServiceImpl">
+        <property name="url" value="${isvz.crawler.url}"/>
+    </bean>
 
 </beans>

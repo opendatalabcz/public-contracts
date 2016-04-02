@@ -20,12 +20,13 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
     final static int TIMEOUT = 3600 * 1000;
     //huge timeout in case connection is interrupted
     final static Logger logger = Logger.getLogger(ISVZCrawlerServiceImpl.class);
+    private String url;
 
 
     @Override
     public List<CompanyDto> findAllSubmitters() throws IOException {
         final List<CompanyDto> companyDtos = new ArrayList<>();
-        Document doc = Jsoup.connect("https://vestnikverejnychzakazek.cz/cs/Searching/ShowPublicPublisherProfiles").timeout(TIMEOUT).userAgent(USER_AGENT).get();
+        Document doc = Jsoup.connect(url).timeout(TIMEOUT).userAgent(USER_AGENT).get();
         while (true) {
             final Elements tbody = doc.getElementsByTag("tbody");
             final Element element = tbody.get(0);
@@ -51,5 +52,9 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
             doc = Jsoup.connect("https://vestnikverejnychzakazek.cz" + urlToNextPage).timeout(TIMEOUT).userAgent(USER_AGENT).get();
         }
         return companyDtos;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

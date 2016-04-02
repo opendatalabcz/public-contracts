@@ -8,8 +8,9 @@
 
 
 
-    <context:property-placeholder location="classpath*:db.properties"
+    <context:property-placeholder location="classpath*:public-contract.properties"
                                   ignore-unresolvable="true"/>
+
 
     <bean class="db.DatabaseConnectionFactory">
         <property name="server" value="${db.target.server}"/>
@@ -18,11 +19,10 @@
         <property name="user" value="${db.target.user}"/>
         <property name="pass" value="${db.target.pass}"/>
     </bean>
-
     <bean class="service.impl.DatabaseServiceImpl"/>
     <bean class="service.impl.ISVZServiceImpl"/>
-    <bean class="service.impl.ISVZCrawlerServiceImpl"/>
-
-
+    <bean class="service.impl.ISVZCrawlerServiceImpl">
+        <property name="url" value="${isvz.crawler.url}"/>
+    </bean>
 
 </beans>
