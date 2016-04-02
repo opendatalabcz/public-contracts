@@ -88,6 +88,13 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
+    public void deleteSubmitters() throws SQLException {
+        connection = databaseConnectionFactory.getConnection();
+        final PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM data;");
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
     public void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors) throws SQLException {
         connection = databaseConnectionFactory.getConnection();
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (year, complete, last_day, number_of_errors) VALUES (?,?,?,?);");
@@ -107,7 +114,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.setInt(1, year);
         final ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            final boolean completed = resultSet.getBoolean("completed");
+            final boolean completed = resultSet.getBoolean("complete");
             final java.sql.Date last_day = resultSet.getDate("last_day");
             if (completed) {
                 throw new RuntimeException("year is already completed");
@@ -204,6 +211,13 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     private long saveSubmitter(ZadavatelStructure submitter, Connection connection) throws SQLException {
         final String ico = submitter.getIcoVlastni().getValue();
+        final PreparedStatement selectStatement = connection.prepareStatement("Select submitter_id from submitter where ico = ?");
+        selectStatement.setString(1, ico);
+        ResultSet selectResultSet = selectStatement.executeQuery();
+        if (selectResultSet.next()) {
+            return selectResultSet.getLong("submitter_id");
+        }
+
         final String submitterName = submitter.getNazevZadavatele().getValue();
         final long companyId = saveCompany(ico, submitterName);
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO submitter (company_id) VALUES (?);", Statement.RETURN_GENERATED_KEYS);
@@ -220,8 +234,7 @@ public class DatabaseServiceImpl implements DatabaseService {
             selectStatement.setString(1, ico);
             ResultSet rs = selectStatement.executeQuery();
             if (rs.next()) {
-                Long companyId = rs.getLong("company_id");
-                return companyId;
+                return rs.getLong("company_id");
             }
         }
         final PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO company (ico,name) VALUES (?,?);", Statement.RETURN_GENERATED_KEYS);

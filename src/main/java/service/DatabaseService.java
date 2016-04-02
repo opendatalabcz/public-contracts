@@ -16,6 +16,8 @@ public interface DatabaseService {
 
     List<CompanyDto> loadSubmitters() throws SQLException;
 
+    void deleteSubmitters() throws SQLException;
+
     void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors) throws SQLException;
 
     Date loadRetrievalLastDate(int year) throws SQLException;
