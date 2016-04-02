@@ -8,5 +8,5 @@ import java.util.Date;
 public interface ISVZService {
 
 
-    ProfilStructure findProfilStructure(String urlPrefix, int year, Date lastDay);
+    ProfilStructure findProfilStructure(String urlPrefix, int year, Date lastDay) throws Exception;
 }
