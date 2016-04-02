@@ -35,9 +35,9 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
                 final Element urlElement = a.get(0);
                 final String url = urlElement.attr("href");
                 final Element icoElement = submitter.getElementsByTag("td").get(3);
-                final String ico = icoElement.val();
+                final String ico = icoElement.text();
                 final Element nameElement = submitter.getElementsByTag("td").get(2);
-                final String name = nameElement.val();
+                final String name = nameElement.text();
 
                 final CompanyDto companyDto = new CompanyDto(ico, name, url);
                 companyDtos.add(companyDto);
