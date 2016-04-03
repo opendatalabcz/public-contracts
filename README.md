@@ -56,8 +56,11 @@ restart app using JRE and give it a try
 (note, if you are running app in ide, you are probably using jre inside of your jdk - I had no idea jdk has its own jre)
 
 Another problem I am currently still trying to solve. It may have to do something with intermidiate/chain certificate [as explained here](https://www.sslshopper.com/ssl-checker.html#hostname=https://veza.cz/Contracts.aspx/1087/XMLdataVZ?od=01012015&do=01012016), but I can be wrong. Nevertheless I am getting:
+
 java.security.cert.CertPathBuilderException: No issuer certificate for certificate in certification path found.
+
 and
+
 java.security.cert.CertPathBuilderException: Unable to find certificate chain.
 on several pages
 
