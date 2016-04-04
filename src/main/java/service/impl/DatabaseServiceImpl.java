@@ -211,7 +211,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     private long saveSubmitter(ZadavatelStructure submitter, Connection connection) throws SQLException {
         final String ico = submitter.getIcoVlastni().getValue();
-        final PreparedStatement selectStatement = connection.prepareStatement("Select submitter_id from submitter where ico = ?");
+        final PreparedStatement selectStatement = connection.prepareStatement("Select s.submitter_id from submitter s join company c on c.company_id=s.company_id where c.ico = ?");
         selectStatement.setString(1, ico);
         ResultSet selectResultSet = selectStatement.executeQuery();
         if (selectResultSet.next()) {
