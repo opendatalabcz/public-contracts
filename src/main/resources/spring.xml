@@ -10,6 +10,26 @@
                                   ignore-unresolvable="true"/>
 
 
+    <bean class="org.springframework.web.client.RestTemplate">
+        <constructor-arg>
+            <bean class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+                <constructor-arg ref="httpClient" />
+                <property name="readTimeout" value="${application.urlReadTimeout}" />
+                <property name="connectTimeout" value="${application.urlConnectionTimeout}" />
+            </bean>
+        </constructor-arg>
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <constructor-arg value="UTF-8"/>
+                </bean>
+            </list>
+        </property>
+
+    </bean>
+    <bean id="httpClient" class="service.http.CustomHttpClientFactory" />
+
+
     <bean class="db.DatabaseConnectionFactory">
         <property name="server" value="${db.target.server}"/>
         <property name="port" value="${db.target.port}"/>

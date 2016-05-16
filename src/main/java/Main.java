@@ -10,7 +10,6 @@ import service.DatabaseService;
 import service.ISVZCrawlerService;
 import service.ISVZService;
 import util.SubmitterTransformer;
-import util.TrustAllCerts;
 
 import java.io.*;
 import java.security.KeyManagementException;
@@ -28,10 +27,6 @@ public class Main {
         if (args.length == 0) {
             printWrongCommand();
             return;
-        }
-
-        if (args.length > 1) {
-            System.out.println("Use only one argument at the time! I don't want you to load data for 8 hours and then reload database");
         }
 
         final ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
@@ -126,7 +121,6 @@ public class Main {
                     }
                 }
 
-                TrustAllCerts.trustAllCertificates();
 
                 int numberOfErrors = 0;
 

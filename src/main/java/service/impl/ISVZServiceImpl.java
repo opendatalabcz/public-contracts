@@ -1,10 +1,9 @@
 package service.impl;
 
 import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import service.ISVZService;
 
@@ -15,7 +14,6 @@ import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import java.io.StringReader;
 import java.net.URI;
-import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +23,8 @@ public class ISVZServiceImpl implements ISVZService {
 
     private static final String URI_SUFFIX = "/XMLdataVZ?od={from}&do=0101{to}";
 
-    final static Logger logger = Logger.getLogger(ISVZServiceImpl.class);
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Override
     public ProfilStructure findProfilStructure(String urlPrefix, int year, Date lastDay) throws Exception {
@@ -41,10 +40,6 @@ public class ISVZServiceImpl implements ISVZService {
         final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}",from) .replace("{to}", String.valueOf(year));
 
         URI uri = new URI(url);
-
-        final RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters()
-                .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
 
         final HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_XML));
