@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface DatabaseService {
 
-    void saveSubmitter(SubmitterDto submitterDto) throws SQLException;
+    void saveSubmitter(SubmitterDto submitterDto, int year) throws SQLException;
 
     void saveSources(List<SourceInfoDto> sourceInfoDtos) throws SQLException;
 

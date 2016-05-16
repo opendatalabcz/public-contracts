@@ -17,10 +17,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -42,6 +39,10 @@ public class Main {
         final String command = args[0];
         switch (command) {
             case "reload-db": {
+                if (args.length > 1) {
+                    printWrongCommand();
+                    return;
+                }
                 final Scanner scanner = new Scanner(System.in);
                 System.out.println("Are you sure?");
                 System.out.println("This command will drop and rebuild all tables related to public contract!");
@@ -56,6 +57,10 @@ public class Main {
                 break;
             }
             case "reload-source": {
+                if (args.length > 1) {
+                    printWrongCommand();
+                    return;
+                }
                 final Scanner scanner = new Scanner(System.in);
                 System.out.println("Are you sure?");
                 System.out.println("This command will reload valid submitters of public contract");
@@ -71,6 +76,10 @@ public class Main {
                 break;
             }
             default:
+                if (args.length > 2) {
+                    printWrongCommand();
+                    return;
+                }
                 final int year;
                 try {
                     year = Integer.parseInt(command);
@@ -100,13 +109,28 @@ public class Main {
                     return;
                 }
 
-                final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
+                final List<SourceInfoDto> sourceInfoSources = databaseService.loadSources();
+                if (args.length == 2) {
+                    final Iterator<SourceInfoDto> iterator = sourceInfoSources.iterator();
+                    while (iterator.hasNext()) {
+                        final SourceInfoDto next = iterator.next();
+                        iterator.remove();
+                        if (next.getIco().equals(args[1])) {
+                            break;
+                        }
+                    }
+                    if(sourceInfoSources.isEmpty()){
+                        System.out.println("Probably wrong ico, because it is not in database!");
+                        context.close();
+                        return;
+                    }
+                }
 
                 TrustAllCerts.trustAllCertificates();
 
                 int numberOfErrors = 0;
 
-                for (SourceInfoDto sourceInfoDto : sourceInfoDtos) {
+                for (SourceInfoDto sourceInfoDto : sourceInfoSources) {
                     final ProfilStructure profilStructure;
                     try {
                         profilStructure = isvzService.findProfilStructure(sourceInfoDto.getUrl(), year, lastDate);
@@ -128,7 +152,7 @@ public class Main {
                     }
 
                     try {
-                        databaseService.saveSubmitter(submitterDto);
+                        databaseService.saveSubmitter(submitterDto, year);
                     } catch (Exception e) {
                         databaseService.saveError(sourceInfoDto, e.getMessage(), year);
                         numberOfErrors++;
@@ -157,8 +181,8 @@ public class Main {
         System.out.println("Wrong argument!");
         System.out.println("Valid arguments are:");
         System.out.println("'reload-db' - drops all tables from database and creates schema (Do NOT use if you don't want to loose data!!!)");
-        System.out.println("'reload-source' - deletes and reloads urls of submitters (ETA 50 minutes)");
-        System.out.println("'yyyy' - e.g. '2015' - search and save data for all submitters for 2015 (ETA 8 hours)");
+        System.out.println("'reload-source' - deletes and reloads urls of submitters (ETA 20 minutes)");
+        System.out.println("'yyyy [ico]' - e.g. '2015' of '2015 28119169' - search and save data for all submitters for 2015, [ico] is optional and is used if previous attempt fail, so you can start after last saved submitter (ETA 2 hours)");
     }
 
     private static void reloadSources(ClassPathXmlApplicationContext context) throws SQLException, IOException {

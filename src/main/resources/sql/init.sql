@@ -53,7 +53,8 @@ CREATE TABLE contract
   code2        TEXT,
   name         TEXT,
   state        TEXT,
-  kind         TEXT
+  kind         TEXT,
+  year         INT
 );
 
 CREATE SEQUENCE contract_contract_id_seq
@@ -165,9 +166,9 @@ ADD CONSTRAINT fk_subsupplier_company FOREIGN KEY (company_id) REFERENCES compan
 CREATE TABLE source
 (
   source_id BIGINT NOT NULL,
-  url     TEXT,
-  ico     TEXT,
-  name    TEXT
+  url       TEXT,
+  ico       TEXT,
+  name      TEXT
 
 
 );

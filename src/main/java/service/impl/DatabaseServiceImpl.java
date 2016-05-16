@@ -21,8 +21,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 
     @Override
-    public void saveSubmitter(SubmitterDto submitterDto) throws SQLException {
-        final Connection connection = databaseConnectionFactory.getConnection();
+    public void saveSubmitter(SubmitterDto submitterDto, int year) throws SQLException {
         final long submitterId = saveSubmitter(submitterDto.getIco(), submitterDto.getName());
         final List<ContractDto> contractDtos = submitterDto.getContractDtos();
         for (ContractDto contractDto : contractDtos) {
@@ -31,7 +30,7 @@ public class DatabaseServiceImpl implements DatabaseService {
             final String kind = contractDto.getKind();
             final String state = contractDto.getState();
             final String name = contractDto.getName();
-            final long contractId = saveContract(submitterId, code1, code2, name, state, kind);
+            final long contractId = saveContract(submitterId, code1, code2, name, state, kind, year);
             final List<CandidateDto> candidateDtos = contractDto.getCandidateDtos();
             final List<SupplierDto> supplierDtos = contractDto.getSupplierDtos();
             saveCandidates(contractId, candidateDtos);
@@ -56,7 +55,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     public List<SourceInfoDto> loadSources() throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final List<SourceInfoDto> result = new ArrayList<>();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select ico, name, url from source;");
+        final PreparedStatement preparedStatement = connection.prepareStatement("select ico, name, url from source ORDER BY ico;");
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             final SourceInfoDto sourceInfoDto = new SourceInfoDto();
@@ -178,15 +177,16 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.executeUpdate();
     }
 
-    private long saveContract(long submitterId, String code1, String code2, String name, String state, String kind) throws SQLException {
+    private long saveContract(long submitterId, String code1, String code2, String name, String state, String kind, int year) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contract (code1,code2, name, state, kind, submitter_id) VALUES (?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contract (code1,code2, name, state, kind, submitter_id, year) VALUES (?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, code1);
         preparedStatement.setString(2, code2);
         preparedStatement.setString(3, name);
         preparedStatement.setString(4, state);
         preparedStatement.setString(5, kind);
         preparedStatement.setLong(6, submitterId);
+        preparedStatement.setInt(7, year);
         preparedStatement.executeUpdate();
         final ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();
