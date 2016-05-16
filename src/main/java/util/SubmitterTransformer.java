@@ -13,7 +13,11 @@ public class SubmitterTransformer {
     public static SubmitterDto transformSubmitterToDto(ProfilStructure profilStructure) {
         final SubmitterDto submitterDto = new SubmitterDto();
         final ZadavatelStructure submitter = profilStructure.getZadavatel();
-        submitterDto.setIco(submitter.getIcoVlastni().getValue());
+        final String ico = submitter.getIcoVlastni().getValue();
+        if (ico == null || ico.trim().isEmpty()) {
+            throw new RuntimeException("Submitter has no ICO");
+        }
+        submitterDto.setIco(ico);
         submitterDto.setName(submitter.getNazevZadavatele().getValue());
 
         final List<ZakazkaStructure> contracts = profilStructure.getZakazka();
