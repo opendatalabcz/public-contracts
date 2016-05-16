@@ -1,42 +1,53 @@
-import dto.CompanyDto;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import service.DatabaseService;
-import service.ISVZCrawlerService;
 import service.ISVZService;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test-for-developers.xml"})
 public class TestForDevelopers {
 
     @Autowired
-    private DatabaseService databaseService;
-    @Autowired
     private ISVZService isvzService;
-    @Autowired
-    private ISVZCrawlerService isvzCrawlerService;
 
     @Ignore
     @org.junit.Test
-    public void test() throws IOException, SQLException {
-        final List<CompanyDto> allSubmitters = isvzCrawlerService.findAllSubmitters();
-        databaseService.saveSubmitters(allSubmitters);
+    public void test3() {
 
+// Create a trust manager that does not validate certificate chains
+        TrustManager[] trustAllCerts = new TrustManager[]{
+                new X509TrustManager() {
+                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
 
-    }
+                    public void checkClientTrusted(
+                            java.security.cert.X509Certificate[] certs, String authType) {
+                    }
 
-    @Ignore
-    @org.junit.Test
-    public void test3(){
+                    public void checkServerTrusted(
+                            java.security.cert.X509Certificate[] certs, String authType) {
+                    }
+                }
+        };
+
+// Install the all-trusting trust manager
         try {
-            isvzService.findProfilStructure("https://veza.cz/Contracts.aspx/1087", 2015, null);
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        } catch (Exception e) {
+        }
+
+        try {
+            isvzService.findProfilStructure("https://veza.cz/Contracts.aspx/1087", 2014, null);
         } catch (Exception e) {
             e.printStackTrace();
         }

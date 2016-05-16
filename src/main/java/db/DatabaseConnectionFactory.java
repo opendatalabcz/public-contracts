@@ -11,15 +11,18 @@ public class DatabaseConnectionFactory {
     private String user;
     private String pass;
 
+    private Connection connection;
+
     public Connection getConnection() {
-        final Connection connection;
-        try {
-            Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://" + server + ":" + port + "/" + database;
-            connection = DriverManager.getConnection(url, user, pass);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        if (connection == null) {
+            try {
+                Class.forName("org.postgresql.Driver");
+                String url = "jdbc:postgresql://" + server + ":" + port + "/" + database;
+                connection = DriverManager.getConnection(url, user, pass);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
         return connection;
     }

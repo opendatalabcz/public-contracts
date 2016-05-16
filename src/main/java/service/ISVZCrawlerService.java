@@ -1,6 +1,6 @@
 package service;
 
-import dto.CompanyDto;
+import dto.SourceInfoDto;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface ISVZCrawlerService {
 
-    List<CompanyDto> findAllSubmitters() throws IOException;
+    List<SourceInfoDto> findAllSubmitters() throws IOException;
 }

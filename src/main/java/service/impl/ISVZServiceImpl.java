@@ -23,22 +23,22 @@ import java.util.List;
 
 public class ISVZServiceImpl implements ISVZService {
 
-    private static final String URI_SUFFIX = "/XMLdataVZ?od=0101{from}&do={to}";
+    private static final String URI_SUFFIX = "/XMLdataVZ?od={from}&do=0101{to}";
 
     final static Logger logger = Logger.getLogger(ISVZServiceImpl.class);
 
     @Override
     public ProfilStructure findProfilStructure(String urlPrefix, int year, Date lastDay) throws Exception {
-        final String to;
+        final String from;
         if (lastDay != null) {
             final DateTime dateTime = new DateTime(lastDay);
             final int dayOfMonth = dateTime.getDayOfMonth();
             final int monthOfYear = dateTime.getMonthOfYear();
-            to = String.valueOf(dayOfMonth) + String.valueOf(monthOfYear) + String.valueOf(year);
+            from = String.valueOf(dayOfMonth) + String.valueOf(monthOfYear) + String.valueOf(year);
         } else {
-            to = "0101" + String.valueOf(year + 1);
+            from = "0101" + String.valueOf(year + 1);
         }
-        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", String.valueOf(year)).replace("{to}", to);
+        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}",from) .replace("{to}", String.valueOf(year));
 
         URI uri = new URI(url);
 

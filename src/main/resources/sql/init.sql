@@ -162,9 +162,9 @@ ALTER TABLE ONLY subsupplier
 ADD CONSTRAINT fk_subsupplier_company FOREIGN KEY (company_id) REFERENCES company (company_id);
 
 
-CREATE TABLE data
+CREATE TABLE source
 (
-  data_id BIGINT NOT NULL,
+  source_id BIGINT NOT NULL,
   url     TEXT,
   ico     TEXT,
   name    TEXT
@@ -172,20 +172,20 @@ CREATE TABLE data
 
 );
 
-CREATE SEQUENCE data_data_id_seq
+CREATE SEQUENCE source_source_id_seq
 START WITH 1
 INCREMENT BY 1
 NO MINVALUE
 NO MAXVALUE
 CACHE 1;
 
-ALTER SEQUENCE data_data_id_seq OWNED BY data.data_id;
+ALTER SEQUENCE source_source_id_seq OWNED BY source.source_id;
 
-ALTER TABLE ONLY data ALTER COLUMN data_id SET DEFAULT nextval(
-    'data_data_id_seq' :: REGCLASS);
+ALTER TABLE ONLY source ALTER COLUMN source_id SET DEFAULT nextval(
+    'source_source_id_seq' :: REGCLASS);
 
 
-ALTER TABLE data ADD PRIMARY KEY (data_id);
+ALTER TABLE source ADD PRIMARY KEY (source_id);
 
 
 CREATE TABLE retrieval
@@ -213,4 +213,30 @@ ALTER TABLE ONLY retrieval ALTER COLUMN retrieval_id SET DEFAULT nextval(
 
 
 ALTER TABLE retrieval ADD PRIMARY KEY (retrieval_id);
+
+
+CREATE TABLE error
+(
+  error_id BIGINT NOT NULL,
+  ico      TEXT,
+  name     TEXT,
+  message  TEXT,
+  url      TEXT,
+  year     INT
+);
+
+CREATE SEQUENCE error_error_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+ALTER SEQUENCE error_error_id_seq OWNED BY error.error_id;
+
+ALTER TABLE ONLY error ALTER COLUMN error_id SET DEFAULT nextval(
+    'error_error_id_seq' :: REGCLASS);
+
+
+ALTER TABLE error ADD PRIMARY KEY (error_id);
 

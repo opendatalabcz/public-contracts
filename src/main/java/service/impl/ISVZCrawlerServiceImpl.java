@@ -1,6 +1,6 @@
 package service.impl;
 
-import dto.CompanyDto;
+import dto.SourceInfoDto;
 import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,8 +24,8 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
 
 
     @Override
-    public List<CompanyDto> findAllSubmitters() throws IOException {
-        final List<CompanyDto> companyDtos = new ArrayList<>();
+    public List<SourceInfoDto> findAllSubmitters() throws IOException {
+        final List<SourceInfoDto> sourceInfoDtos = new ArrayList<>();
         Document doc = Jsoup.connect(url).timeout(TIMEOUT).userAgent(USER_AGENT).get();
         while (true) {
             final Elements tbody = doc.getElementsByTag("tbody");
@@ -39,9 +39,8 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
                 final String ico = icoElement.text();
                 final Element nameElement = submitter.getElementsByTag("td").get(2);
                 final String name = nameElement.text();
-
-                final CompanyDto companyDto = new CompanyDto(ico, name, url);
-                companyDtos.add(companyDto);
+                final SourceInfoDto sourceInfoDto = new SourceInfoDto(ico, name, url);
+                sourceInfoDtos.add(sourceInfoDto);
             }
             final Element nextElement = doc.getElementsByClass("t-arrow-next").get(0);
             final String urlToNextPage = nextElement.parent().attr("href");
@@ -51,7 +50,7 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
             }
             doc = Jsoup.connect("https://vestnikverejnychzakazek.cz" + urlToNextPage).timeout(TIMEOUT).userAgent(USER_AGENT).get();
         }
-        return companyDtos;
+        return sourceInfoDtos;
     }
 
     public void setUrl(String url) {
