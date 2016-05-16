@@ -99,7 +99,7 @@ public class Main {
                 try {
                     lastDate = databaseService.loadRetrievalLastDate(year);
                 } catch (RuntimeException e) {
-                    logger.error(e.getMessage());
+                    System.out.println("year " + year + " is already completed");
                     context.close();
                     return;
                 }
@@ -114,7 +114,7 @@ public class Main {
                             break;
                         }
                     }
-                    if(sourceInfoSources.isEmpty()){
+                    if (sourceInfoSources.isEmpty()) {
                         System.out.println("Probably wrong ico, because it is not in database!");
                         context.close();
                         return;
@@ -129,7 +129,7 @@ public class Main {
                     try {
                         profilStructure = isvzService.findProfilStructure(sourceInfoDto.getUrl(), year, lastDate);
                     } catch (Exception e) {
-                        databaseService.saveError(sourceInfoDto, e.getMessage(), year);
+                        databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
                         numberOfErrors++;
                         logger.error("error during parsing " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
                         continue;
@@ -139,7 +139,7 @@ public class Main {
                     try {
                         submitterDto = SubmitterTransformer.transformSubmitterToDto(profilStructure);
                     } catch (Exception e) {
-                        databaseService.saveError(sourceInfoDto, e.getMessage(), year);
+                        databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
                         numberOfErrors++;
                         logger.error("error during transforming to dto " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
                         continue;
@@ -148,7 +148,7 @@ public class Main {
                     try {
                         databaseService.saveSubmitter(submitterDto, year);
                     } catch (Exception e) {
-                        databaseService.saveError(sourceInfoDto, e.getMessage(), year);
+                        databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
                         numberOfErrors++;
                         logger.error("error during saving " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
                         continue;

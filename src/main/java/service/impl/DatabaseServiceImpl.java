@@ -106,14 +106,15 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public void saveError(SourceInfoDto sourceInfoDto, String message, int year) throws SQLException {
+    public void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO error (ico, name, message, url, year) VALUES (?,?,?,?,?);");
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO error (ico, name, message, url, year, error_class) VALUES (?,?,?,?,?,?);");
         preparedStatement.setString(1, sourceInfoDto.getIco());
         preparedStatement.setString(2, sourceInfoDto.getName());
         preparedStatement.setString(3, message);
         preparedStatement.setString(4, sourceInfoDto.getUrl());
         preparedStatement.setInt(5, year);
+        preparedStatement.setString(6, errorClass);
         preparedStatement.executeUpdate();
     }
 

@@ -33,13 +33,14 @@ public class ISVZServiceImpl implements ISVZService {
             final DateTime dateTime = new DateTime(lastDay);
             final int dayOfMonth = dateTime.getDayOfMonth();
             final int monthOfYear = dateTime.getMonthOfYear();
-            from = String.valueOf(dayOfMonth) + String.valueOf(monthOfYear) + String.valueOf(year);
+            from = String.format("%02d", dayOfMonth) + String.format("%02d", monthOfYear) + String.valueOf(year);
         } else {
-            from = "0101" + String.valueOf(year + 1);
+            from = "0101" + String.valueOf(year);
         }
-        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}",from) .replace("{to}", String.valueOf(year));
 
-        URI uri = new URI(url);
+        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", from).replace("{to}", String.valueOf(year + 1));
+
+        URI uri = new URI(url.replace(" ", "%20"));
 
         final HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_XML));

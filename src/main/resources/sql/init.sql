@@ -223,7 +223,8 @@ CREATE TABLE error
   name     TEXT,
   message  TEXT,
   url      TEXT,
-  year     INT
+  year     INT,
+  error_class    TEXT
 );
 
 CREATE SEQUENCE error_error_id_seq

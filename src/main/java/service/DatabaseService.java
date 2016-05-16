@@ -22,6 +22,6 @@ public interface DatabaseService {
 
     Date loadRetrievalLastDate(int year) throws SQLException;
 
-    void saveError(SourceInfoDto sourceInfoDto, String message, int year) throws SQLException;
+    void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException;
 
 }
