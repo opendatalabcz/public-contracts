@@ -118,6 +118,20 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.executeUpdate();
     }
 
+    @Override
+    public void deleteCollectedData() throws SQLException {
+        final Statement statement = databaseConnectionFactory.getConnection().createStatement();
+        String sql = "delete from subsupplier;\n" +
+                "delete from supplier;\n" +
+                "delete from candidate;\n" +
+                "delete from contract;\n" +
+                "delete from retrieval;\n" +
+                "delete from submitter;\n" +
+                "delete from company;\n" +
+                "delete from error;";
+        statement.executeUpdate(sql);
+    }
+
     private void saveSuppliers(long contractId, List<SupplierDto> supplierDtos) throws SQLException {
         for (SupplierDto supplierDto : supplierDtos) {
             final String ico = supplierDto.getIco();

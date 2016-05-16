@@ -51,7 +51,27 @@ public class Main {
                 }
                 break;
             }
-            case "reload-source": {
+
+            case "delete-collected-data": {
+                if (args.length > 1) {
+                    printWrongCommand();
+                    return;
+                }
+                final Scanner scanner = new Scanner(System.in);
+                System.out.println("Are you sure?");
+                System.out.println("This command will delete all collected data exept sources with urls!");
+                System.out.println("Write 'yes' to confirm or anything else to cancel");
+                final String confirmation = scanner.nextLine();
+                if (confirmation.equals("yes")) {
+                    final DatabaseService databaseService = context.getBean(DatabaseService.class);
+                    databaseService.deleteCollectedData();
+                } else {
+                    context.close();
+                    return;
+                }
+                break;
+            }
+            case "reload-sources": {
                 if (args.length > 1) {
                     printWrongCommand();
                     return;
@@ -175,7 +195,8 @@ public class Main {
         System.out.println("Wrong argument!");
         System.out.println("Valid arguments are:");
         System.out.println("'reload-db' - drops all tables from database and creates schema (Do NOT use if you don't want to loose data!!!)");
-        System.out.println("'reload-source' - deletes and reloads urls of submitters (ETA 20 minutes)");
+        System.out.println("'reload-sources' - deletes and reloads urls of submitters (ETA 20 minutes)");
+        System.out.println("'delete-collected-data' - delete all collected data exept sources with urls");
         System.out.println("'yyyy [ico]' - e.g. '2015' of '2015 28119169' - search and save data for all submitters for 2015, [ico] is optional and is used if previous attempt fail, so you can start after last saved submitter (ETA 2 hours)");
     }
 
