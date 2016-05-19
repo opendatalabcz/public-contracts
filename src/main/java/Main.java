@@ -26,7 +26,7 @@ public class Main {
 
         if (args.length == 0) {
             printWrongCommand();
-            return;
+            System.exit(0);
         }
 
         final ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
@@ -35,8 +35,9 @@ public class Main {
         switch (command) {
             case "reload-db": {
                 if (args.length > 1) {
+                    context.close();
                     printWrongCommand();
-                    return;
+                    System.exit(0);
                 }
                 final Scanner scanner = new Scanner(System.in);
                 System.out.println("Are you sure?");
@@ -47,34 +48,54 @@ public class Main {
                     reloadDatabase(context);
                 } else {
                     context.close();
-                    return;
+                    System.exit(0);
                 }
                 break;
             }
 
             case "delete-collected-data": {
-                if (args.length > 1) {
+                if (args.length > 2) {
+                    context.close();
                     printWrongCommand();
-                    return;
+                    System.exit(0);
                 }
+                final Integer year;
+                if (args.length == 2) {
+                    try {
+                        year = Integer.parseInt(args[1]);
+                    } catch (Exception e) {
+                        context.close();
+                        printWrongCommand();
+                        return;
+                    }
+                } else {
+                    year = null;
+                }
+
                 final Scanner scanner = new Scanner(System.in);
                 System.out.println("Are you sure?");
-                System.out.println("This command will delete all collected data exept sources with urls!");
+                if (year == null) {
+                    System.out.println("This command will delete all collected data exept sources with urls!");
+                } else {
+                    System.out.println("This command will delete all collected for year '" + year + "' data exept sources with urls!");
+
+                }
                 System.out.println("Write 'yes' to confirm or anything else to cancel");
                 final String confirmation = scanner.nextLine();
                 if (confirmation.equals("yes")) {
                     final DatabaseService databaseService = context.getBean(DatabaseService.class);
-                    databaseService.deleteCollectedData();
+                    databaseService.deleteCollectedData(year);
                 } else {
                     context.close();
-                    return;
+                    System.exit(0);
                 }
                 break;
             }
             case "reload-sources": {
                 if (args.length > 1) {
+                    context.close();
                     printWrongCommand();
-                    return;
+                    System.exit(0);
                 }
                 final Scanner scanner = new Scanner(System.in);
                 System.out.println("Are you sure?");
@@ -86,14 +107,15 @@ public class Main {
                     reloadSources(context);
                 } else {
                     context.close();
-                    return;
+                    System.exit(0);
                 }
                 break;
             }
             default:
                 if (args.length > 2) {
+                    context.close();
                     printWrongCommand();
-                    return;
+                    System.exit(0);
                 }
                 final int year;
                 try {
@@ -103,13 +125,18 @@ public class Main {
                     context.close();
                     return;
                 }
+                if (year < 2000) {
+                    System.out.println("There probably aren't any data before year 2000. Dont waste your time!");
+                    context.close();
+                    System.exit(0);
+                }
 
                 final Date date = createDateFromYear(year);
                 final Date present = DateTime.now().toDate();
                 if (date.after(present)) {
                     System.out.println("Wrong year! This year hasn't even been yet");
                     context.close();
-                    return;
+                    System.exit(0);
                 }
 
                 final DatabaseService databaseService = context.getBean(DatabaseService.class);
@@ -196,8 +223,8 @@ public class Main {
         System.out.println("Valid arguments are:");
         System.out.println("'reload-db' - drops all tables from database and creates schema (Do NOT use if you don't want to loose data!!!)");
         System.out.println("'reload-sources' - deletes and reloads urls of submitters (ETA 20 minutes)");
-        System.out.println("'delete-collected-data' - delete all collected data exept sources with urls");
-        System.out.println("'yyyy [ico]' - e.g. '2015' of '2015 28119169' - search and save data for all submitters for 2015, [ico] is optional and is used if previous attempt fail, so you can start after last saved submitter (ETA 2 hours)");
+        System.out.println("'delete-collected-data [yyyy]' - delete all collected data except sources with urls, [yyyy] is optional and is used to delete data only for that year");
+        System.out.println("'yyyy [ico]' - e.g. '2015' or '2015 28119169' - search and save data for all submitters for 2015, [ico] is optional and is used if previous attempt fail, so you can start after last saved submitter (ETA 8 hours)");
     }
 
     private static void reloadSources(ClassPathXmlApplicationContext context) throws SQLException, IOException {

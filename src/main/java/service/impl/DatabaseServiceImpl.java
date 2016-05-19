@@ -119,17 +119,36 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public void deleteCollectedData() throws SQLException {
-        final Statement statement = databaseConnectionFactory.getConnection().createStatement();
-        String sql = "delete from subsupplier;\n" +
-                "delete from supplier;\n" +
-                "delete from candidate;\n" +
-                "delete from contract;\n" +
-                "delete from retrieval;\n" +
-                "delete from submitter;\n" +
-                "delete from company;\n" +
-                "delete from error;";
-        statement.executeUpdate(sql);
+    public void deleteCollectedData(Integer year) throws SQLException {
+        final String sql;
+        if (year == null) {
+            sql = "delete from subsupplier;\n" +
+                    "delete from supplier;\n" +
+                    "delete from candidate;\n" +
+                    "delete from contract;\n" +
+                    "delete from retrieval;\n" +
+                    "delete from submitter;\n" +
+                    "delete from company;\n" +
+                    "delete from error;";
+        } else {
+            sql = "DELETE  from subsupplier ss USING supplier s WHERE ss.supplier_id=s.supplier_id and s.contract_id in (select c.contract_id from contract c WHERE c.year = ?);\n" +
+                    "DELETE  from supplier s WHERE s.contract_id in (select c.contract_id from contract c  WHERE c.year = ?);\n" +
+                    "DELETE  from candidate s WHERE s.contract_id in (select c.contract_id from contract c  WHERE c.year = ?);\n" +
+                    "DELETE  from contract WHERE year = ?;\n" +
+                    "DELETE  from error WHERE year = ?;" +
+                    "DELETE  from retrieval WHERE year = ?;";
+
+        }
+        final PreparedStatement statement = databaseConnectionFactory.getConnection().prepareStatement(sql);
+        if (year != null) {
+            statement.setInt(1, year);
+            statement.setInt(2, year);
+            statement.setInt(3, year);
+            statement.setInt(4, year);
+            statement.setInt(5, year);
+            statement.setInt(6, year);
+        }
+        statement.executeUpdate();
     }
 
     private void saveSuppliers(long contractId, List<SupplierDto> supplierDtos) throws SQLException {

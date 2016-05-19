@@ -24,6 +24,6 @@ public interface DatabaseService {
 
     void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException;
 
-    void deleteCollectedData() throws SQLException;
+    void deleteCollectedData(Integer year) throws SQLException;
 
 }
