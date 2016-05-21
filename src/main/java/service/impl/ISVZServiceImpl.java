@@ -50,7 +50,7 @@ public class ISVZServiceImpl implements ISVZService {
             final ResponseEntity<String> exchange = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
             final HttpStatus statusCode = exchange.getStatusCode();
             //Handling redirect
-            final List<HttpStatus> httpStatuses = Arrays.asList(HttpStatus.MOVED_PERMANENTLY, HttpStatus.MOVED_TEMPORARILY, HttpStatus.FOUND, HttpStatus.PERMANENT_REDIRECT, HttpStatus.TEMPORARY_REDIRECT);
+            final List<HttpStatus> httpStatuses = Arrays.asList(HttpStatus.MOVED_PERMANENTLY, HttpStatus.MOVED_TEMPORARILY, HttpStatus.FOUND, HttpStatus.PERMANENT_REDIRECT, HttpStatus.TEMPORARY_REDIRECT, HttpStatus.SEE_OTHER, HttpStatus.USE_PROXY);
             if (httpStatuses.contains(statusCode)) {
                 uri = exchange.getHeaders().getLocation();
                 continue;
