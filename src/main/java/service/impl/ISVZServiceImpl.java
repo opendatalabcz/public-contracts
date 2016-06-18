@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ISVZServiceImpl implements ISVZService {
 
-    private static final String URI_SUFFIX = "/XMLdataVZ?od=0101{from}&do=0101{to}";
+    private static final String URI_SUFFIX = "/XMLdataVZ?od=0101{from}&do=3112{to}";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -27,7 +27,7 @@ public class ISVZServiceImpl implements ISVZService {
     @Override
     public ProfilStructure findProfilStructure(String urlPrefix, int year) throws Exception {
 
-        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", String.valueOf(year)).replace("{to}", String.valueOf(year + 1));
+        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", String.valueOf(year)).replace("{to}", String.valueOf(year));
 
         URI uri = new URI(url.replace(" ", "%20"));
 

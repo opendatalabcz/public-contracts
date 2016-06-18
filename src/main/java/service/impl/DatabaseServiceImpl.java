@@ -44,6 +44,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         final Connection connection = databaseConnectionFactory.getConnection();
         for (SourceInfoDto sourceInfoDto : sourceInfoDtos) {
             final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO source (ico, name, url) VALUES (?,?,?);");
+            preparedStatement.setQueryTimeout(5);
             preparedStatement.setString(1, sourceInfoDto.getIco());
             preparedStatement.setString(2, sourceInfoDto.getName());
             preparedStatement.setString(3, sourceInfoDto.getUrl());
@@ -114,6 +115,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     public void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO error (ico, name, message, url, year, error_class) VALUES (?,?,?,?,?,?);");
+        preparedStatement.setQueryTimeout(5);
         preparedStatement.setString(1, sourceInfoDto.getIco());
         preparedStatement.setString(2, sourceInfoDto.getName());
         preparedStatement.setString(3, message);
@@ -157,6 +159,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
         }
         final PreparedStatement statement = databaseConnectionFactory.getConnection().prepareStatement(sql);
+
         if (year != null) {
             statement.setInt(1, year);
             statement.setInt(2, year);
@@ -165,6 +168,7 @@ public class DatabaseServiceImpl implements DatabaseService {
             statement.setInt(5, year);
             statement.setInt(6, year);
         }
+        statement.setQueryTimeout(5);
         statement.executeUpdate();
     }
 
@@ -191,6 +195,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         final Connection connection = databaseConnectionFactory.getConnection();
         final long companyId = saveCompany(subsupplierIco, subsupplierName);
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO subsupplier (company_id, supplier_id) VALUES (?,?);");
+        preparedStatement.setQueryTimeout(5);
         preparedStatement.setLong(1, companyId);
         preparedStatement.setLong(2, supplierId);
         preparedStatement.executeUpdate();
@@ -200,6 +205,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         final Connection connection = databaseConnectionFactory.getConnection();
         final long companyId = saveCompany(supplierIco, supplierName);
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO supplier (company_id, price, contract_id) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setQueryTimeout(5);
         preparedStatement.setLong(1, companyId);
         preparedStatement.setDouble(2, price == null ? -1d : price);
         preparedStatement.setLong(3, contractId);
@@ -222,6 +228,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         final Connection connection = databaseConnectionFactory.getConnection();
         final long companyId = saveCompany(ico, candidateName);
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO candidate (company_id, price, contract_id) VALUES (?,?,?);");
+        preparedStatement.setQueryTimeout(5);
         preparedStatement.setLong(1, companyId);
         preparedStatement.setDouble(2, price == null ? -1d : price);
         preparedStatement.setLong(3, contractId);
@@ -231,6 +238,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     private long saveContract(long submitterId, String code1, String code2, String name, String state, String kind, int year) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contract (code1,code2, name, state, kind, submitter_id, year) VALUES (?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setQueryTimeout(5);
         preparedStatement.setString(1, code1);
         preparedStatement.setString(2, code2);
         preparedStatement.setString(3, name);
@@ -255,6 +263,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
         final long companyId = saveCompany(ico, name);
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO submitter (company_id) VALUES (?);", Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setQueryTimeout(5);
         preparedStatement.setLong(1, companyId);
         preparedStatement.executeUpdate();
         final ResultSet rs = preparedStatement.getGeneratedKeys();
@@ -275,6 +284,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         final PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO company (ico,name) VALUES (?,?);", Statement.RETURN_GENERATED_KEYS);
         insertStatement.setString(1, ico);
         insertStatement.setString(2, name);
+        insertStatement.setQueryTimeout(5);
         insertStatement.executeUpdate();
         final ResultSet rs2 = insertStatement.getGeneratedKeys();
         rs2.next();
