@@ -18,11 +18,15 @@ public interface DatabaseService {
 
     void deleteSources() throws SQLException;
 
+    void deleteErrors(int year) throws SQLException;
+
     void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors) throws SQLException;
 
-    Date loadRetrievalLastDate(int year) throws SQLException;
+    boolean isYearCompleted(int year) throws SQLException;
 
     void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException;
+
+    List<String> loadErrorIcosForYear(int year) throws SQLException;
 
     void deleteCollectedData(Integer year) throws SQLException;
 

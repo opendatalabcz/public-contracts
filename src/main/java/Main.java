@@ -6,6 +6,9 @@ import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 import service.DatabaseService;
 import service.ISVZCrawlerService;
 import service.ISVZService;
@@ -17,12 +20,14 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
     final static Logger logger = Logger.getLogger(Main.class);
+    private static AtomicInteger numberOfErrors = new AtomicInteger();
 
-    public static void main(String[] args) throws SQLException, IOException, NoSuchAlgorithmException, KeyManagementException {
+    public static void main(String[] args) throws SQLException, IOException, NoSuchAlgorithmException, KeyManagementException, InterruptedException {
 
         if (args.length == 0) {
             printWrongCommand();
@@ -55,15 +60,57 @@ public class Main {
                 reloadSources(context);
                 break;
             }
-            default:
-                if (args.length > 2) {
+            case "reload-errors": {
+                if (args.length != 2) {
                     closeAppWithWrongCommand(context);
                 }
-                collectData(args, context, command);
+                reloadErrors(args, context);
+                break;
+            }
+            default:
+                if (args.length > 1) {
+                    closeAppWithWrongCommand(context);
+                }
+                collectData(context, command);
                 break;
         }
         context.close();
     }
+
+    private static void reloadErrors(String[] args, ClassPathXmlApplicationContext context) throws SQLException, IOException, InterruptedException {
+        final Integer year;
+        if (args.length == 2) {
+            try {
+                year = Integer.parseInt(args[1]);
+
+            } catch (Exception e) {
+                context.close();
+                printWrongCommand();
+                System.exit(0);
+                return;
+            }
+            final DatabaseService databaseService = context.getBean(DatabaseService.class);
+            final ISVZService isvzService = context.getBean(ISVZService.class);
+
+            final List<String> errorList = databaseService.loadErrorIcosForYear(year);
+            final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
+            final Iterator<SourceInfoDto> iterator = sourceInfoDtos.iterator();
+            while (iterator.hasNext()) {
+                final SourceInfoDto next = iterator.next();
+                if (!errorList.contains(next.getIco())) {
+                    iterator.remove();
+                }
+            }
+            databaseService.deleteErrors(year);
+
+            collectDataInternal(year, databaseService, isvzService, sourceInfoDtos);
+        } else {
+            context.close();
+            printWrongCommand();
+            System.exit(0);
+        }
+    }
+
 
     private static void deleteCollectedData(String[] args, ClassPathXmlApplicationContext context) throws SQLException {
         final Integer year;
@@ -88,7 +135,7 @@ public class Main {
             System.out.println("This command will delete all collected for year '" + year + "' data exept sources with urls!");
 
         }
-        System.out.println("Write 'yes' to confirm or anything else to cancel");
+        System.out.println("Write 'yes' to confirm or 'no' to cancel");
         final String confirmation = scanner.nextLine();
         if (confirmation.equals("yes")) {
             final DatabaseService databaseService = context.getBean(DatabaseService.class);
@@ -99,7 +146,7 @@ public class Main {
         }
     }
 
-    private static void collectData(String[] args, ClassPathXmlApplicationContext context, String command) throws SQLException {
+    private static void collectData(ClassPathXmlApplicationContext context, String command) throws SQLException, InterruptedException, IOException {
         final int year;
         try {
             year = Integer.parseInt(command);
@@ -127,69 +174,88 @@ public class Main {
         final DatabaseService databaseService = context.getBean(DatabaseService.class);
         final ISVZService isvzService = context.getBean(ISVZService.class);
 
-        final Date lastDate;
-        try {
-            lastDate = databaseService.loadRetrievalLastDate(year);
-        } catch (RuntimeException e) {
-            System.out.println("year " + year + " is already completed");
-            System.exit(0);
-            return;
-        }
+        final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
 
-        final List<SourceInfoDto> sourceInfoSources = databaseService.loadSources();
-        if (args.length == 2) {
-            final Iterator<SourceInfoDto> iterator = sourceInfoSources.iterator();
-            while (iterator.hasNext()) {
-                final SourceInfoDto next = iterator.next();
-                iterator.remove();
-                if (next.getIco().equals(args[1])) {
-                    break;
+        collectDataInternal(year, databaseService, isvzService, sourceInfoDtos);
+    }
+
+    private static void collectDataInternal(final int year, final DatabaseService databaseService, final ISVZService isvzService, List<SourceInfoDto> sourceInfoDtos) throws IOException, InterruptedException, SQLException {
+        final List<List<SourceInfoDto>> lists = new ArrayList<>();
+        final Resource resource = new ClassPathResource("/public-contract.properties");
+        final Properties properties = PropertiesLoaderUtils.loadProperties(resource);
+        final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
+        final int numberOfThreads = Integer.parseInt(numberOfThreadsString);
+        for (int i = 0; i < numberOfThreads; i++) {
+            lists.add(sourceInfoDtos.subList((i * sourceInfoDtos.size() / numberOfThreads), ((i + 1) * sourceInfoDtos.size() / numberOfThreads)));
+        }
+        final List<Thread> threads = new ArrayList<>();
+        for (final List<SourceInfoDto> list : lists) {
+            final Thread t = new Thread() {
+                public void run() {
+                    for (SourceInfoDto sourceInfoDto : list) {
+                        final ProfilStructure profilStructure;
+                        try {
+                            profilStructure = isvzService.findProfilStructure(sourceInfoDto.getUrl(), year);
+                        } catch (Exception e) {
+                            try {
+                                final StringBuilder sb = new StringBuilder();
+                                sb.append(e.getMessage());
+                                Throwable cause = e.getCause();
+                                while (cause !=null){
+                                    sb.append("\n");
+                                    sb.append(cause.getMessage());
+                                    cause = cause.getCause();
+                                }
+                                databaseService.saveError(sourceInfoDto, sb.toString(), year, e.getClass().toString());
+                            } catch (SQLException e1) {
+                                e1.printStackTrace();
+                            }
+                            numberOfErrors.incrementAndGet();
+                            logger.error("error during parsing " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
+                            continue;
+                        }
+
+                        final SubmitterDto submitterDto;
+                        try {
+                            submitterDto = SubmitterTransformer.transformSubmitterToDto(profilStructure);
+                        } catch (Exception e) {
+                            try {
+                                databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
+                            } catch (SQLException e1) {
+                                e1.printStackTrace();
+                            }
+                            numberOfErrors.incrementAndGet();
+                            logger.error("error during transforming to dto " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
+                            continue;
+                        }
+
+                        try {
+                            databaseService.saveSubmitter(submitterDto, year);
+                        } catch (Exception e) {
+                            try {
+                                databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
+                            } catch (SQLException e1) {
+                                e1.printStackTrace();
+                            }
+                            numberOfErrors.incrementAndGet();
+                            logger.error("error during saving " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
+                            continue;
+                        }
+                    }
                 }
-            }
-            if (sourceInfoSources.isEmpty()) {
-                System.out.println("Probably wrong ico, because it is not in database!");
-                context.close();
-                System.exit(0);
-            }
+
+            };
+            t.start();
+            threads.add(t);
         }
 
-
-        int numberOfErrors = 0;
-
-        for (SourceInfoDto sourceInfoDto : sourceInfoSources) {
-            final ProfilStructure profilStructure;
-            try {
-                profilStructure = isvzService.findProfilStructure(sourceInfoDto.getUrl(), year, lastDate);
-            } catch (Exception e) {
-                databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
-                numberOfErrors++;
-                logger.error("error during parsing " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
-                continue;
-            }
-
-            final SubmitterDto submitterDto;
-            try {
-                submitterDto = SubmitterTransformer.transformSubmitterToDto(profilStructure);
-            } catch (Exception e) {
-                databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
-                numberOfErrors++;
-                logger.error("error during transforming to dto " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
-                continue;
-            }
-
-            try {
-                databaseService.saveSubmitter(submitterDto, year);
-            } catch (Exception e) {
-                databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
-                numberOfErrors++;
-                logger.error("error during saving " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
-                continue;
-            }
+        for (Thread thread : threads) {
+            thread.join();
         }
         final DateTime now = DateTime.now();
         final DateTime lastDayOfTheYear = new DateTime(year, 12, 31, 0, 0);
         final boolean after = now.isAfter(lastDayOfTheYear);
-        databaseService.saveRetrieval(year, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors);
+        databaseService.saveRetrieval(year, true, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors.intValue());
     }
 
     private static void closeAppWithWrongCommand(ClassPathXmlApplicationContext context) {
@@ -203,7 +269,7 @@ public class Main {
         System.out.println("Are you sure?");
         System.out.println("This command will reload valid submitters of public contract");
         System.out.println("All data collected about public contracts will not be changed");
-        System.out.println("Write 'yes' to confirm or anything else to cancel");
+        System.out.println("Write 'yes' to confirm or 'no' to cancel");
         final String confirmation = scanner.nextLine();
         if (confirmation.equals("yes")) {
             final DatabaseService databaseService = context.getBean(DatabaseService.class);
@@ -225,7 +291,7 @@ public class Main {
         final Scanner scanner = new Scanner(System.in);
         System.out.println("Are you sure?");
         System.out.println("This command will drop and rebuild all tables related to public contract!");
-        System.out.println("Write 'yes' to confirm or anything else to cancel");
+        System.out.println("Write 'yes' to confirm or 'no' to cancel");
         final String confirmation = scanner.nextLine();
         if (confirmation.equals("yes")) {
             reloadDatabase(context);
@@ -248,7 +314,8 @@ public class Main {
         System.out.println("'reload-db' - drops all tables from database and creates schema (Do NOT use if you don't want to loose data!!!)");
         System.out.println("'reload-sources' - deletes and reloads urls of submitters (ETA 20 minutes)");
         System.out.println("'delete-collected-data [yyyy]' - delete all collected data except sources with urls, [yyyy] is optional and is used to delete data only for that year");
-        System.out.println("'yyyy [ico]' - e.g. '2015' or '2015 28119169' - search and save data for all submitters for 2015, [ico] is optional and is used if previous attempt fail, so you can start after last saved submitter (ETA 8 hours)");
+        System.out.println("'reload-errors yyyy' - tries to collect data that failed before");
+        System.out.println("'yyyy' - e.g. '2015' - search and save data for all submitters for 2015");
     }
 
     private static void reloadDatabase(ClassPathXmlApplicationContext context) throws FileNotFoundException {

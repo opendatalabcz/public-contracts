@@ -1,7 +1,6 @@
 package service.impl;
 
 import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
@@ -15,30 +14,20 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.StringReader;
 import java.net.URI;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 
 public class ISVZServiceImpl implements ISVZService {
 
-    private static final String URI_SUFFIX = "/XMLdataVZ?od={from}&do=0101{to}";
+    private static final String URI_SUFFIX = "/XMLdataVZ?od=0101{from}&do=0101{to}";
 
     @Autowired
     private RestTemplate restTemplate;
 
     @Override
-    public ProfilStructure findProfilStructure(String urlPrefix, int year, Date lastDay) throws Exception {
-        final String from;
-        if (lastDay != null) {
-            final DateTime dateTime = new DateTime(lastDay);
-            final int dayOfMonth = dateTime.getDayOfMonth();
-            final int monthOfYear = dateTime.getMonthOfYear();
-            from = String.format("%02d", dayOfMonth) + String.format("%02d", monthOfYear) + String.valueOf(year);
-        } else {
-            from = "0101" + String.valueOf(year);
-        }
+    public ProfilStructure findProfilStructure(String urlPrefix, int year) throws Exception {
 
-        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", from).replace("{to}", String.valueOf(year + 1));
+        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", String.valueOf(year)).replace("{to}", String.valueOf(year + 1));
 
         URI uri = new URI(url.replace(" ", "%20"));
 

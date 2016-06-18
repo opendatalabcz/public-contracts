@@ -75,8 +75,19 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
+    public void deleteErrors(int year) throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM error WHERE year = ?");
+        deleteStatement.setInt(1, year);
+        deleteStatement.execute();
+    }
+
+    @Override
     public void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
+        final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM retrieval WHERE year = ?");
+        deleteStatement.setInt(1, year);
+        deleteStatement.execute();
         final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (year, complete, last_day, number_of_errors) VALUES (?,?,?,?);");
         preparedStatement.setInt(1, year);
         preparedStatement.setBoolean(2, complete);
@@ -88,21 +99,15 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public Date loadRetrievalLastDate(int year) throws SQLException {
+    public boolean isYearCompleted(int year) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select complete, last_day from retrieval where year = ?");
+        final PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM retrieval WHERE year = ?");
         preparedStatement.setInt(1, year);
         final ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            final boolean completed = resultSet.getBoolean("complete");
-            final java.sql.Date last_day = resultSet.getDate("last_day");
-            if (completed) {
-                throw new RuntimeException("year is already completed");
-            } else {
-                return new Date(last_day.getTime());
-            }
+            return true;
         }
-        return null;
+        return false;
     }
 
     @Override
@@ -116,6 +121,18 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.setInt(5, year);
         preparedStatement.setString(6, errorClass);
         preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public List<String> loadErrorIcosForYear(int year) throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final List<String> result = new ArrayList<>();
+        final PreparedStatement preparedStatement = connection.prepareStatement("select ico from error ORDER BY ico;");
+        final ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            result.add(resultSet.getString("ico"));
+        }
+        return result;
     }
 
     @Override
