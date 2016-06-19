@@ -8,8 +8,10 @@ import service.DatabaseService;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 public class DatabaseServiceImpl implements DatabaseService {
@@ -126,13 +128,13 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public List<String> loadErrorIcosForYear(int year) throws SQLException {
+    public Set<String> loadErrorUrlsForYear(int year) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final List<String> result = new ArrayList<>();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select ico from error ORDER BY ico;");
+        final Set<String> result = new HashSet<>();
+        final PreparedStatement preparedStatement = connection.prepareStatement("select url from error ORDER BY ico;");
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            result.add(resultSet.getString("ico"));
+            result.add(resultSet.getString("url"));
         }
         return result;
     }

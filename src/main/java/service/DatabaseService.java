@@ -6,6 +6,7 @@ import dto.SubmitterDto;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 public interface DatabaseService {
@@ -26,7 +27,7 @@ public interface DatabaseService {
 
     void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException;
 
-    List<String> loadErrorIcosForYear(int year) throws SQLException;
+    Set<String> loadErrorUrlsForYear(int year) throws SQLException;
 
     void deleteCollectedData(Integer year) throws SQLException;
 

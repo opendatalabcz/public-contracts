@@ -92,12 +92,12 @@ public class Main {
             final DatabaseService databaseService = context.getBean(DatabaseService.class);
             final ISVZService isvzService = context.getBean(ISVZService.class);
 
-            final List<String> errorList = databaseService.loadErrorIcosForYear(year);
+            final Set<String> errorList = databaseService.loadErrorUrlsForYear(year);
             final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
             final Iterator<SourceInfoDto> iterator = sourceInfoDtos.iterator();
             while (iterator.hasNext()) {
                 final SourceInfoDto next = iterator.next();
-                if (!errorList.contains(next.getIco())) {
+                if (!errorList.contains(next.getUrl())) {
                     iterator.remove();
                 }
             }
