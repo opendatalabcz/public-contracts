@@ -157,8 +157,8 @@ public class Main {
             return;
         }
 
-        if (year < 2000) {
-            System.out.println("There probably aren't any data before year 2000. Dont waste your time!");
+        if (year < 1989) {
+            System.out.println("There probably aren't any data before year 1989. Dont waste your time!");
             context.close();
             System.exit(0);
         }
