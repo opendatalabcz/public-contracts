@@ -131,7 +131,8 @@ public class DatabaseServiceImpl implements DatabaseService {
     public Set<String> loadErrorUrlsForYear(int year) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final Set<String> result = new HashSet<>();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select url from error ORDER BY ico;");
+        final PreparedStatement preparedStatement = connection.prepareStatement("select url from error ORDER BY ico WHERE YEAR = ?;");
+        preparedStatement.setInt(1, year);
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             result.add(resultSet.getString("url"));
