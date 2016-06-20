@@ -170,8 +170,12 @@ public class Main {
             context.close();
             System.exit(0);
         }
-
         final DatabaseService databaseService = context.getBean(DatabaseService.class);
+        if(databaseService.isYearCompleted(year)){
+            System.out.println("Year has already been loaded! If you are trying to reload current year to gain recent data, please delete the year first. This madness will never work out for anybody");
+            context.close();
+            System.exit(0);
+        }
         final ISVZService isvzService = context.getBean(ISVZService.class);
 
         final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
@@ -255,7 +259,7 @@ public class Main {
         final DateTime now = DateTime.now();
         final DateTime lastDayOfTheYear = new DateTime(year, 12, 31, 0, 0);
         final boolean after = now.isAfter(lastDayOfTheYear);
-        databaseService.saveRetrieval(year, true, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors.intValue());
+        databaseService.saveRetrieval(year, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors.intValue());
     }
 
     private static void closeAppWithWrongCommand(ClassPathXmlApplicationContext context) {

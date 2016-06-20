@@ -171,7 +171,6 @@ public class DatabaseServiceImpl implements DatabaseService {
             statement.setInt(5, year);
             statement.setInt(6, year);
         }
-        statement.setQueryTimeout(5);
         statement.executeUpdate();
     }
 
