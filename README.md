@@ -24,5 +24,6 @@ You have to run the app with following arguments:
  * reload-db - drops all tables from database and creates schema (Use this only to init db or you can loose collected data)
  * reload-sources - deletes and reloads urls of submitters (ETA 20 minutes)
  * delete-collected-data [yyyy] - delete all collected data except sources with urls, [yyyy] is optional and is used to delete data only for that year
- * yyyy [ico] - e.g. '2015' or '2015 28119169' - search and save data for all submitters for 2015, [ico] is optional and is used if previous attempt fail, so you can start after last saved submitter (ETA 8 hours)
+ * yyyy - e.g. '2015' - search and save data for all submitters for 2015
+ * reload-errors yyyy - tries to collect data that failed before
  
