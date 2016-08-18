@@ -21,7 +21,7 @@ public interface DatabaseService {
 
     void deleteErrors(int year) throws SQLException;
 
-    void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors) throws SQLException;
+    void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException;
 
     boolean isYearCompleted(int year) throws SQLException;
 

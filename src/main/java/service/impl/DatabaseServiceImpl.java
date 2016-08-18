@@ -86,17 +86,18 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors) throws SQLException {
+    public void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM retrieval WHERE year = ?");
         deleteStatement.setInt(1, year);
         deleteStatement.execute();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (year, complete, last_day, number_of_errors) VALUES (?,?,?,?);");
+
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (year, success, date , num_bad_records, num_records_inserted) VALUES (?,?,?,?,?);");
         preparedStatement.setInt(1, year);
-        preparedStatement.setBoolean(2, complete);
-        final java.sql.Date date = new java.sql.Date(lastDate.getTime());
-        preparedStatement.setDate(3, date);
+        preparedStatement.setBoolean(2, true);
+        preparedStatement.setTimestamp(3, new Timestamp(new Date().getTime()));
         preparedStatement.setInt(4, numberOfErrors);
+        preparedStatement.setInt(5, numberOfRecords);
         preparedStatement.executeUpdate();
 
     }
@@ -150,7 +151,7 @@ public class DatabaseServiceImpl implements DatabaseService {
                     "delete from contract;\n" +
                     "delete from retrieval;\n" +
                     "delete from submitter;\n" +
-                    "delete from company;\n" +
+                    "delete from entity;\n" +
                     "delete from error;";
         } else {
             sql = "DELETE  from subsupplier ss USING supplier s WHERE ss.supplier_id=s.supplier_id and s.contract_id in (select c.contract_id from contract c WHERE c.year = ?);\n" +
@@ -195,26 +196,26 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     private void saveSubsupplier(long supplierId, String subsupplierIco, String subsupplierName) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final long companyId = saveCompany(subsupplierIco, subsupplierName);
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO subsupplier (company_id, supplier_id) VALUES (?,?);");
+        final int companyId = saveCompany(subsupplierIco, subsupplierName);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO subsupplier (entity_id, supplier_id) VALUES (?,?);");
         preparedStatement.setQueryTimeout(5);
-        preparedStatement.setLong(1, companyId);
+        preparedStatement.setInt(1, companyId);
         preparedStatement.setLong(2, supplierId);
         preparedStatement.executeUpdate();
     }
 
     private long saveSupplier(long contractId, String supplierIco, String supplierName, Double price) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final long companyId = saveCompany(supplierIco, supplierName);
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO supplier (company_id, price, contract_id) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
+        final int companyId = saveCompany(supplierIco, supplierName);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO supplier (entity_id, price, contract_id) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setQueryTimeout(5);
-        preparedStatement.setLong(1, companyId);
+        preparedStatement.setInt(1, companyId);
         preparedStatement.setDouble(2, price == null ? -1d : price);
         preparedStatement.setLong(3, contractId);
         preparedStatement.executeUpdate();
         final ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();
-        return rs.getLong(1);
+        return rs.getLong("supplier_id");
     }
 
     private void saveCandidates(long contractId, List<CandidateDto> candidateDtos) throws SQLException {
@@ -228,10 +229,10 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     private void saveCandidate(long contractId, String ico, String candidateName, Double price) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final long companyId = saveCompany(ico, candidateName);
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO candidate (company_id, price, contract_id) VALUES (?,?,?);");
+        final int companyId = saveCompany(ico, candidateName);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO candidate (entity_id, price, contract_id) VALUES (?,?,?);");
         preparedStatement.setQueryTimeout(5);
-        preparedStatement.setLong(1, companyId);
+        preparedStatement.setInt(1, companyId);
         preparedStatement.setDouble(2, price == null ? -1d : price);
         preparedStatement.setLong(3, contractId);
         preparedStatement.executeUpdate();
@@ -251,46 +252,46 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.executeUpdate();
         final ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();
-        return rs.getLong(1);
+        return rs.getLong("contract_id");
     }
 
     private long saveSubmitter(String ico, String name) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement selectStatement = connection.prepareStatement("Select s.submitter_id from submitter s join company c on c.company_id=s.company_id where c.ico = ?");
+        final PreparedStatement selectStatement = connection.prepareStatement("Select s.submitter_id from submitter s join entity c on c.entity_id=s.entity_id where c.ico = ?");
         selectStatement.setString(1, ico);
         final ResultSet selectResultSet = selectStatement.executeQuery();
         if (selectResultSet.next()) {
             return selectResultSet.getLong("submitter_id");
         }
 
-        final long companyId = saveCompany(ico, name);
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO submitter (company_id) VALUES (?);", Statement.RETURN_GENERATED_KEYS);
+        final int companyId = saveCompany(ico, name);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO submitter (entity_id) VALUES (?);", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setQueryTimeout(5);
-        preparedStatement.setLong(1, companyId);
+        preparedStatement.setInt(1, companyId);
         preparedStatement.executeUpdate();
         final ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();
-        return rs.getLong(1);
+        return rs.getLong("submitter_id");
     }
 
-    private long saveCompany(String ico, String name) throws SQLException {
+    private int saveCompany(String ico, String name) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         if (ico != null) {
-            final PreparedStatement selectStatement = connection.prepareStatement("Select company_id from company where ico = ?");
+            final PreparedStatement selectStatement = connection.prepareStatement("Select entity_id from entity where ico = ?");
             selectStatement.setString(1, ico);
             final ResultSet rs = selectStatement.executeQuery();
             if (rs.next()) {
-                return rs.getLong("company_id");
+                return rs.getInt("entity_id");
             }
         }
-        final PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO company (ico,name) VALUES (?,?);", Statement.RETURN_GENERATED_KEYS);
+        final PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO entity (ico,name, entity_type) VALUES (?,?,'company');", Statement.RETURN_GENERATED_KEYS);
         insertStatement.setString(1, ico);
         insertStatement.setString(2, name);
         insertStatement.setQueryTimeout(5);
         insertStatement.executeUpdate();
         final ResultSet rs2 = insertStatement.getGeneratedKeys();
         rs2.next();
-        return rs2.getLong(1);
+        return rs2.getInt("entity_id");
 
     }
 }

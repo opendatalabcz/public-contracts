@@ -1,9 +1,0 @@
-drop TABLE subsupplier;
-drop TABLE supplier;
-drop TABLE candidate;
-drop TABLE contract;
-drop TABLE source;
-drop TABLE retrieval;
-drop TABLE submitter;
-drop TABLE company;
-drop TABLE error;

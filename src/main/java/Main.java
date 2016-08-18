@@ -38,19 +38,11 @@ public class Main {
 
         final String command = args[0];
         switch (command) {
-            case "reload-db": {
+            case "init": {
                 if (args.length > 1) {
                     closeAppWithWrongCommand(context);
                 }
-                reloadDb(context);
-                break;
-            }
-
-            case "delete-collected-data": {
-                if (args.length > 2) {
-                    closeAppWithWrongCommand(context);
-                }
-                deleteCollectedData(args, context);
+                initDatabase(context);
                 break;
             }
             case "reload-sources": {
@@ -112,40 +104,6 @@ public class Main {
     }
 
 
-    private static void deleteCollectedData(String[] args, ClassPathXmlApplicationContext context) throws SQLException {
-        final Integer year;
-        if (args.length == 2) {
-            try {
-                year = Integer.parseInt(args[1]);
-            } catch (Exception e) {
-                context.close();
-                printWrongCommand();
-                System.exit(0);
-                return;
-            }
-        } else {
-            year = null;
-        }
-
-        final Scanner scanner = new Scanner(System.in);
-        System.out.println("Are you sure?");
-        if (year == null) {
-            System.out.println("This command will delete all collected data exept sources with urls!");
-        } else {
-            System.out.println("This command will delete all collected for year '" + year + "' data exept sources with urls!");
-
-        }
-        System.out.println("Write 'yes' to confirm or 'no' to cancel");
-        final String confirmation = scanner.nextLine();
-        if (confirmation.equals("yes")) {
-            final DatabaseService databaseService = context.getBean(DatabaseService.class);
-            databaseService.deleteCollectedData(year);
-        } else {
-            context.close();
-            System.exit(0);
-        }
-    }
-
     private static void collectData(ClassPathXmlApplicationContext context, String command) throws SQLException, InterruptedException, IOException {
         final int year;
         try {
@@ -171,7 +129,7 @@ public class Main {
             System.exit(0);
         }
         final DatabaseService databaseService = context.getBean(DatabaseService.class);
-        if(databaseService.isYearCompleted(year)){
+        if (databaseService.isYearCompleted(year)) {
             System.out.println("Year has already been loaded! If you are trying to reload current year to gain recent data, please delete the year first. This madness will never work out for anybody");
             context.close();
             System.exit(0);
@@ -205,7 +163,7 @@ public class Main {
                                 final StringBuilder sb = new StringBuilder();
                                 sb.append(e.getMessage());
                                 Throwable cause = e.getCause();
-                                while (cause !=null){
+                                while (cause != null) {
                                     sb.append("\n");
                                     sb.append(cause.getMessage());
                                     cause = cause.getCause();
@@ -259,7 +217,9 @@ public class Main {
         final DateTime now = DateTime.now();
         final DateTime lastDayOfTheYear = new DateTime(year, 12, 31, 0, 0);
         final boolean after = now.isAfter(lastDayOfTheYear);
-        databaseService.saveRetrieval(year, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors.intValue());
+        final int numberOfSources = databaseService.loadSources().size();
+        final int numberOfErrors = Main.numberOfErrors.intValue();
+        databaseService.saveRetrieval(year, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors, numberOfSources - numberOfErrors);
     }
 
     private static void closeAppWithWrongCommand(ClassPathXmlApplicationContext context) {
@@ -291,20 +251,6 @@ public class Main {
     }
 
 
-    private static void reloadDb(ClassPathXmlApplicationContext context) throws FileNotFoundException {
-        final Scanner scanner = new Scanner(System.in);
-        System.out.println("Are you sure?");
-        System.out.println("This command will drop and rebuild all tables related to public contract!");
-        System.out.println("Write 'yes' to confirm or 'no' to cancel");
-        final String confirmation = scanner.nextLine();
-        if (confirmation.equals("yes")) {
-            reloadDatabase(context);
-        } else {
-            context.close();
-            System.exit(0);
-        }
-    }
-
     private static Date createDateFromYear(int year) {
         final Calendar calendar = Calendar.getInstance();
         calendar.clear();
@@ -315,24 +261,18 @@ public class Main {
     private static void printWrongCommand() {
         System.out.println("Wrong argument!");
         System.out.println("Valid arguments are:");
-        System.out.println("'reload-db' - drops all tables from database and creates schema (Do NOT use if you don't want to loose data!!!)");
+        System.out.println("'init' - update existing db from other project to public contract (run only once)");
         System.out.println("'reload-sources' - deletes and reloads urls of submitters (ETA 20 minutes)");
-        System.out.println("'delete-collected-data [yyyy]' - delete all collected data except sources with urls, [yyyy] is optional and is used to delete data only for that year");
         System.out.println("'reload-errors yyyy' - tries to collect data that failed before");
         System.out.println("'yyyy' - e.g. '2015' - search and save data for all submitters for 2015");
     }
 
-    private static void reloadDatabase(ClassPathXmlApplicationContext context) throws FileNotFoundException {
+    private static void initDatabase(ClassPathXmlApplicationContext context) throws FileNotFoundException {
         final DatabaseConnectionFactory databaseConnectionFactory = context.getBean(DatabaseConnectionFactory.class);
 
         // Initialize object for ScripRunner
         final Connection connection = databaseConnectionFactory.getConnection();
         final ScriptRunner sr = new ScriptRunner(connection);
-
-        final InputStream dropStream = Main.class.getResourceAsStream("sql/drop.sql");
-        final Reader dropReader = new InputStreamReader(dropStream);
-
-        sr.runScript(dropReader);
 
         final InputStream initStream = Main.class.getResourceAsStream("sql/init.sql");
         final Reader initReader = new InputStreamReader(initStream);
