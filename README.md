@@ -11,7 +11,7 @@ Adding "/XMLdataVZ?od=DDMMYYY&do=DDMMYYY" will result in xml representation of s
 ## Before you run this app, you need to make following steps:
 
 1. You need to have postgres installed
-2. create new database in postgres and run init.sql on it
+2. create new database in postgres and run init.sql on it (instead of running init.sql, you can use command reload-db when starting app)
 3. change values in public-contracts.properties to your values:
  * db.target.server=server
  * db.target.port=port
