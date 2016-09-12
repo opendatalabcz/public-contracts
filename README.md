@@ -12,12 +12,13 @@ Adding "/XMLdataVZ?od=DDMMYYY&do=DDMMYYY" will result in xml representation of s
 
 1. You need to have postgres installed
 2. Get existing database from "you know who"
-3. change values in public-contracts.properties to the values of your equired database:
+3. Change values in public-contracts.properties to the values of your equired database:
  * db.target.server=server
  * db.target.port=port
  * db.target.database=database name
  * db.target.user=database user
  * db.target.pass=user password
+4. You can set the value public-contract.thread.number in public-contract.properties to whatever you want. It means in how many threads will the app devide list of submitters (there is around 14 000 of them). One thread takes 8 hours to load one year, 1000 threads take about 20 - 30 minutes. Maybe there is a better number, feel free to experiment
 
 ## How to run app:
 
