@@ -3,7 +3,7 @@
 ## About project
 This project is dedicated to extracting data about public contracts in Czech Republic.
 
-On this [page](https://vestnikverejnychzakazek.cz/cs/Searching/ShowPublicPublisherProfiles) can be found urls to every valid submitter of public contracts.
+On this [page](https://vestnikverejnychzakazek.cz/SearchProfile/Search?Status=Active&PageSize=50&Page=1) can be found urls to every valid submitter of public contracts.
 
 Adding "/XMLdataVZ?od=DDMMYYY&do=DDMMYYY" will result in xml representation of submitter and his public contracts in selected period.
 [Here](https://vestnikverejnychzakazek.cz/cs/PublishAForm/XMLInterfaceForISVZUS) is xsd schema for previous xml.
