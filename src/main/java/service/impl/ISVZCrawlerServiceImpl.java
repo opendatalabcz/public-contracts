@@ -32,7 +32,8 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
             final Element element = tbody.get(0);
             final Elements tr = element.getElementsByTag("tr");
             for (Element submitter : tr) {
-                final Elements a = submitter.getElementsByTag("a");
+                final Element urlElementColumn = submitter.getElementsByTag("td").get(4);
+                final Elements a = urlElementColumn.getElementsByTag("a");
                 final Element urlElement = a.get(0);
                 final String url = urlElement.attr("href");
                 final Element icoElement = submitter.getElementsByTag("td").get(3);
@@ -42,7 +43,7 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
                 final SourceInfoDto sourceInfoDto = new SourceInfoDto(ico, name, url);
                 sourceInfoDtos.add(sourceInfoDto);
             }
-            final Element nextElement = doc.getElementsByClass("t-arrow-next").get(0);
+            final Element nextElement = doc.getElementsByClass("k-i-arrow-e").get(0);
             final String urlToNextPage = nextElement.parent().attr("href");
             logger.info("crawling on page: " + urlToNextPage);
             if (urlToNextPage.equals("#")) {
