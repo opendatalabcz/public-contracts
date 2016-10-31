@@ -15,8 +15,9 @@
         <hibernate.version>4.1.6.Final</hibernate.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-
+        <jena.version>2.11.0</jena.version>
+        <jena-tdb.version>1.0.0</jena-tdb.version>
+        <jena-sdb.version>1.4.0</jena-sdb.version>
     </properties>
 
     <dependencies>
@@ -145,6 +146,29 @@
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.1-901.jdbc4</version>
+        </dependency>
+
+        <!--Jena -->
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>apache-jena-libs</artifactId>
+            <type>pom</type>
+            <version>${jena.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-tdb</artifactId>
+            <version>${jena-tdb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-sdb</artifactId>
+            <version>${jena-sdb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-fuseki</artifactId>
+            <version>0.2.7</version>
         </dependency>
 
     </dependencies>

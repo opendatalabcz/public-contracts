@@ -40,6 +40,7 @@
         <property name="pass" value="${db.target.pass}"/>
     </bean>
     <bean class="hibernate.HibernateCriteriaCreator"/>
+    <bean class="service.impl.CreateRDFSubmittersImpl"/>
     <bean class="service.impl.DatabaseReadServiceImpl"/>
     <bean class="service.impl.ARESServiceImpl"/>
     <bean class="service.impl.DatabaseServiceImpl"/>

@@ -41,6 +41,7 @@
         <property name="user" value="${db.target.user}"/>
         <property name="pass" value="${db.target.pass}"/>
     </bean>
+    <bean class="service.impl.CreateRDFSubmittersImpl"/>
     <bean class="hibernate.HibernateCriteriaCreator"/>
     <bean class="service.impl.DatabaseReadServiceImpl"/>
     <bean class="service.impl.ARESServiceImpl"/>
