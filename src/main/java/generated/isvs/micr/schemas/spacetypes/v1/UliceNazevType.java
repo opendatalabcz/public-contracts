@@ -15,23 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název ulice a veøejného prostranství je slovní prostorový identifikátor prvku prostorové identifikace „ulice a veøejné prostranství“. Název ulice a veøejného prostranství je urèen obcí.
- * Název ulice a veøejného prostranství je jedineèný v rámci obce, ne v rámci Ceské republiky ani okresu.
- * <p/>
- * <p>Java class for UliceNazevType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="UliceNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UliceNazevType")
 public class UliceNazevType

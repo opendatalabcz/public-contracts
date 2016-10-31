@@ -14,27 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód obce je èíselný prostorový identifikátor prvku prostorové identifikace „obec“.
- * Kód obce je urèen po vzniku obce èíselníkem (kódem je tzv. identifikaèní èíslo základní územní jednotky, pokud je tato obcí) v rámci Registru prostorových jednotek, provozovaného v garanci Ceského statistického úøadu.
- * Kód obce je jedineèný v rámci Ceské republiky.
- * Mj. souèást složeného datového prvku Kód NUTS obce.
- * 
- * <p>Java class for ObecKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecKodType")
 public class ObecKodType

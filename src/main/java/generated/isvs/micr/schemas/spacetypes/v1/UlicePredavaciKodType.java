@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Pøedávací kód ulice a veøejného prostranství je èíselný prostorový identifikátor prvku prostorové identifikace „ulice a veøejné prostranství“. Pøedávací kód ulice a veøejného prostranství je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for UlicePredavaciKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="UlicePredavaciKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UlicePredavaciKodType")
 public class UlicePredavaciKodType

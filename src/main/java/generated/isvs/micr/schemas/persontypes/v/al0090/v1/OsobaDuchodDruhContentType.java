@@ -13,71 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for OsobaDuchodDruhContentType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="OsobaDuchodDruhContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="dùchod invalidní èásteèný"/>
- *     &lt;enumeration value="dùchod invalidní èásteèný úrazový"/>
- *     &lt;enumeration value="dùchod invalidní druhého stupnì"/>
- *     &lt;enumeration value="dùchod invalidní plný"/>
- *     &lt;enumeration value="dùchod invalidní prvního stupnì"/>
- *     &lt;enumeration value="dùchod invalidní tøetího stupnì"/>
- *     &lt;enumeration value="dùchod invalidní úrazový plný"/>
- *     &lt;enumeration value="dùchod invalidní z mládí"/>
- *     &lt;enumeration value="dùchod sirotèí jednostranný po aktivním"/>
- *     &lt;enumeration value="dùchod sirotèí jednostranný po dùchodci"/>
- *     &lt;enumeration value="dùchod sirotèí jednostranný úrazový po aktivním"/>
- *     &lt;enumeration value="dùchod sirotèí jednostranný úrazový po dùchodci"/>
- *     &lt;enumeration value="dùchod sirotèí oboustranný po aktivním"/>
- *     &lt;enumeration value="dùchod sirotèí oboustranný po dùchodci"/>
- *     &lt;enumeration value="dùchod sirotèí oboustranný úrazový po aktivním"/>
- *     &lt;enumeration value="dùchod sirotèí oboustranný úrazový po dùchodci"/>
- *     &lt;enumeration value="dùchod sirotèí po aktivní matce"/>
- *     &lt;enumeration value="dùchod sirotèí po aktivním otci"/>
- *     &lt;enumeration value="dùchod sirotèí po matce dùchodkyni"/>
- *     &lt;enumeration value="dùchod sirotèí po otci dùchodci"/>
- *     &lt;enumeration value="dùchod starobní plný"/>
- *     &lt;enumeration value="dùchod starobní plný - 3 roky pøed"/>
- *     &lt;enumeration value="dùchod starobní plný -2 roky pøed"/>
- *     &lt;enumeration value="dùchod starobní plný vzniklý podle §29 ods 4 zdp"/>
- *     &lt;enumeration value="dùchod starobní plný vzniklý z invalidního dùchodu pøi dosažení 65 let"/>
- *     &lt;enumeration value="dùchod starobní pomìrný"/>
- *     &lt;enumeration value="dùchod starobní pomìrný nový"/>
- *     &lt;enumeration value="dùchod vdovecký "/>
- *     &lt;enumeration value="dùchod vdovecký po aktivní"/>
- *     &lt;enumeration value="dùchod vdovecký po dùch."/>
- *     &lt;enumeration value="dùchod vdovský po aktivním"/>
- *     &lt;enumeration value="dùchod vdovský po dùchodci"/>
- *     &lt;enumeration value="dùchod vdovský úrazový po aktivním"/>
- *     &lt;enumeration value="dùchod vdovský úrazový po dùchodci"/>
- *     &lt;enumeration value="KAZ-dùchod invalidní èásteèný"/>
- *     &lt;enumeration value="KAZ-dùchod invalidní druhého stupnì"/>
- *     &lt;enumeration value="KAZ-dùchod invalidní plný"/>
- *     &lt;enumeration value="KAZ-dùchod invalidní prvního stupnì"/>
- *     &lt;enumeration value="KAZ-dùchod invalidní tøetího stupnì"/>
- *     &lt;enumeration value="KAZ-dùchod invalidní z mládí"/>
- *     &lt;enumeration value="KAZ-dùchod sirotèí po aktivní matce"/>
- *     &lt;enumeration value="KAZ-dùchod sirotèí po aktivním otci"/>
- *     &lt;enumeration value="KAZ-dùchod sirotèí po matce dùchodkyni"/>
- *     &lt;enumeration value="KAZ-dùchod sirotèí po otci dùchodci"/>
- *     &lt;enumeration value="KAZ-dùchod starobní plný"/>
- *     &lt;enumeration value="KAZ-dùchod starobní plný vzniklý z invalidního dùchodu pøi dosažení 65 let"/>
- *     &lt;enumeration value="KAZ-dùchod starobní pomìrný nový"/>
- *     &lt;enumeration value="KAZ-dùchod vdovecký po aktivní"/>
- *     &lt;enumeration value="KAZ-dùchod vdovecký po dùch."/>
- *     &lt;enumeration value="KAZ-dùchod vdovský po aktivním"/>
- *     &lt;enumeration value="KAZ-dùchod vdovský po dùchodci"/>
- *     &lt;enumeration value="žádný, nepobírá"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
+
 @XmlType(name = "OsobaDuchodDruhContentType", namespace = "urn:cz:isvs:micr:schemas:PersonTypes:v:AL0090:v1")
 @XmlEnum
 public enum OsobaDuchodDruhContentType {

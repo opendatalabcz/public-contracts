@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Datový prvek pro kódové vyjádøení základního tøídìní všech výrobkù (zboží), prací výrobní povahy, služeb, výkonù vèetnì oprav, údržby, montáží a instalací a tøídìní stavebních prací.
- * 
- * <p>Java class for ProdukceKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ProdukceKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProdukceKodType")
 public class ProdukceKodType

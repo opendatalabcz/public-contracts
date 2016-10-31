@@ -17,24 +17,7 @@ import generated.isvs.micr.schemas.businesstypes.v2.SubjektZakladniJmeniType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.CenaType;
 
 
-/**
- * Finanèní èástka v korunách èeských, uvádìná podle potøeby s pøesností na haléøe.
- * 
- * <p>Java class for FinancniCastkaType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="FinancniCastkaType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>CenaType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FinancniCastkaType")
 @XmlSeeAlso({

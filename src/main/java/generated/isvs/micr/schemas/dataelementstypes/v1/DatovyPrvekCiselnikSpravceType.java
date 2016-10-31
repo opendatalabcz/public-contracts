@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Právní subjekt, odpovìdný za tvorbu a distribuci èíselníku.
+ * Pravni subjekt, odpovedny za tvorbu a distribuci ciselniku.
  * <p/>
  * <p>Java class for DatovyPrvekCiselnikSpravceType complex type.
  * <p/>

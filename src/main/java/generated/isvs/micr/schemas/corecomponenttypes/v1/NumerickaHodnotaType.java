@@ -25,7 +25,7 @@ import javax.xml.namespace.QName;
 
 
 /**
- * Numerická informace, získaná napø. výpoètem nebo poèítáním. Nevyžaduje nutnì jednotku kvantity nebo jednotku mìøení
+ * Numericka informace, ziskana napr. vypoctem nebo pocitanim. Nevyzaduje nutne jednotku kvantity nebo jednotku mereni
  * 
  * <p>Java class for NumerickaHodnotaType complex type.
  * 

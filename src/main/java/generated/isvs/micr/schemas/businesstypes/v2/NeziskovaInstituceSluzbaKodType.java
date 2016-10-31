@@ -15,22 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kódové vyjádøení služby resp. výdaje neziskové instituce sloužící domácnostem (NISD) podle úèelu.
- * <p/>
- * <p>Java class for NeziskovaInstituceSluzbaKodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="NeziskovaInstituceSluzbaKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "NeziskovaInstituceSluzbaKodType")
 public class NeziskovaInstituceSluzbaKodType

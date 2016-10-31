@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Maximální poèet jednotek (odpovídajícího datového typu), které prezentují hodnotu datového prvku.
+ * Maximalni pocet jednotek (odpovidajiciho datoveho typu), ktere prezentuji hodnotu datoveho prvku.
  * <p/>
  * <p>Java class for DatovyPrvekDelkaMaximalniType complex type.
  * <p/>

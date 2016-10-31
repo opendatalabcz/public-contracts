@@ -13,23 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for OsobaZdravotniPrukazDruhContentType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="OsobaZdravotniPrukazDruhContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="TP"/>
- *     &lt;enumeration value="ZTP"/>
- *     &lt;enumeration value="ZTP-P"/>
- *     &lt;enumeration value="žádný"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
+
 @XmlType(name = "OsobaZdravotniPrukazDruhContentType", namespace = "urn:cz:isvs:micr:schemas:PersonTypes:v:AL0074:v1")
 @XmlEnum
 public enum OsobaZdravotniPrukazDruhContentType {

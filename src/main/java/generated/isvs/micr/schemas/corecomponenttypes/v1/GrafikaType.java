@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Diagram, graf, matematická køivka nebo podobná reprezentace.
+ * Diagram, graf, matematicka krivka nebo podobna reprezentace.
  * 
  * <p>Java class for GrafikaType complex type.
  * 

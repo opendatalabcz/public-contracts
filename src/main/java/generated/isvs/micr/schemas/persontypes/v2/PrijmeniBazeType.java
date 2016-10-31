@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * PRIJMENI OBYVATELE - výchozí neomezený typ. Není urèen k instanciaci.
- * 
- * <p>Java class for PrijmeniBazeType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="PrijmeniBazeType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *       &lt;attribute name="druhKod" type="{urn:cz:isvs:micr:schemas:PersonTypes:v2}osobaPrijmeniDruhKodType" />
- *       &lt;anyAttribute namespace=''/>
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PrijmeniBazeType")
 public class PrijmeniBazeType

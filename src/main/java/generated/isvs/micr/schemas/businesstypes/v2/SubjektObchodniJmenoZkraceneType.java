@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Zkrácené obchodní jméno pro ruèní vyhledávání podle obchodního jména, nebo pro vytváøení pøehledù.
- * 
- * <p>Java class for SubjektObchodniJmenoZkraceneType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SubjektObchodniJmenoZkraceneType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SubjektObchodniJmenoZkraceneType")
 public class SubjektObchodniJmenoZkraceneType

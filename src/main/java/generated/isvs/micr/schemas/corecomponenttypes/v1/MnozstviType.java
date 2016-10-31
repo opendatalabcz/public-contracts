@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Hodnota množství nebo rozsahu; volitelnì spolu s doplòkovou informací o jednotce, v níž je údaj vyjádøen
+ * Hodnota mnozstvi nebo rozsahu; volitelne spolu s doplnkovou informaci o jednotce, v niz je udaj vyjadren
  *
  * <p>Java class for MnozstviType complex type.
  * 

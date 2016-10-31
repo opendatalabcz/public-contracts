@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Jedno nebo víceslovné urèení pøiøazené datovému prvku.
+ * Jedno nebo viceslovne urceni prirazene datovemu prvku.
  * 
  * <p>Java class for DatovyPrvekNazevType complex type.
  * 

@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Obchodním jménem se rozumí název, pod kterým podnikatel èiní právní úkony pøi své podnikatelské èinnosti. Obchodní jméno fyzické osoby je její jméno a pøíjmení, popø. dodatek, odlišující osobu podnikatele nebo druh podnikání. Obchodní jméno obchodních spoleèností a družstev je název, pod kterým jsou zapsány v obchodním rejstøíku resp. živnostenském rejstøíku. Souèástí obchodního jména právnické osoby je i dodatek oznaèující jejich právní formu. Obchodním jménem právnické osoby, která se nezapisuje do obchodního rejstøíku, je název, pod kterým byla zøízena.
- * 
- * <p>Java class for SubjektObchodniJmenoType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SubjektObchodniJmenoType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SubjektObchodniJmenoType")
 public class SubjektObchodniJmenoType

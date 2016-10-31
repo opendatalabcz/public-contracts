@@ -8,31 +8,13 @@
 
 package generated.isvs.micr.schemas.persontypes.v2;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
-
-/**
- * Datový prvek pro èíselný identifikátor cizince, který má povolení k pobytu v CR. Rodné èíslo cizince vychází z data narození a udává se ve tvaru podle struktury zápisu.
- * 
- * <p>Java class for CizinecRodneCisloType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="CizinecRodneCisloType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CizinecRodneCisloType")
 public class CizinecRodneCisloType

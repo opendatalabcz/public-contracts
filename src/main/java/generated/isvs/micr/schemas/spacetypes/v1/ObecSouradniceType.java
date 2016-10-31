@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Souøadnice definièního bodu obce jsou èíselný prostorový identifikátor prvku prostorové identifikace „obec“. Souøadnice definièního bodu obce je datový prvek, který se skládá z „Y – souøadnice definièního bodu obce“ a „X – souøadnice definièního bodu obce“.
- * Souøadnice definièního bodu obce jsou urèeny v rámci Uzemnì identifikaèního registru základních sídelních jednotek, provozovaného v garanci Ceského statistického úøadu. Jsou urèeny v metrech v souøadnicovém systému S-JTSK (systém Jednotné trigonometrické sítì katastrální).
- * Souøadnice definièního bodu obce jsou jedineèné v rámci Ceské republiky.
- * 
- * <p>Java class for ObecSouradniceType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecSouradniceType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecSouradniceType")
 public class ObecSouradniceType

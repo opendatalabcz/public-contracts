@@ -20,31 +20,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 
 
-/**
- * Adresa stavebního objektu používaná pro hromadný pøenos dat jako pøedávací adresa na stavební objekt vyjádøená prostorovou identifikací stavebního objektu v rámci celé Ceské republiky pro hromadný pøenos dat.
- * 
- * 
- * <p>Java class for ObjektAdresaPredavaciStructure complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObjektAdresaPredavaciStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:SpaceTypes:v1}CastObcePredavaciKod"/>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:SpaceTypes:v1}ObjektCisloDomovni"/>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}Rozsireni" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObjektAdresaPredavaciStructure", propOrder = {
     "castObcePredavaciKod",
@@ -64,98 +40,42 @@ public class ObjektAdresaPredavaciStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the castObcePredavaciKod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CastObcePredavaciKodType }
-     *     
-     */
+
     public CastObcePredavaciKodType getCastObcePredavaciKod() {
         return castObcePredavaciKod;
     }
 
-    /**
-     * Sets the value of the castObcePredavaciKod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CastObcePredavaciKodType }
-     *     
-     */
+
     public void setCastObcePredavaciKod(CastObcePredavaciKodType value) {
         this.castObcePredavaciKod = value;
     }
 
-    /**
-     * Gets the value of the objektCisloDomovni property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ObjektCisloDomovniStructure }
-     *     
-     */
+
     public ObjektCisloDomovniStructure getObjektCisloDomovni() {
         return objektCisloDomovni;
     }
 
-    /**
-     * Sets the value of the objektCisloDomovni property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ObjektCisloDomovniStructure }
-     *     
-     */
+
     public void setObjektCisloDomovni(ObjektCisloDomovniStructure value) {
         this.objektCisloDomovni = value;
     }
 
-    /**
-     * Gets the value of the rozsireni property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RozsireniStructure }
-     *     
-     */
+
     public RozsireniStructure getRozsireni() {
         return rozsireni;
     }
 
-    /**
-     * Sets the value of the rozsireni property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RozsireniStructure }
-     *     
-     */
+
     public void setRozsireni(RozsireniStructure value) {
         this.rozsireni = value;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

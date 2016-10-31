@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlValue;
 import generated.isvs.micr.schemas.persontypes.v.al0097.v1.OsobaBezuhonnostContentType;
 
 
-/**
- * Slovní vyjádøení, zda obyvatel byl pravomocnì odsouzen a uložený trest nebyl dosud zahlazen nebo zda bylo rozhodnuto o podmíneèném zastavení trestního øízení.
- * 
- * <p>Java class for OsobaBezuhonnostType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaBezuhonnostType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0097:v1>OsobaBezuhonnostContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaBezuhonnostType", propOrder = {
     "value"
@@ -42,26 +25,12 @@ public class OsobaBezuhonnostType {
     @XmlValue
     protected OsobaBezuhonnostContentType value;
 
-    /**
-     * Slovní vyjádøení, zda obyvatel byl pravomocnì odsouzen a uložený trest nebyl dosud zahlazen nebo zda bylo rozhodnuto o podmíneèném zastavení trestního øízení.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaBezuhonnostContentType }
-     *     
-     */
+
     public OsobaBezuhonnostContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaBezuhonnostContentType }
-     *     
-     */
+
     public void setValue(OsobaBezuhonnostContentType value) {
         this.value = value;
     }

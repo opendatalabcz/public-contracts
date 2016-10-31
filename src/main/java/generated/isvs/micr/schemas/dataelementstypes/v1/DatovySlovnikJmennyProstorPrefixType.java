@@ -8,31 +8,13 @@
 
 package generated.isvs.micr.schemas.dataelementstypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
-
-/**
- * Prefix jmenného prostoru. Tvoøí dvojici s  jmenným prostorem. Dvojic jmenný prostor – prefix mùže být libovolný poèet.
- * 
- * <p>Java class for DatovySlovnikJmennyProstorPrefixType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DatovySlovnikJmennyProstorPrefixType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DatovySlovnikJmennyProstorPrefixType")
 public class DatovySlovnikJmennyProstorPrefixType

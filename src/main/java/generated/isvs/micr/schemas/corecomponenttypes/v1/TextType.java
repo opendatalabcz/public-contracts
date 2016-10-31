@@ -119,7 +119,7 @@ import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.PoznamkaType;
 
 
 /**
- * Znakový øetìzec, obecnì ve formátu volného textu i více slov; volitelnì spolu s doplòkovou informací o jazyku
+ * Znakovy retezec, obecne ve formatu volneho textu i vice slov; volitelne spolu s doplnkovou informaci o jazyku
  * <p/>
  * <p>Java class for TextType complex type.
  * <p/>

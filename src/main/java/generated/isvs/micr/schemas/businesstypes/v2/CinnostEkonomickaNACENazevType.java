@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.NazevType;
 
 
-/**
- * Název èinnosti provádìné právnickými nebo fyzickými osobami podle klasifikace CZ-NACE.
- * 
- * <p>Java class for CinnostEkonomickaNACENazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="CinnostEkonomickaNACENazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>NazevType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CinnostEkonomickaNACENazevType")
 public class CinnostEkonomickaNACENazevType

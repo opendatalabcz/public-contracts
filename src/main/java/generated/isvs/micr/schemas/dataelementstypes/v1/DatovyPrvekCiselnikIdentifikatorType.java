@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Jednoznaèný identifikátor èíselníku v rámci ISVS
+ * Jednoznacny identifikator ciselniku v ramci ISVS
  * 
  * <p>Java class for DatovyPrvekCiselnikIdentifikatorType complex type.
  * 

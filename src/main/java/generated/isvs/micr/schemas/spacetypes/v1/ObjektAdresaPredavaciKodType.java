@@ -8,31 +8,12 @@
 
 package generated.isvs.micr.schemas.spacetypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
-
-/**
- * Pøedávací kód adresy stavebního objektu je jednoznaèné èíselné vyjádøení konkrétních hodnot (výskytù) adresy stavebního objektu.
- * Pøedávací kód adresy stavebního objektu je jedineèný v rámci CR.
- * 
- * <p>Java class for ObjektAdresaPredavaciKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObjektAdresaPredavaciKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObjektAdresaPredavaciKodType")
 public class ObjektAdresaPredavaciKodType

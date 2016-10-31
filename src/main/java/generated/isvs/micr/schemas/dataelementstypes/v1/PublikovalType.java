@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Právnická nebo fyzická osoba, odpovìdná za publikaci objektu standardizace.
+ * Pravnicka nebo fyzicka osoba, odpovedna za publikaci objektu standardizace.
  * 
  * <p>Java class for PublikovalType complex type.
  * 

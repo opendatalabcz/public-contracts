@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Binární objekt, ve kterém je zakódována schopnost vytvoøit video.
+ * Binarni objekt, ve kterem je zakodovana schopnost vytvorit video.
  * <p/>
  * <p>Java class for VideoType complex type.
  * <p/>

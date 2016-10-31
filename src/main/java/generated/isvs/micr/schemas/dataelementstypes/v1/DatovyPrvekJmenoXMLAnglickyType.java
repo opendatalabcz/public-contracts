@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Anglická mutace jména, pod kterým se vyskytuje daný datový prvek v instancích XML dokumentù.
+ * Anglicka mutace jmena, pod kterym se vyskytuje dany datovy prvek v instancich XML dokumentu.
  * 
  * <p>Java class for DatovyPrvekJmenoXMLAnglickyType complex type.
  * 

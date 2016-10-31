@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 /**
  * 
- * 				Hlavní pøedmìt èinnosti zadavatele
+ * 				Hlavni predmet cinnosti zadavatele
  * 			
  * 
  * <p>Java class for HlavniPredmetCinnostiZadavateleType complex type.

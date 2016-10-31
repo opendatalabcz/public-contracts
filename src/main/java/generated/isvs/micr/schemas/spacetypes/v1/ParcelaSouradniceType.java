@@ -14,29 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Souøadnice definièního bodu parcely jsou èíselný prostorový identifikátor prvku prostorové identifikace „parcela“. Souøadnice definièního bodu parcely je datový prvek, který se skládá z
- * „Y – souøadnice definièního bodu parcely“ a „X – souøadnice definièního bodu parcely“.
- * Souøadnice definièního bodu parcely jsou urèeny v rámci Katastru nemovitostí CR, vedeného Ceským úøadem zemìmìøickým a katastrálním. Jejich hodnoty nejsou dostupné za celé území CR, jsou doplòovány postupnì.
- * Pro potøeby prostorové identifikace se používají v metrech. Jsou urèeny v souøadnicovém systému S-JTSK (systém Jednotné trigonometrické sítì katastrální).
- * Souøadnice definièního bodu parcely jsou jedineèné v rámci Ceské republiky.
- * Souøadnice definièního bodu stavební parcely mohou být využity též jako souøadnice definièního bodu stavebního objektu, pokud stavební objekt na takové parcele stojí.
- * 
- * <p>Java class for ParcelaSouradniceType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ParcelaSouradniceType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ParcelaSouradniceType")
 public class ParcelaSouradniceType

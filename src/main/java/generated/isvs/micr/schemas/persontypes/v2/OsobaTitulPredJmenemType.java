@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Datový prvek pro zkrácené oznaèení titulù, akademických titulù, akademicko-vìdeckých titulù, èestných hodností, pøíp. døíve získaná stavovská oznaèení a ostatní tituly absolventù vysokých škol u jména obèana nebo cizince. Datový prvek mùže být øetìzec velkých nebo malých písmen, teèek, popø. èíslic.
- * 
- * <p>Java class for OsobaTitulPredJmenemType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaTitulPredJmenemType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaTitulPredJmenemType")
 public class OsobaTitulPredJmenemType

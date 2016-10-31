@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.DatumCasType;
 
 
 /**
- * Datum ukonèení platnosti položky èíselníku jednoduchého datového prvku.
+ * Datum ukonceni platnosti polozky ciselniku jednoducheho datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekCiselnikPolozkaPlatnostDODatumType complex type.
  * 

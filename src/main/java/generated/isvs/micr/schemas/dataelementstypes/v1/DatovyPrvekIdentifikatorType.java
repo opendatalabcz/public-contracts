@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Jazykovì nezávislý jednoznaèný identifikátor datového prvku v rámci ISVS, pøidìlovaný MI CR.
+ * Jazykove nezavisly jednoznacny identifikator datoveho prvku v ramci ISVS, pridelovany MI CR.
  * 
  * <p>Java class for DatovyPrvekIdentifikatorType complex type.
  * 

@@ -8,15 +8,15 @@
 
 package generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
-
 
 /**
- * Obecný datový typ pro kód CPV
+ * Obecny datovy typ pro kod CPV
  * <p/>
  * <p>Java class for PredmetKodType complex type.
  * <p/>

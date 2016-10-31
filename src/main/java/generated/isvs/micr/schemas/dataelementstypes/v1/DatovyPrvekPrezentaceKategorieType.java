@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Druh symbolù, znakù nebo jiného oznaèení užívaného k prezentaci datového prvku.
+ * Druh symbolu, znaku nebo jineho oznaceni uzivaneho k prezentaci datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekPrezentaceKategorieType complex type.
  * 

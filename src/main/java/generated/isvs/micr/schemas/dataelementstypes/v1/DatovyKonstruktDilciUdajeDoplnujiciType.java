@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Udaje, které urèují význam dílèího konstruktu složeného datového prvku ve složeném datovém prvku.
+ * Udaje, ktere urcuji vyznam dilciho konstruktu slozeneho datoveho prvku ve slozenem datovem prvku.
  * 
  * <p>Java class for DatovyKonstruktDilciUdajeDoplnujiciType complex type.
  * 

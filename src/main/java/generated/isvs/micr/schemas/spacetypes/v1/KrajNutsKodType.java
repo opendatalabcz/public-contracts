@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód NUTS kraje je èíselný prostorový identifikátor prvku prostorové identifikace „kraj“. Kód NUTS kraje je urèen po vzniku oblasti èíselníkem.
- * Kód NUTS kraje je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for KrajNutsKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="KrajNutsKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "KrajNutsKodType")
 public class KrajNutsKodType

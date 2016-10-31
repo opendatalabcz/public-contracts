@@ -22,4 +22,11 @@ public class CompanyDto {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "CompanyDto{" +
+                "ico='" + ico + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

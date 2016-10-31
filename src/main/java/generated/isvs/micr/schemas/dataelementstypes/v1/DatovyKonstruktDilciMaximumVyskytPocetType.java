@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Udaj, kolikrát se mùže daný dílèí datový prvek složeného datového prvku vyskytnout v rámci složeného datového prvku.
+ * Udaj, kolikrat se muze dany dilci datovy prvek slozeneho datoveho prvku vyskytnout v ramci slozeneho datoveho prvku.
  * 
  * <p>Java class for DatovyKonstruktDilciMaximumVyskytPocetType complex type.
  * 

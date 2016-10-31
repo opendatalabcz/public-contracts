@@ -8,70 +8,15 @@
 
 package generated.isvs.micr.schemas.dataelementstypes.v1;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Struktura, popisující èíselník jednoduchého datového prvku.
- * 
- * <p>Java class for DatovyPrvekCiselnikStructure complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DatovyPrvekCiselnikStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Identifikator" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikIdentifikatorType" minOccurs="0"/>
- *         &lt;element name="IdentifikatoryExterniSeznam" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="IdentifikatorExterni" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikIdentifikatorExterniType" maxOccurs="unbounded"/>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="Spravce" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikSpravceType"/>
- *         &lt;element name="Nazev" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikNazevType"/>
- *         &lt;element name="DruhKod" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikDruhKodType"/>
- *         &lt;element name="DokumentaceAdresa" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikDokumentaceAdresaType" minOccurs="0"/>
- *         &lt;element name="Adresa" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikAdresaType" minOccurs="0"/>
- *         &lt;element name="PolozkySeznam" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="Polozka" type="{urn:cz:isvs:micr:schemas:DataElementsTypes:v1}DatovyPrvekCiselnikPolozkaStructure" maxOccurs="unbounded"/>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}Rozsireni" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DatovyPrvekCiselnikStructure", propOrder = {
     "identifikator",

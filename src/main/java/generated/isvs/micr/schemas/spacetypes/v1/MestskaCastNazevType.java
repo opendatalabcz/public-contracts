@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název mìstské èásti resp. mìstského obvodu je slovní prostorový identifikátor prvku prostorové identifikace „mìstská èást resp. mìstský obvod“. Název mìstské èásti resp. mìstského obvodu je urèen pøi vzniku mìstské èásti resp. mìstského obvodu. Souèástí názvu je název pøíslušného mìsta, který je uvádìn vždy na zaèátku.
- * Název mìstské èásti resp. mìstského obvodu je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for MestskaCastNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="MestskaCastNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MestskaCastNazevType")
 public class MestskaCastNazevType

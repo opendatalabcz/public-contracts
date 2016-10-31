@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 /**
  * 
- * 				Zpùsob zahájení veøejné zakázky
+ * 				Zpusob zahajeni verejne zakazky
  * 			
  * 
  * <p>Java class for ZpusobZahajeniVzType complex type.

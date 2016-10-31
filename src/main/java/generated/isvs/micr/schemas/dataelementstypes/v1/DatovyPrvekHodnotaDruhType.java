@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Množina rùzných hodnot pro prezentaci hodnoty datového prvku.
+ * Mnozina ruznych hodnot pro prezentaci hodnoty datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekHodnotaDruhType complex type.
  * 

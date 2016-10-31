@@ -37,4 +37,13 @@ public class SourceInfoDto {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return "SourceInfoDto{" +
+                "ico='" + ico + '\'' +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

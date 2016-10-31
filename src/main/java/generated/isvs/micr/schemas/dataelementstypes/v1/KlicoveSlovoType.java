@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Klíèové slovo, sloužící k dokumentaci objektu standardizace.
+ * Klicove slovo, slouzici k dokumentaci objektu standardizace.
  * 
  * <p>Java class for KlicoveSlovoType complex type.
  * 

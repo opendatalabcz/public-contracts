@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Odkaz na pøedpis, který není právním pøedpisem, související s konkrétním datovým prvkem a ovlivòuje definování atributù prvku a/nebo hodnoty, kterých prvek nabývá.
+ * Odkaz na predpis, ktery neni pravnim predpisem, souvisejici s konkretnim datovym prvkem a ovlivnuje definovani atributu prvku a/nebo hodnoty, kterych prvek nabyva.
  * 
  * <p>Java class for DatovyPrvekPredpisJinyType complex type.
  * 

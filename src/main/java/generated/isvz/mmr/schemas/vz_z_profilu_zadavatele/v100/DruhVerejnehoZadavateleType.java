@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 /**
  * 
- * 				Druh veøejného zadavatele
+ * 				Druh verejneho zadavatele
  * 			
  * 
  * <p>Java class for DruhVerejnehoZadavateleType complex type.

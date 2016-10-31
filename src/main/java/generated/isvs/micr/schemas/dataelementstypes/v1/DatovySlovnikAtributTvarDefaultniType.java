@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Hodnota atributu attributeFormDefault schématu.
+ * Hodnota atributu attributeFormDefault schematu.
  *
  * <p>Java class for DatovySlovnikAtributTvarDefaultniType complex type.
  * 

@@ -15,26 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Vlastnický podíl urèuje, jakou èást vlastnictví obchodní spoleènosti nebo nemovitosti má daný spoluvlastník, tj. jaký je jeho majetkový podíl nebo obchodní podíl. Vlastnický podíl je vyjádøen jako:
- * a) zlomek dvou celých nejvýše ètyømístných nesoudìlných èísel, mezi nimiž se zapisuje znak lomítka (napø. 3/7, 1/1)
- * b) devítimístným èíslem, kde první ètyøi místa je èitatel zlomku a posledních pìt míst je jmenovatel zlomku.
- * 
- * <p>Java class for SubjektVlastnikPodilType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SubjektVlastnikPodilType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SubjektVlastnikPodilType")
 public class SubjektVlastnikPodilType

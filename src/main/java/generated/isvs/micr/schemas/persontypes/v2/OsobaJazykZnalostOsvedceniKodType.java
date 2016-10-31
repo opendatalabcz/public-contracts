@@ -16,24 +16,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Kód druhu zkoušky znalosti jazyka. Složení zkoušky se prokazuje vysvìdèením nebo jiným certifikátem vydaným pøíslušnou školou nebo institucí.
- * 
- * <p>Java class for OsobaJazykZnalostOsvedceniKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaJazykZnalostOsvedceniKodType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:c:AL0084:v1>OsobaJazykZnalostOsvedceniKodContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaJazykZnalostOsvedceniKodType", propOrder = {
     "value"
@@ -44,26 +27,12 @@ public class OsobaJazykZnalostOsvedceniKodType {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String value;
 
-    /**
-     * Kód druhu zkoušky znalosti jazyka. Složení zkoušky se prokazuje vysvìdèením nebo jiným certifikátem vydaným pøíslušnou školou nebo institucí.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setValue(String value) {
         this.value = value;
     }

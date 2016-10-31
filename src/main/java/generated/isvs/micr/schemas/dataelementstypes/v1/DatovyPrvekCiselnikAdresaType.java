@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * URL adresa pro pøímé stažení èíselníku pro daný konkrétní DP.
+ * URL adresa pro prime stazeni ciselniku pro dany konkretni DP.
  * 
  * <p>Java class for DatovyPrvekCiselnikAdresaType complex type.
  * 

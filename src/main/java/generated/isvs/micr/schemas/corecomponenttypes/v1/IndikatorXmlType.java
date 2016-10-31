@@ -23,7 +23,7 @@ import javax.xml.namespace.QName;
 
 
 /**
- * Seznam dvou logických hodnot, vycházející z datového typu "Boolean" XML Schema. Nabývá pouze hodnot "true" nebo "false".
+ * Seznam dvou logickych hodnot, vychazejici z datoveho typu "Boolean" XML Schema. Nabyva pouze hodnot "true" nebo "false".
  * <p/>
  * <p>Java class for IndikatorXmlType complex type.
  * <p/>

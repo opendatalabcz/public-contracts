@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Klasifikace postavení v zamìstnání (CZ-ICSE) klasifikuje:
- *  1. ekonomicky aktivní osoby podle jejich skuteèných a potenciálních vztahù k pracovním místùm a to podle urèitých pravidel (uvedených v klasifikaci),
- *  2. obsazená pracovní místa v urèitém èasovém období s ohledem na smlouvy o zamìstnání osoby s jinými osobami nebo organizacemi.
- * 
- * <p>Java class for OsobaZamestnaniPostaveniKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaZamestnaniPostaveniKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaZamestnaniPostaveniKodType")
 public class OsobaZamestnaniPostaveniKodType

@@ -16,24 +16,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Kód vztahu státního obèana Ceské republiky k branné povinnosti.
- *
- * <p>Java class for OsobaBrannaPovinnostKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaBrannaPovinnostKodType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:c:AL0012:v1>OsobaBrannaPovinnostKodContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaBrannaPovinnostKodType", propOrder = {
     "value"
@@ -44,26 +27,12 @@ public class OsobaBrannaPovinnostKodType {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String value;
 
-    /**
-     * Kód vztahu státního obèana Ceské republiky k branné povinnosti.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setValue(String value) {
         this.value = value;
     }

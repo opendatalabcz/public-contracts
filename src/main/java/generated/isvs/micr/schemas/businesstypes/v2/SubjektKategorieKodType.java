@@ -15,25 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Datový prvek pro oznaèení kategorie zamìstnavatele podle evidenèního poètu zamìstnancù.
- * Pozn.: zpravodajská jednotka uvede poèet zamìstnancù a Ceský statistický úøad provede zaøazení do kategorie podle poètu zamìstnancù.
- * 
- * <p>Java class for SubjektKategorieKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SubjektKategorieKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SubjektKategorieKodType")
 public class SubjektKategorieKodType

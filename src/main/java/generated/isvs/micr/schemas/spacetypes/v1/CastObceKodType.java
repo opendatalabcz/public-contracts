@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód èásti obce je èíselný prostorový identifikátor prvku prostorové identifikace „èást obce“. Kód èásti obce je urèován po vzniku èásti obce èíselníkem v rámci Uzemnì identifikaèního registru základních sídelních jednotek, provozovaného v garanci
- * Ceského statistického úøadu
- * Kód èásti obce je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for CastObceKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="CastObceKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CastObceKodType")
 public class CastObceKodType

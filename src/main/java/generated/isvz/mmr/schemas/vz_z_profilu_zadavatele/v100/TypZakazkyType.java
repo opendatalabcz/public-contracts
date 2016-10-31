@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 /**
  * 
- * 				Typ zakázky - uvádí se, pokud se nejedná o minitendry a nákupy v DNS:
+ * 				Typ zakazky - uvadi se, pokud se nejedna o minitendry a nakupy v DNS:
  * 			
  * 
  * <p>Java class for TypZakazkyType complex type.

@@ -4,6 +4,8 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <import resource="database.xml"/>
+
     <context:component-scan base-package="db, service" />
 
     <context:property-placeholder location="classpath*:public-contract.properties"
@@ -37,6 +39,9 @@
         <property name="user" value="${db.target.user}"/>
         <property name="pass" value="${db.target.pass}"/>
     </bean>
+    <bean class="hibernate.HibernateCriteriaCreator"/>
+    <bean class="service.impl.DatabaseReadServiceImpl"/>
+    <bean class="service.impl.ARESServiceImpl"/>
     <bean class="service.impl.DatabaseServiceImpl"/>
     <bean class="service.impl.ISVZServiceImpl"/>
     <bean class="service.impl.ISVZCrawlerServiceImpl">

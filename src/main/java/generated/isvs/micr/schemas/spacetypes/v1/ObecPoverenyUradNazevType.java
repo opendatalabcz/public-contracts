@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název správního obvodu obce s povìøeným obecním úøadem je slovní prostorový identifikátor prvku prostorové identifikace „správní obvod obce s povìøeným obecním úøadem“. 
- * Název správního obvodu obce s povìøeným obecním úøadem je urèen pøi vzniku správního obvodu obce s povìøeným obecním úøadem zákonem. Mùže být zmìnìn zákonem
- * Název správního obvodu obce s povìøeným obecním úøadem je jedineèný v rámci kraje
- * 
- * <p>Java class for ObecPoverenyUradNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecPoverenyUradNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecPoverenyUradNazevType")
 public class ObecPoverenyUradNazevType

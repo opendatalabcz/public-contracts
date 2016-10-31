@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Jméno datového prvku èi typu, ze kterého byl odvozen daný konkrétní DP.
+ * Jmeno datoveho prvku ci typu, ze ktereho byl odvozen dany konkretni DP.
  * 
  * <p>Java class for DatovyPrvekRodicovskyTypXMLType complex type.
  * 

@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Jméno fyzického souboru schématu.
+ * Jmeno fyzickeho souboru schematu.
  * 
  * <p>Java class for DatovySlovnikSchemaSouborType complex type.
  * 

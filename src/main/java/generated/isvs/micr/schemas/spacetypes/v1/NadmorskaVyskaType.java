@@ -15,22 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.MereniType;
 
 
-/**
- * Datový prvek vyjadøující vzdálenost bodu zemského povrchu od kvazigeoidu mìøenou podél tížnice normálního tíhového pole. Výšky ve výškovém systému baltském – po vyrovnání (Bpv) – jsou vztaženy k nule moøského vodoètu v Kronštadtu a jejich výsledné hodnoty jsou ovlivnìny pøenosem výšek od výchozího bodu, realizovaným soubornì vyrovnanou mezinárodní nivelaèní sítí. Nadmoøská výška se udává v metrech.
- * <p/>
- * <p>Java class for NadmorskaVyskaType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="NadmorskaVyskaType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>MereniType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "NadmorskaVyskaType")
 public class NadmorskaVyskaType

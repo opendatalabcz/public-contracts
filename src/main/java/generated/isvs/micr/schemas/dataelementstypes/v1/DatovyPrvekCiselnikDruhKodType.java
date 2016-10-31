@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * Typ èíselníku pro daný konkrétní DP. Typ mùže být interní (èíselník je veden a spravován v IS DP) nebo externí (èíselník je veden externì mimo IS DP)
+ * Typ ciselniku pro dany konkretni DP. Typ muze byt interni (ciselnik je veden a spravovan v IS DP) nebo externi (ciselnik je veden externe mimo IS DP)
  * 
  * <p>Java class for DatovyPrvekCiselnikDruhKodType complex type.
  * 
@@ -45,7 +45,7 @@ public class DatovyPrvekCiselnikDruhKodType {
     protected String value;
 
     /**
-     * Typ èíselníku pro daný konkrétní DP. Typ mùže být interní (èíselník je veden a spravován v IS DP) nebo externí (èíselník je veden externì mimo IS DP)
+     * Typ ciselniku pro dany konkretni DP. Typ muze byt interni (ciselnik je veden a spravovan v IS DP) nebo externi (ciselnik je veden externe mimo IS DP)
      * 
      * @return
      *     possible object is

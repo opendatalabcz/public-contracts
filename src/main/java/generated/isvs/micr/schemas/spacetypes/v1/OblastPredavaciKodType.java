@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Pøedávací kód oblasti je èíselný prostorový identifikátor prvku prostorové identifikace „oblast“. Pøedávací kód oblasti je urèen po vzniku oblasti èíselníkem.
- * Pøedávací kód oblasti je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for OblastPredavaciKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OblastPredavaciKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OblastPredavaciKodType")
 public class OblastPredavaciKodType

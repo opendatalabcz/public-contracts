@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Zkrácený název obvodu POU je slovní prostorový identifikátor prvku  prostorové identifikace „Správní obvod obce s povìøeným obecním úøadem“.  Prvek  prostorové identifikace „Správní obvod obce s povìøeným obecním úøadem“ je stanoven zákonem 314/2002 Sb.Zkrácený název obvodu POU je urèen èíselníkem.Zkrácený název obvodu POU je jedineèný v rámci kraje.
- * 
- * <p>Java class for ObecPoverenyUradNazevZkracenyType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecPoverenyUradNazevZkracenyType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecPoverenyUradNazevZkracenyType")
 public class ObecPoverenyUradNazevZkracenyType

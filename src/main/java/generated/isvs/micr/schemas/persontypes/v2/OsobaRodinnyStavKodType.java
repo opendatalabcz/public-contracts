@@ -16,23 +16,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Rodinný stav osoby vyjadøuje, zda tato osoba je svobodná, ženatá, rozvedená, ovdovìlá, druh.
- * Podkladem jsou výpisy z matriky, rozsudek, kterým se rozvádí manželství, úmrtní list, rozsudek soudu o prohlášení za mrtvého a rozsudek soudu o prohlášení manželství za neplatné.
- * <p/>
- * <p>Java class for OsobaRodinnyStavKodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="OsobaRodinnyStavKodType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:c:AL0038:v1>OsobaRodinnyStavKodContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaRodinnyStavKodType", propOrder = {
         "value"
@@ -43,23 +27,12 @@ public class OsobaRodinnyStavKodType {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String value;
 
-    /**
-     * Rodinný stav osoby vyjadøuje, zda tato osoba je svobodná, ženatá, rozvedená, ovdovìlá, druh.
-     * Podkladem jsou výpisy z matriky, rozsudek, kterým se rozvádí manželství, úmrtní list, rozsudek soudu o prohlášení za mrtvého a rozsudek soudu o prohlášení manželství za neplatné.
-     *
-     * @return possible object is
-     * {@link String }
-     */
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     *
-     * @param value allowed object is
-     *              {@link String }
-     */
+
     public void setValue(String value) {
         this.value = value;
     }

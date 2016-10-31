@@ -8,32 +8,7 @@
 
 package generated.isvs.micr.schemas.corecomponenttypes.v1;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.namespace.QName;
-
-import generated.isvs.micr.schemas.businesstypes.v2.EkonomickaCinnostKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.EkonomickaCinnostNACEKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.FinancniUradKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.InstitucionalniSektorKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.NeziskovaInstituceSluzbaKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.OrganizacePlatceDPHIndikatorType;
-import generated.isvs.micr.schemas.businesstypes.v2.ProdukceCPAKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.ProdukceKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.SubjektKategorieKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.SubjektPravniFormaKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.SubjektUradRegistraceKodType;
-import generated.isvs.micr.schemas.businesstypes.v2.VladniInstituceFunkceKodType;
+import generated.isvs.micr.schemas.businesstypes.v2.*;
 import generated.isvs.micr.schemas.commontypes.v1.BankaKodType;
 import generated.isvs.micr.schemas.commontypes.v1.JedinecnyIdentifikatorType;
 import generated.isvs.micr.schemas.commontypes.v1.MenaKodType;
@@ -41,60 +16,20 @@ import generated.isvs.micr.schemas.commontypes.v1.MernaJednotkaKodType;
 import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekCiselnikPolozkaKodType;
 import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekSkupinaKodType;
 import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekVerzeType;
-import generated.isvs.micr.schemas.persontypes.v2.OsobaDiagnozaKodType;
-import generated.isvs.micr.schemas.persontypes.v2.OsobaSpotrebaKodType;
-import generated.isvs.micr.schemas.persontypes.v2.OsobaZamestnaniKodType;
-import generated.isvs.micr.schemas.persontypes.v2.OsobaZamestnaniPostaveniKodType;
-import generated.isvs.micr.schemas.persontypes.v2.PracovniPomerDruhKodType;
-import generated.isvs.micr.schemas.persontypes.v2.VzdelaniJednoduchyKodType;
-import generated.isvs.micr.schemas.persontypes.v2.VzdelaniKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.CastObceKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.CastObcePredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.KatastrKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.KrajPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.MestskaCastKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.MestskaCastPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecPoverenyUradKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecPoverenyUradNazevZkracenyType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecPoverenyUradStatistickyKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecRozsirenaPusobnostKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecRozsirenaPusobnostNazevZkracenyType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObecRozsirenaPusobnostStatistickyKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObjektAdresaPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObjektPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.OblastNutsKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.OblastPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObvodPrahaPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObvodPrahaStatistickyNutsKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.OkresKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.OkresNutsKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.PSCType;
-import generated.isvs.micr.schemas.spacetypes.v1.PozemekBonitaKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.SpravniObvodPrahaPredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.StatKodOmezenyType;
-import generated.isvs.micr.schemas.spacetypes.v1.StatKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.UlicePredavaciKodType;
-import generated.isvs.micr.schemas.spacetypes.v1.ZakladniSidelniJednotkaKodType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.DruhVerejnehoZadavateleType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.DruhZadavacihoRizeniType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.DuvodVyrazeniUchazeceType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.HlavniPredmetCinnostiZadavateleType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.PredmetKodType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.PredmetZakazkyType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.StavCastiVzType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.StavVZType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.TypDokumentuType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.TypZadavateleType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.TypZakazkyType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ZdrojFinacovaniVzType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ZpusobHodnoceniType;
-import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ZpusobZahajeniVzType;
+import generated.isvs.micr.schemas.persontypes.v2.*;
+import generated.isvs.micr.schemas.spacetypes.v1.*;
+import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.*;
+
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import javax.xml.namespace.QName;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
- * Znakový øetìzec (písmena, èíslice nebo symboly) které mohou z dùvodù jasnosti a jazykové nezávislosti nahradit definitivní hodnotu nebo text; volitelnì spolu s doplòkovými informacemi o údaji
+ * Znakovy retezec (pismena, cislice nebo symboly) ktere mohou z duvodu jasnosti a jazykove nezavislosti nahradit definitivni hodnotu nebo text; volitelne spolu s doplnkovymi informacemi o udaji
  * <p/>
  * <p>Java class for KodType complex type.
  * <p/>

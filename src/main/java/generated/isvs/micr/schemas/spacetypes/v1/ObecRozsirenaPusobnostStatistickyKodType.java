@@ -15,22 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód  ORP Ceského statistického úøadu je èíselný prostorový identifikátor prvku  prostorové identifikace „Správní obvod obce s rozšíøenou pùsobností“.  Prvek  prostorové identifikace „Správní obvod obce s rozšíøenou pùsobností“ je stanoven zákonem 314/2002 Sb.Kód  ORP Ceského statistického úøadu je roven údaji kód ORP èíselníku CISORP  ze Sdìlení CSU è. 471/2002 Sb.Kód  ORP Ceského statistického úøadu je urèen po vzniku správního obvodu obce s rozšíøenou pùsobností èíselníkem.Kód  ORP Ceského statistického úøadu je jedineèný v rámci Ceské republiky.
- * <p/>
- * <p>Java class for ObecRozsirenaPusobnostStatistickyKodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="ObecRozsirenaPusobnostStatistickyKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecRozsirenaPusobnostStatistickyKodType")
 public class ObecRozsirenaPusobnostStatistickyKodType

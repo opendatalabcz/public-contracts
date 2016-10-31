@@ -20,7 +20,7 @@ import generated.isvs.micr.schemas.commontypes.v1.SmlouvaNazevType;
 
 
 /**
- * Slovo nebo slovní spojení, které jasnì a výraznì odlišuje objekt (napø. osobu, místo, ekonomický subjekt) od ostatních podobných objektù.
+ * Slovo nebo slovni spojeni, ktere jasne a vyrazne odlisuje objekt (napr. osobu, misto, ekonomicky subjekt) od ostatnich podobnych objektu.
  * 
  * <p>Java class for NazevType complex type.
  * 

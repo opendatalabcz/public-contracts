@@ -8,25 +8,18 @@
 
 package generated.isvs.micr.schemas.corecomponenttypes.v1;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
+import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekSlozenyModelType;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.namespace.QName;
-
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekSlozenyModelType;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
- * Binární data kódovaná ve formátu base64 ; volitelnì spolu s doplòkovou informací o formátu pùvodních dat
+ * Binarni data kodovana ve formatu base64 ; volitelne spolu s doplnkovou informaci o formatu puvodnich dat
  *
  * <p>Java class for BinarniDataType complex type.
  * 

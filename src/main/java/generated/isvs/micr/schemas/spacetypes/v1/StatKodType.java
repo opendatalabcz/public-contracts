@@ -14,29 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Datový prvek pro kódové oznaèení státu.
- * Pozn.: Kód mùže být v jednom z následujících tvarù
- * tøímístný èíslicový
- * tøímístný abecední
- * dvoumístný abecední
- * Kód je ve všech tøech uvedených tvarech jednoznaèný a jednoznaènì pøevoditelný na další dva možné tvary.
- * 
- * <p>Java class for StatKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="StatKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StatKodType")
 public class StatKodType

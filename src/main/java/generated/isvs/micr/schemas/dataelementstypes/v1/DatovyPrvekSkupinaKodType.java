@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
 /**
- * Kód skupiny datových prvkù udává pøíslušnost DP do pøíslušné skupiny datových prvkù s podobnou problematikou. Urèuje zaøazení DP do datového slovníku.
+ * Kod skupiny datovych prvku udava prislusnost DP do prislusne skupiny datovych prvku s podobnou problematikou. Urcuje zarazeni DP do datoveho slovniku.
  * 
  * <p>Java class for DatovyPrvekSkupinaKodType complex type.
  * 

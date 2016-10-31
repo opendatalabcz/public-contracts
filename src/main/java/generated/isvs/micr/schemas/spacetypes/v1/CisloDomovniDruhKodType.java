@@ -16,24 +16,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Kód druhu èísla domovního je èíselný kvalifikátor udávající, zda se jedná o èíslo popisné èi èíslo evidenèní.
- *
- * <p>Java class for CisloDomovniDruhKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="CisloDomovniDruhKodType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:SpaceTypes:c:AL0033:v1>CisloDomovniDruhKodContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CisloDomovniDruhKodType", propOrder = {
     "value"
@@ -44,26 +27,12 @@ public class CisloDomovniDruhKodType {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String value;
 
-    /**
-     * Kód druhu èísla domovního je èíselný kvalifikátor udávající, zda se jedná o èíslo popisné èi èíslo evidenèní.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setValue(String value) {
         this.value = value;
     }

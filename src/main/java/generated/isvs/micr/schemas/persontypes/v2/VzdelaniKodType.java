@@ -15,22 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Datový prvek pro obor a stupeò dosaženého vzdìlání uznávaného v CR. Datový prvek vzdìlání je èíselný kód tohoto oboru a stupnì.
- * <p/>
- * <p>Java class for VzdelaniKodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="VzdelaniKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "VzdelaniKodType")
 public class VzdelaniKodType

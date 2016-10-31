@@ -17,7 +17,7 @@ import generated.isvs.micr.schemas.dataelementstypes.v.yl0007.v1.DatovyPrvekObla
 
 
 /**
- * Název oblasti datových prvkù udává pøíslušnost DP do širší oblasti.
+ * Nazev oblasti datovych prvku udava prislusnost DP do sirsi oblasti.
  * <p/>
  * <p>Java class for DatovyPrvekOblastNazevType complex type.
  * <p/>
@@ -42,7 +42,7 @@ public class DatovyPrvekOblastNazevType {
     protected DatovyPrvekOblastNazevContentType value;
 
     /**
-     * Název oblasti datových prvkù udává pøíslušnost DP do širší oblasti.
+     * Nazev oblasti datovych prvku udava prislusnost DP do sirsi oblasti.
      *
      * @return possible object is
      * {@link DatovyPrvekOblastNazevContentType }

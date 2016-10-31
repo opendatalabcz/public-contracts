@@ -8,31 +8,15 @@
 
 package generated.isvs.micr.schemas.businesstypes.v2;
 
+import generated.isvs.micr.schemas.businesstypes.v.al0086.v1.OpravneniPodnikaniDruhContentType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
-import generated.isvs.micr.schemas.businesstypes.v.al0086.v1.OpravneniPodnikaniDruhContentType;
 
 
-/**
- * Slovní vyjádøení druhu dokladu, kterým ekonomický subjekt potvrzuje své oprávnìní k podnikání.
- * 
- * <p>Java class for OpravneniPodnikaniDruhType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OpravneniPodnikaniDruhType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:BusinessTypes:v:AL0086:v1>OpravneniPodnikaniDruhContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OpravneniPodnikaniDruhType", propOrder = {
     "value"
@@ -42,26 +26,12 @@ public class OpravneniPodnikaniDruhType {
     @XmlValue
     protected OpravneniPodnikaniDruhContentType value;
 
-    /**
-     * Slovní vyjádøení druhu dokladu, kterým ekonomický subjekt potvrzuje své oprávnìní k podnikání.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OpravneniPodnikaniDruhContentType }
-     *     
-     */
+
     public OpravneniPodnikaniDruhContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OpravneniPodnikaniDruhContentType }
-     *     
-     */
+
     public void setValue(OpravneniPodnikaniDruhContentType value) {
         this.value = value;
     }

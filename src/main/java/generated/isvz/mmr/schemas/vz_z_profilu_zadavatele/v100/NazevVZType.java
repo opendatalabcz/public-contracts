@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Název VZ
+ * Nazev VZ
  * 
  * <p>Java class for NazevVZType complex type.
  * 

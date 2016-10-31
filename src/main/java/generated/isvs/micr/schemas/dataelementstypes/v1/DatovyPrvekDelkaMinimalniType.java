@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.PocetType;
 
 
 /**
- * Minimální poèet jednotek (odpovídajícího datového typu), které prezentují hodnotu datového prvku.
+ * Minimalni pocet jednotek (odpovidajiciho datoveho typu), ktere prezentuji hodnotu datoveho prvku.
  *
  * <p>Java class for DatovyPrvekDelkaMinimalniType complex type.
  * 

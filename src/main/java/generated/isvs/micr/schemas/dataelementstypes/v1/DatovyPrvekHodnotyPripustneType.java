@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Množina prezentací pøípustných výskytù datového prvku, která odpovídá formì prezentace, plánu umístìní prvkù do daného formátu, datovému typu a maximální a minimální délce, jak jsou specifikovány v pøíslušných atributech.
+ * Mnozina prezentaci pripustnych vyskytu datoveho prvku, ktera odpovida forme prezentace, planu umisteni prvku do daneho formatu, datovemu typu a maximalni a minimalni delce, jak jsou specifikovany v prislusnych atributech.
  * <p/>
  * <p>Java class for DatovyPrvekHodnotyPripustneType complex type.
  * <p/>

@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlValue;
 import generated.isvs.micr.schemas.persontypes.v.al0089.v1.OsobaInvaliditaDruhContentType;
 
 
-/**
- * Rozlišení invalidity na žádnou, èásteènou a plnou.
- * 
- * <p>Java class for OsobaInvaliditaDruhType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaInvaliditaDruhType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0089:v1>OsobaInvaliditaDruhContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaInvaliditaDruhType", propOrder = {
     "value"
@@ -42,26 +25,12 @@ public class OsobaInvaliditaDruhType {
     @XmlValue
     protected OsobaInvaliditaDruhContentType value;
 
-    /**
-     * Rozlišení invalidity na žádnou, èásteènou a plnou.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaInvaliditaDruhContentType }
-     *     
-     */
+
     public OsobaInvaliditaDruhContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaInvaliditaDruhContentType }
-     *     
-     */
+
     public void setValue(OsobaInvaliditaDruhContentType value) {
         this.value = value;
     }

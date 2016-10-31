@@ -8,16 +8,16 @@
 
 package generated.isvs.micr.schemas.dataelementstypes.v1;
 
+import generated.isvs.micr.schemas.dataelementstypes.c.yl0007.v1.DatovyPrvekOblastKodContentType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
-import generated.isvs.micr.schemas.dataelementstypes.c.yl0007.v1.DatovyPrvekOblastKodContentType;
-
 
 /**
- * Kód oblasti datových prvkù udává pøíslušnost DP do širší oblasti.
+ * Kod oblasti datovych prvku udava prislusnost DP do sirsi oblasti.
  * 
  * <p>Java class for DatovyPrvekOblastKodType complex type.
  * 
@@ -44,7 +44,7 @@ public class DatovyPrvekOblastKodType {
     protected DatovyPrvekOblastKodContentType value;
 
     /**
-     * Kód oblasti datových prvkù udává pøíslušnost DP do širší oblasti.
+     * Kod oblasti datovych prvku udava prislusnost DP do sirsi oblasti.
      * 
      * @return
      *     possible object is

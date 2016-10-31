@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Císlo popisné je èíselný prostorový identifikátor prvku prostorové identifikace „stavební objekt“, pokud jde o stavební objekt urèený k trvalému bydlení nebo o stavební objekt jiného trvalého rázu. Císlo popisné je urèeno rozhodnutím obecního úøadu.
- * Císlo popisné je jedineèné pouze v rámci èásti obce.
- * 
- * <p>Java class for ObjektCisloPopisneType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObjektCisloPopisneType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObjektCisloPopisneType")
 public class ObjektCisloPopisneType

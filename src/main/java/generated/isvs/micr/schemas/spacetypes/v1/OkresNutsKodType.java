@@ -15,23 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód NUTS okresu je èíselný prostorový identifikátor prvku prostorové identifikace „okres“. Kód NUTS okresu je urèen po vzniku okresu èíselníkem.
- * Kód NUTS okresu je jedineèný v rámci Ceské republiky.
- * <p/>
- * <p>Java class for OkresNutsKodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="OkresNutsKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OkresNutsKodType")
 public class OkresNutsKodType

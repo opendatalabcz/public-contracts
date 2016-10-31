@@ -21,7 +21,7 @@ import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 
 
 /**
- * Struktura, popisující položku èíselníku jednoduchého datového prvku.
+ * Struktura, popisujici polozku ciselniku jednoducheho datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekCiselnikPolozkaStructure complex type.
  * 

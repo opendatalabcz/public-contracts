@@ -23,4 +23,12 @@ public class SupplierDto extends CompanyDto {
     public void setSubSupplierDtos(List<SubSupplierDto> subSupplierDtos) {
         this.subSupplierDtos = subSupplierDtos;
     }
+
+    @Override
+    public String toString() {
+        return "SupplierDto{" +
+                "price=" + price +
+                ", subSupplierDtos=" + subSupplierDtos +
+                "} " + super.toString();
+    }
 }

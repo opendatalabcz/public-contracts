@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název správního obvodu obce s rozšíøenou pùsobností je slovní prostorový identifikátor prvku prostorové identifikace „správní obvod obce s rozšíøenou pùsobností“. 
- * Název správního obvodu obce s rozšíøenou pùsobností je urèen pøi vzniku správního obvodu obce s rozšíøenou pùsobností zákonem. Mùže být zmìnìn zákonem
- * Název správního obvodu obce s rozšíøenou pùsobností je jedineèný v rámci kraje.
- * 
- * <p>Java class for ObecRozsirenaPusobnostNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecRozsirenaPusobnostNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecRozsirenaPusobnostNazevType")
 public class ObecRozsirenaPusobnostNazevType

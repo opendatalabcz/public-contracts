@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="classpath*:public-contract.properties"
+                                  ignore-unresolvable="true"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!--Activiti database config   -->
+    <bean id="coopDataSource" primary="true"
+          class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+        <property name="targetDataSource">
+            <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+                <property name="driverClass" value="org.postgresql.Driver"/>
+                <property name="url" value="jdbc:postgresql://${public-contract.db.server}:${public-contract.db.port}/${public-contract.db.database}"/>
+                <property name="username" value="${public-contract.db.user}"/>
+                <property name="password" value="${public-contract.db.pass}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="hibernatePersistence" class="org.hibernate.ejb.HibernatePersistence"/>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="coopDataSource"/>
+        <property name="persistenceProvider" ref="hibernatePersistence"/>
+        <property name="jpaProperties" ref="jpaProperties"/>
+        <property name="packagesToScan" value="model"/>
+    </bean>
+
+
+    <bean id="jpaProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.jdbc.batch_size">50</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

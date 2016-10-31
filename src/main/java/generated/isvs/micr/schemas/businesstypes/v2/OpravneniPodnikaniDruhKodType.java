@@ -16,24 +16,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Kód druhu dokladu, kterým ekonomický subjekt potvrzuje své oprávnìní k podnikání.
- * 
- * <p>Java class for OpravneniPodnikaniDruhKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OpravneniPodnikaniDruhKodType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:BusinessTypes:c:AL0086:v1>OpravneniPodnikaniDruhKodContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OpravneniPodnikaniDruhKodType", propOrder = {
     "value"
@@ -44,26 +27,12 @@ public class OpravneniPodnikaniDruhKodType {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String value;
 
-    /**
-     * Kód druhu dokladu, kterým ekonomický subjekt potvrzuje své oprávnìní k podnikání.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setValue(String value) {
         this.value = value;
     }

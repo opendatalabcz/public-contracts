@@ -19,7 +19,7 @@ import org.w3c.dom.Element;
 
 
 /**
- * Koøenová struktura pro pøedání seznamu VZ z profilu zadavatele
+ * Korenova struktura pro predani seznamu VZ z profilu zadavatele
  * 
  * <p>Java class for ProfilStructure complex type.
  * 

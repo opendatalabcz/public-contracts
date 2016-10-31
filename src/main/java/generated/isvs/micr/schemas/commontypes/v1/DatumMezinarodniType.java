@@ -15,25 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Datum je urèitý den kalendáøního roku, který je oznaèen poøadovým èíslem uvnitø kalendáøního mìsíce tohoto roku.
- * Prezentace data respektuje mezinárodní normy.
- *
- * <p>Java class for DatumMezinarodniType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DatumMezinarodniType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DatumMezinarodniType")
 public class DatumMezinarodniType

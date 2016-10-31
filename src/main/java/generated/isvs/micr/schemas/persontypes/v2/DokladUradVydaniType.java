@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Slovní oznaèení úøadu, který vydal doklad totožnosti, popø. doklad, podle kterého byla totožnost zjištìna, vèetnì údaje o místì vydání. U úøadu cizího státu se uvede také název státu, pøíp. zkrácený název státu.
- * 
- * <p>Java class for DokladUradVydaniType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DokladUradVydaniType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DokladUradVydaniType")
 public class DokladUradVydaniType

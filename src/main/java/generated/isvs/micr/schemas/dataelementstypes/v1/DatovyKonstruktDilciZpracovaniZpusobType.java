@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * U dílèího konstruktu typu "Deklarace XML elementu typu any" mùže být v tomto nepovinném atributu uveden zpùsob zpracování XML elementu, vkládaného v instanci XML dokumentu na místo deklarace any.
+ * U dilciho konstruktu typu "Deklarace XML elementu typu any" muze byt v tomto nepovinnem atributu uveden zpusob zpracovani XML elementu, vkladaneho v instanci XML dokumentu na misto deklarace any.
  * 
  * <p>Java class for DatovyKonstruktDilciZpracovaniZpusobType complex type.
  * 

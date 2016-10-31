@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Umístìní fyzického souboru schématu (URL adresa)
+ * Umisteni fyzickeho souboru schematu (URL adresa)
  * 
  * <p>Java class for DatovySlovnikSchemaAdresaType complex type.
  * 

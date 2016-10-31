@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.PocetType;
 
 
 /**
- * Poèet míst za desetinnou èárkou pro daný DP.
+ * Pocet mist za desetinnou carkou pro dany DP.
  * 
  * <p>Java class for DatovyPrvekDesetinnaCastDelkaType complex type.
  * 

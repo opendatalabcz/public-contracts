@@ -17,7 +17,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 /**
  *
- * 				Zpùsob hodnocení
+ * 				Zpusob hodnoceni
  *
  *
  * <p>Java class for ZpusobHodnoceniType complex type.

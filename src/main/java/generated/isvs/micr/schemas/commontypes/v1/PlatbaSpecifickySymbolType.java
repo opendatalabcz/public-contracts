@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Datový prvek pro èíselný údaj, který plátce (pøíkazce) uvádí v pøípadech, kdy je to nutné k zúètování platby v bance.
- * Struktura specifického symbolu není stanovena. Obsah specifického symbolu urèuje banka, která potøebuje specifický symbol k zúètování platby, popø. Ceská národní banka.
- * 
- * <p>Java class for PlatbaSpecifickySymbolType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="PlatbaSpecifickySymbolType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PlatbaSpecifickySymbolType")
 public class PlatbaSpecifickySymbolType

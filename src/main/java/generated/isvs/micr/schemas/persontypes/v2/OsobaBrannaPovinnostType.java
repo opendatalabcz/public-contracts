@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlValue;
 import generated.isvs.micr.schemas.persontypes.v.al0012.v1.OsobaBrannaPovinnostContentType;
 
 
-/**
- * Slovní vyjádøení vztahu státního obèana Ceské republiky k branné povinnosti.
- * 
- * <p>Java class for OsobaBrannaPovinnostType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaBrannaPovinnostType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0012:v1>OsobaBrannaPovinnostContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaBrannaPovinnostType", propOrder = {
     "value"
@@ -42,26 +25,12 @@ public class OsobaBrannaPovinnostType {
     @XmlValue
     protected OsobaBrannaPovinnostContentType value;
 
-    /**
-     * Slovní vyjádøení vztahu státního obèana Ceské republiky k branné povinnosti.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaBrannaPovinnostContentType }
-     *     
-     */
+
     public OsobaBrannaPovinnostContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaBrannaPovinnostContentType }
-     *     
-     */
+
     public void setValue(OsobaBrannaPovinnostContentType value) {
         this.value = value;
     }

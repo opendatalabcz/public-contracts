@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * V pøípadì, že dílèí konstrukt složeného datového prvku je podmínìný, uvede se podmínka, za níž dílèí konstrukt složeného datového prvku musí, popø. nesmí být uveden.
+ * V pripade, ze dilci konstrukt slozeneho datoveho prvku je podmineny, uvede se podminka, za niz dilci konstrukt slozeneho datoveho prvku musi, popr. nesmi byt uveden.
  * 
  * <p>Java class for DatovyKonstruktDilciVyskytPodminkaType complex type.
  * 

@@ -23,7 +23,7 @@ import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 
 
 /**
- * Struktura, zahrnující popis jednoduchého datového prvku.
+ * Struktura, zahrnujici popis jednoducheho datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekJednoduchyStructure complex type.
  * 

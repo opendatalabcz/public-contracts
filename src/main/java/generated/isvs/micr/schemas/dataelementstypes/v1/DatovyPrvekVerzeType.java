@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
 /**
- * Identifikace vydání specifikace datového prvku v sérii vývoje specifikací datového prvku v rámci ISVS.
+ * Identifikace vydani specifikace datoveho prvku v serii vyvoje specifikaci datoveho prvku v ramci ISVS.
  * 
  * <p>Java class for DatovyPrvekVerzeType complex type.
  * 

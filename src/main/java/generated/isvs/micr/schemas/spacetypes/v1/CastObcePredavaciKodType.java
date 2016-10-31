@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Pøedávací kód èásti obce je èíselný prostorový identifikátor prvku prostorové identifikace „èást obce“. Pøedávací kód èásti obce je jedineèný v rámci Ceské republiky.
- * Pozn. Pøedávací kód èásti obce vzniká reálnì fixací stávajícího kódu èásti obce (katalogový list AA0056) k poèátku roku 2001. Tím je umožnìn bezproblémový pøechod uživatelù z dosud v èase promìnného kódu èásti obce na v èase nepromìnný pøedávací kód.
- * 
- * <p>Java class for CastObcePredavaciKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="CastObcePredavaciKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CastObcePredavaciKodType")
 public class CastObcePredavaciKodType

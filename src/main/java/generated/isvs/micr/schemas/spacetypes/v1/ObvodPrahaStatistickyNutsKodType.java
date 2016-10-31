@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód  NUTS statistického obvodu v Praze je èíselný prostorový identifikátor prvku  prostorové identifikace „Statistický obvod hlavního mìsta Prahy“.  Prvek  prostorové identifikace „Statistický obvod hlavního mìsta Prahy“ je stanoven opatøením CSU 83/1999 Sb. jako územnì statistická jednotka typu NUTS4 v hlavním mìstì Praha.Kód  NUTS statistického obvodu v Praze je urèen po vzniku statistického obvodu hlavního mìsta Prahy èíselníkem.Kód  NUTS statistického obvodu v Praze je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for ObvodPrahaStatistickyNutsKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObvodPrahaStatistickyNutsKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObvodPrahaStatistickyNutsKodType")
 public class ObvodPrahaStatistickyNutsKodType

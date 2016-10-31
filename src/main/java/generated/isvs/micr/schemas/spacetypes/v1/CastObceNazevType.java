@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název èásti obce je slovní prostorový identifikátor prvku prostorové identifikace „èást obce“. Název èásti obce je urèen pøi vzniku èásti obce. Mùže být zmìnìn rozhodnutím obce.
- * Název èásti obce je jedineèný v rámci obce.
- * 
- * <p>Java class for CastObceNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="CastObceNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CastObceNazevType")
 public class CastObceNazevType

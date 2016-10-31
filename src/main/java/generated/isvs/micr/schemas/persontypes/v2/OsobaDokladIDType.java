@@ -15,22 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Císlo obèanského prùkazu, pasu nebo jiného dokladu totožnosti obyvatele, popø. druhu dokladu, podle kterého byla totožnost zjištìna. Císlo se zapisuje vèetnì pøípadné série.
- * <p/>
- * <p>Java class for OsobaDokladIDType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="OsobaDokladIDType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaDokladIDType")
 public class OsobaDokladIDType

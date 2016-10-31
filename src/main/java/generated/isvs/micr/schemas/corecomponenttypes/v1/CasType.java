@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 
 
 /**
- * Hodnota konkrétního bodu v èase v rámci (nespecifikovaného) dne.
+ * Hodnota konkretniho bodu v case v ramci (nespecifikovaneho) dne.
  * <p/>
  * <p>Java class for CasType complex type.
  * <p/>

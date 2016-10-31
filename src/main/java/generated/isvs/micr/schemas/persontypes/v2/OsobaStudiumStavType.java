@@ -16,24 +16,7 @@ import javax.xml.bind.annotation.XmlValue;
 import generated.isvs.micr.schemas.persontypes.v.al0037.v1.OsobaStudiumStavContentType;
 
 
-/**
- * Slovní údaj o aktuálním stavu studia.
- *
- * <p>Java class for OsobaStudiumStavType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaStudiumStavType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0037:v1>OsobaStudiumStavContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaStudiumStavType", propOrder = {
     "value"
@@ -43,26 +26,12 @@ public class OsobaStudiumStavType {
     @XmlValue
     protected OsobaStudiumStavContentType value;
 
-    /**
-     * Slovní údaj o aktuálním stavu studia.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaStudiumStavContentType }
-     *     
-     */
+
     public OsobaStudiumStavContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaStudiumStavContentType }
-     *     
-     */
+
     public void setValue(OsobaStudiumStavContentType value) {
         this.value = value;
     }

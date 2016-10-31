@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód základní sídelní jednotky je èíselný prostorový identifikátor prvku prostorové identifikace „základní sídelní jednotka“. Kód základní sídelní jednotky je urèen pøi jejím vzniku.
- * Kód základní sídelní jednotky je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for ZakladniSidelniJednotkaKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ZakladniSidelniJednotkaKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ZakladniSidelniJednotkaKodType")
 public class ZakladniSidelniJednotkaKodType

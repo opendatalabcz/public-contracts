@@ -8,30 +8,13 @@
 
 package generated.isvs.micr.schemas.commontypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Datový prvek pro slovní oznaèení mìn a fondù.
- * 
- * <p>Java class for MenaType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="MenaType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MenaType")
 public class MenaType

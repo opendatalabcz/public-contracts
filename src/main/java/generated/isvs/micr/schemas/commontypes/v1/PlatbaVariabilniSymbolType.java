@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Datový prvek pro èíselný údaj, obsahující identifikaci platby, který plátce uvádí v pøípadech, kdy to požaduje pøíjemce platby, která se uskuteèòuje prostøednictvím úètu, vedeného u banky. Struktura variabilního symbolu není stanovena. Obsah variabilního symbolu urèuje pøíjemce platby.
- * 
- * <p>Java class for PlatbaVariabilniSymbolType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="PlatbaVariabilniSymbolType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PlatbaVariabilniSymbolType")
 public class PlatbaVariabilniSymbolType

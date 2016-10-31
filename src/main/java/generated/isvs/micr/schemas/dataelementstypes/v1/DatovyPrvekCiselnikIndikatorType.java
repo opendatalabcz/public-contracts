@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IndikatorType;
 
 
 /**
- * Indikátor, zda hodnoty pro daný konkrétní DP jsou uvedeny v èíselníku.
+ * Indikator, zda hodnoty pro dany konkretni DP jsou uvedeny v ciselniku.
  * 
  * <p>Java class for DatovyPrvekCiselnikIndikatorType complex type.
  * 

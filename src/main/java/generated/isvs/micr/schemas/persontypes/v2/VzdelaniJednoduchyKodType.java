@@ -8,31 +8,14 @@
 
 package generated.isvs.micr.schemas.persontypes.v2;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Datový prvek pro kódové oznaèení kmenových oborù vzdìlání, které vymezují jednotlivé oblasti èi dílèí úseky vzdìlání na základì jejich obsahové podobnosti. Klasifikace je dvourozmìrným systémem. V prvním smìru se tøídí kmenové obory vzdìlání ve skupinách tvoøící uspoøádání vìd a nauk. Ve druhém rozmìru (jedná se o abecední údaj) se uvádí dosažené vzdìlání, které je kompatibilní s mezinárodním standardem ISCED-77.
- * 
- * <p>Java class for VzdelaniJednoduchyKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="VzdelaniJednoduchyKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "VzdelaniJednoduchyKodType")
 public class VzdelaniJednoduchyKodType

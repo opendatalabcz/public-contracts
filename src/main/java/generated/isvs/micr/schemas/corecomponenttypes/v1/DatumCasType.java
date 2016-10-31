@@ -31,7 +31,7 @@ import generated.isvs.micr.schemas.dataelementstypes.v1.VyhlaseniDatumType;
 
 
 /**
- * Hodnota konkrétního bodu v èasové ose volitelnì spolu s doplòkovou informací o formátu údaje. Používá se pro datum a/nebo èas
+ * Hodnota konkretniho bodu v casove ose volitelne spolu s doplnkovou informaci o formatu udaje. Pouziva se pro datum a/nebo cas
  * 
  * <p>Java class for DatumCasType complex type.
  * 

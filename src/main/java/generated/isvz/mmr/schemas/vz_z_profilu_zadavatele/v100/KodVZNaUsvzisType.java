@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Evidenèní èíslo VZ v IS VZUS
+ * Evidencni cislo VZ v IS VZUS
  * 
  * <p>Java class for KodVZNaUsvzisType complex type.
  * 

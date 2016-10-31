@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.commontypes.v1.FinancniCastkaType;
 
 
-/**
- * Výše základního kapitálu právnické osoby v Kè.
- * 
- * <p>Java class for SubjektZakladniJmeniType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SubjektZakladniJmeniType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CommonTypes:v1>FinancniCastkaType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SubjektZakladniJmeniType")
 public class SubjektZakladniJmeniType

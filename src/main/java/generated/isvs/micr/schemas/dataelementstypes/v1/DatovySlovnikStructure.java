@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * Struktura, zahrnující popis datového slovníku.
+ * Struktura, zahrnujici popis datoveho slovniku.
  * 
  * <p>Java class for DatovySlovnikStructure complex type.
  * 

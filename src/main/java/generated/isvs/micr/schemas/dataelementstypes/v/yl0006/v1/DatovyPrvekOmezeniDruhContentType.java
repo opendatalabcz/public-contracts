@@ -13,24 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for DatovyPrvekOmezeniDruhContentType.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;simpleType name="DatovyPrvekOmezeniDruhContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="datovým typem"/>
- *     &lt;enumeration value="extenze atributù"/>
- *     &lt;enumeration value="minimální a maximální délka"/>
- *     &lt;enumeration value="Pattern (vzor) jako regulární výraz"/>
- *     &lt;enumeration value="výèet hodnot (na základì èíselníku)"/>
- *     &lt;enumeration value="výèet kódù (na základì èíselníku)"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- */
+
 @XmlType(name = "DatovyPrvekOmezeniDruhContentType", namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v:YL0006:v1")
 @XmlEnum
 public enum DatovyPrvekOmezeniDruhContentType {

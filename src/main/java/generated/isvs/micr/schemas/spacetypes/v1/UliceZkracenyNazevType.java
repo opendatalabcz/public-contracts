@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Zkrácený název ulice a veøejného prostranství je slovní prostorový identifikátor prvku prostorové identifikace „ulice a veøejné prostranství“. Zkrácený název ulice a veøejného prostranství je urèen èíselníkem
- * Zkrácený název ulice a veøejného prostranství je jedineèný v rámci obce, ne v rámci Ceské republiky ani okresu.
- * 
- * <p>Java class for UliceZkracenyNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="UliceZkracenyNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UliceZkracenyNazevType")
 public class UliceZkracenyNazevType

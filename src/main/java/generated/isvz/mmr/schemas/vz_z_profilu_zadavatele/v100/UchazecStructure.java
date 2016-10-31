@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  *
- * 				Struktura pro pøedání základních informacích o uchazeèi VZ
+ * 				Struktura pro predani zakladnich informacich o uchazeci VZ
  * 			
  * 
  * <p>Java class for UchazecStructure complex type.

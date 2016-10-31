@@ -13,23 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for OsobaStudiumStavContentType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="OsobaStudiumStavContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="nedokonèené"/>
- *     &lt;enumeration value="probíhá"/>
- *     &lt;enumeration value="pøerušené"/>
- *     &lt;enumeration value="ukonèené"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
+
 @XmlType(name = "OsobaStudiumStavContentType", namespace = "urn:cz:isvs:micr:schemas:PersonTypes:v:AL0037:v1")
 @XmlEnum
 public enum OsobaStudiumStavContentType {

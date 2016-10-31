@@ -15,25 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název katastrálního území je slovní prostorový identifikátor prvku prostorové identifikace „katastrální území“. Název katastrálního území je urèen pøi jeho vzniku.
- * Název katastrálního území je jedineèný v rámci  Ceské republiky.
- * 
- * <p>Java class for KatastrNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="KatastrNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "KatastrNazevType")
 public class KatastrNazevType

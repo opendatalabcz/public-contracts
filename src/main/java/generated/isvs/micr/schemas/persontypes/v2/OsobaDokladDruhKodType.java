@@ -16,24 +16,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Kód pro oznaèení druhu dokladu totožnosti, popø. druhu dokladu, podle kterého byla totožnost zjištìna. Uvede se oznaèení v souladu s èíselníkem.
- * 
- * <p>Java class for OsobaDokladDruhKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaDokladDruhKodType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:c:AL0092:v1>OsobaDokladDruhKodContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaDokladDruhKodType", propOrder = {
     "value"
@@ -44,26 +27,12 @@ public class OsobaDokladDruhKodType {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String value;
 
-    /**
-     * Kód pro oznaèení druhu dokladu totožnosti, popø. druhu dokladu, podle kterého byla totožnost zjištìna. Uvede se oznaèení v souladu s èíselníkem.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setValue(String value) {
         this.value = value;
     }

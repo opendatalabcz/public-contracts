@@ -13,25 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for OpravneniPodnikaniDruhContentType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="OpravneniPodnikaniDruhContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="doklad o registraci ekonomického subjektu vydaný právnickou osobou nebo správním úøadem, který podle zvláštních pøedpisù vydává doklady o oprávnìní k podnikatelské èinnosti"/>
- *     &lt;enumeration value="koncesní listina"/>
- *     &lt;enumeration value="není"/>
- *     &lt;enumeration value="živnostenský list pro øemeslnou živnost"/>
- *     &lt;enumeration value="živnostenský list pro vázanou živnost"/>
- *     &lt;enumeration value="živnostenský list pro volnou živnost"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
+
 @XmlType(name = "OpravneniPodnikaniDruhContentType", namespace = "urn:cz:isvs:micr:schemas:BusinessTypes:v:AL0086:v1")
 @XmlEnum
 public enum OpravneniPodnikaniDruhContentType {

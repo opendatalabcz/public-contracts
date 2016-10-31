@@ -14,4 +14,11 @@ public class SubmitterDto extends CompanyDto {
     public void setContractDtos(List<ContractDto> contractDtos) {
         this.contractDtos = contractDtos;
     }
+
+    @Override
+    public String toString() {
+        return "SubmitterDto{" +
+                "contractDtos=" + contractDtos +
+                "} " + super.toString();
+    }
 }

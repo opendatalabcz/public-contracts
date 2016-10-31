@@ -14,20 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
 
 
-/**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the cz.isvs.micr.schemas.dataelementstypes.v1 package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
- * provided in this class.
- * 
- */
+
 @XmlRegistry
 public class ObjectFactory {
 
@@ -110,1606 +97,1033 @@ public class ObjectFactory {
     private final static QName _DatovySlovnikSchemaImportovaneAdresa_QNAME = new QName("urn:cz:isvs:micr:schemas:DataElementsTypes:v1", "DatovySlovnikSchemaImportovaneAdresa");
     private final static QName _DatovyPrvekInstanceIndikator_QNAME = new QName("urn:cz:isvs:micr:schemas:DataElementsTypes:v1", "DatovyPrvekInstanceIndikator");
 
-    /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: cz.isvs.micr.schemas.dataelementstypes.v1
-     * 
-     */
+
     public ObjectFactory() {
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikStructure }
-     * 
-     */
+
     public DatovySlovnikStructure createDatovySlovnikStructure() {
         return new DatovySlovnikStructure();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikStructure }
-     * 
-     */
+
     public DatovyPrvekCiselnikStructure createDatovyPrvekCiselnikStructure() {
         return new DatovyPrvekCiselnikStructure();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure createDatovyPrvekJednoduchyStructure() {
         return new DatovyPrvekJednoduchyStructure();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikPopisAtributyStructure }
-     * 
-     */
+
     public DatovySlovnikPopisAtributyStructure createDatovySlovnikPopisAtributyStructure() {
         return new DatovySlovnikPopisAtributyStructure();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure createDatovyPrvekSlozenyStructure() {
         return new DatovyPrvekSlozenyStructure();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekKonstruktDilciStructure }
-     * 
-     */
+
     public DatovyPrvekKonstruktDilciStructure createDatovyPrvekKonstruktDilciStructure() {
         return new DatovyPrvekKonstruktDilciStructure();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSpravceType }
-     * 
-     */
+
     public DatovyPrvekSpravceType createDatovyPrvekSpravceType() {
         return new DatovyPrvekSpravceType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciUdajeDoplnujiciType }
-     * 
-     */
+
     public DatovyKonstruktDilciUdajeDoplnujiciType createDatovyKonstruktDilciUdajeDoplnujiciType() {
         return new DatovyKonstruktDilciUdajeDoplnujiciType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekPrezentaceKategorieType }
-     * 
-     */
+
     public DatovyPrvekPrezentaceKategorieType createDatovyPrvekPrezentaceKategorieType() {
         return new DatovyPrvekPrezentaceKategorieType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJmenoXMLAnglickyType }
-     * 
-     */
+
     public DatovyPrvekJmenoXMLAnglickyType createDatovyPrvekJmenoXMLAnglickyType() {
         return new DatovyPrvekJmenoXMLAnglickyType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekPredpisPravniType }
-     * 
-     */
+
     public DatovyPrvekPredpisPravniType createDatovyPrvekPredpisPravniType() {
         return new DatovyPrvekPredpisPravniType();
     }
 
-    /**
-     * Create an instance of {@link VyhlaseniDatumType }
-     * 
-     */
+
     public VyhlaseniDatumType createVyhlaseniDatumType() {
         return new VyhlaseniDatumType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciMinimumVyskytPocetType }
-     * 
-     */
+
     public DatovyKonstruktDilciMinimumVyskytPocetType createDatovyKonstruktDilciMinimumVyskytPocetType() {
         return new DatovyKonstruktDilciMinimumVyskytPocetType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJmenoXMLType }
-     * 
-     */
+
     public DatovyPrvekJmenoXMLType createDatovyPrvekJmenoXMLType() {
         return new DatovyPrvekJmenoXMLType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekDelkaMinimalniType }
-     * 
-     */
+
     public DatovyPrvekDelkaMinimalniType createDatovyPrvekDelkaMinimalniType() {
         return new DatovyPrvekDelkaMinimalniType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikJmennyProstorURIType }
-     * 
-     */
+
     public DatovySlovnikJmennyProstorURIType createDatovySlovnikJmennyProstorURIType() {
         return new DatovySlovnikJmennyProstorURIType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekVyrazRegularniType }
-     * 
-     */
+
     public DatovyPrvekVyrazRegularniType createDatovyPrvekVyrazRegularniType() {
         return new DatovyPrvekVyrazRegularniType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekNazevType }
-     * 
-     */
+
     public DatovyPrvekNazevType createDatovyPrvekNazevType() {
         return new DatovyPrvekNazevType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikIdentifikatorType }
-     * 
-     */
+
     public DatovyPrvekCiselnikIdentifikatorType createDatovyPrvekCiselnikIdentifikatorType() {
         return new DatovyPrvekCiselnikIdentifikatorType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSkupinaNazevType }
-     * 
-     */
+
     public DatovyPrvekSkupinaNazevType createDatovyPrvekSkupinaNazevType() {
         return new DatovyPrvekSkupinaNazevType();
     }
 
-    /**
-     * Create an instance of {@link PlatnostDoDatumType }
-     * 
-     */
+
     public PlatnostDoDatumType createPlatnostDoDatumType() {
         return new PlatnostDoDatumType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSkupinaKodType }
-     * 
-     */
+
     public DatovyPrvekSkupinaKodType createDatovyPrvekSkupinaKodType() {
         return new DatovyPrvekSkupinaKodType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciVyskytZavaznostKodType }
-     * 
-     */
+
     public DatovyKonstruktDilciVyskytZavaznostKodType createDatovyKonstruktDilciVyskytZavaznostKodType() {
         return new DatovyKonstruktDilciVyskytZavaznostKodType();
     }
 
-    /**
-     * Create an instance of {@link LicenceType }
-     * 
-     */
+
     public LicenceType createLicenceType() {
         return new LicenceType();
     }
 
-    /**
-     * Create an instance of {@link PuvodType }
-     * 
-     */
+
     public PuvodType createPuvodType() {
         return new PuvodType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciDruhType }
-     * 
-     */
+
     public DatovyKonstruktDilciDruhType createDatovyKonstruktDilciDruhType() {
         return new DatovyKonstruktDilciDruhType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikDruhKodType }
-     * 
-     */
+
     public DatovyPrvekCiselnikDruhKodType createDatovyPrvekCiselnikDruhKodType() {
         return new DatovyPrvekCiselnikDruhKodType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekOblastKodType }
-     * 
-     */
+
     public DatovyPrvekOblastKodType createDatovyPrvekOblastKodType() {
         return new DatovyPrvekOblastKodType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikSchemaSouborType }
-     * 
-     */
+
     public DatovySlovnikSchemaSouborType createDatovySlovnikSchemaSouborType() {
         return new DatovySlovnikSchemaSouborType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikNazevType }
-     * 
-     */
+
     public DatovyPrvekCiselnikNazevType createDatovyPrvekCiselnikNazevType() {
         return new DatovyPrvekCiselnikNazevType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekDelkaMaximalniType }
-     * 
-     */
+
     public DatovyPrvekDelkaMaximalniType createDatovyPrvekDelkaMaximalniType() {
         return new DatovyPrvekDelkaMaximalniType();
     }
 
-    /**
-     * Create an instance of {@link TypeDublinCoreType }
-     * 
-     */
+
     public TypeDublinCoreType createTypeDublinCoreType() {
         return new TypeDublinCoreType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekRodicovskyTypXMLType }
-     * 
-     */
+
     public DatovyPrvekRodicovskyTypXMLType createDatovyPrvekRodicovskyTypXMLType() {
         return new DatovyPrvekRodicovskyTypXMLType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekHodnotyPripustneType }
-     * 
-     */
+
     public DatovyPrvekHodnotyPripustneType createDatovyPrvekHodnotyPripustneType() {
         return new DatovyPrvekHodnotyPripustneType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikAdresaType }
-     * 
-     */
+
     public DatovyPrvekCiselnikAdresaType createDatovyPrvekCiselnikAdresaType() {
         return new DatovyPrvekCiselnikAdresaType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikIndikatorType }
-     * 
-     */
+
     public DatovyPrvekCiselnikIndikatorType createDatovyPrvekCiselnikIndikatorType() {
         return new DatovyPrvekCiselnikIndikatorType();
     }
 
-    /**
-     * Create an instance of {@link PublikovalType }
-     * 
-     */
+
     public PublikovalType createPublikovalType() {
         return new PublikovalType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikDokumentaceAdresaType }
-     * 
-     */
+
     public DatovyPrvekCiselnikDokumentaceAdresaType createDatovyPrvekCiselnikDokumentaceAdresaType() {
         return new DatovyPrvekCiselnikDokumentaceAdresaType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikJmennyProstorCilovyType }
-     * 
-     */
+
     public DatovySlovnikJmennyProstorCilovyType createDatovySlovnikJmennyProstorCilovyType() {
         return new DatovySlovnikJmennyProstorCilovyType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikSchemaImportovaneJmennyProstorType }
-     * 
-     */
+
     public DatovySlovnikSchemaImportovaneJmennyProstorType createDatovySlovnikSchemaImportovaneJmennyProstorType() {
         return new DatovySlovnikSchemaImportovaneJmennyProstorType();
     }
 
-    /**
-     * Create an instance of {@link PrispelType }
-     * 
-     */
+
     public PrispelType createPrispelType() {
         return new PrispelType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikSpravceType }
-     * 
-     */
+
     public DatovyPrvekCiselnikSpravceType createDatovyPrvekCiselnikSpravceType() {
         return new DatovyPrvekCiselnikSpravceType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikVerzeType }
-     * 
-     */
+
     public DatovySlovnikVerzeType createDatovySlovnikVerzeType() {
         return new DatovySlovnikVerzeType();
     }
 
-    /**
-     * Create an instance of {@link PravaAutorskaType }
-     * 
-     */
+
     public PravaAutorskaType createPravaAutorskaType() {
         return new PravaAutorskaType();
     }
 
-    /**
-     * Create an instance of {@link JazykKodType }
-     * 
-     */
+
     public JazykKodType createJazykKodType() {
         return new JazykKodType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekPrezentaceFormaType }
-     * 
-     */
+
     public DatovyPrvekPrezentaceFormaType createDatovyPrvekPrezentaceFormaType() {
         return new DatovyPrvekPrezentaceFormaType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekDesetinnaCastDelkaType }
-     * 
-     */
+
     public DatovyPrvekDesetinnaCastDelkaType createDatovyPrvekDesetinnaCastDelkaType() {
         return new DatovyPrvekDesetinnaCastDelkaType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekPrezentaceSchemaType }
-     * 
-     */
+
     public DatovyPrvekPrezentaceSchemaType createDatovyPrvekPrezentaceSchemaType() {
         return new DatovyPrvekPrezentaceSchemaType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekTypXMLType }
-     * 
-     */
+
     public DatovyPrvekTypXMLType createDatovyPrvekTypXMLType() {
         return new DatovyPrvekTypXMLType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikPolozkaNazevType }
-     * 
-     */
+
     public DatovyPrvekCiselnikPolozkaNazevType createDatovyPrvekCiselnikPolozkaNazevType() {
         return new DatovyPrvekCiselnikPolozkaNazevType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekKomentarType }
-     * 
-     */
+
     public DatovyPrvekKomentarType createDatovyPrvekKomentarType() {
         return new DatovyPrvekKomentarType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikSchemaImportovaneAdresaType }
-     * 
-     */
+
     public DatovySlovnikSchemaImportovaneAdresaType createDatovySlovnikSchemaImportovaneAdresaType() {
         return new DatovySlovnikSchemaImportovaneAdresaType();
     }
 
-    /**
-     * Create an instance of {@link DrzitelPravType }
-     * 
-     */
+
     public DrzitelPravType createDrzitelPravType() {
         return new DrzitelPravType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyModelType }
-     * 
-     */
+
     public DatovyPrvekSlozenyModelType createDatovyPrvekSlozenyModelType() {
         return new DatovyPrvekSlozenyModelType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekInstanceIndikatorType }
-     * 
-     */
+
     public DatovyPrvekInstanceIndikatorType createDatovyPrvekInstanceIndikatorType() {
         return new DatovyPrvekInstanceIndikatorType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikDefiniceType }
-     * 
-     */
+
     public DatovySlovnikDefiniceType createDatovySlovnikDefiniceType() {
         return new DatovySlovnikDefiniceType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyTypIndikatorType }
-     * 
-     */
+
     public DatovyPrvekJednoduchyTypIndikatorType createDatovyPrvekJednoduchyTypIndikatorType() {
         return new DatovyPrvekJednoduchyTypIndikatorType();
     }
 
-    /**
-     * Create an instance of {@link FormatType }
-     * 
-     */
+
     public FormatType createFormatType() {
         return new FormatType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciJmennyProstorType }
-     * 
-     */
+
     public DatovyKonstruktDilciJmennyProstorType createDatovyKonstruktDilciJmennyProstorType() {
         return new DatovyKonstruktDilciJmennyProstorType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikPolozkaNazevZkracenyType }
-     * 
-     */
+
     public DatovyPrvekCiselnikPolozkaNazevZkracenyType createDatovyPrvekCiselnikPolozkaNazevZkracenyType() {
         return new DatovyPrvekCiselnikPolozkaNazevZkracenyType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikSchemaAdresaType }
-     * 
-     */
+
     public DatovySlovnikSchemaAdresaType createDatovySlovnikSchemaAdresaType() {
         return new DatovySlovnikSchemaAdresaType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekOblastNazevType }
-     * 
-     */
+
     public DatovyPrvekOblastNazevType createDatovyPrvekOblastNazevType() {
         return new DatovyPrvekOblastNazevType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekIdentifikatorType }
-     * 
-     */
+
     public DatovyPrvekIdentifikatorType createDatovyPrvekIdentifikatorType() {
         return new DatovyPrvekIdentifikatorType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikIdentifikatorExterniType }
-     * 
-     */
+
     public DatovyPrvekCiselnikIdentifikatorExterniType createDatovyPrvekCiselnikIdentifikatorExterniType() {
         return new DatovyPrvekCiselnikIdentifikatorExterniType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikPolozkaKodType }
-     * 
-     */
+
     public DatovyPrvekCiselnikPolozkaKodType createDatovyPrvekCiselnikPolozkaKodType() {
         return new DatovyPrvekCiselnikPolozkaKodType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciMaximumVyskytPocetType }
-     * 
-     */
+
     public DatovyKonstruktDilciMaximumVyskytPocetType createDatovyKonstruktDilciMaximumVyskytPocetType() {
         return new DatovyKonstruktDilciMaximumVyskytPocetType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikElementTvarDefaultniType }
-     * 
-     */
+
     public DatovySlovnikElementTvarDefaultniType createDatovySlovnikElementTvarDefaultniType() {
         return new DatovySlovnikElementTvarDefaultniType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciZpracovaniZpusobType }
-     * 
-     */
+
     public DatovyKonstruktDilciZpracovaniZpusobType createDatovyKonstruktDilciZpracovaniZpusobType() {
         return new DatovyKonstruktDilciZpracovaniZpusobType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekZdrojHodnotType }
-     * 
-     */
+
     public DatovyPrvekZdrojHodnotType createDatovyPrvekZdrojHodnotType() {
         return new DatovyPrvekZdrojHodnotType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSynonymumType }
-     * 
-     */
+
     public DatovyPrvekSynonymumType createDatovyPrvekSynonymumType() {
         return new DatovyPrvekSynonymumType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekOmezeniDruhType }
-     * 
-     */
+
     public DatovyPrvekOmezeniDruhType createDatovyPrvekOmezeniDruhType() {
         return new DatovyPrvekOmezeniDruhType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekAkronymType }
-     * 
-     */
+
     public DatovyPrvekAkronymType createDatovyPrvekAkronymType() {
         return new DatovyPrvekAkronymType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikPolozkaPlatnostDODatumType }
-     * 
-     */
+
     public DatovyPrvekCiselnikPolozkaPlatnostDODatumType createDatovyPrvekCiselnikPolozkaPlatnostDODatumType() {
         return new DatovyPrvekCiselnikPolozkaPlatnostDODatumType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekPredpisJinyType }
-     * 
-     */
+
     public DatovyPrvekPredpisJinyType createDatovyPrvekPredpisJinyType() {
         return new DatovyPrvekPredpisJinyType();
     }
 
-    /**
-     * Create an instance of {@link PlatnostOdDatumType }
-     * 
-     */
+
     public PlatnostOdDatumType createPlatnostOdDatumType() {
         return new PlatnostOdDatumType();
     }
 
-    /**
-     * Create an instance of {@link KlicoveSlovoType }
-     * 
-     */
+
     public KlicoveSlovoType createKlicoveSlovoType() {
         return new KlicoveSlovoType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekDefiniceType }
-     * 
-     */
+
     public DatovyPrvekDefiniceType createDatovyPrvekDefiniceType() {
         return new DatovyPrvekDefiniceType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikPolozkaPlatnostOdDatumType }
-     * 
-     */
+
     public DatovyPrvekCiselnikPolozkaPlatnostOdDatumType createDatovyPrvekCiselnikPolozkaPlatnostOdDatumType() {
         return new DatovyPrvekCiselnikPolozkaPlatnostOdDatumType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekVerzeType }
-     * 
-     */
+
     public DatovyPrvekVerzeType createDatovyPrvekVerzeType() {
         return new DatovyPrvekVerzeType();
     }
 
-    /**
-     * Create an instance of {@link VytvorilType }
-     * 
-     */
+
     public VytvorilType createVytvorilType() {
         return new VytvorilType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikJmennyProstorPrefixType }
-     * 
-     */
+
     public DatovySlovnikJmennyProstorPrefixType createDatovySlovnikJmennyProstorPrefixType() {
         return new DatovySlovnikJmennyProstorPrefixType();
     }
 
-    /**
-     * Create an instance of {@link DatovyKonstruktDilciVyskytPodminkaType }
-     * 
-     */
+
     public DatovyKonstruktDilciVyskytPodminkaType createDatovyKonstruktDilciVyskytPodminkaType() {
         return new DatovyKonstruktDilciVyskytPodminkaType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikAtributTvarDefaultniType }
-     * 
-     */
+
     public DatovySlovnikAtributTvarDefaultniType createDatovySlovnikAtributTvarDefaultniType() {
         return new DatovySlovnikAtributTvarDefaultniType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekHodnotaDruhType }
-     * 
-     */
+
     public DatovyPrvekHodnotaDruhType createDatovyPrvekHodnotaDruhType() {
         return new DatovyPrvekHodnotaDruhType();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikPolozkaStructure }
-     * 
-     */
+
     public DatovyPrvekCiselnikPolozkaStructure createDatovyPrvekCiselnikPolozkaStructure() {
         return new DatovyPrvekCiselnikPolozkaStructure();
     }
 
-    /**
-     * Create an instance of {@link XMLSchemaPrefixDoporucenyType }
-     * 
-     */
+
     public XMLSchemaPrefixDoporucenyType createXMLSchemaPrefixDoporucenyType() {
         return new XMLSchemaPrefixDoporucenyType();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikSchemaImportovaneStructure }
-     * 
-     */
+
     public DatovySlovnikSchemaImportovaneStructure createDatovySlovnikSchemaImportovaneStructure() {
         return new DatovySlovnikSchemaImportovaneStructure();
     }
 
-    /**
-     * Create an instance of {@link JmennyProstorStructure }
-     * 
-     */
+
     public JmennyProstorStructure createJmennyProstorStructure() {
         return new JmennyProstorStructure();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikStructure.DatovePrvkyJednoducheSeznam }
-     * 
-     */
+
     public DatovySlovnikStructure.DatovePrvkyJednoducheSeznam createDatovySlovnikStructureDatovePrvkyJednoducheSeznam() {
         return new DatovySlovnikStructure.DatovePrvkyJednoducheSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikStructure.DatovePrvkySlozeneSeznam }
-     * 
-     */
+
     public DatovySlovnikStructure.DatovePrvkySlozeneSeznam createDatovySlovnikStructureDatovePrvkySlozeneSeznam() {
         return new DatovySlovnikStructure.DatovePrvkySlozeneSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikStructure.IdentifikatoryExterniSeznam }
-     * 
-     */
+
     public DatovyPrvekCiselnikStructure.IdentifikatoryExterniSeznam createDatovyPrvekCiselnikStructureIdentifikatoryExterniSeznam() {
         return new DatovyPrvekCiselnikStructure.IdentifikatoryExterniSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekCiselnikStructure.PolozkySeznam }
-     * 
-     */
+
     public DatovyPrvekCiselnikStructure.PolozkySeznam createDatovyPrvekCiselnikStructurePolozkySeznam() {
         return new DatovyPrvekCiselnikStructure.PolozkySeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure.SynonymaSeznam }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure.SynonymaSeznam createDatovyPrvekJednoduchyStructureSynonymaSeznam() {
         return new DatovyPrvekJednoduchyStructure.SynonymaSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure.PredpisyPravniSeznam }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure.PredpisyPravniSeznam createDatovyPrvekJednoduchyStructurePredpisyPravniSeznam() {
         return new DatovyPrvekJednoduchyStructure.PredpisyPravniSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure.PredpisyJineSeznam }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure.PredpisyJineSeznam createDatovyPrvekJednoduchyStructurePredpisyJineSeznam() {
         return new DatovyPrvekJednoduchyStructure.PredpisyJineSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure.ZdrojeHodnotSeznam }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure.ZdrojeHodnotSeznam createDatovyPrvekJednoduchyStructureZdrojeHodnotSeznam() {
         return new DatovyPrvekJednoduchyStructure.ZdrojeHodnotSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure.VytvorilSeznam }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure.VytvorilSeznam createDatovyPrvekJednoduchyStructureVytvorilSeznam() {
         return new DatovyPrvekJednoduchyStructure.VytvorilSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure.PrispelSeznam }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure.PrispelSeznam createDatovyPrvekJednoduchyStructurePrispelSeznam() {
         return new DatovyPrvekJednoduchyStructure.PrispelSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekJednoduchyStructure.AtributySeznam }
-     * 
-     */
+
     public DatovyPrvekJednoduchyStructure.AtributySeznam createDatovyPrvekJednoduchyStructureAtributySeznam() {
         return new DatovyPrvekJednoduchyStructure.AtributySeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikPopisAtributyStructure.JmenneProstorySeznam }
-     * 
-     */
+
     public DatovySlovnikPopisAtributyStructure.JmenneProstorySeznam createDatovySlovnikPopisAtributyStructureJmenneProstorySeznam() {
         return new DatovySlovnikPopisAtributyStructure.JmenneProstorySeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikPopisAtributyStructure.SchemataImportovanaSeznam }
-     * 
-     */
+
     public DatovySlovnikPopisAtributyStructure.SchemataImportovanaSeznam createDatovySlovnikPopisAtributyStructureSchemataImportovanaSeznam() {
         return new DatovySlovnikPopisAtributyStructure.SchemataImportovanaSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikPopisAtributyStructure.VytvorilSeznam }
-     * 
-     */
+
     public DatovySlovnikPopisAtributyStructure.VytvorilSeznam createDatovySlovnikPopisAtributyStructureVytvorilSeznam() {
         return new DatovySlovnikPopisAtributyStructure.VytvorilSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikPopisAtributyStructure.PrispelSeznam }
-     * 
-     */
+
     public DatovySlovnikPopisAtributyStructure.PrispelSeznam createDatovySlovnikPopisAtributyStructurePrispelSeznam() {
         return new DatovySlovnikPopisAtributyStructure.PrispelSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovySlovnikPopisAtributyStructure.KlicovaSlovaSeznam }
-     * 
-     */
+
     public DatovySlovnikPopisAtributyStructure.KlicovaSlovaSeznam createDatovySlovnikPopisAtributyStructureKlicovaSlovaSeznam() {
         return new DatovySlovnikPopisAtributyStructure.KlicovaSlovaSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure.SynonymaSeznam }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure.SynonymaSeznam createDatovyPrvekSlozenyStructureSynonymaSeznam() {
         return new DatovyPrvekSlozenyStructure.SynonymaSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure.PredpisyPravniSeznam }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure.PredpisyPravniSeznam createDatovyPrvekSlozenyStructurePredpisyPravniSeznam() {
         return new DatovyPrvekSlozenyStructure.PredpisyPravniSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure.PredpisyJineSeznam }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure.PredpisyJineSeznam createDatovyPrvekSlozenyStructurePredpisyJineSeznam() {
         return new DatovyPrvekSlozenyStructure.PredpisyJineSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure.ZdrojeHodnotSeznam }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure.ZdrojeHodnotSeznam createDatovyPrvekSlozenyStructureZdrojeHodnotSeznam() {
         return new DatovyPrvekSlozenyStructure.ZdrojeHodnotSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure.VytvorilSeznam }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure.VytvorilSeznam createDatovyPrvekSlozenyStructureVytvorilSeznam() {
         return new DatovyPrvekSlozenyStructure.VytvorilSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure.PrispelSeznam }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure.PrispelSeznam createDatovyPrvekSlozenyStructurePrispelSeznam() {
         return new DatovyPrvekSlozenyStructure.PrispelSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekSlozenyStructure.KonstruktyDilciSeznam }
-     * 
-     */
+
     public DatovyPrvekSlozenyStructure.KonstruktyDilciSeznam createDatovyPrvekSlozenyStructureKonstruktyDilciSeznam() {
         return new DatovyPrvekSlozenyStructure.KonstruktyDilciSeznam();
     }
 
-    /**
-     * Create an instance of {@link DatovyPrvekKonstruktDilciStructure.KonstruktyDilciSeznam }
-     * 
-     */
+
     public DatovyPrvekKonstruktDilciStructure.KonstruktyDilciSeznam createDatovyPrvekKonstruktDilciStructureKonstruktyDilciSeznam() {
         return new DatovyPrvekKonstruktDilciStructure.KonstruktyDilciSeznam();
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikDokumentaceAdresaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikDokumentaceAdresa")
     public JAXBElement<DatovyPrvekCiselnikDokumentaceAdresaType> createDatovyPrvekCiselnikDokumentaceAdresa(DatovyPrvekCiselnikDokumentaceAdresaType value) {
         return new JAXBElement<DatovyPrvekCiselnikDokumentaceAdresaType>(_DatovyPrvekCiselnikDokumentaceAdresa_QNAME, DatovyPrvekCiselnikDokumentaceAdresaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PravaAutorskaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "PravaAutorska")
     public JAXBElement<PravaAutorskaType> createPravaAutorska(PravaAutorskaType value) {
         return new JAXBElement<PravaAutorskaType>(_PravaAutorska_QNAME, PravaAutorskaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekPrezentaceFormaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekPrezentaceForma")
     public JAXBElement<DatovyPrvekPrezentaceFormaType> createDatovyPrvekPrezentaceForma(DatovyPrvekPrezentaceFormaType value) {
         return new JAXBElement<DatovyPrvekPrezentaceFormaType>(_DatovyPrvekPrezentaceForma_QNAME, DatovyPrvekPrezentaceFormaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekOblastKodType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekOblastKod")
     public JAXBElement<DatovyPrvekOblastKodType> createDatovyPrvekOblastKod(DatovyPrvekOblastKodType value) {
         return new JAXBElement<DatovyPrvekOblastKodType>(_DatovyPrvekOblastKod_QNAME, DatovyPrvekOblastKodType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikNazevType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikNazev")
     public JAXBElement<DatovyPrvekCiselnikNazevType> createDatovyPrvekCiselnikNazev(DatovyPrvekCiselnikNazevType value) {
         return new JAXBElement<DatovyPrvekCiselnikNazevType>(_DatovyPrvekCiselnikNazev_QNAME, DatovyPrvekCiselnikNazevType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikAdresaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikAdresa")
     public JAXBElement<DatovyPrvekCiselnikAdresaType> createDatovyPrvekCiselnikAdresa(DatovyPrvekCiselnikAdresaType value) {
         return new JAXBElement<DatovyPrvekCiselnikAdresaType>(_DatovyPrvekCiselnikAdresa_QNAME, DatovyPrvekCiselnikAdresaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LicenceType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "Licence")
     public JAXBElement<LicenceType> createLicence(LicenceType value) {
         return new JAXBElement<LicenceType>(_Licence_QNAME, LicenceType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciDruhType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciDruh")
     public JAXBElement<DatovyKonstruktDilciDruhType> createDatovyKonstruktDilciDruh(DatovyKonstruktDilciDruhType value) {
         return new JAXBElement<DatovyKonstruktDilciDruhType>(_DatovyKonstruktDilciDruh_QNAME, DatovyKonstruktDilciDruhType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekDelkaMinimalniType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekDelkaMinimalni")
     public JAXBElement<DatovyPrvekDelkaMinimalniType> createDatovyPrvekDelkaMinimalni(DatovyPrvekDelkaMinimalniType value) {
         return new JAXBElement<DatovyPrvekDelkaMinimalniType>(_DatovyPrvekDelkaMinimalni_QNAME, DatovyPrvekDelkaMinimalniType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekVerzeType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekVerze")
     public JAXBElement<DatovyPrvekVerzeType> createDatovyPrvekVerze(DatovyPrvekVerzeType value) {
         return new JAXBElement<DatovyPrvekVerzeType>(_DatovyPrvekVerze_QNAME, DatovyPrvekVerzeType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VytvorilType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "Vytvoril")
     public JAXBElement<VytvorilType> createVytvoril(VytvorilType value) {
         return new JAXBElement<VytvorilType>(_Vytvoril_QNAME, VytvorilType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikJmennyProstorPrefixType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikJmennyProstorPrefix")
     public JAXBElement<DatovySlovnikJmennyProstorPrefixType> createDatovySlovnikJmennyProstorPrefix(DatovySlovnikJmennyProstorPrefixType value) {
         return new JAXBElement<DatovySlovnikJmennyProstorPrefixType>(_DatovySlovnikJmennyProstorPrefix_QNAME, DatovySlovnikJmennyProstorPrefixType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekHodnotaDruhType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekHodnotaDruh")
     public JAXBElement<DatovyPrvekHodnotaDruhType> createDatovyPrvekHodnotaDruh(DatovyPrvekHodnotaDruhType value) {
         return new JAXBElement<DatovyPrvekHodnotaDruhType>(_DatovyPrvekHodnotaDruh_QNAME, DatovyPrvekHodnotaDruhType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciZpracovaniZpusobType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciZpracovaniZpusob")
     public JAXBElement<DatovyKonstruktDilciZpracovaniZpusobType> createDatovyKonstruktDilciZpracovaniZpusob(DatovyKonstruktDilciZpracovaniZpusobType value) {
         return new JAXBElement<DatovyKonstruktDilciZpracovaniZpusobType>(_DatovyKonstruktDilciZpracovaniZpusob_QNAME, DatovyKonstruktDilciZpracovaniZpusobType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekAkronymType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekAkronym")
     public JAXBElement<DatovyPrvekAkronymType> createDatovyPrvekAkronym(DatovyPrvekAkronymType value) {
         return new JAXBElement<DatovyPrvekAkronymType>(_DatovyPrvekAkronym_QNAME, DatovyPrvekAkronymType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikPolozkaPlatnostDODatumType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikPolozkaPlatnostDODatum")
     public JAXBElement<DatovyPrvekCiselnikPolozkaPlatnostDODatumType> createDatovyPrvekCiselnikPolozkaPlatnostDODatum(DatovyPrvekCiselnikPolozkaPlatnostDODatumType value) {
         return new JAXBElement<DatovyPrvekCiselnikPolozkaPlatnostDODatumType>(_DatovyPrvekCiselnikPolozkaPlatnostDODatum_QNAME, DatovyPrvekCiselnikPolozkaPlatnostDODatumType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekJednoduchyTypIndikatorType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekJednoduchyTypIndikator")
     public JAXBElement<DatovyPrvekJednoduchyTypIndikatorType> createDatovyPrvekJednoduchyTypIndikator(DatovyPrvekJednoduchyTypIndikatorType value) {
         return new JAXBElement<DatovyPrvekJednoduchyTypIndikatorType>(_DatovyPrvekJednoduchyTypIndikator_QNAME, DatovyPrvekJednoduchyTypIndikatorType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekIdentifikatorType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekIdentifikator")
     public JAXBElement<DatovyPrvekIdentifikatorType> createDatovyPrvekIdentifikator(DatovyPrvekIdentifikatorType value) {
         return new JAXBElement<DatovyPrvekIdentifikatorType>(_DatovyPrvekIdentifikator_QNAME, DatovyPrvekIdentifikatorType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikPolozkaKodType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikPolozkaKod")
     public JAXBElement<DatovyPrvekCiselnikPolozkaKodType> createDatovyPrvekCiselnikPolozkaKod(DatovyPrvekCiselnikPolozkaKodType value) {
         return new JAXBElement<DatovyPrvekCiselnikPolozkaKodType>(_DatovyPrvekCiselnikPolozkaKod_QNAME, DatovyPrvekCiselnikPolozkaKodType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DrzitelPravType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DrzitelPrav")
     public JAXBElement<DrzitelPravType> createDrzitelPrav(DrzitelPravType value) {
         return new JAXBElement<DrzitelPravType>(_DrzitelPrav_QNAME, DrzitelPravType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekSlozenyModelType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekSlozenyModel")
     public JAXBElement<DatovyPrvekSlozenyModelType> createDatovyPrvekSlozenyModel(DatovyPrvekSlozenyModelType value) {
         return new JAXBElement<DatovyPrvekSlozenyModelType>(_DatovyPrvekSlozenyModel_QNAME, DatovyPrvekSlozenyModelType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikSpravceType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikSpravce")
     public JAXBElement<DatovyPrvekCiselnikSpravceType> createDatovyPrvekCiselnikSpravce(DatovyPrvekCiselnikSpravceType value) {
         return new JAXBElement<DatovyPrvekCiselnikSpravceType>(_DatovyPrvekCiselnikSpravce_QNAME, DatovyPrvekCiselnikSpravceType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link JazykKodType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "JazykKod")
     public JAXBElement<JazykKodType> createJazykKod(JazykKodType value) {
         return new JAXBElement<JazykKodType>(_JazykKod_QNAME, JazykKodType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekTypXMLType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekTypXML")
     public JAXBElement<DatovyPrvekTypXMLType> createDatovyPrvekTypXML(DatovyPrvekTypXMLType value) {
         return new JAXBElement<DatovyPrvekTypXMLType>(_DatovyPrvekTypXML_QNAME, DatovyPrvekTypXMLType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikPolozkaNazevType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikPolozkaNazev")
     public JAXBElement<DatovyPrvekCiselnikPolozkaNazevType> createDatovyPrvekCiselnikPolozkaNazev(DatovyPrvekCiselnikPolozkaNazevType value) {
         return new JAXBElement<DatovyPrvekCiselnikPolozkaNazevType>(_DatovyPrvekCiselnikPolozkaNazev_QNAME, DatovyPrvekCiselnikPolozkaNazevType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikSchemaSouborType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikSchemaSoubor")
     public JAXBElement<DatovySlovnikSchemaSouborType> createDatovySlovnikSchemaSoubor(DatovySlovnikSchemaSouborType value) {
         return new JAXBElement<DatovySlovnikSchemaSouborType>(_DatovySlovnikSchemaSoubor_QNAME, DatovySlovnikSchemaSouborType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekDelkaMaximalniType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekDelkaMaximalni")
     public JAXBElement<DatovyPrvekDelkaMaximalniType> createDatovyPrvekDelkaMaximalni(DatovyPrvekDelkaMaximalniType value) {
         return new JAXBElement<DatovyPrvekDelkaMaximalniType>(_DatovyPrvekDelkaMaximalni_QNAME, DatovyPrvekDelkaMaximalniType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TypeDublinCoreType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "TypeDublinCore")
     public JAXBElement<TypeDublinCoreType> createTypeDublinCore(TypeDublinCoreType value) {
         return new JAXBElement<TypeDublinCoreType>(_TypeDublinCore_QNAME, TypeDublinCoreType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekRodicovskyTypXMLType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekRodicovskyTypXML")
     public JAXBElement<DatovyPrvekRodicovskyTypXMLType> createDatovyPrvekRodicovskyTypXML(DatovyPrvekRodicovskyTypXMLType value) {
         return new JAXBElement<DatovyPrvekRodicovskyTypXMLType>(_DatovyPrvekRodicovskyTypXML_QNAME, DatovyPrvekRodicovskyTypXMLType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekNazevType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekNazev")
     public JAXBElement<DatovyPrvekNazevType> createDatovyPrvekNazev(DatovyPrvekNazevType value) {
         return new JAXBElement<DatovyPrvekNazevType>(_DatovyPrvekNazev_QNAME, DatovyPrvekNazevType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekSkupinaNazevType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekSkupinaNazev")
     public JAXBElement<DatovyPrvekSkupinaNazevType> createDatovyPrvekSkupinaNazev(DatovyPrvekSkupinaNazevType value) {
         return new JAXBElement<DatovyPrvekSkupinaNazevType>(_DatovyPrvekSkupinaNazev_QNAME, DatovyPrvekSkupinaNazevType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekPrezentaceKategorieType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekPrezentaceKategorie")
     public JAXBElement<DatovyPrvekPrezentaceKategorieType> createDatovyPrvekPrezentaceKategorie(DatovyPrvekPrezentaceKategorieType value) {
         return new JAXBElement<DatovyPrvekPrezentaceKategorieType>(_DatovyPrvekPrezentaceKategorie_QNAME, DatovyPrvekPrezentaceKategorieType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VyhlaseniDatumType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "VyhlaseniDatum")
     public JAXBElement<VyhlaseniDatumType> createVyhlaseniDatum(VyhlaseniDatumType value) {
         return new JAXBElement<VyhlaseniDatumType>(_VyhlaseniDatum_QNAME, VyhlaseniDatumType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikJmennyProstorURIType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikJmennyProstorURI")
     public JAXBElement<DatovySlovnikJmennyProstorURIType> createDatovySlovnikJmennyProstorURI(DatovySlovnikJmennyProstorURIType value) {
         return new JAXBElement<DatovySlovnikJmennyProstorURIType>(_DatovySlovnikJmennyProstorURI_QNAME, DatovySlovnikJmennyProstorURIType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciVyskytPodminkaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciVyskytPodminka")
     public JAXBElement<DatovyKonstruktDilciVyskytPodminkaType> createDatovyKonstruktDilciVyskytPodminka(DatovyKonstruktDilciVyskytPodminkaType value) {
         return new JAXBElement<DatovyKonstruktDilciVyskytPodminkaType>(_DatovyKonstruktDilciVyskytPodminka_QNAME, DatovyKonstruktDilciVyskytPodminkaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikAtributTvarDefaultniType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikAtributTvarDefaultni")
     public JAXBElement<DatovySlovnikAtributTvarDefaultniType> createDatovySlovnikAtributTvarDefaultni(DatovySlovnikAtributTvarDefaultniType value) {
         return new JAXBElement<DatovySlovnikAtributTvarDefaultniType>(_DatovySlovnikAtributTvarDefaultni_QNAME, DatovySlovnikAtributTvarDefaultniType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikElementTvarDefaultniType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikElementTvarDefaultni")
     public JAXBElement<DatovySlovnikElementTvarDefaultniType> createDatovySlovnikElementTvarDefaultni(DatovySlovnikElementTvarDefaultniType value) {
         return new JAXBElement<DatovySlovnikElementTvarDefaultniType>(_DatovySlovnikElementTvarDefaultni_QNAME, DatovySlovnikElementTvarDefaultniType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekZdrojHodnotType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekZdrojHodnot")
     public JAXBElement<DatovyPrvekZdrojHodnotType> createDatovyPrvekZdrojHodnot(DatovyPrvekZdrojHodnotType value) {
         return new JAXBElement<DatovyPrvekZdrojHodnotType>(_DatovyPrvekZdrojHodnot_QNAME, DatovyPrvekZdrojHodnotType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekPredpisJinyType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekPredpisJiny")
     public JAXBElement<DatovyPrvekPredpisJinyType> createDatovyPrvekPredpisJiny(DatovyPrvekPredpisJinyType value) {
         return new JAXBElement<DatovyPrvekPredpisJinyType>(_DatovyPrvekPredpisJiny_QNAME, DatovyPrvekPredpisJinyType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FormatType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "Format")
     public JAXBElement<FormatType> createFormat(FormatType value) {
         return new JAXBElement<FormatType>(_Format_QNAME, FormatType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciJmennyProstorType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciJmennyProstor")
     public JAXBElement<DatovyKonstruktDilciJmennyProstorType> createDatovyKonstruktDilciJmennyProstor(DatovyKonstruktDilciJmennyProstorType value) {
         return new JAXBElement<DatovyKonstruktDilciJmennyProstorType>(_DatovyKonstruktDilciJmennyProstor_QNAME, DatovyKonstruktDilciJmennyProstorType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikPolozkaNazevZkracenyType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikPolozkaNazevZkraceny")
     public JAXBElement<DatovyPrvekCiselnikPolozkaNazevZkracenyType> createDatovyPrvekCiselnikPolozkaNazevZkraceny(DatovyPrvekCiselnikPolozkaNazevZkracenyType value) {
         return new JAXBElement<DatovyPrvekCiselnikPolozkaNazevZkracenyType>(_DatovyPrvekCiselnikPolozkaNazevZkraceny_QNAME, DatovyPrvekCiselnikPolozkaNazevZkracenyType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekOblastNazevType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekOblastNazev")
     public JAXBElement<DatovyPrvekOblastNazevType> createDatovyPrvekOblastNazev(DatovyPrvekOblastNazevType value) {
         return new JAXBElement<DatovyPrvekOblastNazevType>(_DatovyPrvekOblastNazev_QNAME, DatovyPrvekOblastNazevType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikIdentifikatorExterniType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikIdentifikatorExterni")
     public JAXBElement<DatovyPrvekCiselnikIdentifikatorExterniType> createDatovyPrvekCiselnikIdentifikatorExterni(DatovyPrvekCiselnikIdentifikatorExterniType value) {
         return new JAXBElement<DatovyPrvekCiselnikIdentifikatorExterniType>(_DatovyPrvekCiselnikIdentifikatorExterni_QNAME, DatovyPrvekCiselnikIdentifikatorExterniType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikDefiniceType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikDefinice")
     public JAXBElement<DatovySlovnikDefiniceType> createDatovySlovnikDefinice(DatovySlovnikDefiniceType value) {
         return new JAXBElement<DatovySlovnikDefiniceType>(_DatovySlovnikDefinice_QNAME, DatovySlovnikDefiniceType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikIndikatorType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikIndikator")
     public JAXBElement<DatovyPrvekCiselnikIndikatorType> createDatovyPrvekCiselnikIndikator(DatovyPrvekCiselnikIndikatorType value) {
         return new JAXBElement<DatovyPrvekCiselnikIndikatorType>(_DatovyPrvekCiselnikIndikator_QNAME, DatovyPrvekCiselnikIndikatorType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikJmennyProstorCilovyType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikJmennyProstorCilovy")
     public JAXBElement<DatovySlovnikJmennyProstorCilovyType> createDatovySlovnikJmennyProstorCilovy(DatovySlovnikJmennyProstorCilovyType value) {
         return new JAXBElement<DatovySlovnikJmennyProstorCilovyType>(_DatovySlovnikJmennyProstorCilovy_QNAME, DatovySlovnikJmennyProstorCilovyType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekDesetinnaCastDelkaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekDesetinnaCastDelka")
     public JAXBElement<DatovyPrvekDesetinnaCastDelkaType> createDatovyPrvekDesetinnaCastDelka(DatovyPrvekDesetinnaCastDelkaType value) {
         return new JAXBElement<DatovyPrvekDesetinnaCastDelkaType>(_DatovyPrvekDesetinnaCastDelka_QNAME, DatovyPrvekDesetinnaCastDelkaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekHodnotyPripustneType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekHodnotyPripustne")
     public JAXBElement<DatovyPrvekHodnotyPripustneType> createDatovyPrvekHodnotyPripustne(DatovyPrvekHodnotyPripustneType value) {
         return new JAXBElement<DatovyPrvekHodnotyPripustneType>(_DatovyPrvekHodnotyPripustne_QNAME, DatovyPrvekHodnotyPripustneType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikIdentifikatorType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikIdentifikator")
     public JAXBElement<DatovyPrvekCiselnikIdentifikatorType> createDatovyPrvekCiselnikIdentifikator(DatovyPrvekCiselnikIdentifikatorType value) {
         return new JAXBElement<DatovyPrvekCiselnikIdentifikatorType>(_DatovyPrvekCiselnikIdentifikator_QNAME, DatovyPrvekCiselnikIdentifikatorType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PlatnostDoDatumType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "PlatnostDoDatum")
     public JAXBElement<PlatnostDoDatumType> createPlatnostDoDatum(PlatnostDoDatumType value) {
         return new JAXBElement<PlatnostDoDatumType>(_PlatnostDoDatum_QNAME, PlatnostDoDatumType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekSkupinaKodType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekSkupinaKod")
     public JAXBElement<DatovyPrvekSkupinaKodType> createDatovyPrvekSkupinaKod(DatovyPrvekSkupinaKodType value) {
         return new JAXBElement<DatovyPrvekSkupinaKodType>(_DatovyPrvekSkupinaKod_QNAME, DatovyPrvekSkupinaKodType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PuvodType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "Puvod")
     public JAXBElement<PuvodType> createPuvod(PuvodType value) {
         return new JAXBElement<PuvodType>(_Puvod_QNAME, PuvodType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikDruhKodType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikDruhKod")
     public JAXBElement<DatovyPrvekCiselnikDruhKodType> createDatovyPrvekCiselnikDruhKod(DatovyPrvekCiselnikDruhKodType value) {
         return new JAXBElement<DatovyPrvekCiselnikDruhKodType>(_DatovyPrvekCiselnikDruhKod_QNAME, DatovyPrvekCiselnikDruhKodType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekSpravceType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekSpravce")
     public JAXBElement<DatovyPrvekSpravceType> createDatovyPrvekSpravce(DatovyPrvekSpravceType value) {
         return new JAXBElement<DatovyPrvekSpravceType>(_DatovyPrvekSpravce_QNAME, DatovyPrvekSpravceType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekJmenoXMLAnglickyType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekJmenoXMLAnglicky")
     public JAXBElement<DatovyPrvekJmenoXMLAnglickyType> createDatovyPrvekJmenoXMLAnglicky(DatovyPrvekJmenoXMLAnglickyType value) {
         return new JAXBElement<DatovyPrvekJmenoXMLAnglickyType>(_DatovyPrvekJmenoXMLAnglicky_QNAME, DatovyPrvekJmenoXMLAnglickyType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekPredpisPravniType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekPredpisPravni")
     public JAXBElement<DatovyPrvekPredpisPravniType> createDatovyPrvekPredpisPravni(DatovyPrvekPredpisPravniType value) {
         return new JAXBElement<DatovyPrvekPredpisPravniType>(_DatovyPrvekPredpisPravni_QNAME, DatovyPrvekPredpisPravniType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciMinimumVyskytPocetType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciMinimumVyskytPocet")
     public JAXBElement<DatovyKonstruktDilciMinimumVyskytPocetType> createDatovyKonstruktDilciMinimumVyskytPocet(DatovyKonstruktDilciMinimumVyskytPocetType value) {
         return new JAXBElement<DatovyKonstruktDilciMinimumVyskytPocetType>(_DatovyKonstruktDilciMinimumVyskytPocet_QNAME, DatovyKonstruktDilciMinimumVyskytPocetType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekVyrazRegularniType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekVyrazRegularni")
     public JAXBElement<DatovyPrvekVyrazRegularniType> createDatovyPrvekVyrazRegularni(DatovyPrvekVyrazRegularniType value) {
         return new JAXBElement<DatovyPrvekVyrazRegularniType>(_DatovyPrvekVyrazRegularni_QNAME, DatovyPrvekVyrazRegularniType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekDefiniceType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekDefinice")
     public JAXBElement<DatovyPrvekDefiniceType> createDatovyPrvekDefinice(DatovyPrvekDefiniceType value) {
         return new JAXBElement<DatovyPrvekDefiniceType>(_DatovyPrvekDefinice_QNAME, DatovyPrvekDefiniceType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekOmezeniDruhType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekOmezeniDruh")
     public JAXBElement<DatovyPrvekOmezeniDruhType> createDatovyPrvekOmezeniDruh(DatovyPrvekOmezeniDruhType value) {
         return new JAXBElement<DatovyPrvekOmezeniDruhType>(_DatovyPrvekOmezeniDruh_QNAME, DatovyPrvekOmezeniDruhType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PlatnostOdDatumType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "PlatnostOdDatum")
     public JAXBElement<PlatnostOdDatumType> createPlatnostOdDatum(PlatnostOdDatumType value) {
         return new JAXBElement<PlatnostOdDatumType>(_PlatnostOdDatum_QNAME, PlatnostOdDatumType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekKomentarType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekKomentar")
     public JAXBElement<DatovyPrvekKomentarType> createDatovyPrvekKomentar(DatovyPrvekKomentarType value) {
         return new JAXBElement<DatovyPrvekKomentarType>(_DatovyPrvekKomentar_QNAME, DatovyPrvekKomentarType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PublikovalType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "Publikoval")
     public JAXBElement<PublikovalType> createPublikoval(PublikovalType value) {
         return new JAXBElement<PublikovalType>(_Publikoval_QNAME, PublikovalType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikSchemaImportovaneJmennyProstorType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikSchemaImportovaneJmennyProstor")
     public JAXBElement<DatovySlovnikSchemaImportovaneJmennyProstorType> createDatovySlovnikSchemaImportovaneJmennyProstor(DatovySlovnikSchemaImportovaneJmennyProstorType value) {
         return new JAXBElement<DatovySlovnikSchemaImportovaneJmennyProstorType>(_DatovySlovnikSchemaImportovaneJmennyProstor_QNAME, DatovySlovnikSchemaImportovaneJmennyProstorType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PrispelType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "Prispel")
     public JAXBElement<PrispelType> createPrispel(PrispelType value) {
         return new JAXBElement<PrispelType>(_Prispel_QNAME, PrispelType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikVerzeType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikVerze")
     public JAXBElement<DatovySlovnikVerzeType> createDatovySlovnikVerze(DatovySlovnikVerzeType value) {
         return new JAXBElement<DatovySlovnikVerzeType>(_DatovySlovnikVerze_QNAME, DatovySlovnikVerzeType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekPrezentaceSchemaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekPrezentaceSchema")
     public JAXBElement<DatovyPrvekPrezentaceSchemaType> createDatovyPrvekPrezentaceSchema(DatovyPrvekPrezentaceSchemaType value) {
         return new JAXBElement<DatovyPrvekPrezentaceSchemaType>(_DatovyPrvekPrezentaceSchema_QNAME, DatovyPrvekPrezentaceSchemaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciVyskytZavaznostKodType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciVyskytZavaznostKod")
     public JAXBElement<DatovyKonstruktDilciVyskytZavaznostKodType> createDatovyKonstruktDilciVyskytZavaznostKod(DatovyKonstruktDilciVyskytZavaznostKodType value) {
         return new JAXBElement<DatovyKonstruktDilciVyskytZavaznostKodType>(_DatovyKonstruktDilciVyskytZavaznostKod_QNAME, DatovyKonstruktDilciVyskytZavaznostKodType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciUdajeDoplnujiciType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciUdajeDoplnujici")
     public JAXBElement<DatovyKonstruktDilciUdajeDoplnujiciType> createDatovyKonstruktDilciUdajeDoplnujici(DatovyKonstruktDilciUdajeDoplnujiciType value) {
         return new JAXBElement<DatovyKonstruktDilciUdajeDoplnujiciType>(_DatovyKonstruktDilciUdajeDoplnujici_QNAME, DatovyKonstruktDilciUdajeDoplnujiciType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekJmenoXMLType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekJmenoXML")
     public JAXBElement<DatovyPrvekJmenoXMLType> createDatovyPrvekJmenoXML(DatovyPrvekJmenoXMLType value) {
         return new JAXBElement<DatovyPrvekJmenoXMLType>(_DatovyPrvekJmenoXML_QNAME, DatovyPrvekJmenoXMLType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link KlicoveSlovoType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "KlicoveSlovo")
     public JAXBElement<KlicoveSlovoType> createKlicoveSlovo(KlicoveSlovoType value) {
         return new JAXBElement<KlicoveSlovoType>(_KlicoveSlovo_QNAME, KlicoveSlovoType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekCiselnikPolozkaPlatnostOdDatumType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekCiselnikPolozkaPlatnostOdDatum")
     public JAXBElement<DatovyPrvekCiselnikPolozkaPlatnostOdDatumType> createDatovyPrvekCiselnikPolozkaPlatnostOdDatum(DatovyPrvekCiselnikPolozkaPlatnostOdDatumType value) {
         return new JAXBElement<DatovyPrvekCiselnikPolozkaPlatnostOdDatumType>(_DatovyPrvekCiselnikPolozkaPlatnostOdDatum_QNAME, DatovyPrvekCiselnikPolozkaPlatnostOdDatumType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekSynonymumType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekSynonymum")
     public JAXBElement<DatovyPrvekSynonymumType> createDatovyPrvekSynonymum(DatovyPrvekSynonymumType value) {
         return new JAXBElement<DatovyPrvekSynonymumType>(_DatovyPrvekSynonymum_QNAME, DatovyPrvekSynonymumType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikSchemaAdresaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikSchemaAdresa")
     public JAXBElement<DatovySlovnikSchemaAdresaType> createDatovySlovnikSchemaAdresa(DatovySlovnikSchemaAdresaType value) {
         return new JAXBElement<DatovySlovnikSchemaAdresaType>(_DatovySlovnikSchemaAdresa_QNAME, DatovySlovnikSchemaAdresaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyKonstruktDilciMaximumVyskytPocetType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyKonstruktDilciMaximumVyskytPocet")
     public JAXBElement<DatovyKonstruktDilciMaximumVyskytPocetType> createDatovyKonstruktDilciMaximumVyskytPocet(DatovyKonstruktDilciMaximumVyskytPocetType value) {
         return new JAXBElement<DatovyKonstruktDilciMaximumVyskytPocetType>(_DatovyKonstruktDilciMaximumVyskytPocet_QNAME, DatovyKonstruktDilciMaximumVyskytPocetType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovySlovnikSchemaImportovaneAdresaType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovySlovnikSchemaImportovaneAdresa")
     public JAXBElement<DatovySlovnikSchemaImportovaneAdresaType> createDatovySlovnikSchemaImportovaneAdresa(DatovySlovnikSchemaImportovaneAdresaType value) {
         return new JAXBElement<DatovySlovnikSchemaImportovaneAdresaType>(_DatovySlovnikSchemaImportovaneAdresa_QNAME, DatovySlovnikSchemaImportovaneAdresaType.class, null, value);
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatovyPrvekInstanceIndikatorType }{@code >}}
-     * 
-     */
+
     @XmlElementDecl(namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:v1", name = "DatovyPrvekInstanceIndikator")
     public JAXBElement<DatovyPrvekInstanceIndikatorType> createDatovyPrvekInstanceIndikator(DatovyPrvekInstanceIndikatorType value) {
         return new JAXBElement<DatovyPrvekInstanceIndikatorType>(_DatovyPrvekInstanceIndikator_QNAME, DatovyPrvekInstanceIndikatorType.class, null, value);

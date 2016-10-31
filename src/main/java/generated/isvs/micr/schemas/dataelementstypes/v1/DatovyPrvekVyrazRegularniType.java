@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Regulární výraz pro omezení v XML schématu pro daný DP.
+ * Regularni vyraz pro omezeni v XML schematu pro dany DP.
  * 
  * <p>Java class for DatovyPrvekVyrazRegularniType complex type.
  * 

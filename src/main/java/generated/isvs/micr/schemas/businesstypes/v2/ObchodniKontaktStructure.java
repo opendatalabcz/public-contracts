@@ -8,49 +8,18 @@
 
 package generated.isvs.micr.schemas.businesstypes.v2;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 import generated.isvs.micr.schemas.persontypes.v2.OsobaIdentitaStructure;
 import generated.isvs.micr.schemas.persontypes.v2.OsobaZamestnaniPostaveniType;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Identifikaèní údaje obchodního kontaktu.
- * <p/>
- * <p>Java class for ObchodniKontaktStructure complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="ObchodniKontaktStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;choice>
- *           &lt;sequence>
- *             &lt;element name="Osoba" type="{urn:cz:isvs:micr:schemas:PersonTypes:v2}OsobaIdentitaStructure"/>
- *             &lt;element name="OsobaFunkce" type="{urn:cz:isvs:micr:schemas:PersonTypes:v2}OsobaZamestnaniPostaveniType" minOccurs="0"/>
- *           &lt;/sequence>
- *           &lt;element name="KontaktPopis" type="{urn:cz:isvs:micr:schemas:CoreComponentTypes:v1}TextType"/>
- *         &lt;/choice>
- *         &lt;element name="KontaktniUdaj" type="{urn:cz:isvs:micr:schemas:BusinessTypes:v2}KontaktniUdajStructure" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- */
+
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObchodniKontaktStructure", propOrder = {
         "osoba",
@@ -73,86 +42,37 @@ public class ObchodniKontaktStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the osoba property.
-     *
-     * @return possible object is
-     * {@link OsobaIdentitaStructure }
-     */
+
     public OsobaIdentitaStructure getOsoba() {
         return osoba;
     }
 
-    /**
-     * Sets the value of the osoba property.
-     *
-     * @param value allowed object is
-     *              {@link OsobaIdentitaStructure }
-     */
+
     public void setOsoba(OsobaIdentitaStructure value) {
         this.osoba = value;
     }
 
-    /**
-     * Gets the value of the osobaFunkce property.
-     *
-     * @return possible object is
-     * {@link OsobaZamestnaniPostaveniType }
-     */
+
     public OsobaZamestnaniPostaveniType getOsobaFunkce() {
         return osobaFunkce;
     }
 
-    /**
-     * Sets the value of the osobaFunkce property.
-     *
-     * @param value allowed object is
-     *              {@link OsobaZamestnaniPostaveniType }
-     */
+
     public void setOsobaFunkce(OsobaZamestnaniPostaveniType value) {
         this.osobaFunkce = value;
     }
 
-    /**
-     * Gets the value of the kontaktPopis property.
-     *
-     * @return possible object is
-     * {@link TextType }
-     */
+
     public TextType getKontaktPopis() {
         return kontaktPopis;
     }
 
-    /**
-     * Sets the value of the kontaktPopis property.
-     *
-     * @param value allowed object is
-     *              {@link TextType }
-     */
+
     public void setKontaktPopis(TextType value) {
         this.kontaktPopis = value;
     }
 
-    /**
-     * Gets the value of the kontaktniUdaj property.
-     * <p/>
-     * <p/>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the kontaktniUdaj property.
-     * <p/>
-     * <p/>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getKontaktniUdaj().add(newItem);
-     * </pre>
-     * <p/>
-     * <p/>
-     * <p/>
-     * Objects of the following type(s) are allowed in the list
-     * {@link KontaktniUdajStructure }
-     */
+
     public List<KontaktniUdajStructure> getKontaktniUdaj() {
         if (kontaktniUdaj == null) {
             kontaktniUdaj = new ArrayList<KontaktniUdajStructure>();
@@ -160,22 +80,12 @@ public class ObchodniKontaktStructure {
         return this.kontaktniUdaj;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     *
-     * @return possible object is
-     * {@link String }
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     *
-     * @param value allowed object is
-     *              {@link String }
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

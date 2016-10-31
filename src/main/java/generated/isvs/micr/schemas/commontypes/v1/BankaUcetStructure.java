@@ -18,35 +18,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Složený datový prvek, který v tuzemském platebním styku jednoznaènì identifikuje úèet klienta.
- * <p/>
- * <p/>
- * <p>Java class for BankaUcetStructure complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="BankaUcetStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;choice>
- *           &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}UcetCislo"/>
- *           &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}UcetIBANcislo"/>
- *         &lt;/choice>
- *         &lt;choice>
- *           &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}BankaKod"/>
- *           &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}BankaSWIFTkod"/>
- *         &lt;/choice>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}Rozsireni" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BankaUcetStructure", propOrder = {
         "ucetCislo",
@@ -72,122 +44,62 @@ public class BankaUcetStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the ucetCislo property.
-     *
-     * @return possible object is
-     * {@link UcetCisloType }
-     */
+
     public UcetCisloType getUcetCislo() {
         return ucetCislo;
     }
 
-    /**
-     * Sets the value of the ucetCislo property.
-     *
-     * @param value allowed object is
-     *              {@link UcetCisloType }
-     */
+
     public void setUcetCislo(UcetCisloType value) {
         this.ucetCislo = value;
     }
 
-    /**
-     * Gets the value of the ucetIBANcislo property.
-     *
-     * @return possible object is
-     * {@link UcetIBANcisloType }
-     */
+
     public UcetIBANcisloType getUcetIBANcislo() {
         return ucetIBANcislo;
     }
 
-    /**
-     * Sets the value of the ucetIBANcislo property.
-     *
-     * @param value allowed object is
-     *              {@link UcetIBANcisloType }
-     */
+
     public void setUcetIBANcislo(UcetIBANcisloType value) {
         this.ucetIBANcislo = value;
     }
 
-    /**
-     * Gets the value of the bankaKod property.
-     *
-     * @return possible object is
-     * {@link BankaKodType }
-     */
+
     public BankaKodType getBankaKod() {
         return bankaKod;
     }
 
-    /**
-     * Sets the value of the bankaKod property.
-     *
-     * @param value allowed object is
-     *              {@link BankaKodType }
-     */
+
     public void setBankaKod(BankaKodType value) {
         this.bankaKod = value;
     }
 
-    /**
-     * Gets the value of the bankaSWIFTkod property.
-     *
-     * @return possible object is
-     * {@link BankaSWIFTkodType }
-     */
+
     public BankaSWIFTkodType getBankaSWIFTkod() {
         return bankaSWIFTkod;
     }
 
-    /**
-     * Sets the value of the bankaSWIFTkod property.
-     *
-     * @param value allowed object is
-     *              {@link BankaSWIFTkodType }
-     */
+
     public void setBankaSWIFTkod(BankaSWIFTkodType value) {
         this.bankaSWIFTkod = value;
     }
 
-    /**
-     * Gets the value of the rozsireni property.
-     *
-     * @return possible object is
-     * {@link RozsireniStructure }
-     */
+
     public RozsireniStructure getRozsireni() {
         return rozsireni;
     }
 
-    /**
-     * Sets the value of the rozsireni property.
-     *
-     * @param value allowed object is
-     *              {@link RozsireniStructure }
-     */
+
     public void setRozsireni(RozsireniStructure value) {
         this.rozsireni = value;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     *
-     * @return possible object is
-     * {@link String }
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     *
-     * @param value allowed object is
-     *              {@link String }
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

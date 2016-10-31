@@ -8,32 +8,15 @@
 
 package generated.isvs.micr.schemas.persontypes.v2;
 
+import generated.isvs.micr.schemas.persontypes.v.al0090.v1.OsobaDuchodDruhContentType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
-import generated.isvs.micr.schemas.persontypes.v.al0090.v1.OsobaDuchodDruhContentType;
 
 
-/**
- * Slovní vyjádøení druhu dùchodu. Jestliže obyvatel pobírá nìkolik dùchodù, uvedou se všechny druhy pobíraných dùchodù jako seznam.
- * 
- * <p>Java class for OsobaDuchodDruhType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaDuchodDruhType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0090:v1>OsobaDuchodDruhContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaDuchodDruhType", propOrder = {
     "value"
@@ -43,26 +26,11 @@ public class OsobaDuchodDruhType {
     @XmlValue
     protected OsobaDuchodDruhContentType value;
 
-    /**
-     * Slovní vyjádøení druhu dùchodu. Jestliže obyvatel pobírá nìkolik dùchodù, uvedou se všechny druhy pobíraných dùchodù jako seznam.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaDuchodDruhContentType }
-     *     
-     */
     public OsobaDuchodDruhContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaDuchodDruhContentType }
-     *     
-     */
+
     public void setValue(OsobaDuchodDruhContentType value) {
         this.value = value;
     }

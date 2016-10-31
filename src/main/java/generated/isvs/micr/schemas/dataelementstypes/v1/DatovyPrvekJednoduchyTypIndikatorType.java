@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IndikatorType;
 
 
 /**
- * Indikátor, zda XML datový typ  jednoduchého datového prvku bude založen na konstruktu simpleType XML Schema.
+ * Indikator, zda XML datovy typ  jednoducheho datoveho prvku bude zalozen na konstruktu simpleType XML Schema.
  * 
  * <p>Java class for DatovyPrvekJednoduchyTypIndikatorType complex type.
  * 

@@ -15,22 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód  POU Ceského statistického úøadu je èíselný prostorový identifikátor prvku  prostorové identifikace „Správní obvod obce s povìøeným obecním úøadem“.  Prvek  prostorové identifikace „Správní obvod obce s povìøeným obecním úøadem“ je stanoven zákonem 314/2002 Sb.Kód  POU Ceského statistického úøadu je roven údaji kód POU èíselníku CISPOU ze Sdìlení CSU è. 471/2002 Sb.Kód  POU Ceského statistického úøadu je urèen po vzniku správního obvodu obce s povìøeným obecním úøadem èíselníkem.Kód  POU Ceského statistického úøadu je jedineèný v rámci Ceské republiky.
- * <p/>
- * <p>Java class for ObecPoverenyUradStatistickyKodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="ObecPoverenyUradStatistickyKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecPoverenyUradStatistickyKodType")
 public class ObecPoverenyUradStatistickyKodType

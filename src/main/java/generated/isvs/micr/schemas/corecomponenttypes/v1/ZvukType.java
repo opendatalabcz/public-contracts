@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Binární objekt, ve kterém je zakódována schopnost vytvoøit zvuk.
+ * Binarni objekt, ve kterem je zakodovana schopnost vytvorit zvuk.
  * 
  * <p>Java class for ZvukType complex type.
  * 

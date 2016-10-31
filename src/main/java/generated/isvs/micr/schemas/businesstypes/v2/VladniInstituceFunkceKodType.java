@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kódové vyjádøení funkce resp. výdaje jednotlivé vládní instituce. Funkcí se rozumí urèitá oblast èinností, v níž daná instituce, pøípadnì i jeho jednotlivé dílèí orgány (útvary), pùsobí.
- *
- * <p>Java class for VladniInstituceFunkceKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="VladniInstituceFunkceKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "VladniInstituceFunkceKodType")
 public class VladniInstituceFunkceKodType

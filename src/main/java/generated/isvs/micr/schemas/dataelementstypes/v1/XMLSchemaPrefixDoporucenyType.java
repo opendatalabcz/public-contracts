@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Doporuèený prefix jmenného prostoru XML schématu je atributem datového slovníku ISVS. Uvádí, jaký prefix jmenného prostoru daného datového slovníku bude implicitnì použit, pokud bude daný datový slovník (ve formátu XML Schema) importován jiným datovým slovníkem. 
+ * Doporuceny prefix jmenneho prostoru XML schematu je atributem datoveho slovniku ISVS. Uvadi, jaky prefix jmenneho prostoru daneho datoveho slovniku bude implicitne pouzit, pokud bude dany datovy slovnik (ve formatu XML Schema) importovan jinym datovym slovnikem.
  * 
  * <p>Java class for XMLSchemaPrefixDoporucenyType complex type.
  * 

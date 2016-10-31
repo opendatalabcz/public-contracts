@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Informace doplòující definici a/nebo urèující zpùsob a/nebo podmínky použití datového prvku.
+ * Informace doplnujici definici a/nebo urcujici zpusob a/nebo podminky pouziti datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekKomentarType complex type.
  * 

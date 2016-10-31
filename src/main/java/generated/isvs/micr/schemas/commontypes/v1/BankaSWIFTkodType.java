@@ -15,23 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Kód banky pro mezinárodní platební styk - tzv. SWIFT (BIC) kód. Kód BIC (Bank Identifier Code) je registrován organizací SWIFT(Society for Worldwide International Financial Transactions).
- * <p/>
- * <p/>
- * <p>Java class for BankaSWIFTkodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="BankaSWIFTkodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BankaSWIFTkodType")
 public class BankaSWIFTkodType

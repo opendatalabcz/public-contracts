@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlValue;
 import generated.isvs.micr.schemas.spacetypes.v.al0045.v1.ObjektCisloDomovniDruhContentType;
 
 
-/**
- * Název druhu èísla domovního je slovní kvalifikátor pro upøesnìní, zda se jedná o èíslo popisné nebo evidenèní
- * 
- * <p>Java class for ObjektCisloDomovniDruhType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObjektCisloDomovniDruhType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:SpaceTypes:v:AL0045:v1>ObjektCisloDomovniDruhContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObjektCisloDomovniDruhType", propOrder = {
     "value"
@@ -42,26 +25,12 @@ public class ObjektCisloDomovniDruhType {
     @XmlValue
     protected ObjektCisloDomovniDruhContentType value;
 
-    /**
-     * Název druhu èísla domovního je slovní kvalifikátor pro upøesnìní, zda se jedná o èíslo popisné nebo evidenèní
-     * 
-     * @return
-     *     possible object is
-     *     {@link ObjektCisloDomovniDruhContentType }
-     *     
-     */
+
     public ObjektCisloDomovniDruhContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ObjektCisloDomovniDruhContentType }
-     *     
-     */
+
     public void setValue(ObjektCisloDomovniDruhContentType value) {
         this.value = value;
     }

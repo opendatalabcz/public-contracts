@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Pojmenování  vyjadøující podstatnou povahu dané položky (údaje) èíselníku ve zkrácené formì.
+ * Pojmenovani  vyjadrujici podstatnou povahu dane polozky (udaje) ciselniku ve zkracene forme.
  * 
  * <p>Java class for DatovyPrvekCiselnikPolozkaNazevZkracenyType complex type.
  * 

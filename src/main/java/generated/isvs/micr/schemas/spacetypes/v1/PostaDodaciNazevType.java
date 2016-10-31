@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název dodací pošty je slovní prostorový identifikátor prvku  prostorové identifikace „Doruèovací obvod poštovní provozovny“.  Název dodací pošty je urèen pøi vzniku doruèovacího obvodu poštovní provozovny èíselníkem. Název dodací pošty je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for PostaDodaciNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="PostaDodaciNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PostaDodaciNazevType")
 public class PostaDodaciNazevType

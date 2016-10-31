@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
 
-/**
- * Datový prvek pro slovní vyjádøení druhu zkoušky znalosti jazyka. Složení zkoušky se prokazuje vysvìdèením nebo jiným certifikátem vydaným pøíslušnou školou nebo institucí.
- * 
- * <p>Java class for OsobaJazykZnalostOsvedceniType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaJazykZnalostOsvedceniType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0084:v1>OsobaJazykZnalostOsvedceniContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaJazykZnalostOsvedceniType", propOrder = {
     "value"
@@ -41,26 +24,12 @@ public class OsobaJazykZnalostOsvedceniType {
     @XmlValue
     protected String value;
 
-    /**
-     * Datový prvek pro slovní vyjádøení druhu zkoušky znalosti jazyka. Složení zkoušky se prokazuje vysvìdèením nebo jiným certifikátem vydaným pøíslušnou školou nebo institucí.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setValue(String value) {
         this.value = value;
     }

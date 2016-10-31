@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Právnická èi fyzická osoba, spravující autorská práva k objektu standardizace, identifikovaná nejlépe pomocí URI.
+ * Pravnicka ci fyzicka osoba, spravujici autorska prava k objektu standardizace, identifikovana nejlepe pomoci URI.
  * 
  * <p>Java class for DrzitelPravType complex type.
  * 

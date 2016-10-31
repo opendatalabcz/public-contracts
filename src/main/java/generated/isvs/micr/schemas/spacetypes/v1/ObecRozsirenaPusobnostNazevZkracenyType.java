@@ -8,31 +8,14 @@
 
 package generated.isvs.micr.schemas.spacetypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Zkrácený název obvodu ORP je slovní prostorový identifikátor prvku  prostorové identifikace „Správní obvod obce s rozšíøenou pùsobností“.  Prvek  prostorové identifikace „Správní obvod obce s rozšíøenou pùsobností“ je stanoven zákonem 314/2002 Sb.Zkrácený název obvodu ORP je urèen èíselníkem.Zkrácený název obvodu ORP je jedineèný v rámci kraje.
- * 
- * <p>Java class for ObecRozsirenaPusobnostNazevZkracenyType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecRozsirenaPusobnostNazevZkracenyType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecRozsirenaPusobnostNazevZkracenyType")
 public class ObecRozsirenaPusobnostNazevZkracenyType

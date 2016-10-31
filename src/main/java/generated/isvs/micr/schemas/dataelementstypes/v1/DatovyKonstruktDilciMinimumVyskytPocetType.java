@@ -8,14 +8,15 @@
 
 package generated.isvs.micr.schemas.dataelementstypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Udaj, kolikrát se musí daný dílèí datový prvek složeného datového prvku vyskytnout v rámci složeného datového prvku.
+ * Udaj, kolikrat se musi dany dilci datovy prvek slozeneho datoveho prvku vyskytnout v ramci slozeneho datoveho prvku.
  * 
  * <p>Java class for DatovyKonstruktDilciMinimumVyskytPocetType complex type.
  * 

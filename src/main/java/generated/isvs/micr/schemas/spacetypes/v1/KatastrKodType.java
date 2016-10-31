@@ -15,26 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Kód katastrálního území je èíselný prostorový identifikátor prvku prostorové identifikace „katastrální území“. 
- * Kód katastrálního území je urèen èíselníkem (tzv. identifikaèní èíslo územnì technické jednotky).
- * Kód katastrálního území je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for KatastrKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="KatastrKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "KatastrKodType")
 public class KatastrKodType

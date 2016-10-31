@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název statistického obvodu v Praze je slovní prostorový identifikátor prvku  prostorové identifikace „Statistický obvod hlavního mìsta Prahy“.  Prvek  prostorové identifikace „Statistický obvod hlavního mìsta Prahy“ je stanoven opatøením CSU 83/1999 Sb. jako územnì statistická jednotka typu NUTS4 v hlavním mìstì Praha.Název statistického obvodu v Praze je urèen pøi vzniku statistického obvodu hlavního mìsta Prahy opatøením CSU. Mùže být zmìnìn opatøením CSU. Název statistického obvodu v Praze je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for ObvodPrahaStatistickyNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObvodPrahaStatistickyNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObvodPrahaStatistickyNazevType")
 public class ObvodPrahaStatistickyNazevType

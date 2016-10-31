@@ -20,7 +20,7 @@ import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 
 
 /**
- * Struktura, popisující importované schéma schématu datového slovníku.
+ * Struktura, popisujici importovane schema schematu datoveho slovniku.
  * 
  * <p>Java class for DatovySlovnikSchemaImportovaneStructure complex type.
  * 

@@ -29,7 +29,7 @@ import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekDesetinnaCast
 
 
 /**
- * Hodnota poètu; volitelnì spolu s doplòkovou informací o jednotce, v níž je údaj vyjádøen
+ * Hodnota poctu; volitelne spolu s doplnkovou informaci o jednotce, v niz je udaj vyjadren
  * 
  * <p>Java class for PocetType complex type.
  * 

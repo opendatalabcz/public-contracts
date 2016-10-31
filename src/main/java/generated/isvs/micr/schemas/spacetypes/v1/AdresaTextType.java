@@ -8,32 +8,13 @@
 
 package generated.isvs.micr.schemas.spacetypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Udává adresu trvalého pobytu nebo sídla v zahranièí v nestrukturovaném tvaru.
- * Pro úèely centrální evidence dotací a návratných finanèních výpomocí
- * poskytnutých ze státního rozpoètu slouží ke specifikaci adresy trvalého pobytu nebo sídla pøíjemce dotace nebo návratné finanèní výpomoci.
- * 
- * <p>Java class for AdresaTextType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="AdresaTextType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AdresaTextType")
 public class AdresaTextType

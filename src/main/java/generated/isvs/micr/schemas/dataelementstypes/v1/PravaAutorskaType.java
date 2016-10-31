@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Informace o autorských právech, spojených s daným objektem standardizace.
+ * Informace o autorskych pravech, spojenych s danym objektem standardizace.
  * 
  * <p>Java class for PravaAutorskaType complex type.
  * 

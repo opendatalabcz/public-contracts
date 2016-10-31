@@ -8,29 +8,14 @@
 
 package generated.isvs.micr.schemas.dataelementstypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Umístìní importovaného schématu (URL). Tvoøí dvojici s jmenným prostorem importovaného schématu. Dvojic jmenný prostor – umístìní importovaného schématu mùže být libovolný poèet.
- * <p/>
- * <p>Java class for DatovySlovnikSchemaImportovaneAdresaType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="DatovySlovnikSchemaImportovaneAdresaType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DatovySlovnikSchemaImportovaneAdresaType")
 public class DatovySlovnikSchemaImportovaneAdresaType

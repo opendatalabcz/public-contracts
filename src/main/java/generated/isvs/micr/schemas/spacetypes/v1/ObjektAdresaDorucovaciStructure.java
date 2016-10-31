@@ -23,29 +23,7 @@ import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Doruèovací adresa je textová reprezentace prvku prostorové identifikace „adresní místo“ používaná k zadání místa dodání, PSC a názvu dodací pošty na poštovních zásilkách.
- * 
- * <p>Java class for ObjektAdresaDorucovaciStructure complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObjektAdresaDorucovaciStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="RadekText" type="{urn:cz:isvs:micr:schemas:CoreComponentTypes:v1}TextType" maxOccurs="3" minOccurs="2"/>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:CommonTypes:v1}Rozsireni" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObjektAdresaDorucovaciStructure", propOrder = {
     "radekText",
@@ -62,28 +40,7 @@ public class ObjektAdresaDorucovaciStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the radekText property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the radekText property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getRadekText().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link TextType }
-     * 
-     * 
-     */
+
     public List<TextType> getRadekText() {
         if (radekText == null) {
             radekText = new ArrayList<TextType>();
@@ -91,50 +48,22 @@ public class ObjektAdresaDorucovaciStructure {
         return this.radekText;
     }
 
-    /**
-     * Gets the value of the rozsireni property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RozsireniStructure }
-     *     
-     */
+
     public RozsireniStructure getRozsireni() {
         return rozsireni;
     }
 
-    /**
-     * Sets the value of the rozsireni property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RozsireniStructure }
-     *     
-     */
+
     public void setRozsireni(RozsireniStructure value) {
         this.rozsireni = value;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

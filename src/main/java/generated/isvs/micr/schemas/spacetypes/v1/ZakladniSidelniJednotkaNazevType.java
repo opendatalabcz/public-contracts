@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název základní sídelní jednotky je slovní prostorový identifikátor prvku prostorové identifikace „základní sídelní jednotka“. Název základní sídelní jednotky je urèen pøi jejím vzniku.
- * Název základní sídelní jednotky je jedineèný v rámci obce.
- * 
- * <p>Java class for ZakladniSidelniJednotkaNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ZakladniSidelniJednotkaNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ZakladniSidelniJednotkaNazevType")
 public class ZakladniSidelniJednotkaNazevType

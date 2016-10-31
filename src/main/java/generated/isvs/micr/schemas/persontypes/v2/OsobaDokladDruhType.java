@@ -16,24 +16,7 @@ import javax.xml.bind.annotation.XmlValue;
 import generated.isvs.micr.schemas.persontypes.v.al0092.v1.OsobaDokladDruhContentType;
 
 
-/**
- * Slovní oznaèení druhu dokladu totožnosti, popø. druhu dokladu, podle kterého byla totožnost zjištìna. Uvede se oznaèení v souladu s èíselníkem. U dokladù „ obèanský prùkaz“ lze uvést zkratku „ OP“, u øidièského prùkazu „RP“.
- * 
- * <p>Java class for OsobaDokladDruhType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaDokladDruhType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0092:v1>OsobaDokladDruhContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaDokladDruhType", propOrder = {
     "value"
@@ -43,26 +26,12 @@ public class OsobaDokladDruhType {
     @XmlValue
     protected OsobaDokladDruhContentType value;
 
-    /**
-     * Slovní oznaèení druhu dokladu totožnosti, popø. druhu dokladu, podle kterého byla totožnost zjištìna. Uvede se oznaèení v souladu s èíselníkem. U dokladù „ obèanský prùkaz“ lze uvést zkratku „ OP“, u øidièského prùkazu „RP“.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaDokladDruhContentType }
-     *     
-     */
+
     public OsobaDokladDruhContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaDokladDruhContentType }
-     *     
-     */
+
     public void setValue(OsobaDokladDruhContentType value) {
         this.value = value;
     }

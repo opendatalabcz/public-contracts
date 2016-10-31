@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Zkrácená forma názvu datového prvku používaná k identifikaci prvku.
+ * Zkracena forma nazvu datoveho prvku pouzivana k identifikaci prvku.
  * <p/>
  * <p>Java class for DatovyPrvekAkronymType complex type.
  * <p/>

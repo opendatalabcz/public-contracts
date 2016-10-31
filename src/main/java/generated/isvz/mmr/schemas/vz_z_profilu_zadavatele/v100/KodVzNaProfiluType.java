@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Identifikátor VZ na profilu zadavatele
+ * Identifikator VZ na profilu zadavatele
  * 
  * <p>Java class for KodVzNaProfiluType complex type.
  * 

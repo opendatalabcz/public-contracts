@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IndikatorType;
 
 
 /**
- * Indikátor instance (výskytu) datového prvku v XML schématu jako XML elementu.
+ * Indikator instance (vyskytu) datoveho prvku v XML schematu jako XML elementu.
  * 
  * <p>Java class for DatovyPrvekInstanceIndikatorType complex type.
  * 

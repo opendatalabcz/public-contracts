@@ -8,16 +8,16 @@
 
 package generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
-
 
 /**
- * Identifikátor profilu zadavatele
- * - jedná se o evidenèní èíslo profilu zadavatele ve Vìstníku veøejných zakázek pøidìlené na základì Oznámení profilu zadavatele
+ * Identifikator profilu zadavatele
+ * - jedna se o evidencni cislo profilu zadavatele ve Vestniku verejnych zakazek pridelene na zaklade Oznameni profilu zadavatele
  * <p/>
  * <p/>
  * <p>Java class for ProfilKodType complex type.

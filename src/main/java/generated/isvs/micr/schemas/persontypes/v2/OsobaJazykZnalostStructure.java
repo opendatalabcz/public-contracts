@@ -18,31 +18,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Složený datový prvek o znalosti jazyka a o osvìdèení této znalosti.
- * 
- * 
- * <p>Java class for OsobaJazykZnalostStructure complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaJazykZnalostStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:PersonTypes:v2}Jazyk"/>
- *         &lt;element name="ZnalostNazev" type="{urn:cz:isvs:micr:schemas:PersonTypes:v2}OsobaJazykZnalostNazevType"/>
- *         &lt;element name="ZnalostOsvedceni" type="{urn:cz:isvs:micr:schemas:PersonTypes:v2}OsobaJazykZnalostOsvedceniType"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaJazykZnalostStructure", propOrder = {
     "jazyk",
@@ -62,98 +38,42 @@ public class OsobaJazykZnalostStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the jazyk property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JazykType }
-     *     
-     */
+
     public JazykType getJazyk() {
         return jazyk;
     }
 
-    /**
-     * Sets the value of the jazyk property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link JazykType }
-     *     
-     */
+
     public void setJazyk(JazykType value) {
         this.jazyk = value;
     }
 
-    /**
-     * Gets the value of the znalostNazev property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaJazykZnalostNazevType }
-     *     
-     */
+
     public OsobaJazykZnalostNazevType getZnalostNazev() {
         return znalostNazev;
     }
 
-    /**
-     * Sets the value of the znalostNazev property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaJazykZnalostNazevType }
-     *     
-     */
+
     public void setZnalostNazev(OsobaJazykZnalostNazevType value) {
         this.znalostNazev = value;
     }
 
-    /**
-     * Gets the value of the znalostOsvedceni property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaJazykZnalostOsvedceniType }
-     *     
-     */
+
     public OsobaJazykZnalostOsvedceniType getZnalostOsvedceni() {
         return znalostOsvedceni;
     }
 
-    /**
-     * Sets the value of the znalostOsvedceni property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaJazykZnalostOsvedceniType }
-     *     
-     */
+
     public void setZnalostOsvedceni(OsobaJazykZnalostOsvedceniType value) {
         this.znalostOsvedceni = value;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

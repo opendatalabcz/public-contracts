@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Název èíselníku pro daný datový prvek.
+ * Nazev ciselniku pro dany datovy prvek.
  *
  * <p>Java class for DatovyPrvekCiselnikNazevType complex type.
  * 

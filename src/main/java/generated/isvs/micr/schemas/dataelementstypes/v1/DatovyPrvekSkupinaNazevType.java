@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Pojmenování  vyjadøující podstatnou povahu skupiny datových prvkù. S kódem skupiny datových prvkù tvoøí nedìlitelnou dvojici.
+ * Pojmenovani  vyjadrujici podstatnou povahu skupiny datovych prvku. S kodem skupiny datovych prvku tvori nedelitelnou dvojici.
  * 
  * <p>Java class for DatovyPrvekSkupinaNazevType complex type.
  * 

@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 /**
  * 
- * 				Pøedmìt zakázky
+ * 				Predmet zakazky
  * 			
  * 
  * <p>Java class for PredmetZakazkyType complex type.

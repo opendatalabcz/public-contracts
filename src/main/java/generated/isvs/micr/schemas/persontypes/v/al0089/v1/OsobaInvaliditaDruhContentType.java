@@ -13,22 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for OsobaInvaliditaDruhContentType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="OsobaInvaliditaDruhContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="èásteèná"/>
- *     &lt;enumeration value="úplná"/>
- *     &lt;enumeration value="žádná"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
+
 @XmlType(name = "OsobaInvaliditaDruhContentType", namespace = "urn:cz:isvs:micr:schemas:PersonTypes:v:AL0089:v1")
 @XmlEnum
 public enum OsobaInvaliditaDruhContentType {

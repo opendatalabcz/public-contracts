@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Bonitovaná pùdnì ekologická jednotka (BPEJ) je základní mapovací a hodnotící jednotka zjišovaná terénním prùzkumem a jeho vyhodnocením, charakterizující pùdní a stanovištní podmínky zemìdìlskıch pozemkù nacházející se na území CR a konkretizující jejich vıznamné vlastnosti. BPEJ vyjadøuje pìtimístnım kódem hlavní pùdní a klimatické podmínky mající vliv na produkèní schopnost zemìdìlské pùdy a její ekonomické zhodnocení.
- * 
- * <p>Java class for PozemekBonitaKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="PozemekBonitaKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PozemekBonitaKodType")
 public class PozemekBonitaKodType

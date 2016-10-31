@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Název nebo popis prezentace datového prvku.
+ * Nazev nebo popis prezentace datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekPrezentaceFormaType complex type.
  * 

@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Vizuální zpodobnìní osoby, objektu nebo prostøedí.
+ * Vizualni zpodobneni osoby, objektu nebo prostredi.
  * <p/>
  * <p>Java class for ObrazType complex type.
  * <p/>

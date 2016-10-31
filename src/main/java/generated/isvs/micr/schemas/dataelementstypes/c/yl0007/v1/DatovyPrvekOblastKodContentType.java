@@ -12,43 +12,19 @@ import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for DatovyPrvekOblastKodContentType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="DatovyPrvekOblastKodContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token">
- *     &lt;enumeration value="AA"/>
- *     &lt;enumeration value="CT"/>
- *     &lt;enumeration value="YA"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
+
 @XmlType(name = "DatovyPrvekOblastKodContentType", namespace = "urn:cz:isvs:micr:schemas:DataElementsTypes:c:YL0007:v1")
 @XmlEnum
 public enum DatovyPrvekOblastKodContentType {
 
 
-    /**
-     * Jednoduché a složené datové prvky ISVS
-     * 
-     */
+
     AA,
 
-    /**
-     * Základní datové typy datových prvkù ISVS
-     * 
-     */
+
     CT,
 
-    /**
-     * Datové prvky (atributy) pro popis datových prvkù
-     * 
-     */
+
     YA;
 
     public String value() {

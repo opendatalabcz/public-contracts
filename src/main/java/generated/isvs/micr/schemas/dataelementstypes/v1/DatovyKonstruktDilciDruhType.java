@@ -17,7 +17,7 @@ import generated.isvs.micr.schemas.dataelementstypes.v.yl0013.v1.DatovyKonstrukt
 
 
 /**
- * Typ dílèího konstruktu struktury složeného datového prvku.
+ * Typ dilciho konstruktu struktury slozeneho datoveho prvku.
  * <p/>
  * <p>Java class for DatovyKonstruktDilciDruhType complex type.
  * <p/>
@@ -42,7 +42,7 @@ public class DatovyKonstruktDilciDruhType {
     protected DatovyKonstruktDilciDruhContentType value;
 
     /**
-     * Typ dílèího konstruktu struktury složeného datového prvku.
+     * Typ dilciho konstruktu struktury slozeneho datoveho prvku.
      *
      * @return possible object is
      * {@link DatovyKonstruktDilciDruhContentType }

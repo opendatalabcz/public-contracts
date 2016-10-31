@@ -27,7 +27,7 @@ import generated.isvs.micr.schemas.commontypes.v1.DatumXMLType;
 
 
 /**
- * Hodnota specifikující urèitý den kalendáøního roku, který je oznaèen poøadovým èíslem uvnitø kalendáøního mìsíce tohoto roku.
+ * Hodnota specifikujici urcity den kalendarniho roku, ktery je oznacen poradovym cislem uvnitr kalendarniho mesice tohoto roku.
  * 
  * <p>Java class for DatumType complex type.
  * 

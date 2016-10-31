@@ -13,33 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for OsobaDokladDruhContentType.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;simpleType name="OsobaDokladDruhContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="cestovní doklad"/>
- *     &lt;enumeration value="jiný"/>
- *     &lt;enumeration value="mezinárodní øidièský prùkaz"/>
- *     &lt;enumeration value="námoøní knížka (prùkaz zpùsobilosti k vedení a obsluze plavidel, lodní knížka)"/>
- *     &lt;enumeration value="není"/>
- *     &lt;enumeration value="obèanský prùkaz (OP)"/>
- *     &lt;enumeration value="prùkaz o neschopnosti k vojenské èinné službì (propouštìcí list z vojska)"/>
- *     &lt;enumeration value="prùkaz povolení pobytu cizince na území CR"/>
- *     &lt;enumeration value="prùkaz pozemního leteckého personálu – inspektor pro LTPZ"/>
- *     &lt;enumeration value="prùkaz zpùsobilosti leteckého personálu ( pilotní prùkaz)"/>
- *     &lt;enumeration value="rodný list"/>
- *     &lt;enumeration value="øidièský prùkaz (RP)"/>
- *     &lt;enumeration value="služební prùkaz"/>
- *     &lt;enumeration value="vojenský prùkaz ( vojenská knížka)"/>
- *     &lt;enumeration value="zbrojní prùkaz"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- */
+
 @XmlType(name = "OsobaDokladDruhContentType", namespace = "urn:cz:isvs:micr:schemas:PersonTypes:v:AL0092:v1")
 @XmlEnum
 public enum OsobaDokladDruhContentType {

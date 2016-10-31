@@ -8,47 +8,20 @@
 
 package generated.isvs.micr.schemas.corecomponenttypes.v1;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.namespace.QName;
-
 import generated.isvs.micr.schemas.businesstypes.v2.OrganizaceMalyStredniPodnikIndikatorType;
 import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekCiselnikIndikatorType;
 import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekInstanceIndikatorType;
 import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekJednoduchyTypIndikatorType;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import javax.xml.namespace.QName;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Seznam dvou a pouze dvou hodnot, indikujících stavy jako zapnuto/vypnuto, pravda/nepravda apod. Je synonymem pro datový typ “Boolean”; volitelnì spolu s doplòkovou informací o formátu údaje
- * 
- * <p>Java class for IndikatorType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="IndikatorType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>token">
- *       &lt;attribute name="indikatorFormat" type="{http://www.w3.org/2001/XMLSchema}token" />
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *       &lt;anyAttribute/>
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IndikatorType", propOrder = {
     "value"

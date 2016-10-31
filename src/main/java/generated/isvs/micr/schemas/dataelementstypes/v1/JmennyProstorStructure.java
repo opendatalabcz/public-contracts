@@ -21,7 +21,7 @@ import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 
 
 /**
- * Deklarace jmenného prostoru XML. Obsahuje jmenný prostor a prefix jmenného prostoru.
+ * Deklarace jmenneho prostoru XML. Obsahuje jmenny prostor a prefix jmenneho prostoru.
  *
  * <p>Java class for JmennyProstorStructure complex type.
  * 

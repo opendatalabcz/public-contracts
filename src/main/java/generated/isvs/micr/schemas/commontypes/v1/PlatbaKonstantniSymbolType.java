@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Datový prvek pro èíselný údaj, sloužící k identifikaci charakteru a zpùsobu platby (provádìné prostøednictvím banky, èi jiné finanèní instituce). Konstantní symbol není povinnou náležitostí všech pøíkazcù k zúètování, ale pouze tìch, které jsou pøíjmem nebo výdajem státního rozpoètu, a tìch o nichž to stanoví zvláštní právní pøedpis.
- * 
- * <p>Java class for PlatbaKonstantniSymbolType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="PlatbaKonstantniSymbolType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PlatbaKonstantniSymbolType")
 public class PlatbaKonstantniSymbolType

@@ -15,26 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Pøedávací kód správního obvodu obce s povìøeným obecním úøadem je èíselný prostorový identifikátor prvku  prostorové identifikace „správní obvod obce s povìøeným obecním úøadem“. 
- * Pøedávací kód správního obvodu obce s povìøeným obecním úøadem je urèen po vzniku správního obvodu obce s povìøeným obecním úøadem èíselníkem.
- * Pøedávací kód správního obvodu obce s povìøeným obecním úøadem je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for ObecPoverenyUradKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecPoverenyUradKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecPoverenyUradKodType")
 public class ObecPoverenyUradKodType

@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.DatumCasType;
 
 
 /**
- * Datum zavedení položky èíselníku nebo datum zmìny, tj. zmìny hodnot atributù již platné položky èíselníku.
+ * Datum zavedeni polozky ciselniku nebo datum zmeny, tj. zmeny hodnot atributu jiz platne polozky ciselniku.
  * 
  * <p>Java class for DatovyPrvekCiselnikPolozkaPlatnostOdDatumType complex type.
  * 

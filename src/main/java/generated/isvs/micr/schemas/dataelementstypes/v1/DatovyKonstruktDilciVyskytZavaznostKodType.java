@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.dataelementstypes.c.yl0012.v1.DatovyKonstrukt
 
 
 /**
- * Udaj, zda dílèí konstrukt složeného datového prvku je povinný, volitelný, nebo podmínìný.
+ * Udaj, zda dilci konstrukt slozeneho datoveho prvku je povinny, volitelny, nebo podmineny.
  * 
  * <p>Java class for DatovyKonstruktDilciVyskytZavaznostKodType complex type.
  * 
@@ -43,7 +43,7 @@ public class DatovyKonstruktDilciVyskytZavaznostKodType {
     protected DatovyKonstruktDilciVyskytZavaznostKodContentType value;
 
     /**
-     * Udaj, zda dílèí konstrukt složeného datového prvku je povinný, volitelný, nebo podmínìný.
+     * Udaj, zda dilci konstrukt slozeneho datoveho prvku je povinny, volitelny, nebo podmineny.
      * 
      * @return
      *     possible object is

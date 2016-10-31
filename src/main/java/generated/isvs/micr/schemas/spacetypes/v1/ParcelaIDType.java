@@ -15,25 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Parcelní èíslo je èíselný prostorový identifikátor prvku prostorové identifikace „parcela“. Parcelní èíslo je urèováno pøi vzniku parcely.
- * Parcelní èíslo je jedineèné pouze v rámci katastrálního území.
- * 
- * <p>Java class for ParcelaIDType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ParcelaIDType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ParcelaIDType")
 public class ParcelaIDType

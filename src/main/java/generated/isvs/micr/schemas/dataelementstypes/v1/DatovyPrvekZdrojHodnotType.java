@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Právnická nebo fyzická osoba, v rámci jejíž existence nebo èinnosti konkrétní hodnota datového prvku vzniká, a to na základì právních pøedpisù.
+ * Pravnicka nebo fyzicka osoba, v ramci jejiz existence nebo cinnosti konkretni hodnota datoveho prvku vznika, a to na zaklade pravnich predpisu.
  * 
  * <p>Java class for DatovyPrvekZdrojHodnotType complex type.
  * 

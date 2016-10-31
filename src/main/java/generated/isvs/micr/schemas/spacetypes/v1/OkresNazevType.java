@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název okresu je slovní prostorový identifikátor prvku prostorové identifikace „okres“. 
- * Název okresu je urèen pøi vzniku okresu zákonem. Mùže být zmìnìn zákonem.
- * Název okresu je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for OkresNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OkresNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OkresNazevType")
 public class OkresNazevType

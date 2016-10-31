@@ -14,25 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.PocetType;
 
 
-/**
- * Casový interval dlouhý sedm dní uvnitø kalendáøního roku, který zaèíná pondìlím a oznaèuje se poøadovými èísly uvnitø kalendáøního roku.
- * První kalendáøní týden roku je týden, který obsahuje první ètvrtek v roce.
- * 
- * <p>Java class for KalendarniTydenType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="KalendarniTydenType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>PocetType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "KalendarniTydenType")
 public class KalendarniTydenType

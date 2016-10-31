@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Hodnota èísla domovního je spoleèný název pro èíselnou hodnotu prostorového identifikátoru AA0065 „Císlo popisné“ a prostorového identifikátoru AA0066 „Císlo evidenèní“.
- * 
- * <p>Java class for CisloDomovniHodnotaType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="CisloDomovniHodnotaType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CisloDomovniHodnotaType")
 public class CisloDomovniHodnotaType

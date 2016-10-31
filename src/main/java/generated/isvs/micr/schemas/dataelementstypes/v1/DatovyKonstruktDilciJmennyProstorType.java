@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * U dílèího konstruktu typu "Deklarace XML elementu typu any" mùže být v tomto nepovinném atributu uveden jmenný prostor XML elementu, vkládaného v instanci XML dokumentu na místo deklarace any.
+ * U dilciho konstruktu typu "Deklarace XML elementu typu any" muze byt v tomto nepovinnem atributu uveden jmenny prostor XML elementu, vkladaneho v instanci XML dokumentu na misto deklarace any.
  * <p/>
  * <p>Java class for DatovyKonstruktDilciJmennyProstorType complex type.
  * <p/>

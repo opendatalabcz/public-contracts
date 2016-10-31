@@ -14,26 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Název obvodu hl. m. Prahy je slovní prostorový identifikátor prvku prostorové identifikace „ obvod v hl. m. Prahy“. 
- * Název obvodu hl. m. Prahy je urèen èíselníkem.
- * Název obvodu hl. m. Prahy je jedineèný v rámci Ceské republiky.
- * 
- * <p>Java class for ObvodPrahaNazevType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObvodPrahaNazevType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObvodPrahaNazevType")
 public class ObvodPrahaNazevType

@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Jméno, pod kterým se vyskytuje daný datový prvek v instancích XML dokumentù.
+ * Jmeno, pod kterym se vyskytuje dany datovy prvek v instancich XML dokumentu.
  * 
  * <p>Java class for DatovyPrvekJmenoXMLType complex type.
  * 

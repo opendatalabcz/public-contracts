@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.BinarniDataType;
 
 
 /**
- * Grafický model daného složeného datového prvku.
+ * Graficky model daneho slozeneho datoveho prvku.
  * <p/>
  * <p>Java class for DatovyPrvekSlozenyModelType complex type.
  * <p/>

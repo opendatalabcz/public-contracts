@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Jméno XML typu, pøíslušejícího danému DP.
+ * Jmeno XML typu, prislusejiciho danemu DP.
  *
  * <p>Java class for DatovyPrvekTypXMLType complex type.
  * 

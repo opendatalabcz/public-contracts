@@ -14,32 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
-/**
- * Císlo koncového bodu veøejných telefonních sítí a veøejných komunikaèních sítí s internetovým protokolem. Datový prvek má èásti:
- *  1. mezinárodní pøestupný znak („00“ nebo „+“)
- *  2. Volba (pøedvolba) operátora
- *  3. kód zemì
- *  4.  úèastnické èíslo (u ústøeden s provolbou se rozumí èíslo ústøedny a èíslo pøípojky poboèkové sítì nebo poboèkové ústøedny dohromady)
- *  5. èíslo koncového bodu (u ústøeden se spojovatelkou – tzv. poloautomatický provoz)
- * Datový prvek nemusí mít uvedeno èíslo pøípojky poboèkové sítì nebo poboèkové ústøedny.
- * Je-li pøedøazen mezinárodní pøestupný znak (napø. pro USA pøed kód zemì „1“, tj. 001), jde o mezinárodní spojení.
- * Není-li uveden mezinárodní pøestupný znak 00, jde o úèastnické èíslo (telefonní èíslo) a datový prvek obsahuje jen úèastnické èíslo.
- * 
- * <p>Java class for FaxTelefonCisloType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="FaxTelefonCisloType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FaxTelefonCisloType")
 public class FaxTelefonCisloType

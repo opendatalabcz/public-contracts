@@ -18,30 +18,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Kód NUTS obce je èíselný prostorový identifikátor prvku prostorové identifikace „obec“. Kód NUTS obce je jedineèný v rámci Ceské republiky.
- * 
- * 
- * <p>Java class for ObecNutsKodStructure complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObecNutsKodStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:SpaceTypes:v1}OkresNutsKod"/>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:SpaceTypes:v1}ObecKod"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObecNutsKodStructure", propOrder = {
     "okresNutsKod",
@@ -58,74 +35,32 @@ public class ObecNutsKodStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the okresNutsKod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OkresNutsKodType }
-     *     
-     */
+
     public OkresNutsKodType getOkresNutsKod() {
         return okresNutsKod;
     }
 
-    /**
-     * Sets the value of the okresNutsKod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OkresNutsKodType }
-     *     
-     */
+
     public void setOkresNutsKod(OkresNutsKodType value) {
         this.okresNutsKod = value;
     }
 
-    /**
-     * Gets the value of the obecKod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ObecKodType }
-     *     
-     */
+
     public ObecKodType getObecKod() {
         return obecKod;
     }
 
-    /**
-     * Sets the value of the obecKod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ObecKodType }
-     *     
-     */
+
     public void setObecKod(ObecKodType value) {
         this.obecKod = value;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

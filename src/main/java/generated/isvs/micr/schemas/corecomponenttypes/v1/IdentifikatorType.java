@@ -8,72 +8,29 @@
 
 package generated.isvs.micr.schemas.corecomponenttypes.v1;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.namespace.QName;
-
 import generated.isvs.micr.schemas.businesstypes.v2.SubjektICOType;
 import generated.isvs.micr.schemas.businesstypes.v2.SubjektPlatceDaneEUiDType;
 import generated.isvs.micr.schemas.businesstypes.v2.SubjektPlatceDaneIDType;
-import generated.isvs.micr.schemas.commontypes.v1.BankaSWIFTkodType;
-import generated.isvs.micr.schemas.commontypes.v1.EmailType;
-import generated.isvs.micr.schemas.commontypes.v1.FaxTelefonCisloType;
-import generated.isvs.micr.schemas.commontypes.v1.PlatbaKonstantniSymbolType;
-import generated.isvs.micr.schemas.commontypes.v1.PlatbaSpecifickySymbolType;
-import generated.isvs.micr.schemas.commontypes.v1.PlatbaVariabilniSymbolType;
-import generated.isvs.micr.schemas.commontypes.v1.SpisCisloJednaciType;
-import generated.isvs.micr.schemas.commontypes.v1.URLType;
-import generated.isvs.micr.schemas.commontypes.v1.UcetCisloType;
-import generated.isvs.micr.schemas.commontypes.v1.UcetIBANcisloType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyKonstruktDilciJmennyProstorType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekAkronymType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekCiselnikAdresaType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekCiselnikDokumentaceAdresaType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekCiselnikIdentifikatorExterniType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekCiselnikIdentifikatorType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekIdentifikatorType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekJmenoXMLAnglickyType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekJmenoXMLType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekRodicovskyTypXMLType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovyPrvekTypXMLType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikJmennyProstorCilovyType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikJmennyProstorPrefixType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikJmennyProstorURIType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikSchemaAdresaType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikSchemaImportovaneAdresaType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikSchemaImportovaneJmennyProstorType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikSchemaSouborType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DatovySlovnikVerzeType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.DrzitelPravType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.FormatType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.LicenceType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.TypeDublinCoreType;
-import generated.isvs.micr.schemas.dataelementstypes.v1.XMLSchemaPrefixDoporucenyType;
+import generated.isvs.micr.schemas.commontypes.v1.*;
+import generated.isvs.micr.schemas.dataelementstypes.v1.*;
 import generated.isvs.micr.schemas.persontypes.v2.CizinecRodneCisloType;
 import generated.isvs.micr.schemas.persontypes.v2.OsobaDokladIDType;
 import generated.isvs.micr.schemas.persontypes.v2.OsobaRodneCisloType;
-import generated.isvs.micr.schemas.spacetypes.v1.CisloDomovniHodnotaType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObjektCisloEvidencniType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObjektCisloOrientacniType;
-import generated.isvs.micr.schemas.spacetypes.v1.ObjektCisloPopisneType;
-import generated.isvs.micr.schemas.spacetypes.v1.ParcelaIDType;
+import generated.isvs.micr.schemas.spacetypes.v1.*;
 import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.KodVZNaUsvzisType;
 import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.KodVzNaProfiluType;
 import generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilKodType;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import javax.xml.namespace.QName;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
- * Znakový øetìzec jednoznaènì identifikující instanci pøíslušného objektu od ostatních objektù v rámci jednoho identifikaèního schématu; volitelnì spolu s doplòkovými informacemi o údaji
+ * Znakovy retezec jednoznacne identifikujici instanci prislusneho objektu od ostatnich objektu v ramci jednoho identifikacniho schematu; volitelne spolu s doplnkovymi informacemi o udaji
  * 
  * <p>Java class for IdentifikatorType complex type.
  * 

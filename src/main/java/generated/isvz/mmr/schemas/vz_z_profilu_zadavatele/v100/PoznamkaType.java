@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Obecný datový typ pro poznámku VZ do rozsahu 1024 znakù
+ * Obecny datovy typ pro poznamku VZ do rozsahu 1024 znaku
  * 
  * <p>Java class for PoznamkaType complex type.
  * 

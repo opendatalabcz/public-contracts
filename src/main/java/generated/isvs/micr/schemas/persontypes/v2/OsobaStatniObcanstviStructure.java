@@ -19,30 +19,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import generated.isvs.micr.schemas.spacetypes.v1.StatKodType;
 
 
-/**
- * Složený datový prvek, který vyjadøuje pøíslušnost fyzické osoby do státního svazku urèitého státu (tj. vztah fyzické osoby ke státu).
- * 
- * 
- * <p>Java class for OsobaStatniObcanstviStructure complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaStatniObcanstviStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{urn:cz:isvs:micr:schemas:PersonTypes:v2}OsobaStatniObcanstviDruhKod"/>
- *         &lt;element name="StatKod" type="{urn:cz:isvs:micr:schemas:SpaceTypes:v1}StatKodType"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaStatniObcanstviStructure", propOrder = {
     "osobaStatniObcanstviDruhKod",
@@ -59,74 +36,32 @@ public class OsobaStatniObcanstviStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the osobaStatniObcanstviDruhKod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaStatniObcanstviDruhKodType }
-     *     
-     */
+
     public OsobaStatniObcanstviDruhKodType getOsobaStatniObcanstviDruhKod() {
         return osobaStatniObcanstviDruhKod;
     }
 
-    /**
-     * Sets the value of the osobaStatniObcanstviDruhKod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaStatniObcanstviDruhKodType }
-     *     
-     */
+
     public void setOsobaStatniObcanstviDruhKod(OsobaStatniObcanstviDruhKodType value) {
         this.osobaStatniObcanstviDruhKod = value;
     }
 
-    /**
-     * Gets the value of the statKod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StatKodType }
-     *     
-     */
+
     public StatKodType getStatKod() {
         return statKod;
     }
 
-    /**
-     * Sets the value of the statKod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link StatKodType }
-     *     
-     */
+
     public void setStatKod(StatKodType value) {
         this.statKod = value;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

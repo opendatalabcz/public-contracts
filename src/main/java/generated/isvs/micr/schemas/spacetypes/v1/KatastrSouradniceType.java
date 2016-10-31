@@ -15,26 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Souøadnice definièního bodu katastrálního území jsou èíselný prostorový identifikátor prvku prostorové identifikace „katastrální území“. Souøadnice definièního bodu katastrálního území je datový prvek, který se skládá z „Y – souøadnice definièního bodu katastrálního území“ a “X – souøadnice definièního bodu katastrálního území“.
- * Souøadnice definièního bodu katastrálního území jsou urèeny v rámci Katastru nemovitostí CR, vedeného Ceským úøadem zemìmìøickým a katastrálním. Jsou urèeny v metrech v souøadnicovém systému S-JTSK (systém Jednotné trigonometrické sítì katastrální). Aktuální hodnoty jsou souèástí Informaèního systému katastru nemovitostí, provozovaného v garanci Ceského úøadu zemìmìøického a katastrálního nebo Uzemnì identifikaèního registru základních sídelních jednotek, provozovaného v garanci Ceského statistického úøadu.
- * Souøadnice definièního bodu katastrálního území jsou jedineèné v rámci Ceské republiky.
- * 
- * <p>Java class for KatastrSouradniceType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="KatastrSouradniceType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "KatastrSouradniceType")
 public class KatastrSouradniceType

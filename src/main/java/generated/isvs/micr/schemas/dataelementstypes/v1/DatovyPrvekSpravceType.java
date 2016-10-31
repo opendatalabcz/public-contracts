@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Právní subjekt, který odpovídá za správu životního cyklu daného datového prvku.
+ * Pravni subjekt, ktery odpovida za spravu zivotniho cyklu daneho datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekSpravceType complex type.
  * 

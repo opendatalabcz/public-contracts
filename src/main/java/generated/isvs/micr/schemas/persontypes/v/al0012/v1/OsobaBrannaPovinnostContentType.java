@@ -13,24 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for OsobaBrannaPovinnostContentType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="OsobaBrannaPovinnostContentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="neuvedeno"/>
- *     &lt;enumeration value="státní obèan Ceské republiky, kterému branná povinnost nevznikla"/>
- *     &lt;enumeration value="státní obèan Ceské republiky, kterému branná povinnost zanikla"/>
- *     &lt;enumeration value="státní obèan Ceské republiky, který podléhá branné povinnosti"/>
- *     &lt;enumeration value="voják v záloze"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
+
 @XmlType(name = "OsobaBrannaPovinnostContentType", namespace = "urn:cz:isvs:micr:schemas:PersonTypes:v:AL0012:v1")
 @XmlEnum
 public enum OsobaBrannaPovinnostContentType {

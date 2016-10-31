@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Jedno nebo víceslovné urèení které je odlišné od daného názvu, ale pøedstavuje stejný koncept datového prvku.
+ * Jedno nebo viceslovne urceni ktere je odlisne od daneho nazvu, ale predstavuje stejny koncept datoveho prvku.
  * 
  * <p>Java class for DatovyPrvekSynonymumType complex type.
  * 

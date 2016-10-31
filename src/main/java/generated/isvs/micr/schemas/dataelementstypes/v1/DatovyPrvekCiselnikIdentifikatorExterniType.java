@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
 
 /**
- * Identifikátor èíselníku v jiných identifikaèních schématech.
+ * Identifikator ciselniku v jinych identifikacnich schematech.
  *
  * <p>Java class for DatovyPrvekCiselnikIdentifikatorExterniType complex type.
  * 

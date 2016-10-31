@@ -8,30 +8,13 @@
 
 package generated.isvs.micr.schemas.dataelementstypes.v1;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.DatumCasType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import generated.isvs.micr.schemas.corecomponenttypes.v1.DatumCasType;
 
 
-/**
- * Datum vyhlášení objektu standardizace. Odpovídá datu jeho prvního zveøejnìní; pro datové prvky a datové slovníky  ve sborníku datových prvkù nebo v IS o datových prvcích.
- * 
- * <p>Java class for VyhlaseniDatumType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="VyhlaseniDatumType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>DatumCasType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "VyhlaseniDatumType")
 public class VyhlaseniDatumType

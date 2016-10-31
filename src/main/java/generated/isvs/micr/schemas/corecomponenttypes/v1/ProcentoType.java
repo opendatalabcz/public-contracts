@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Pomìr, vyjádøený v setinách, mezi dvìma hodnotami se stejnými mìrnými jednotkami.
+ * Pomer, vyjadreny v setinach, mezi dvema hodnotami se stejnymi mernymi jednotkami.
  * 
  * <p>Java class for ProcentoType complex type.
  * 

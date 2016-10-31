@@ -22,7 +22,7 @@ import generated.isvs.micr.schemas.commontypes.v1.RozsireniStructure;
 
 
 /**
- * Struktura, zahrnující popis atributù datového slovníku.
+ * Struktura, zahrnujici popis atributu datoveho slovniku.
  * 
  * <p>Java class for DatovySlovnikPopisAtributyStructure complex type.
  * 

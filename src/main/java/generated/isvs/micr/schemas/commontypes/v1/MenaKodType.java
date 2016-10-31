@@ -15,27 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Datový prvek pro kódové oznaèení mìn a fondù.
- * Pozn.: Kód mùže být v jednom z následujících tvarù:
- * tøímístný èíslicový
- * tøímístný abecední
- * dvoumístný abecední
- * (kód je v uvedených tvarech jednoznaèný a jednoznaènì pøevoditelný)
- * <p/>
- * <p>Java class for MenaKodType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="MenaKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MenaKodType")
 public class MenaKodType

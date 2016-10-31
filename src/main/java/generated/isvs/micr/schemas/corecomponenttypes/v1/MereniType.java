@@ -26,7 +26,7 @@ import generated.isvs.micr.schemas.spacetypes.v1.NadmorskaVyskaType;
 
 
 /**
- * Hodnota velikosti, hmotnosti, objemu apod., získaná pomocí procesu mìøení; volitelnì spolu s doplòkovou informací o jednotce, v níž je údaj vyjádøen
+ * Hodnota velikosti, hmotnosti, objemu apod., ziskana pomoci procesu mereni; volitelne spolu s doplnkovou informaci o jednotce, v niz je udaj vyjadren
  * 
  * <p>Java class for MereniType complex type.
  * 

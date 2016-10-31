@@ -8,29 +8,13 @@
 
 package generated.isvs.micr.schemas.businesstypes.v2;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.IdentifikatorType;
 
-
-/**
- * Identifikaèní èíslo (IC) je èíslicový poøadový kód, který slouží k jednoznaèné identifikaci ekonomických subjektù. Ekonomickým subjektem je každá právnická osoba a dále fyzické osoby, které mají podle zvláštního pøedpisu postavení podnikatele.
- * <p/>
- * <p>Java class for SubjektICOType complex type.
- * <p/>
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * <pre>
- * &lt;complexType name="SubjektICOType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>IdentifikatorType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SubjektICOType")
 public class SubjektICOType

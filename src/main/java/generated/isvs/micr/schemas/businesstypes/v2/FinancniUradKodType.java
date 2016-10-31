@@ -8,31 +8,14 @@
 
 package generated.isvs.micr.schemas.businesstypes.v2;
 
+import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import generated.isvs.micr.schemas.corecomponenttypes.v1.KodType;
 
 
-/**
- * Tøímístný èíselný kód jednoznaènì identifikující finanèní úøad.
- *
- * <p>Java class for FinancniUradKodType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="FinancniUradKodType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>KodType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FinancniUradKodType")
 public class FinancniUradKodType

@@ -18,30 +18,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-/**
- * Císlo domovní je èíselný prostorový identifikátor prvku prostorové identifikace „stavební objekt“. Císlo domovní je datový prvek, který je složen z èíselného oznaèení druhu èísla domovního a èísla popisného nebo evidenèního.
- * Císlo domovní je jedineèné pouze v rámci èásti obce.
- *
- * <p>Java class for ObjektCisloDomovniStructure complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ObjektCisloDomovniStructure">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="DruhKod" type="{urn:cz:isvs:micr:schemas:SpaceTypes:v1}CisloDomovniDruhKodType"/>
- *         &lt;element name="Hodnota" type="{urn:cz:isvs:micr:schemas:SpaceTypes:v1}CisloDomovniHodnotaType"/>
- *       &lt;/sequence>
- *       &lt;attribute name="objektID" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ObjektCisloDomovniStructure", propOrder = {
         "druhKod",
@@ -58,74 +35,32 @@ public class ObjektCisloDomovniStructure {
     @XmlSchemaType(name = "token")
     protected String objektID;
 
-    /**
-     * Gets the value of the druhKod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CisloDomovniDruhKodType }
-     *     
-     */
+
     public CisloDomovniDruhKodType getDruhKod() {
         return druhKod;
     }
 
-    /**
-     * Sets the value of the druhKod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CisloDomovniDruhKodType }
-     *     
-     */
+
     public void setDruhKod(CisloDomovniDruhKodType value) {
         this.druhKod = value;
     }
 
-    /**
-     * Gets the value of the hodnota property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CisloDomovniHodnotaType }
-     *     
-     */
+
     public CisloDomovniHodnotaType getHodnota() {
         return hodnota;
     }
 
-    /**
-     * Sets the value of the hodnota property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CisloDomovniHodnotaType }
-     *     
-     */
+
     public void setHodnota(CisloDomovniHodnotaType value) {
         this.hodnota = value;
     }
 
-    /**
-     * Gets the value of the objektID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+
     public String getObjektID() {
         return objektID;
     }
 
-    /**
-     * Sets the value of the objektID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+
     public void setObjektID(String value) {
         this.objektID = value;
     }

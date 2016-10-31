@@ -14,24 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
-/**
- * Slovní vyjádøení druhu individuální spotøeby (zboží, služeb apod.) podle úèelu. Používá se k identifikaci výdaje na individuální spotøebu tøemi institucionálními sektory: domácnostmi, neziskovými institucemi sloužícími domácnostem (NISD) a vládními institucemi.
- * 
- * <p>Java class for OsobniSpotrebaDruhType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobniSpotrebaDruhType">
- *   &lt;simpleContent>
- *     &lt;restriction base="&lt;urn:cz:isvs:micr:schemas:CoreComponentTypes:v1>TextType">
- *     &lt;/restriction>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobniSpotrebaDruhType")
 public class OsobniSpotrebaDruhType

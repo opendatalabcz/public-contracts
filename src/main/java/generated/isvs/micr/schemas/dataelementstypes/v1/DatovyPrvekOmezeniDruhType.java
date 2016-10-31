@@ -17,7 +17,7 @@ import generated.isvs.micr.schemas.dataelementstypes.v.yl0006.v1.DatovyPrvekOmez
 
 
 /**
- * Typ omezení v XML schématu pro daný DP.
+ * Typ omezeni v XML schematu pro dany DP.
  * 
  * <p>Java class for DatovyPrvekOmezeniDruhType complex type.
  * 
@@ -44,7 +44,7 @@ public class DatovyPrvekOmezeniDruhType {
     protected DatovyPrvekOmezeniDruhContentType value;
 
     /**
-     * Typ omezení v XML schématu pro daný DP.
+     * Typ omezeni v XML schematu pro dany DP.
      * 
      * @return
      *     possible object is

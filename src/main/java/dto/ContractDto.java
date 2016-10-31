@@ -69,4 +69,18 @@ public class ContractDto {
     public void setKind(String kind) {
         this.kind = kind;
     }
+
+
+    @Override
+    public String toString() {
+        return "ContractDto{" +
+                "code1='" + code1 + '\'' +
+                ", code2='" + code2 + '\'' +
+                ", state='" + state + '\'' +
+                ", name='" + name + '\'' +
+                ", kind='" + kind + '\'' +
+                ", candidateDtos=" + candidateDtos +
+                ", supplierDtos=" + supplierDtos +
+                '}';
+    }
 }

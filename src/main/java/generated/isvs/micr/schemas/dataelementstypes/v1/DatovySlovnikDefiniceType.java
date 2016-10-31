@@ -15,7 +15,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Tvrzení, vyjadøující podstatnou povahu datového slovníku a umožòující jeho odlišení od ostatních datových slovníkù.
+ * Tvrzeni, vyjadrujici podstatnou povahu datoveho slovniku a umoznujici jeho odliseni od ostatnich datovych slovniku.
  * 
  * <p>Java class for DatovySlovnikDefiniceType complex type.
  * 

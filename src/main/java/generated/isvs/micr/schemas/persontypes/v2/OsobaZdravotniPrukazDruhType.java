@@ -15,24 +15,7 @@ import javax.xml.bind.annotation.XmlValue;
 import generated.isvs.micr.schemas.persontypes.v.al0074.v1.OsobaZdravotniPrukazDruhContentType;
 
 
-/**
- * Druh zdravotního prùkazu obyvatele.
- * 
- * <p>Java class for OsobaZdravotniPrukazDruhType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="OsobaZdravotniPrukazDruhType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;urn:cz:isvs:micr:schemas:PersonTypes:v:AL0074:v1>OsobaZdravotniPrukazDruhContentType">
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OsobaZdravotniPrukazDruhType", propOrder = {
     "value"
@@ -42,26 +25,12 @@ public class OsobaZdravotniPrukazDruhType {
     @XmlValue
     protected OsobaZdravotniPrukazDruhContentType value;
 
-    /**
-     * Druh zdravotního prùkazu obyvatele.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OsobaZdravotniPrukazDruhContentType }
-     *     
-     */
+
     public OsobaZdravotniPrukazDruhContentType getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OsobaZdravotniPrukazDruhContentType }
-     *     
-     */
+
     public void setValue(OsobaZdravotniPrukazDruhContentType value) {
         this.value = value;
     }

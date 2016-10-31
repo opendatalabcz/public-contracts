@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.DatumCasType;
 
 
 /**
- * Datum ukonèení platnosti pøíslušného objektu standardizace.
+ * Datum ukonceni platnosti prislusneho objektu standardizace.
  * 
  * <p>Java class for PlatnostDoDatumType complex type.
  * 

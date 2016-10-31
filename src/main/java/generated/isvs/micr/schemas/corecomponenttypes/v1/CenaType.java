@@ -26,7 +26,7 @@ import generated.isvs.micr.schemas.commontypes.v1.FinancniCastkaType;
 
 
 /**
- * Poèet pìnìžních jednotek ve specifikované èi implicitní mìnì; volitelnì spolu s doplòkovou informací o formátu údaje
+ * Pocet peneznich jednotek ve specifikovane ci implicitni mene; volitelne spolu s doplnkovou informaci o formatu udaje
  * 
  * <p>Java class for CenaType complex type.
  * 

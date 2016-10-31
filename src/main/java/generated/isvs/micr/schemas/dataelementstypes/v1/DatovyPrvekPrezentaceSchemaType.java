@@ -16,7 +16,7 @@ import generated.isvs.micr.schemas.corecomponenttypes.v1.TextType;
 
 
 /**
- * Schéma znakù v hodnotách datových prvkù vyjádøené znakovým øetìzcem.
+ * Schema znaku v hodnotach datovych prvku vyjadrene znakovym retezcem.
  *
  * <p>Java class for DatovyPrvekPrezentaceSchemaType complex type.
  * 
