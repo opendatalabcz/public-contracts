@@ -13,14 +13,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-
 public class DatabaseServiceImpl implements DatabaseService {
 
     @Autowired
     private DatabaseConnectionFactory databaseConnectionFactory;
 
     final static Logger logger = Logger.getLogger(DatabaseServiceImpl.class);
-
 
     @Override
     public void saveSubmitter(SubmitterDto submitterDto, int year) throws SQLException {
@@ -61,6 +59,25 @@ public class DatabaseServiceImpl implements DatabaseService {
         final PreparedStatement preparedStatement = connection.prepareStatement("select ico, name, url from source ORDER BY ico;");
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
+            final SourceInfoDto sourceInfoDto = new SourceInfoDto();
+            sourceInfoDto.setIco(resultSet.getString("ico"));
+            sourceInfoDto.setName(resultSet.getString("name"));
+            sourceInfoDto.setUrl(resultSet.getString("url"));
+            result.add(sourceInfoDto);
+        }
+        return result;
+    }
+
+    @Override
+    public List<SourceInfoDto> loadSource(String ico) throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final List<SourceInfoDto> result = new ArrayList<>();
+        logger.info("Loading from " + ico);
+        final PreparedStatement preparedStatement = connection.prepareStatement("select ico, name, url from source WHERE ico=?;");
+        preparedStatement.setString(1, ico);
+        final ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            logger.info("Found " + ico + " ico entry in DB");
             final SourceInfoDto sourceInfoDto = new SourceInfoDto();
             sourceInfoDto.setIco(resultSet.getString("ico"));
             sourceInfoDto.setName(resultSet.getString("name"));
@@ -132,7 +149,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     public Set<String> loadErrorUrlsForYear(int year) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final Set<String> result = new HashSet<>();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select url from error WHERE YEAR = ? ORDER BY ico;");
+        final PreparedStatement preparedStatement = connection.prepareStatement("select url from error WHERE YEAR = ? and name like '%inisterstvo%' ORDER BY ico;");
         preparedStatement.setInt(1, year);
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
@@ -145,21 +162,21 @@ public class DatabaseServiceImpl implements DatabaseService {
     public void deleteCollectedData(Integer year) throws SQLException {
         final String sql;
         if (year == null) {
-            sql = "delete from subsupplier;\n" +
-                    "delete from supplier;\n" +
-                    "delete from candidate;\n" +
-                    "delete from contract;\n" +
-                    "delete from retrieval;\n" +
-                    "delete from submitter;\n" +
-                    "delete from entity;\n" +
-                    "delete from error;";
+            sql = "delete from subsupplier;\n"
+                    + "delete from supplier;\n"
+                    + "delete from candidate;\n"
+                    + "delete from contract;\n"
+                    + "delete from retrieval;\n"
+                    + "delete from submitter;\n"
+                    + "delete from entity;\n"
+                    + "delete from error;";
         } else {
-            sql = "DELETE  from subsupplier ss USING supplier s WHERE ss.supplier_id=s.supplier_id and s.contract_id in (select c.contract_id from contract c WHERE c.year = ?);\n" +
-                    "DELETE  from supplier s WHERE s.contract_id in (select c.contract_id from contract c  WHERE c.year = ?);\n" +
-                    "DELETE  from candidate s WHERE s.contract_id in (select c.contract_id from contract c  WHERE c.year = ?);\n" +
-                    "DELETE  from contract WHERE year = ?;\n" +
-                    "DELETE  from error WHERE year = ?;" +
-                    "DELETE  from retrieval WHERE year = ?;";
+            sql = "DELETE  from subsupplier ss USING supplier s WHERE ss.supplier_id=s.supplier_id and s.contract_id in (select c.contract_id from contract c WHERE c.year = ?);\n"
+                    + "DELETE  from supplier s WHERE s.contract_id in (select c.contract_id from contract c  WHERE c.year = ?);\n"
+                    + "DELETE  from candidate s WHERE s.contract_id in (select c.contract_id from contract c  WHERE c.year = ?);\n"
+                    + "DELETE  from contract WHERE year = ?;\n"
+                    + "DELETE  from error WHERE year = ?;"
+                    + "DELETE  from retrieval WHERE year = ?;";
 
         }
         final PreparedStatement statement = databaseConnectionFactory.getConnection().prepareStatement(sql);
@@ -253,6 +270,17 @@ public class DatabaseServiceImpl implements DatabaseService {
         final ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();
         return rs.getLong("contract_id");
+    }
+
+    public long getSubmitter(String ico) throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final PreparedStatement selectStatement = connection.prepareStatement("Select s.submitter_id from submitter s join entity c on c.entity_id=s.entity_id where c.ico = ?");
+        selectStatement.setString(1, ico);
+        final ResultSet selectResultSet = selectStatement.executeQuery();
+        if (selectResultSet.next()) {
+            return selectResultSet.getLong("submitter_id");
+        }
+        return 0;
     }
 
     private long saveSubmitter(String ico, String name) throws SQLException {

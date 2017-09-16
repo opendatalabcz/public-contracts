@@ -1,3 +1,4 @@
+
 import db.DatabaseConnectionFactory;
 import dto.SourceInfoDto;
 import dto.SubmitterDto;
@@ -21,6 +22,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
 
 public class Main {
 
@@ -28,6 +30,11 @@ public class Main {
     private static AtomicInteger numberOfErrors = new AtomicInteger();
 
     public static void main(String[] args) throws SQLException, IOException, NoSuchAlgorithmException, KeyManagementException, InterruptedException {
+        /*
+        args=new String[2];
+        args[0]="fetch-ico";
+        args[1]="00247618";
+         */
 
         if (args.length == 0) {
             printWrongCommand();
@@ -57,6 +64,13 @@ public class Main {
                     closeAppWithWrongCommand(context);
                 }
                 reloadErrors(args, context);
+                break;
+            }
+            case "fetch-ico": {
+                if (args.length != 2 && args.length != 3) {
+                    closeAppWithWrongCommand(context);
+                }
+                fetchICO(args, context);
                 break;
             }
             default:
@@ -103,7 +117,6 @@ public class Main {
         }
     }
 
-
     private static void collectData(ClassPathXmlApplicationContext context, String command) throws SQLException, InterruptedException, IOException {
         final int year;
         try {
@@ -141,6 +154,17 @@ public class Main {
         collectDataInternal(year, databaseService, isvzService, sourceInfoDtos);
     }
 
+    /**
+     * Main procedure, that downloads contracts.
+     *
+     * @param year
+     * @param databaseService
+     * @param isvzService
+     * @param sourceInfoDtos
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws SQLException
+     */
     private static void collectDataInternal(final int year, final DatabaseService databaseService, final ISVZService isvzService, List<SourceInfoDto> sourceInfoDtos) throws IOException, InterruptedException, SQLException {
         final List<List<SourceInfoDto>> lists = new ArrayList<>();
         final Resource resource = new ClassPathResource("/public-contract.properties");
@@ -157,6 +181,7 @@ public class Main {
                     for (SourceInfoDto sourceInfoDto : list) {
                         final ProfilStructure profilStructure;
                         try {
+                            //fetching profile
                             profilStructure = isvzService.findProfilStructure(sourceInfoDto.getUrl(), year);
                         } catch (Exception e) {
                             try {
@@ -184,6 +209,7 @@ public class Main {
                             try {
                                 databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
                             } catch (SQLException e1) {
+                                logger.error(e.getMessage());
                                 e1.printStackTrace();
                             }
                             numberOfErrors.incrementAndGet();
@@ -250,7 +276,6 @@ public class Main {
         }
     }
 
-
     private static Date createDateFromYear(int year) {
         final Calendar calendar = Calendar.getInstance();
         calendar.clear();
@@ -264,6 +289,7 @@ public class Main {
         System.out.println("'init' - update existing db from other project to public contract (run only once)");
         System.out.println("'reload-sources' - deletes and reloads urls of submitters (ETA 20 minutes)");
         System.out.println("'reload-errors yyyy' - tries to collect data that failed before");
+        System.out.println("'fetch-ico ico' - collect all years for selected ico");
         System.out.println("'yyyy' - e.g. '2015' - search and save data for all submitters for 2015");
     }
 
@@ -278,6 +304,42 @@ public class Main {
         final Reader initReader = new InputStreamReader(initStream);
 
         sr.runScript(initReader);
+
+    }
+
+    private static void fetchICO(String[] args, ClassPathXmlApplicationContext context) throws IOException, InterruptedException {
+        String ico = args[1];
+        final DatabaseService databaseService = context.getBean(DatabaseService.class);
+        final ISVZService isvzService = context.getBean(ISVZService.class);
+
+        for (int year = 2010; year < 2018; year++) {
+            logger.info("Processing year " + year);
+            try {
+                //this is important
+                databaseService.getSubmitter(ico);
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            DateTime now = DateTime.now();
+            DateTime lastDayOfTheYear = new DateTime(year, 12, 31, 0, 0);
+            boolean after = now.isAfter(lastDayOfTheYear);
+            int numberOfSources = 0;
+            try {
+                final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSource(ico);
+                numberOfSources = sourceInfoDtos.size();
+
+                collectDataInternal(year, databaseService, isvzService, sourceInfoDtos);
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            int numberOfErrors = Main.numberOfErrors.intValue();
+            try {
+                databaseService.saveRetrieval(year, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors, numberOfSources - numberOfErrors);
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
     }
 }
