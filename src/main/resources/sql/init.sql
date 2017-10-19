@@ -1,30 +1,9 @@
-CREATE TABLE company
-(
-  company_id BIGINT NOT NULL,
-  ico        TEXT,
-  name       TEXT
-);
-
-CREATE SEQUENCE company_company_id_seq
-START WITH 1
-INCREMENT BY 1
-NO MINVALUE
-NO MAXVALUE
-CACHE 1;
-
-ALTER SEQUENCE company_company_id_seq OWNED BY company.company_id;
-
-ALTER TABLE ONLY company ALTER COLUMN company_id SET DEFAULT nextval(
-    'company_company_id_seq' :: REGCLASS);
-
-
-ALTER TABLE company ADD PRIMARY KEY (company_id);
-
+ALTER TABLE entity ALTER COLUMN is_public DROP NOT NULL;
 
 CREATE TABLE submitter
 (
   submitter_id BIGINT NOT NULL,
-  company_id   BIGINT
+  entity_id    INTEGER
 );
 
 CREATE SEQUENCE submitter_submitter_id_seq
@@ -43,7 +22,7 @@ ALTER TABLE ONLY submitter ALTER COLUMN submitter_id SET DEFAULT nextval(
 ALTER TABLE submitter ADD PRIMARY KEY (submitter_id);
 
 ALTER TABLE ONLY submitter
-ADD CONSTRAINT fk_submitter_company FOREIGN KEY (company_id) REFERENCES company (company_id);
+ADD CONSTRAINT fk_submitter_entity FOREIGN KEY (entity_id) REFERENCES entity (entity_id);
 
 CREATE TABLE contract
 (
@@ -80,7 +59,7 @@ CREATE TABLE candidate
 (
   candidate_id BIGINT NOT NULL,
   contract_id  BIGINT,
-  company_id   BIGINT,
+  entity_id    INTEGER,
   price        DOUBLE PRECISION
 );
 
@@ -102,13 +81,13 @@ ALTER TABLE candidate ADD PRIMARY KEY (candidate_id);
 ALTER TABLE ONLY candidate
 ADD CONSTRAINT fk_candidate_contract FOREIGN KEY (contract_id) REFERENCES contract (contract_id);
 ALTER TABLE ONLY candidate
-ADD CONSTRAINT fk_candidate_company FOREIGN KEY (company_id) REFERENCES company (company_id);
+ADD CONSTRAINT fk_candidate_entity FOREIGN KEY (entity_id) REFERENCES entity (entity_id);
 
 CREATE TABLE supplier
 (
   supplier_id BIGINT NOT NULL,
   contract_id BIGINT,
-  company_id  BIGINT,
+  entity_id   INTEGER,
   price       DOUBLE PRECISION
 
 );
@@ -131,13 +110,13 @@ ALTER TABLE supplier ADD PRIMARY KEY (supplier_id);
 ALTER TABLE ONLY supplier
 ADD CONSTRAINT fk_supplier_contract FOREIGN KEY (contract_id) REFERENCES contract (contract_id);
 ALTER TABLE ONLY supplier
-ADD CONSTRAINT fk_supplier_company FOREIGN KEY (company_id) REFERENCES company (company_id);
+ADD CONSTRAINT fk_supplier_entity FOREIGN KEY (entity_id) REFERENCES entity (entity_id);
 
 CREATE TABLE subsupplier
 (
   subsupplier_id BIGINT NOT NULL,
   supplier_id    BIGINT,
-  company_id     BIGINT
+  entity_id      INTEGER
 
 );
 
@@ -160,7 +139,7 @@ ALTER TABLE ONLY subsupplier
 ADD CONSTRAINT fk_subsupplier_supplier FOREIGN KEY (supplier_id) REFERENCES supplier (supplier_id);
 
 ALTER TABLE ONLY subsupplier
-ADD CONSTRAINT fk_subsupplier_company FOREIGN KEY (company_id) REFERENCES company (company_id);
+ADD CONSTRAINT fk_subsupplier_entity FOREIGN KEY (entity_id) REFERENCES entity (entity_id);
 
 
 CREATE TABLE source
@@ -185,46 +164,20 @@ ALTER SEQUENCE source_source_id_seq OWNED BY source.source_id;
 ALTER TABLE ONLY source ALTER COLUMN source_id SET DEFAULT nextval(
     'source_source_id_seq' :: REGCLASS);
 
-
 ALTER TABLE source ADD PRIMARY KEY (source_id);
 
-
-CREATE TABLE retrieval
-(
-  retrieval_id     BIGINT NOT NULL,
-  year             INT,
-  complete         BOOLEAN,
-  last_day         DATE,
-  number_of_errors INTEGER
-
-
-);
-
-CREATE SEQUENCE retrieval_retrieval_id_seq
-START WITH 1
-INCREMENT BY 1
-NO MINVALUE
-NO MAXVALUE
-CACHE 1;
-
-ALTER SEQUENCE retrieval_retrieval_id_seq OWNED BY retrieval.retrieval_id;
-
-ALTER TABLE ONLY retrieval ALTER COLUMN retrieval_id SET DEFAULT nextval(
-    'retrieval_retrieval_id_seq' :: REGCLASS);
-
-
-ALTER TABLE retrieval ADD PRIMARY KEY (retrieval_id);
-
+ALTER TABLE retrieval
+ADD year INT;
 
 CREATE TABLE error
 (
-  error_id BIGINT NOT NULL,
-  ico      TEXT,
-  name     TEXT,
-  message  TEXT,
-  url      TEXT,
-  year     INT,
-  error_class    TEXT
+  error_id    BIGINT NOT NULL,
+  ico         TEXT,
+  name        TEXT,
+  message     TEXT,
+  url         TEXT,
+  year        INT,
+  error_class TEXT
 );
 
 CREATE SEQUENCE error_error_id_seq
