@@ -11,14 +11,15 @@ Adding "/XMLdataVZ?od=DDMMYYY&do=DDMMYYY" will result in xml representation of s
 ## Before you run this app, you need to make following steps:
 
 1. You need to have postgres installed
-2. create new database in postgres and run init.sql on it
-3. Change values in public-contracts.properties to the values of your equired database:
+2. Database is dependent on _opendata_ project. This project extends _opendata_ database, so begin with initialization [here](https://github.com/opendatalabcz/opendata/blob/master/docs/install.md).
+3. Continue _public-contracts_ initialization with [init.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/init.sql).
+4. Change values in public-contracts.properties to the values of your equired database:
  * db.target.server=server
  * db.target.port=port
  * db.target.database=database name
  * db.target.user=database user
  * db.target.pass=user password
-4. You can set the value public-contract.thread.number in public-contract.properties to whatever you want. It means in how many threads will the app devide list of submitters (there is around 14 000 of them). One thread takes 8 hours to load one year, 1000 threads take about 20 - 30 minutes. Maybe there is a better number, feel free to experiment
+5. You can set the value public-contract.thread.number in public-contract.properties to whatever you want. It means in how many threads will the app devide list of submitters (there is around 14 000 of them). One thread takes 8 hours to load one year, 1000 threads take about 20 - 30 minutes. Maybe there is a better number, feel free to experiment
 
 ## How to run app:
 You have to run the app with following arguments:
