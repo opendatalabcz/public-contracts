@@ -195,3 +195,31 @@ ALTER TABLE ONLY error ALTER COLUMN error_id SET DEFAULT nextval(
 
 ALTER TABLE error ADD PRIMARY KEY (error_id);
 
+
+CREATE TABLE document
+(
+  document_id BIGINT NOT NULL,
+  contract_id  BIGINT,
+  url          TEXT,
+  type         TEXT,
+  version      INTEGER,
+  date_upload  TIMESTAMP,
+  data         TEXT
+);
+
+CREATE SEQUENCE document_document_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+ALTER SEQUENCE document_document_id_seq OWNED BY document.document_id;
+
+ALTER TABLE ONLY document ALTER COLUMN document_id SET DEFAULT nextval(
+    'document_document_id_seq' :: REGCLASS);
+
+ALTER TABLE document ADD PRIMARY KEY (document_id);
+
+ALTER TABLE ONLY document
+ADD CONSTRAINT fk_document_contract FOREIGN KEY (contract_id) REFERENCES contract (contract_id);
