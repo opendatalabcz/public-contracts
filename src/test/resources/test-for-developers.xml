@@ -31,18 +31,18 @@
         </property>
     </bean>
 
-    <bean id="httpClient" class="service.http.CustomHttpClientFactory" />
+    <bean id="httpClient" class="eu.profinit.publiccontracts.service.http.CustomHttpClientFactory" />
 
-    <bean class="db.DatabaseConnectionFactory">
+    <bean class="eu.profinit.publiccontracts.db.DatabaseConnectionFactory">
         <property name="server" value="${db.target.server}"/>
         <property name="port" value="${db.target.port}"/>
         <property name="database" value="${db.target.database}"/>
         <property name="user" value="${db.target.user}"/>
         <property name="pass" value="${db.target.pass}"/>
     </bean>
-    <bean class="service.impl.DatabaseServiceImpl"/>
-    <bean class="service.impl.ISVZServiceImpl"/>
-    <bean class="service.impl.ISVZCrawlerServiceImpl">
+    <bean class="eu.profinit.publiccontracts.service.impl.DatabaseServiceImpl"/>
+    <bean class="eu.profinit.publiccontracts.service.impl.ISVZServiceImpl"/>
+    <bean class="eu.profinit.publiccontracts.service.impl.ISVZCrawlerServiceImpl">
         <property name="url" value="${isvz.crawler.url}"/>
     </bean>
 

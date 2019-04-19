@@ -7,6 +7,7 @@ import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadav
 import eu.profinit.publiccontracts.service.DatabaseService;
 import eu.profinit.publiccontracts.service.ISVZCrawlerService;
 import eu.profinit.publiccontracts.service.ISVZService;
+import eu.profinit.publiccontracts.util.DocumentFetcher;
 import eu.profinit.publiccontracts.util.SubmitterTransformer;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.log4j.Logger;
@@ -216,6 +217,18 @@ public class Main {
                             numberOfErrors.incrementAndGet();
                             logger.error("error during transforming to dto " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
                             continue;
+                        }
+
+                        try {
+                            DocumentFetcher.fetchDocuments(submitterDto);
+                        } catch (Exception e) {
+                            try {
+                                databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
+                            } catch (SQLException e1) {
+                                logger.error(e.getMessage());
+                                e1.printStackTrace();
+                            }
+                            logger.error("error during fetching document " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
                         }
 
                         try {
