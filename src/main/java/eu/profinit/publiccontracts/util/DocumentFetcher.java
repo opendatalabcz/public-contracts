@@ -1,5 +1,6 @@
 package eu.profinit.publiccontracts.util;
 
+import eu.profinit.publiccontracts.Main;
 import eu.profinit.publiccontracts.dto.ContractDto;
 import eu.profinit.publiccontracts.dto.DocumentDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
@@ -17,8 +18,11 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DocumentFetcher {
 
@@ -33,13 +37,24 @@ public class DocumentFetcher {
         return Collections.emptyList();
     }
 
-    public static String fetchTextFromURL(String url) throws IOException {
-        try (BufferedInputStream in = new BufferedInputStream(new URL(url).openStream())) {
-            String text = DocumentFetcher.parseText(in);
-            return text;
-        } catch (IOException e) {
+    public static String fetchTextFromURL(String urlString) throws IOException {
+        URL url = new URL(urlString);
+
+        try {
+            String contentFileName = getContentFileName(url);
+            String fileExtension = parseFileExtension(contentFileName);
+            if ("pdf".equals(fileExtension)) {
+                try (BufferedInputStream in = new BufferedInputStream(url.openStream())) {
+                    String text = DocumentFetcher.parseText(in);
+                    System.out.println("downloaded: \"" + contentFileName + "\" from: " + urlString);
+                    return text;
+                }
+            }
+            return null;
+        } catch (Exception e) {
             e.printStackTrace();
-            throw e;
+            Main.numberOfErrors.incrementAndGet();
+            return null;
         }
     }
 
@@ -65,6 +80,37 @@ public class DocumentFetcher {
         } catch (IOException | SAXException | TikaException e) {
             throw new IllegalArgumentException("TIKA was not able to exctract text of file", e);
         }
+    }
+
+    public static String getContentFileName(URL url) throws IOException {
+        URLConnection urlConnection = url.openConnection();
+        String contentType = urlConnection.getContentType().toLowerCase();
+        if ("application/x-download".equals(contentType)) {
+            String contentDisposition = urlConnection.getHeaderField("Content-Disposition");
+            Pattern pattern = Pattern.compile("filename=\"(.*)\"");
+            Matcher matcher = pattern.matcher(contentDisposition);
+            matcher.find();
+            String fileName = matcher.group(1);
+            return fileName;
+        } else if ("text/html; charset=utf-8".equals(contentType.toLowerCase())) {
+            return searchForDocument(url);
+        }
+        throw new IllegalArgumentException(url.toString() + " does not have application/x-download content");
+    }
+
+    public static String searchForDocument(URL url) throws IOException {
+        try (BufferedInputStream in = new BufferedInputStream(url.openStream())) {
+            String text = DocumentFetcher.parseText(in);
+            return text;
+        }
+    }
+
+    public static String parseFileExtension(String fileName) {
+        Pattern pattern = Pattern.compile("\\.(\\w*)$");
+        Matcher matcher = pattern.matcher(fileName);
+        matcher.find();
+        String fileExtension = matcher.group(1);
+        return fileExtension.toLowerCase();
     }
 
 }

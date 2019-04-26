@@ -29,7 +29,7 @@ import java.util.logging.Level;
 public class Main {
 
     final static Logger logger = Logger.getLogger(Main.class);
-    private static AtomicInteger numberOfErrors = new AtomicInteger();
+    public static AtomicInteger numberOfErrors = new AtomicInteger();
 
     public static void main(String[] args) throws SQLException, IOException, NoSuchAlgorithmException, KeyManagementException, InterruptedException {
         /*
@@ -181,6 +181,9 @@ public class Main {
             final Thread t = new Thread() {
                 public void run() {
                     for (SourceInfoDto sourceInfoDto : list) {
+                        if (sourceInfoDto.getIco().equals(" ")) {
+                            continue;
+                        }
                         final ProfilStructure profilStructure;
                         try {
                             //fetching profile
@@ -228,6 +231,7 @@ public class Main {
                                 logger.error(e.getMessage());
                                 e1.printStackTrace();
                             }
+                            numberOfErrors.incrementAndGet();
                             logger.error("error during fetching document " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
                         }
 

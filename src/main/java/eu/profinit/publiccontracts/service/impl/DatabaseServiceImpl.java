@@ -55,7 +55,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     public List<SourceInfoDto> loadSources() throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final List<SourceInfoDto> result = new ArrayList<>();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select ico, name, url from source ORDER BY ico;");
+        final PreparedStatement preparedStatement = connection.prepareStatement("select ico, name, url from source where active is True ORDER BY ico;");
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             final SourceInfoDto sourceInfoDto = new SourceInfoDto();
