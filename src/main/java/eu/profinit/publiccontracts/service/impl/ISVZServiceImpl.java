@@ -28,8 +28,6 @@ public class ISVZServiceImpl implements ISVZService {
     public ProfilStructure findProfilStructure(String urlPrefix, int year) throws Exception {
 
         final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", String.valueOf(year)).replace("{to}", String.valueOf(year));
-//
-//        final String url = "https://www.eveza.cz/profil-zadavatele/statutarni-mesto-olomouc/XMLdataVZ?od=01062017&do=01062018";
 
         URI uri = new URI(url.replace(" ", "%20"));
 

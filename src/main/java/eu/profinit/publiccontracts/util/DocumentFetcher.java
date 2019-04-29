@@ -12,6 +12,10 @@ import org.apache.tika.parser.Parser;
 import org.apache.tika.parser.ocr.TesseractOCRConfig;
 import org.apache.tika.parser.pdf.PDFParserConfig;
 import org.apache.tika.sax.BodyContentHandler;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.xml.sax.SAXException;
 
 import java.io.BufferedInputStream;
@@ -41,17 +45,31 @@ public class DocumentFetcher {
         URL url = new URL(urlString);
 
         try {
-            String contentFileName = getContentFileName(url);
-            String fileExtension = parseFileExtension(contentFileName);
-            if ("pdf".equals(fileExtension)) {
-                try (BufferedInputStream in = new BufferedInputStream(url.openStream())) {
-                    String text = DocumentFetcher.parseText(in);
-                    System.out.println("downloaded: \"" + contentFileName + "\" from: " + urlString);
-                    return text;
-                }
+            URLConnection urlConnection = url.openConnection();
+            String contentType = urlConnection.getContentType().toLowerCase();
+            if (contentType == null) {
+                throw new IllegalArgumentException(urlString + " does not have text document content");
             }
-            return null;
-        } catch (Exception e) {
+            if (contentType.contains("application/x-download") ||
+                contentType.contains("application/msword") ||
+                contentType.contains("application/pdf")) {
+                String contentFileName = getContentFileName(urlConnection);
+                String fileExtension = parseFileExtension(contentFileName);
+                if (fileExtension.contains("pdf")||
+                    fileExtension.contains("doc")) {
+                    try (BufferedInputStream in = new BufferedInputStream(url.openStream())) {
+                        String text = DocumentFetcher.parseText(in);
+                        System.out.println("downloaded: \"" + contentFileName + "\" from: " + urlString);
+                        return text;
+                    }
+                }
+                return null;
+            } else if (contentType.contains("text/html")) {
+                String newUrlString = searchForDocumentLink(urlString);
+                return fetchTextFromURL(newUrlString);
+            }
+            throw new IllegalArgumentException(urlString + " does not have text document content");
+    } catch (Exception e) {
             e.printStackTrace();
             Main.numberOfErrors.incrementAndGet();
             return null;
@@ -82,27 +100,30 @@ public class DocumentFetcher {
         }
     }
 
-    public static String getContentFileName(URL url) throws IOException {
-        URLConnection urlConnection = url.openConnection();
-        String contentType = urlConnection.getContentType().toLowerCase();
-        if ("application/x-download".equals(contentType)) {
-            String contentDisposition = urlConnection.getHeaderField("Content-Disposition");
-            Pattern pattern = Pattern.compile("filename=\"(.*)\"");
-            Matcher matcher = pattern.matcher(contentDisposition);
-            matcher.find();
-            String fileName = matcher.group(1);
-            return fileName;
-        } else if ("text/html; charset=utf-8".equals(contentType.toLowerCase())) {
-            return searchForDocument(url);
-        }
-        throw new IllegalArgumentException(url.toString() + " does not have application/x-download content");
+    public static String getContentFileName(URLConnection connection) {
+        String contentDisposition = connection.getHeaderField("Content-Disposition");
+        Pattern pattern = Pattern.compile("filename=[\"]?([^;\"]*)[\";]?");
+        Matcher matcher = pattern.matcher(contentDisposition);
+        matcher.find();
+        String fileName = matcher.group(1);
+        return fileName;
     }
 
-    public static String searchForDocument(URL url) throws IOException {
-        try (BufferedInputStream in = new BufferedInputStream(url.openStream())) {
-            String text = DocumentFetcher.parseText(in);
-            return text;
+    public static String searchForDocumentLink(String url) throws IOException {
+        Document document = Jsoup.connect(url)
+                .timeout(0).get();
+        Element element = document.getElementById("actual_document_table");
+        Elements ahrefs = element.getElementsByTag("a");
+        for (Element ahref: ahrefs) {
+            String href = ahref.attr("href");
+            return completeLinkWithFile(url, href);
         }
+        return null;
+    }
+
+    public static String completeLinkWithFile(String oldUrl, String file) {
+        String newUrl = oldUrl.replaceFirst("[^/]*$", file);
+        return newUrl;
     }
 
     public static String parseFileExtension(String fileName) {
