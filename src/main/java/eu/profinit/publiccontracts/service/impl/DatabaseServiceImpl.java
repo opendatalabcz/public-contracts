@@ -102,6 +102,23 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
+    public List<PropertyDto> loadProperties() throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final List<PropertyDto> result = new ArrayList<>();
+        final PreparedStatement preparedStatement = connection.prepareStatement("select category, param_key, param_value, description from parameter where active = True;");
+        final ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            final PropertyDto propertyDto = new PropertyDto();
+            propertyDto.setCategory(resultSet.getString("category"));
+            propertyDto.setKey(resultSet.getString("param_key"));
+            propertyDto.setValue(resultSet.getString("param_value"));
+            propertyDto.setDescription(resultSet.getString("description"));
+            result.add(propertyDto);
+        }
+        return result;
+    }
+
+    @Override
     public void deleteSources() throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM source;");

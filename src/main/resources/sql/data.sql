@@ -1,5 +1,9 @@
-INSERT INTO download_rule (rule_id, condition, downloader) VALUES (1, 'nen.nipez.cz', 'eu.profinit.publiccontracts.util.download.NenNipezDownloader');
-INSERT INTO download_rule (rule_id, condition, downloader) VALUES (2, 'ezak', 'eu.profinit.publiccontracts.util.download.EZakDownloader');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (1, 'download_rule', 'nen.nipez.cz', 'eu.profinit.publiccontracts.util.download.NenNipezDownloader', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (2, 'download_rule', 'ezak', 'eu.profinit.publiccontracts.util.download.EZakDownloader', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (3, 'supported_mime_type', 'X-DOWNLOAD', 'application/x-download', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (4, 'supported_mime_type', 'WORD_01', 'application/msword', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (5, 'supported_mime_type', 'WORD_02', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (6, 'supported_mime_type', 'PDF', 'application/pdf', True, '');
 
 UPDATE source SET active = False;
 

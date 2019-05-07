@@ -148,7 +148,7 @@ CREATE TABLE source
   url       TEXT,
   ico       TEXT,
   name      TEXT,
-  active    BOOLEAN
+  active    BOOLEAN DEFAULT TRUE,
 );
 
 CREATE SEQUENCE source_source_id_seq
@@ -197,7 +197,7 @@ ALTER TABLE error ADD PRIMARY KEY (error_id);
 
 CREATE TABLE document
 (
-  document_id BIGINT NOT NULL,
+  document_id  BIGINT NOT NULL,
   contract_id  BIGINT,
   url          TEXT,
   type         TEXT,
@@ -224,9 +224,12 @@ ALTER TABLE ONLY document
 ADD CONSTRAINT fk_document_contract FOREIGN KEY (contract_id) REFERENCES contract (contract_id);
 
 
-CREATE TABLE download_rule (
-  rule_id INTEGER NOT NULL,
-  condition TEXT,
-  downloader TEXT,
-  PRIMARY KEY(rule_id)
+CREATE TABLE parameter (
+  parameter_id  INTEGER NOT NULL,
+  category      VARCHAR(30),
+  param_key     VARCHAR(30),
+  param_value   TEXT,
+  active        BOOLEAN DEFAULT TRUE,
+  description   TEXT,
+  PRIMARY KEY(parameter_id)
 )

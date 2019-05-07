@@ -1,6 +1,7 @@
 package eu.profinit.publiccontracts.service;
 
 import eu.profinit.publiccontracts.dto.DownloadRuleDto;
+import eu.profinit.publiccontracts.dto.PropertyDto;
 import eu.profinit.publiccontracts.dto.SourceInfoDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
 
@@ -23,6 +24,8 @@ public interface DatabaseService {
     List<SourceInfoDto> loadSource(String ico) throws SQLException;
 
     List<DownloadRuleDto> loadDownloadRules() throws SQLException;
+
+    List<PropertyDto> loadProperties() throws SQLException;
 
     void deleteSources() throws SQLException;
 

@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,18 +45,13 @@ public class DefaultDownloader implements DocumentDownloader{
     }
 
     @Override
-    public String downloadFileToString() throws IOException {
+    public String downloadFileToString(Map<String,String> supportedTypes) throws IOException {
         String contentType = getUrlConnection().getContentType();
         if (contentType != null) {
             contentType = contentType.toLowerCase();
-            if (contentType.contains("application/x-download") ||
-                    contentType.contains("application/msword") ||
-                    contentType.contains("application/vnd.openxmlformats-officedocument.wordprocessingml.document") ||
-                    contentType.contains("application/pdf")) {
-                String contentFileName = getContentFileName();
-                String fileExtension = parseFileExtension(contentFileName);
-                if (fileExtension.contains("pdf") ||
-                        fileExtension.contains("doc")) {
+            for (String type: supportedTypes.values()) {
+                if (contentType.contains(type)){
+                    String contentFileName = getContentFileName();
                     try (BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream())) {
                         String text = parseText(in);
                         System.out.println("downloaded: \"" + contentFileName + "\" from: " + url.toString());
@@ -87,7 +83,7 @@ public class DefaultDownloader implements DocumentDownloader{
             String text = handler.toString();
             return text;
         } catch (IOException | SAXException | TikaException e) {
-            throw new IllegalArgumentException("TIKA was not able to exctract text of file", e);
+            throw new IllegalArgumentException("TIKA was not able to extract text of file", e);
         }
     }
 

@@ -13,20 +13,21 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class DocumentFetcher {
 
-    public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto, List<DownloadRuleDto> downloadRules) throws IOException {
+    public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto, Map<String, Map<String, String>> properties) throws IOException {
         for (ContractDto contractDto : submitterDto.getContractDtos()) {
             for (DocumentDto documentDto : contractDto.getDocumentDtos()) {
-                DocumentFetcher.fetchDocument(documentDto, downloadRules);
+                DocumentFetcher.fetchDocument(documentDto, properties);
             }
         }
         return Collections.emptyList();
     }
 
-    public static String fetchDocument(DocumentDto documentDto, List<DownloadRuleDto> downloadRules) throws IOException {
-        DocumentDownloader downloader = createDownloader(documentDto, downloadRules);
+    public static String fetchDocument(DocumentDto documentDto, Map<String, Map<String, String>> properties) throws IOException {
+        DocumentDownloader downloader = createDownloader(documentDto, properties.get("download_rule"));
         documentDto.setDownloader(downloader.getClass().getName());
 
         String urlString = documentDto.getUrl();
@@ -34,7 +35,7 @@ public class DocumentFetcher {
         downloader.setUrl(url);
         try {
             URLConnection urlConnection = downloader.retrieveURLConnection();
-            String text = downloader.downloadFileToString();
+            String text = downloader.downloadFileToString(properties.get("supported_mime_type"));
             documentDto.setDocumentData(text);
             return text;
         } catch (Exception e) {
@@ -44,13 +45,12 @@ public class DocumentFetcher {
         }
     }
 
-    public static DocumentDownloader createDownloader(DocumentDto documentDto, List<DownloadRuleDto> downloadRules) {
+    public static DocumentDownloader createDownloader(DocumentDto documentDto, Map<String,String> downloadRules) {
         String url = documentDto.getUrl();
         DocumentDownloader downloader;
-        for (DownloadRuleDto downloadRule: downloadRules) {
-            String condition = downloadRule.getCondition();
+        for (String condition: downloadRules.keySet()) {
             if (url.contains(condition)) {
-                String downloaderClassName = downloadRule.getDownloader();
+                String downloaderClassName = downloadRules.get(condition);
                 downloader = (DocumentDownloader) ResourceManager.createClassInstance(downloaderClassName);
                 if (downloader != null) {
                     return downloader;

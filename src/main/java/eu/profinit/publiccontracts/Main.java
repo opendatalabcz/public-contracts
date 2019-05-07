@@ -1,7 +1,6 @@
 package eu.profinit.publiccontracts;
 
 import eu.profinit.publiccontracts.db.DatabaseConnectionFactory;
-import eu.profinit.publiccontracts.dto.DownloadRuleDto;
 import eu.profinit.publiccontracts.dto.SourceInfoDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
 import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
@@ -9,6 +8,7 @@ import eu.profinit.publiccontracts.service.DatabaseService;
 import eu.profinit.publiccontracts.service.ISVZCrawlerService;
 import eu.profinit.publiccontracts.service.ISVZService;
 import eu.profinit.publiccontracts.util.DocumentFetcher;
+import eu.profinit.publiccontracts.util.ResourceManager;
 import eu.profinit.publiccontracts.util.SubmitterTransformer;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.log4j.Logger;
@@ -33,11 +33,6 @@ public class Main {
     public static AtomicInteger numberOfErrors = new AtomicInteger();
 
     public static void main(String[] args) throws SQLException, IOException, NoSuchAlgorithmException, KeyManagementException, InterruptedException {
-        /*
-        args=new String[2];
-        args[0]="fetch-ico";
-        args[1]="00247618";
-         */
 
         if (args.length == 0) {
             printWrongCommand();
@@ -174,7 +169,7 @@ public class Main {
         final Properties properties = PropertiesLoaderUtils.loadProperties(resource);
         final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
         final int numberOfThreads = Integer.parseInt(numberOfThreadsString);
-        final List<DownloadRuleDto> downloadRules = databaseService.loadDownloadRules();
+        final Map<String, Map<String, String>> downloadProperties = ResourceManager.transformProperties(databaseService.loadProperties());
         for (int i = 0; i < numberOfThreads; i++) {
             lists.add(sourceInfoDtos.subList((i * sourceInfoDtos.size() / numberOfThreads), ((i + 1) * sourceInfoDtos.size() / numberOfThreads)));
         }
@@ -225,7 +220,7 @@ public class Main {
                         }
 
                         try {
-                            DocumentFetcher.fetchDocuments(submitterDto, downloadRules);
+                            DocumentFetcher.fetchDocuments(submitterDto, downloadProperties);
                         } catch (Exception e) {
                             try {
                                 databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());
