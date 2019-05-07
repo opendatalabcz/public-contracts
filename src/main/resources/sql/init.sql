@@ -222,3 +222,11 @@ ALTER TABLE document ADD PRIMARY KEY (document_id);
 
 ALTER TABLE ONLY document
 ADD CONSTRAINT fk_document_contract FOREIGN KEY (contract_id) REFERENCES contract (contract_id);
+
+
+CREATE TABLE download_rule (
+  rule_id INTEGER NOT NULL,
+  condition TEXT,
+  downloader TEXT,
+  PRIMARY KEY(rule_id)
+)

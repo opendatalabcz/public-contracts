@@ -14,6 +14,8 @@ public class DocumentDto {
 
     private String documentData;
 
+    private String downloader;
+
     public String getUrl() {
         return url;
     }
@@ -52,5 +54,13 @@ public class DocumentDto {
 
     public void setDocumentData(String documentData) {
         this.documentData = documentData;
+    }
+
+    public String getDownloader() {
+        return downloader;
+    }
+
+    public void setDownloader(String downloader) {
+        this.downloader = downloader;
     }
 }

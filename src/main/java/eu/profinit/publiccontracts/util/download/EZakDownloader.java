@@ -12,6 +12,10 @@ import java.net.URLConnection;
 
 public class EZakDownloader extends DefaultDownloader {
 
+    public EZakDownloader() {
+
+    }
+
     public EZakDownloader(URL url) {
         super(url);
     }

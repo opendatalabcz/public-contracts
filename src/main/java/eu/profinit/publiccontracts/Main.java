@@ -1,6 +1,7 @@
 package eu.profinit.publiccontracts;
 
 import eu.profinit.publiccontracts.db.DatabaseConnectionFactory;
+import eu.profinit.publiccontracts.dto.DownloadRuleDto;
 import eu.profinit.publiccontracts.dto.SourceInfoDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
 import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
@@ -173,6 +174,7 @@ public class Main {
         final Properties properties = PropertiesLoaderUtils.loadProperties(resource);
         final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
         final int numberOfThreads = Integer.parseInt(numberOfThreadsString);
+        final List<DownloadRuleDto> downloadRules = databaseService.loadDownloadRules();
         for (int i = 0; i < numberOfThreads; i++) {
             lists.add(sourceInfoDtos.subList((i * sourceInfoDtos.size() / numberOfThreads), ((i + 1) * sourceInfoDtos.size() / numberOfThreads)));
         }
@@ -223,7 +225,7 @@ public class Main {
                         }
 
                         try {
-                            DocumentFetcher.fetchDocuments(submitterDto);
+                            DocumentFetcher.fetchDocuments(submitterDto, downloadRules);
                         } catch (Exception e) {
                             try {
                                 databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());

@@ -3,11 +3,10 @@ package eu.profinit.publiccontracts.util;
 import eu.profinit.publiccontracts.Main;
 import eu.profinit.publiccontracts.dto.ContractDto;
 import eu.profinit.publiccontracts.dto.DocumentDto;
+import eu.profinit.publiccontracts.dto.DownloadRuleDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
 import eu.profinit.publiccontracts.util.download.DefaultDownloader;
 import eu.profinit.publiccontracts.util.download.DocumentDownloader;
-import eu.profinit.publiccontracts.util.download.EZakDownloader;
-import eu.profinit.publiccontracts.util.download.NenNipezDownloader;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,23 +16,26 @@ import java.util.List;
 
 public class DocumentFetcher {
 
-    public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto) throws IOException {
-        for (ContractDto contractDto: submitterDto.getContractDtos()) {
-            for (DocumentDto documentDto: contractDto.getDocumentDtos()) {
-                String url = documentDto.getUrl();
-                String documentText = DocumentFetcher.fetchTextFromURL(url);
-                documentDto.setDocumentData(documentText);
+    public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto, List<DownloadRuleDto> downloadRules) throws IOException {
+        for (ContractDto contractDto : submitterDto.getContractDtos()) {
+            for (DocumentDto documentDto : contractDto.getDocumentDtos()) {
+                DocumentFetcher.fetchDocument(documentDto, downloadRules);
             }
         }
         return Collections.emptyList();
     }
 
-    public static String fetchTextFromURL(String urlString) throws IOException {
+    public static String fetchDocument(DocumentDto documentDto, List<DownloadRuleDto> downloadRules) throws IOException {
+        DocumentDownloader downloader = createDownloader(documentDto, downloadRules);
+        documentDto.setDownloader(downloader.getClass().getName());
+
+        String urlString = documentDto.getUrl();
         URL url = new URL(urlString);
+        downloader.setUrl(url);
         try {
-            DocumentDownloader downloader = createDownloader(url);
             URLConnection urlConnection = downloader.retrieveURLConnection();
             String text = downloader.downloadFileToString();
+            documentDto.setDocumentData(text);
             return text;
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,15 +44,20 @@ public class DocumentFetcher {
         }
     }
 
-    public static DocumentDownloader createDownloader(URL url) {
-        String host = url.getHost();
-        if (host.contains("nen.nipez.cz")) {
-            return new NenNipezDownloader(url);
+    public static DocumentDownloader createDownloader(DocumentDto documentDto, List<DownloadRuleDto> downloadRules) {
+        String url = documentDto.getUrl();
+        DocumentDownloader downloader;
+        for (DownloadRuleDto downloadRule: downloadRules) {
+            String condition = downloadRule.getCondition();
+            if (url.contains(condition)) {
+                String downloaderClassName = downloadRule.getDownloader();
+                downloader = (DocumentDownloader) ResourceManager.createClassInstance(downloaderClassName);
+                if (downloader != null) {
+                    return downloader;
+                }
+            }
         }
-        if (host.contains("ezak")) {
-            return new EZakDownloader(url);
-        }
-        return new DefaultDownloader(url);
+        return new DefaultDownloader();
     }
 
 }

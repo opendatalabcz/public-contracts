@@ -1,3 +1,6 @@
+INSERT INTO download_rule (rule_id, condition, downloader) VALUES (1, 'nen.nipez.cz', 'eu.profinit.publiccontracts.util.download.NenNipezDownloader');
+INSERT INTO download_rule (rule_id, condition, downloader) VALUES (2, 'ezak', 'eu.profinit.publiccontracts.util.download.EZakDownloader');
+
 UPDATE source SET active = False;
 
 UPDATE source SET active = True

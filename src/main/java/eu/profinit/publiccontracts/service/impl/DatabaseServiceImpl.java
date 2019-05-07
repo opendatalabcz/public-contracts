@@ -87,6 +87,21 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
+    public List<DownloadRuleDto> loadDownloadRules() throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final List<DownloadRuleDto> result = new ArrayList<>();
+        final PreparedStatement preparedStatement = connection.prepareStatement("select condition, downloader from download_rule;");
+        final ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            final DownloadRuleDto downloadRuleDto = new DownloadRuleDto();
+            downloadRuleDto.setCondition(resultSet.getString("condition"));
+            downloadRuleDto.setDownloader(resultSet.getString("downloader"));
+            result.add(downloadRuleDto);
+        }
+        return result;
+    }
+
+    @Override
     public void deleteSources() throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM source;");
@@ -261,19 +276,21 @@ public class DatabaseServiceImpl implements DatabaseService {
             final int documentVersion = document.getDocumentVersion();
             final Timestamp documentUploadDate = document.getDocumentUploadDate();
             final String documentData = document.getDocumentData();
-            saveDocument(contractId, url, documentType, documentVersion, documentUploadDate, documentData);
+            final String downloader = document.getDownloader();
+            saveDocument(contractId, url, documentType, documentVersion, documentUploadDate, documentData, downloader);
         }
     }
 
-    private void saveDocument(long contractId, String url, String documentType, int documentVersion, Timestamp documentUploadDate, String documentData) throws SQLException {
+    private void saveDocument(long contractId, String url, String documentType, int documentVersion, Timestamp documentUploadDate, String documentData, String downloader) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO document (url, type, version, date_upload, data) VALUES (?,?,?,?,?);");
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO document (url, type, version, date_upload, data, downloader) VALUES (?,?,?,?,?,?);");
         preparedStatement.setQueryTimeout(5);
         preparedStatement.setString(1, url);
         preparedStatement.setString(2, documentType);
         preparedStatement.setInt(3, documentVersion);
         preparedStatement.setTimestamp(4, documentUploadDate);
         preparedStatement.setString(5, documentData);
+        preparedStatement.setString(6, downloader);
         preparedStatement.executeUpdate();
     }
 

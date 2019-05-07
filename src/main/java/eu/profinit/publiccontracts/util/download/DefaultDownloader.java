@@ -25,6 +25,10 @@ public class DefaultDownloader implements DocumentDownloader{
 
     protected HttpURLConnection urlConnection = null;
 
+    public DefaultDownloader() {
+
+    }
+
     public DefaultDownloader(URL url) {
         this.url = url;
     }
@@ -46,6 +50,7 @@ public class DefaultDownloader implements DocumentDownloader{
             contentType = contentType.toLowerCase();
             if (contentType.contains("application/x-download") ||
                     contentType.contains("application/msword") ||
+                    contentType.contains("application/vnd.openxmlformats-officedocument.wordprocessingml.document") ||
                     contentType.contains("application/pdf")) {
                 String contentFileName = getContentFileName();
                 String fileExtension = parseFileExtension(contentFileName);
@@ -110,5 +115,10 @@ public class DefaultDownloader implements DocumentDownloader{
             urlConnection = (HttpURLConnection) retrieveURLConnection();
         }
         return urlConnection;
+    }
+
+    @Override
+    public void setUrl(URL url) {
+        this.url = url;
     }
 }

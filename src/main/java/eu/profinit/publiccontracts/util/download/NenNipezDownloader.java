@@ -11,6 +11,8 @@ import java.util.StringJoiner;
 
 public class NenNipezDownloader extends DefaultDownloader {
 
+    public NenNipezDownloader() {}
+
     public NenNipezDownloader(URL url) {
         super(url);
     }
