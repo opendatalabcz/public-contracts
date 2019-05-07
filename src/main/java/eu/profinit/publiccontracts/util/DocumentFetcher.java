@@ -3,7 +3,6 @@ package eu.profinit.publiccontracts.util;
 import eu.profinit.publiccontracts.Main;
 import eu.profinit.publiccontracts.dto.ContractDto;
 import eu.profinit.publiccontracts.dto.DocumentDto;
-import eu.profinit.publiccontracts.dto.DownloadRuleDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
 import eu.profinit.publiccontracts.util.download.DefaultDownloader;
 import eu.profinit.publiccontracts.util.download.DocumentDownloader;

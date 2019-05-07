@@ -87,21 +87,6 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public List<DownloadRuleDto> loadDownloadRules() throws SQLException {
-        final Connection connection = databaseConnectionFactory.getConnection();
-        final List<DownloadRuleDto> result = new ArrayList<>();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select condition, downloader from download_rule;");
-        final ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-            final DownloadRuleDto downloadRuleDto = new DownloadRuleDto();
-            downloadRuleDto.setCondition(resultSet.getString("condition"));
-            downloadRuleDto.setDownloader(resultSet.getString("downloader"));
-            result.add(downloadRuleDto);
-        }
-        return result;
-    }
-
-    @Override
     public List<PropertyDto> loadProperties() throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final List<PropertyDto> result = new ArrayList<>();
