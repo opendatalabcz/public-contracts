@@ -1,4 +1,4 @@
-package eu.profinit.publiccontracts.util.download;
+package eu.profinit.publiccontracts.service;
 
 import eu.profinit.publiccontracts.util.PropertyManager;
 

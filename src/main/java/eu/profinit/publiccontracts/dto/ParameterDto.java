@@ -1,7 +1,7 @@
 package eu.profinit.publiccontracts.dto;
 
 
-public class PropertyDto {
+public class ParameterDto {
 
     private String category;
 

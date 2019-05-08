@@ -40,7 +40,8 @@
     <bean class="eu.profinit.publiccontracts.service.impl.DatabaseServiceImpl"/>
     <bean class="eu.profinit.publiccontracts.service.impl.ISVZServiceImpl"/>
     <bean class="eu.profinit.publiccontracts.service.impl.ISVZCrawlerServiceImpl">
-        <property name="url" value="${isvz.crawler.url}"/>
+        <property name="webUrl" value="${isvz.crawler.web}"/>
+        <property name="curUrl" value="${isvz.crawler.url}"/>
     </bean>
 
 </beans>

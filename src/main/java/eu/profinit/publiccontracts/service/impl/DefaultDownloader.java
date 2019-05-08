@@ -1,5 +1,6 @@
-package eu.profinit.publiccontracts.util.download;
+package eu.profinit.publiccontracts.service.impl;
 
+import eu.profinit.publiccontracts.service.DocumentDownloader;
 import eu.profinit.publiccontracts.util.PropertyManager;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
@@ -20,7 +21,7 @@ import java.net.URLConnection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DefaultDownloader implements DocumentDownloader{
+public class DefaultDownloader implements DocumentDownloader {
 
     protected URL url;
 

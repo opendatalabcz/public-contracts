@@ -9,4 +9,6 @@ import java.util.List;
 public interface ISVZCrawlerService {
 
     List<SourceInfoDto> findAllSubmitters() throws IOException;
+
+    List<SourceInfoDto> findSubmitters() throws IOException;
 }

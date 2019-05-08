@@ -87,18 +87,18 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public List<PropertyDto> loadProperties() throws SQLException {
+    public List<ParameterDto> loadProperties() throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final List<PropertyDto> result = new ArrayList<>();
+        final List<ParameterDto> result = new ArrayList<>();
         final PreparedStatement preparedStatement = connection.prepareStatement("select category, param_key, param_value, description from parameter where active = True;");
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            final PropertyDto propertyDto = new PropertyDto();
-            propertyDto.setCategory(resultSet.getString("category"));
-            propertyDto.setKey(resultSet.getString("param_key"));
-            propertyDto.setValue(resultSet.getString("param_value"));
-            propertyDto.setDescription(resultSet.getString("description"));
-            result.add(propertyDto);
+            final ParameterDto parameterDto = new ParameterDto();
+            parameterDto.setCategory(resultSet.getString("category"));
+            parameterDto.setKey(resultSet.getString("param_key"));
+            parameterDto.setValue(resultSet.getString("param_value"));
+            parameterDto.setDescription(resultSet.getString("description"));
+            result.add(parameterDto);
         }
         return result;
     }
@@ -185,6 +185,7 @@ public class DatabaseServiceImpl implements DatabaseService {
                     + "delete from retrieval;\n"
                     + "delete from submitter;\n"
                     + "delete from entity;\n"
+                    + "delete from document;\n"
                     + "delete from error;";
         } else {
             sql = "DELETE  from subsupplier ss USING supplier s WHERE ss.supplier_id=s.supplier_id and s.contract_id in (select c.contract_id from contract c WHERE c.year = ?);\n"

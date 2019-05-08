@@ -1,6 +1,6 @@
 package eu.profinit.publiccontracts.util;
 
-import eu.profinit.publiccontracts.dto.PropertyDto;
+import eu.profinit.publiccontracts.dto.ParameterDto;
 
 import java.util.HashMap;
 import java.util.List;
@@ -74,9 +74,9 @@ public class PropertyManager {
         return properties.get(category);
     }
 
-    public static PropertyManager createProperties(List<PropertyDto> propertyDtos) {
+    public static PropertyManager createProperties(List<ParameterDto> parameterDtos) {
         PropertyManager properties = new PropertyManager();
-        for (PropertyDto property: propertyDtos) {
+        for (ParameterDto property: parameterDtos) {
             String category = property.getCategory();
             String key = property.getKey();
             String value = property.getValue();

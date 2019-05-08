@@ -9,14 +9,12 @@ import eu.profinit.publiccontracts.service.ISVZCrawlerService;
 import eu.profinit.publiccontracts.service.ISVZService;
 import eu.profinit.publiccontracts.util.DocumentFetcher;
 import eu.profinit.publiccontracts.util.PropertyManager;
+import eu.profinit.publiccontracts.util.ResourceManager;
 import eu.profinit.publiccontracts.util.SubmitterTransformer;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.*;
 import java.security.KeyManagementException;
@@ -165,8 +163,7 @@ public class Main {
      */
     private static void collectDataInternal(final int year, final DatabaseService databaseService, final ISVZService isvzService, List<SourceInfoDto> sourceInfoDtos) throws IOException, InterruptedException, SQLException {
         final List<List<SourceInfoDto>> lists = new ArrayList<>();
-        final Resource resource = new ClassPathResource("/public-contract.properties");
-        final Properties properties = PropertiesLoaderUtils.loadProperties(resource);
+        final Properties properties = ResourceManager.loadProperties();
         final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
         final int numberOfThreads = Integer.parseInt(numberOfThreadsString);
         final PropertyManager propertyManager = PropertyManager.createProperties(databaseService.loadProperties());

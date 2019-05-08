@@ -1,4 +1,4 @@
-package eu.profinit.publiccontracts.util.download;
+package eu.profinit.publiccontracts.service.impl;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

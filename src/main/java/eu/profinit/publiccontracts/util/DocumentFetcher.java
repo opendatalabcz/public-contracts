@@ -4,8 +4,8 @@ import eu.profinit.publiccontracts.Main;
 import eu.profinit.publiccontracts.dto.ContractDto;
 import eu.profinit.publiccontracts.dto.DocumentDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
-import eu.profinit.publiccontracts.util.download.DefaultDownloader;
-import eu.profinit.publiccontracts.util.download.DocumentDownloader;
+import eu.profinit.publiccontracts.service.impl.DefaultDownloader;
+import eu.profinit.publiccontracts.service.DocumentDownloader;
 
 import java.io.IOException;
 import java.net.URL;

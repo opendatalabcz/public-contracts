@@ -1,4 +1,4 @@
-package eu.profinit.publiccontracts.util.download;
+package eu.profinit.publiccontracts.service.impl;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
