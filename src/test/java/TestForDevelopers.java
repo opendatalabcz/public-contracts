@@ -1,15 +1,19 @@
 import eu.profinit.publiccontracts.db.DatabaseConnectionFactory;
 import eu.profinit.publiccontracts.dto.SourceInfoDto;
-import eu.profinit.publiccontracts.service.DatabaseService;
+import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
+import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.VZStructure;
+import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ZakazkaStructure;
 import eu.profinit.publiccontracts.service.ISVZCrawlerService;
+import eu.profinit.publiccontracts.service.ISVZService;
 import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,13 +31,16 @@ public class TestForDevelopers {
     @Autowired
     private ISVZCrawlerService isvzCrawlerService;
 
+    @Autowired
+    private ISVZService isvzService;
+
     @Ignore
-    @org.junit.Test
+    @Test
     public void test() {
 
     }
 
-    @org.junit.Test
+    @Test
     public void testDB() {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement preparedStatement;
@@ -73,6 +80,26 @@ public class TestForDevelopers {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void testProfilStructure() {
+        try {
+            ProfilStructure profilStructure = isvzService.findProfilStructure("https://ezak.mzp.cz/profile_display_2.html", 2018);
+            assert "489950".equals(profilStructure.getProfilKod().getValue());
+            assert "00164801".equals(profilStructure.getZadavatel().getIcoVlastni().getValue());
+            List<ZakazkaStructure> zakazka = profilStructure.getZakazka();
+            assert zakazka.size() == 179;
+            ZakazkaStructure zakazkaStructure = zakazka.get(0);
+            assert "26490951".equals(zakazkaStructure.getDodavatel().get(0).getIco().getValue());
+            assert "05732051".equals(zakazkaStructure.getUcastnik().get(0).getIco().getValue());
+            assert BigDecimal.valueOf(1949310.00).compareTo(zakazkaStructure.getUcastnik().get(0).getCenaSDph().getValue()) == 0;
+            VZStructure vz = zakazkaStructure.getVZ();
+            assert vz.getDokument().size() == 2;
+            assert "https://ezak.mzp.cz/document_download_35272.html".equals(vz.getDokument().get(0).getUrl().getValue());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
