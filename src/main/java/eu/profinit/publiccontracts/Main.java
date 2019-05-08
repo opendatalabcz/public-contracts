@@ -8,7 +8,7 @@ import eu.profinit.publiccontracts.service.DatabaseService;
 import eu.profinit.publiccontracts.service.ISVZCrawlerService;
 import eu.profinit.publiccontracts.service.ISVZService;
 import eu.profinit.publiccontracts.util.DocumentFetcher;
-import eu.profinit.publiccontracts.util.ResourceManager;
+import eu.profinit.publiccontracts.util.PropertyManager;
 import eu.profinit.publiccontracts.util.SubmitterTransformer;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.log4j.Logger;
@@ -169,7 +169,7 @@ public class Main {
         final Properties properties = PropertiesLoaderUtils.loadProperties(resource);
         final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
         final int numberOfThreads = Integer.parseInt(numberOfThreadsString);
-        final Map<String, Map<String, String>> downloadProperties = ResourceManager.transformProperties(databaseService.loadProperties());
+        final PropertyManager propertyManager = PropertyManager.createProperties(databaseService.loadProperties());
         for (int i = 0; i < numberOfThreads; i++) {
             lists.add(sourceInfoDtos.subList((i * sourceInfoDtos.size() / numberOfThreads), ((i + 1) * sourceInfoDtos.size() / numberOfThreads)));
         }
@@ -220,7 +220,7 @@ public class Main {
                         }
 
                         try {
-                            DocumentFetcher.fetchDocuments(submitterDto, downloadProperties);
+                            DocumentFetcher.fetchDocuments(submitterDto, propertyManager);
                         } catch (Exception e) {
                             try {
                                 databaseService.saveError(sourceInfoDto, e.getMessage(), year, e.getClass().toString());

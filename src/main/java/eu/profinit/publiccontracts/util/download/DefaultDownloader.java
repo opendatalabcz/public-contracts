@@ -1,5 +1,6 @@
 package eu.profinit.publiccontracts.util.download;
 
+import eu.profinit.publiccontracts.util.PropertyManager;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
@@ -16,7 +17,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,18 +45,16 @@ public class DefaultDownloader implements DocumentDownloader{
     }
 
     @Override
-    public String downloadFileToString(Map<String,String> supportedTypes) throws IOException {
+    public String downloadFileToString(PropertyManager properties) throws IOException {
         String contentType = getUrlConnection().getContentType();
         if (contentType != null) {
             contentType = contentType.toLowerCase();
-            for (String type: supportedTypes.values()) {
-                if (contentType.contains(type)){
-                    String contentFileName = getContentFileName();
-                    try (BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream())) {
-                        String text = parseText(in);
-                        System.out.println("downloaded: \"" + contentFileName + "\" from: " + url.toString());
-                        return text;
-                    }
+            if (properties.containsValue(PropertyManager.SUPPORTED_MIME_TYPE, contentType)) {
+                String contentFileName = getContentFileName();
+                try (BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream())) {
+                    String text = parseText(in);
+                    System.out.println("downloaded: \"" + contentFileName + "\" from: " + url.toString());
+                    return text;
                 }
             }
         }
