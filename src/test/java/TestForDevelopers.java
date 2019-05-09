@@ -1,10 +1,18 @@
+import com.drew.lang.Charsets;
+import com.google.common.io.Resources;
 import eu.profinit.publiccontracts.db.DatabaseConnectionFactory;
+import eu.profinit.publiccontracts.dto.ContractDto;
+import eu.profinit.publiccontracts.dto.DocumentDto;
 import eu.profinit.publiccontracts.dto.SourceInfoDto;
+import eu.profinit.publiccontracts.dto.SubmitterDto;
 import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
 import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.VZStructure;
 import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ZakazkaStructure;
 import eu.profinit.publiccontracts.service.ISVZCrawlerService;
 import eu.profinit.publiccontracts.service.ISVZService;
+import eu.profinit.publiccontracts.util.DocumentFetcher;
+import eu.profinit.publiccontracts.util.PropertyManager;
+import eu.profinit.publiccontracts.util.SubmitterTransformer;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,12 +20,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.net.URL;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,4 +109,84 @@ public class TestForDevelopers {
         }
     }
 
+    @Test
+    public void testSubmitterTransformer() {
+        try {
+            String profilBody = readResourceFile("reference/test_profil_489950_2018.xml");
+            ProfilStructure profilStructure = isvzService.transformProfilBody(profilBody);
+            SubmitterDto submitterDto = SubmitterTransformer.transformSubmitterToDto(profilStructure);
+            assert "00164801".equals(submitterDto.getIco());
+            ContractDto contractDto = submitterDto.getContractDtos().get(0);
+            assert "zakázka malého rozsahu".equals(contractDto.getKind());
+            assert contractDto.getCandidateDtos().size() == 9;
+            assert contractDto.getCandidateDtos().get(0).getPrice() == 1949310.0;
+            assert "05732051".equals(contractDto.getCandidateDtos().get(0).getIco());
+            assert contractDto.getSupplierDtos().size() == 1;
+            assert contractDto.getSupplierDtos().get(0).getPrice() == 1028016.0;
+            assert "26490951".equals(contractDto.getSupplierDtos().get(0).getIco());
+            assert contractDto.getDocumentDtos().size() == 2;
+            DocumentDto documentDto = contractDto.getDocumentDtos().get(0);
+            assert "https://ezak.mzp.cz/document_download_35272.html".equals(documentDto.getUrl());
+        } catch (IOException | JAXBException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testDocumentFetcherEzak() {
+        try {
+            PropertyManager propertyManager = getPropertyManagerStub();
+            DocumentDto documentDto = new DocumentDto();
+            String referenceDocument = readResourceFile("reference/test_document_ezak_35272.txt");
+            documentDto.setUrl("https://ezak.mzp.cz/document_download_35272.html");
+            String document = DocumentFetcher.fetchDocument(documentDto, propertyManager);
+            assert referenceDocument.equals(document);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testDocumentFetcherNenNipez() {
+        try {
+            PropertyManager propertyManager = getPropertyManagerStub();
+            DocumentDto documentDto = new DocumentDto();
+            String referenceDocument = readResourceFile("reference/test_document_nennipez_395220285.txt");
+            documentDto.setUrl("https://nen.nipez.cz/Soubor.aspx?id=395220285&typ=.pdf&velikost=643670B");
+            String document = DocumentFetcher.fetchDocument(documentDto, propertyManager);
+            assert referenceDocument.equals(document);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testDocumentFetcherTendermarket() {
+        try {
+            PropertyManager propertyManager = getPropertyManagerStub();
+            DocumentDto documentDto = new DocumentDto();
+            String referenceDocument = readResourceFile("reference/test_document_tendermarket_1149320.txt");
+            documentDto.setUrl("https://www.tenderarena.cz/filedownloadservlet.do?idSouboru=1149320");
+            String document = DocumentFetcher.fetchDocument(documentDto, propertyManager);
+            assert referenceDocument.equals(document);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private PropertyManager getPropertyManagerStub() {
+        PropertyManager propertyManager = new PropertyManager();
+        propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "ezak", "eu.profinit.publiccontracts.service.impl.EZakDownloader");
+        propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "nen.nipez.cz", "eu.profinit.publiccontracts.service.impl.NenNipezDownloader");
+        propertyManager.putValue(PropertyManager.SUPPORTED_MIME_TYPE, "PDF", "application/pdf");
+        propertyManager.putValue(PropertyManager.SUPPORTED_MIME_TYPE, "X-DOWNLOAD", "application/x-download");
+        return propertyManager;
+    }
+
+    private String readResourceFile(String fileName) throws IOException {
+        URL resource = Resources.getResource(fileName);
+        String profilBody = Resources.toString(resource, Charsets.UTF_8);
+        return profilBody;
+    }
 }

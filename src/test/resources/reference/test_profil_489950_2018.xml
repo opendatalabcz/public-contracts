@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profil xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns="urn:cz:isvz:mmr:schemas:vz-z-profilu-zadavatele:v100">
+	<profil_kod>489950</profil_kod>
+	<zadavatel>
+		<nazev_zadavatele>Česká republika - Ministerstvo životního prostředí</nazev_zadavatele>
+		<ico_vlastni>00164801</ico_vlastni>
+	</zadavatel>
+
+	<zakazka>
+		<VZ>
+			<kod_vz_na_profilu>P18V00000356</kod_vz_na_profilu>
+			<nazev_vz>Služby podpory analýz, návrhů a realizace nových agendových ISVS</nazev_vz>
+			<stav_vz>zakázka byla zadána</stav_vz>
+			<druh_zadavaciho_rizeni>zakázka malého rozsahu</druh_zadavaciho_rizeni>
+			<delena_na_casti>0</delena_na_casti>
+			<ramcova_dohoda>0</ramcova_dohoda>
+			<zavedeni_dns>0</zavedeni_dns>
+			<dokument>
+				<url>https://ezak.mzp.cz/document_download_35272.html</url>
+				<typ_dokumentu>Smlouva (uzavřená na veřejnou zakázku včetně všech jejích změn a dodatků a rámcová dohoda podle § 219 zákona)</typ_dokumentu>
+				<cas_vlozeni_na_profil>2018-05-14T09:50:58+02:00</cas_vlozeni_na_profil>
+				<cislo_verze>132526</cislo_verze>
+			</dokument>
+			<dokument>
+				<url>https://ezak.mzp.cz/document_download_42292.html</url>
+				<typ_dokumentu>Jiný dokument (zadavatel uvede název tohoto typu dokumentu)</typ_dokumentu>
+				<cas_vlozeni_na_profil>2019-03-14T19:22:41+01:00</cas_vlozeni_na_profil>
+				<jiny_dokument_nazev>Výše skutečně uhrazené ceny za plnění VZ</jiny_dokument_nazev>
+				<cislo_verze>143980</cislo_verze>
+			</dokument>
+
+			<datum_cas_zverejneni>2018-03-20T09:34:03+01:00</datum_cas_zverejneni>
+			<datum_uzavreni_smlouvy>2018-05-10T00:00:00+02:00</datum_uzavreni_smlouvy>
+		</VZ>
+		<ucastnik>
+			<ico>05732051</ico>
+			<nazev_ucastnika>AIK IT Digital s.r.o.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>1949310.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>28396979</ico>
+			<nazev_ucastnika>AK Trade, s.r.o.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>1655280.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>72809426</ico>
+			<nazev_ucastnika>Ing. Luboš Moravec</nazev_ucastnika>
+			<bydliste>CZ</bydliste>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>2178000.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>25056646</ico>
+			<nazev_ucastnika>BDO IT a.s.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>1481040.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>45280576</ico>
+			<nazev_ucastnika>PragoData Consulting, s.r.o.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>1740657.60</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>27582167</ico>
+			<nazev_ucastnika>Deloitte Advisory s.r.o.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>1193544.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>26490951</ico>
+			<nazev_ucastnika>Equica, a.s.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>1028016.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>62417339</ico>
+			<nazev_ucastnika>RELSIE spol. s r.o.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>2069100.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+		<ucastnik>
+			<ico>25112775</ico>
+			<nazev_ucastnika>Servodata a.s.</nazev_ucastnika>
+			<misto_podnikani>CZ</misto_podnikani>
+			<cena_bez_dph>
+              -1 
+			</cena_bez_dph>
+
+			<cena_s_dph>1132560.00</cena_s_dph>
+			<sdruzeni>0</sdruzeni>
+		</ucastnik>
+
+		<dodavatel>
+			<ico>26490951</ico>
+			<nazev_dodavatele>Equica, a.s.</nazev_dodavatele>
+			<misto_podnikani_dodavatele>CZ</misto_podnikani_dodavatele>
+			<cena_celkem_dle_smlouvy_DPH>1028016.00</cena_celkem_dle_smlouvy_DPH>
+			<cena_celkem_dle_smlouvy_bez_DPH>849600.00</cena_celkem_dle_smlouvy_bez_DPH>
+			<sdruzeni_dodavatelu>0</sdruzeni_dodavatelu>
+			<rozpad>
+				<rok_smlouvy>2018</rok_smlouvy>
+				<cena_za_rok_bez_dph>222724.79</cena_za_rok_bez_dph>
+				<cena_za_rok_s_dph>269497.00</cena_za_rok_s_dph>
+			</rozpad>
+
+		</dodavatel>
+
+	</zakazka>
+</profil>
