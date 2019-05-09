@@ -12,7 +12,7 @@ Adding "/XMLdataVZ?od=DDMMYYY&do=DDMMYYY" will result in xml representation of s
 
 1. You need to have postgres installed
 2. Database is dependent on _opendata_ project. This project extends _opendata_ database, so begin with initialization [here](https://github.com/opendatalabcz/opendata/blob/master/docs/install.md).
-3. Continue _public-contracts_ initialization with [init.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/init.sql).
+3. Continue _public-contracts_ initialization with [init.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/init.sql) and [data.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/data.sql).
 4. Change values in public-contracts.properties to the values of your equired database:
  * db.target.server=server
  * db.target.port=port
@@ -23,11 +23,11 @@ Adding "/XMLdataVZ?od=DDMMYYY&do=DDMMYYY" will result in xml representation of s
 
 ## How to run app:
 You have to run the app with following arguments:
- * reload-db - drops all tables from database and creates schema (Use this only to init db or you can loose collected data)
- * reload-sources - deletes and reloads urls of submitters (ETA 20 minutes)
- * delete-collected-data [yyyy] - delete all collected data except sources with urls, [yyyy] is optional and is used to delete data only for that year
+ * init - runs the [init.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/init.sql) and [data.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/data.sql) scripts. Cannot be executed multiple times.
+ * reload-sources - deletes and reloads urls of submitters (ETA 20 minutes). When the sources are loaded, use table _source.active_ to filter which ones are to be processed.
  * reload-errors yyyy - tries to collect data that failed before
- * yyyy [ico] - e.g. '2015' or '2015 28119169' - search and save data for all submitters for 2015, [ico] is optional and is used if previous attempt fail, so you can start after last saved submitter (ETA 8 hours)
+ * fetch-ico - retrieves data for a single specific ICO number
+ * yyyy - e.g. '2015' - search and save data for all submitters for 2015 (ETA 8 hours). Use table _parameter_ to filter the document types to be processed.
  
 
 ## HTTPS problems
