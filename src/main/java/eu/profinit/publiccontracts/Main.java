@@ -64,7 +64,7 @@ public class Main {
             }
             case "fetch-ico": {
                 if (args.length != 2 && args.length != 3) {
-                    closeAppWithWrongCommand(context);
+                        closeAppWithWrongCommand(context);
                 }
                 fetchICO(args, context);
                 break;
@@ -313,10 +313,12 @@ public class Main {
         final ScriptRunner sr = new ScriptRunner(connection);
 
         final InputStream initStream = Main.class.getResourceAsStream("sql/init.sql");
+        final InputStream dataStream = Main.class.getResourceAsStream("sql/data.sql");
         final Reader initReader = new InputStreamReader(initStream);
+        final Reader dataReader = new InputStreamReader(dataStream);
 
         sr.runScript(initReader);
-
+        sr.runScript(dataReader);
     }
 
     private static void fetchICO(String[] args, ClassPathXmlApplicationContext context) throws IOException, InterruptedException {

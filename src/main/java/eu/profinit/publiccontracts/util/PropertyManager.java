@@ -6,6 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class represents application properties manager.
+ * Essentially, its a key-value properties map of different categories.<br>
+ * <br>
+ * Currently used for:<br>
+ * document download filtering,<br>
+ * document downloader building.<br>
+ * <br>
+ * The presence of both keys and values checks with usage of string contain method:<br>
+ * Example: category: "car", key="CAR1", value="BMW;M3;2.0L,blue"<br>
+ * PropertyManager.containsValue("var","BMW") is true
+ */
 public class PropertyManager {
 
     public static String SUPPORTED_MIME_TYPE = "supported_mime_type";

@@ -13,8 +13,18 @@ import java.net.URLConnection;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Class for fetching all available documents of a submitter.
+ */
 public class DocumentFetcher {
 
+    /**
+     * Fetches all documents for the submitter.
+     * @param submitterDto submitter object
+     * @param properties for download handling
+     * @return list of document objects
+     * @throws IOException
+     */
     public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto, PropertyManager properties) throws IOException {
         for (ContractDto contractDto : submitterDto.getContractDtos()) {
             for (DocumentDto documentDto : contractDto.getDocumentDtos()) {
@@ -24,6 +34,13 @@ public class DocumentFetcher {
         return Collections.emptyList();
     }
 
+    /**
+     * Fetches a document from its url.
+     * @param documentDto document object to be fetched
+     * @param properties for download handling
+     * @return text content of the document
+     * @throws IOException
+     */
     public static String fetchDocument(DocumentDto documentDto, PropertyManager properties) throws IOException {
         DocumentDownloader downloader = createDownloader(documentDto, properties);
         documentDto.setDownloader(downloader.getClass().getName());
@@ -43,6 +60,12 @@ public class DocumentFetcher {
         }
     }
 
+    /**
+     * Creates a downloader based on document url and configuration from properties.
+     * @param documentDto document object to be downloaded
+     * @param properties properties to handle the downloading
+     * @return an instance of {@link DocumentDownloader}
+     */
     public static DocumentDownloader createDownloader(DocumentDto documentDto, PropertyManager properties) {
         String url = documentDto.getUrl();
         DocumentDownloader downloader;

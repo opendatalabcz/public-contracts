@@ -10,6 +10,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * Extends the {@link DefaultDownloader} with web crawling for the final link to the document.
+ * Usable for E-ZAK sources, eg. https://ezak.mzp.cz/profile_display_2.html
+ */
 public class EZakDownloader extends DefaultDownloader {
 
     public EZakDownloader() {
@@ -20,6 +24,12 @@ public class EZakDownloader extends DefaultDownloader {
         super(url);
     }
 
+    /**
+     * Retrieves HTTP URL connection for the URL.
+     * Crawls deeper for the link to the target document.
+     * @return URLConnection
+     * @throws IOException, {@link IllegalArgumentException}
+     */
     @Override
     public URLConnection retrieveURLConnection() throws IOException {
         this.urlConnection = (HttpURLConnection) url.openConnection();
@@ -39,6 +49,11 @@ public class EZakDownloader extends DefaultDownloader {
         return urlConnection;
     }
 
+    /**
+     * Searches the web page for the link to the target document.
+     * @return link to the document
+     * @throws IOException
+     */
     private String searchForDocumentLink() throws IOException {
         Document document = Jsoup.connect(url.toString())
                 .timeout(0).get();
@@ -51,6 +66,12 @@ public class EZakDownloader extends DefaultDownloader {
         return null;
     }
 
+    /**
+     * Replaces the location of the URL file with new one.
+     * @param oldUrl link to the old url file
+     * @param file new url file
+     * @return
+     */
     public static String completeLinkWithFile(String oldUrl, String file) {
         String newUrl = oldUrl.replaceFirst("[^/]*$", file);
         return newUrl;

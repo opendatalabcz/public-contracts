@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Service for crawling for the submitter sources.
+ */
 public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
-
 
     final static String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
     final static int TIMEOUT = 3600 * 1000;
@@ -23,7 +25,11 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
     private String webUrl;
     private String curUrl;
 
-
+    /**
+     * Crawls the webUrl to retrieve all submitters.
+     * @return list of submitter sources
+     * @throws IOException
+     */
     @Override
     public List<SourceInfoDto> findAllSubmitters() throws IOException {
         final List<SourceInfoDto> sourceInfoDtos = new ArrayList<>();
@@ -37,6 +43,12 @@ public class ISVZCrawlerServiceImpl implements ISVZCrawlerService {
         return sourceInfoDtos;
     }
 
+    /**
+     * Extracts submitters from the current page.
+     * Also extracts link to the following page.
+     * @return list of submitter sources
+     * @throws IOException
+     */
     @Override
     public List<SourceInfoDto> findSubmitters() throws IOException {
         final List<SourceInfoDto> sourceInfoDtos = new ArrayList<>();

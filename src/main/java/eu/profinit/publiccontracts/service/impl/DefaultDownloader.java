@@ -21,6 +21,12 @@ import java.net.URLConnection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class represents default document downloader.
+ * 1. Retrieves URL connection to a document file on the web (only direct links).
+ * 2. Downloads the document file data.
+ * 3. Extracts text data from the document.
+ */
 public class DefaultDownloader implements DocumentDownloader {
 
     protected URL url;
@@ -35,6 +41,12 @@ public class DefaultDownloader implements DocumentDownloader {
         this.url = url;
     }
 
+    /**
+     * Retrieves HTTP URL connection for the URL.
+     * Throws error when the response code is not 200.
+     * @return URLConnection
+     * @throws IOException, {@link IllegalArgumentException}
+     */
     @Override
     public URLConnection retrieveURLConnection() throws IOException {
         this.urlConnection = (HttpURLConnection) url.openConnection();
@@ -45,6 +57,13 @@ public class DefaultDownloader implements DocumentDownloader {
         return urlConnection;
     }
 
+    /**
+     * Downloads file from the URL connection and extracts its text content.
+     * Uses {@link PropertyManager} to filter the supported mime types.
+     * @param properties
+     * @return text content of the file from the URL
+     * @throws IOException, {@link IllegalArgumentException}
+     */
     @Override
     public String downloadFileToString(PropertyManager properties) throws IOException {
         String contentType = getUrlConnection().getContentType();
@@ -62,6 +81,12 @@ public class DefaultDownloader implements DocumentDownloader {
         throw new IllegalArgumentException(url.toString() + " does not have supported format: " + contentType);
     }
 
+    /**
+     * Uses Apache TIKA to extract text content from input stream.
+     * @param inputStream
+     * @return text content of the stream
+     * @throws {@link IllegalArgumentException}
+     */
     protected static String parseText(InputStream inputStream) {
         Parser parser = new AutoDetectParser();
         Metadata metadata = new Metadata();
@@ -95,6 +120,10 @@ public class DefaultDownloader implements DocumentDownloader {
     }
 
 
+    /**
+     * Parses file name from the HTTP URL connection header.
+     * @return name of the file
+     */
     protected String getContentFileName() {
         String contentDisposition = urlConnection.getHeaderField("Content-Disposition");
         Pattern pattern = Pattern.compile("filename=[\"]?([^;\"]*)[\";]?");

@@ -19,6 +19,10 @@ import java.util.Arrays;
 import java.util.List;
 
 
+/**
+ * Service for downloading of submitter profiles.
+ * Uses data sources XML data API with <i>/XMLdataVZ?od=0101{from}&do=3112{to}</i> URL extension.
+ */
 public class ISVZServiceImpl implements ISVZService {
 
     private static final String URI_SUFFIX = "/XMLdataVZ?od=0101{from}&do=3112{to}";
@@ -26,12 +30,26 @@ public class ISVZServiceImpl implements ISVZService {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     * Gets the {@link ProfilStructure} of a profile from urlPrefix for a specific yesr.
+     * @param urlPrefix of the data source
+     * @param year
+     * @return structure of the profile
+     * @throws Exception
+     */
     @Override
     public ProfilStructure findProfilStructure(String urlPrefix, int year) throws Exception {
         String profilBody = getProfilBody(urlPrefix, year);
         return transformProfilBody(profilBody);
     }
 
+    /**
+     * Retrieves the XML body of the profile from the URL XML data.
+     * @param urlPrefix url of the data source
+     * @param year desired year for the XML data
+     * @return XML body
+     * @throws URISyntaxException
+     */
     public String getProfilBody(String urlPrefix, int year) throws URISyntaxException {
         final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", String.valueOf(year)).replace("{to}", String.valueOf(year));
 
@@ -54,6 +72,12 @@ public class ISVZServiceImpl implements ISVZService {
         }
     }
 
+    /**
+     * Transforms XML body of the profile to {@link ProfilStructure}
+     * @param profilBody XML body
+     * @return object representation of the profile
+     * @throws JAXBException
+     */
     public ProfilStructure transformProfilBody(String profilBody) throws JAXBException {
         final JAXBContext jaxbContext = JAXBContext.newInstance(ProfilStructure.class);
         final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();

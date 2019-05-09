@@ -10,6 +10,9 @@ import java.sql.*;
 import java.util.Date;
 import java.util.*;
 
+/**
+ * Class provides saving and loading of all DTOs.
+ */
 public class DatabaseServiceImpl implements DatabaseService {
 
     @Autowired

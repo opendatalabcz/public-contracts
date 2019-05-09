@@ -9,6 +9,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Transforms XML schema representation objects of submitter to DTO objects.
+ */
 public class SubmitterTransformer {
 
     public static SubmitterDto transformSubmitterToDto(ProfilStructure profilStructure) {

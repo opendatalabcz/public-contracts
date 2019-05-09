@@ -7,6 +7,9 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Represents the resource manager for the project.
+ */
 public class ResourceManager {
 
     public static Properties loadProperties() throws IOException {

@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
+/**
+ * Extends the {@link DefaultDownloader} with http redirection with cookie handling.
+ * Usable for NIPEZ sources, eg. https://nen.nipez.cz/profil/MPO
+ */
 public class NenNipezDownloader extends DefaultDownloader {
 
     public NenNipezDownloader() {}
@@ -17,6 +21,12 @@ public class NenNipezDownloader extends DefaultDownloader {
         super(url);
     }
 
+    /**
+     * Retrieves HTTP URL connection for the URL.
+     * Manages http redirection with http header properties handling.
+     * @return URLConnection
+     * @throws IOException, {@link IllegalArgumentException}
+     */
     @Override
     public URLConnection retrieveURLConnection() throws IOException {
         Map<String, String> requestProperties = retrieveProperties();
@@ -29,6 +39,10 @@ public class NenNipezDownloader extends DefaultDownloader {
         return urlConnection;
     }
 
+    /**
+     * Sets cookie properties to the URL request header.
+     * @param requestProperties
+     */
     public void setRequestProperties(Map<String, String> requestProperties) {
         for (String key: requestProperties.keySet()) {
             if ("Set-Cookie".equals(key)) {
@@ -37,6 +51,11 @@ public class NenNipezDownloader extends DefaultDownloader {
         }
     }
 
+    /**
+     * Retrieves properties from http response header the URL connection.
+     * @return key-value map of the properties
+     * @throws IOException
+     */
     public Map<String, String> retrieveProperties() throws IOException {
         HttpURLConnection tmpConnection = (HttpURLConnection)url.openConnection();
         tmpConnection.setInstanceFollowRedirects(false);

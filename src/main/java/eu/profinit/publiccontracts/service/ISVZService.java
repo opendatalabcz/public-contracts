@@ -6,8 +6,10 @@ import javax.xml.bind.JAXBException;
 import java.net.URISyntaxException;
 
 
+/**
+ * Interface for submitter profile scraping.
+ */
 public interface ISVZService {
-
 
     ProfilStructure findProfilStructure(String urlPrefix, int year) throws Exception;
 

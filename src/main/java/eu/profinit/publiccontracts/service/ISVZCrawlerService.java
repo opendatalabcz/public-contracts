@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.List;
 
 
+/**
+ * Interface for submitters web crawling.
+ */
 public interface ISVZCrawlerService {
 
     List<SourceInfoDto> findAllSubmitters() throws IOException;

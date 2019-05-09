@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * Interface for file content downloading from web.
+ */
 public interface DocumentDownloader {
 
     URLConnection retrieveURLConnection() throws IOException;
