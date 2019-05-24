@@ -92,7 +92,7 @@ public class TestForDevelopers {
     @Test
     public void testProfilStructure() {
         try {
-            ProfilStructure profilStructure = isvzService.findProfilStructure("https://ezak.mzp.cz/profile_display_2.html", 2018);
+            ProfilStructure profilStructure = isvzService.findProfilStructure("https://ezak.mzp.cz/profile_display_2.html", "012018", "122018");
             assert "489950".equals(profilStructure.getProfilKod().getValue());
             assert "00164801".equals(profilStructure.getZadavatel().getIcoVlastni().getValue());
             List<ZakazkaStructure> zakazka = profilStructure.getZakazka();

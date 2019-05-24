@@ -33,7 +33,7 @@ CREATE TABLE contract
   name         TEXT,
   state        TEXT,
   kind         TEXT,
-  year         INT
+  date_id      VARCHAR(20)
 );
 
 CREATE SEQUENCE contract_contract_id_seq
@@ -166,7 +166,7 @@ ALTER TABLE ONLY source ALTER COLUMN source_id SET DEFAULT nextval(
 ALTER TABLE source ADD PRIMARY KEY (source_id);
 
 ALTER TABLE retrieval
-ADD year INT;
+ADD date_id VARCHAR(20);
 
 CREATE TABLE error
 (
@@ -175,7 +175,7 @@ CREATE TABLE error
   name        TEXT,
   message     TEXT,
   url         TEXT,
-  year        INT,
+  date_id     VARCHAR(20),
   error_class TEXT
 );
 

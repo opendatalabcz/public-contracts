@@ -11,9 +11,9 @@ import java.net.URISyntaxException;
  */
 public interface ISVZService {
 
-    ProfilStructure findProfilStructure(String urlPrefix, int year) throws Exception;
+    ProfilStructure findProfilStructure(String urlPrefix, String fromDate, String toDate) throws Exception;
 
-    String getProfilBody(String urlPrefix, int year) throws URISyntaxException;
+    String getProfilBody(String urlPrefix, String fromDate, String toDate) throws URISyntaxException;
 
     ProfilStructure transformProfilBody(String profilBody) throws JAXBException;
 

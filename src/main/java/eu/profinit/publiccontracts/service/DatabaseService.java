@@ -12,7 +12,7 @@ import java.util.Set;
 
 public interface DatabaseService {
 
-    void saveSubmitter(SubmitterDto submitterDto, int year) throws SQLException;
+    void saveSubmitter(SubmitterDto submitterDto, String date) throws SQLException;
     
     public long getSubmitter(String ico) throws SQLException;
 
@@ -26,15 +26,15 @@ public interface DatabaseService {
 
     void deleteSources() throws SQLException;
 
-    void deleteErrors(int year) throws SQLException;
+    void deleteErrors(String date) throws SQLException;
 
-    void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException;
+    void saveRetrieval(String date, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException;
 
-    boolean isYearCompleted(int year) throws SQLException;
+    boolean isDateCompleted(String date) throws SQLException;
 
-    void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException;
+    void saveError(SourceInfoDto sourceInfoDto, String message, String date, String errorClass) throws SQLException;
 
-    Set<String> loadErrorUrlsForYear(int year) throws SQLException;
+    Set<String> loadErrorUrlsForYear(String date) throws SQLException;
 
     void deleteCollectedData(Integer year) throws SQLException;
 

@@ -21,7 +21,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     final static Logger logger = Logger.getLogger(DatabaseServiceImpl.class);
 
     @Override
-    public void saveSubmitter(SubmitterDto submitterDto, int year) throws SQLException {
+    public void saveSubmitter(SubmitterDto submitterDto, String date) throws SQLException {
         final long submitterId = saveSubmitter(submitterDto.getIco(), submitterDto.getName());
         final List<ContractDto> contractDtos = submitterDto.getContractDtos();
         for (ContractDto contractDto : contractDtos) {
@@ -30,7 +30,7 @@ public class DatabaseServiceImpl implements DatabaseService {
             final String kind = contractDto.getKind();
             final String state = contractDto.getState();
             final String name = contractDto.getName();
-            final long contractId = saveContract(submitterId, code1, code2, name, state, kind, year);
+            final long contractId = saveContract(submitterId, code1, code2, name, state, kind, date);
             final List<CandidateDto> candidateDtos = contractDto.getCandidateDtos();
             final List<SupplierDto> supplierDtos = contractDto.getSupplierDtos();
             final List<DocumentDto> documentDtos = contractDto.getDocumentDtos();
@@ -114,22 +114,22 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public void deleteErrors(int year) throws SQLException {
+    public void deleteErrors(String date) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM error WHERE year = ?");
-        deleteStatement.setInt(1, year);
+        final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM error WHERE date_id = ?");
+        deleteStatement.setString(1, date);
         deleteStatement.execute();
     }
 
     @Override
-    public void saveRetrieval(int year, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException {
+    public void saveRetrieval(String date, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM retrieval WHERE year = ?");
-        deleteStatement.setInt(1, year);
+        final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM retrieval WHERE date_id = ?");
+        deleteStatement.setString(1, date);
         deleteStatement.execute();
 
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (year, success, date , num_bad_records, num_records_inserted) VALUES (?,?,?,?,?);");
-        preparedStatement.setInt(1, year);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (date_id, success, date , num_bad_records, num_records_inserted) VALUES (?,?,?,?,?);");
+        preparedStatement.setString(1, date);
         preparedStatement.setBoolean(2, true);
         preparedStatement.setTimestamp(3, new Timestamp(new Date().getTime()));
         preparedStatement.setInt(4, numberOfErrors);
@@ -139,10 +139,10 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public boolean isYearCompleted(int year) throws SQLException {
+    public boolean isDateCompleted(String date) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM retrieval WHERE year = ?");
-        preparedStatement.setInt(1, year);
+        final PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM retrieval WHERE date_id = ?");
+        preparedStatement.setString(1, date);
         final ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
             return true;
@@ -151,25 +151,25 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public void saveError(SourceInfoDto sourceInfoDto, String message, int year, String errorClass) throws SQLException {
+    public void saveError(SourceInfoDto sourceInfoDto, String message, String date, String errorClass) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO error (ico, name, message, url, year, error_class) VALUES (?,?,?,?,?,?);");
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO error (ico, name, message, url, date_id, error_class) VALUES (?,?,?,?,?,?);");
         preparedStatement.setQueryTimeout(5);
         preparedStatement.setString(1, sourceInfoDto.getIco());
         preparedStatement.setString(2, sourceInfoDto.getName());
         preparedStatement.setString(3, message);
         preparedStatement.setString(4, sourceInfoDto.getUrl());
-        preparedStatement.setInt(5, year);
+        preparedStatement.setString(5, date);
         preparedStatement.setString(6, errorClass);
         preparedStatement.executeUpdate();
     }
 
     @Override
-    public Set<String> loadErrorUrlsForYear(int year) throws SQLException {
+    public Set<String> loadErrorUrlsForYear(String date) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final Set<String> result = new HashSet<>();
-        final PreparedStatement preparedStatement = connection.prepareStatement("select url from error WHERE YEAR = ? and name like '%inisterstvo%' ORDER BY ico;");
-        preparedStatement.setInt(1, year);
+        final PreparedStatement preparedStatement = connection.prepareStatement("select url from error WHERE date_id = ? and name like '%inisterstvo%' ORDER BY ico;");
+        preparedStatement.setString(1, date);
         final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             result.add(resultSet.getString("url"));
@@ -300,9 +300,9 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.executeUpdate();
     }
 
-    private long saveContract(long submitterId, String code1, String code2, String name, String state, String kind, int year) throws SQLException {
+    private long saveContract(long submitterId, String code1, String code2, String name, String state, String kind, String date) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contract (code1,code2, name, state, kind, submitter_id, year) VALUES (?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contract (code1,code2, name, state, kind, submitter_id, date_id) VALUES (?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setQueryTimeout(5);
         preparedStatement.setString(1, code1);
         preparedStatement.setString(2, code2);
@@ -310,7 +310,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.setString(4, state);
         preparedStatement.setString(5, kind);
         preparedStatement.setLong(6, submitterId);
-        preparedStatement.setInt(7, year);
+        preparedStatement.setString(7, date);
         preparedStatement.executeUpdate();
         final ResultSet rs = preparedStatement.getGeneratedKeys();
         rs.next();

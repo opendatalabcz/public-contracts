@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class ISVZServiceImpl implements ISVZService {
 
-    private static final String URI_SUFFIX = "/XMLdataVZ?od=0101{from}&do=3112{to}";
+    private static final String URI_SUFFIX = "/XMLdataVZ?od={from}&do={to}";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -33,25 +33,27 @@ public class ISVZServiceImpl implements ISVZService {
     /**
      * Gets the {@link ProfilStructure} of a profile from urlPrefix for a specific yesr.
      * @param urlPrefix of the data source
-     * @param year
+     * @param fromDate desired start date for the XML data
+     * @param toDate desired end date for the XML data
      * @return structure of the profile
      * @throws Exception
      */
     @Override
-    public ProfilStructure findProfilStructure(String urlPrefix, int year) throws Exception {
-        String profilBody = getProfilBody(urlPrefix, year);
+    public ProfilStructure findProfilStructure(String urlPrefix, String fromDate, String toDate) throws Exception {
+        String profilBody = getProfilBody(urlPrefix, fromDate, toDate);
         return transformProfilBody(profilBody);
     }
 
     /**
      * Retrieves the XML body of the profile from the URL XML data.
      * @param urlPrefix url of the data source
-     * @param year desired year for the XML data
+     * @param fromDate desired start date for the XML data
+     * @param toDate desired end date for the XML data
      * @return XML body
      * @throws URISyntaxException
      */
-    public String getProfilBody(String urlPrefix, int year) throws URISyntaxException {
-        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", String.valueOf(year)).replace("{to}", String.valueOf(year));
+    public String getProfilBody(String urlPrefix, String fromDate, String toDate) throws URISyntaxException {
+        final String url = (urlPrefix.trim() + URI_SUFFIX).replace("{from}", fromDate).replace("{to}", toDate);
 
         URI uri = new URI(url.replace(" ", "%20"));
 
