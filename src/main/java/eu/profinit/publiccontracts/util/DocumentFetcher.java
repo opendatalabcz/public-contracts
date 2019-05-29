@@ -52,10 +52,10 @@ public class DocumentFetcher {
             URLConnection urlConnection = downloader.retrieveURLConnection();
             String text = downloader.downloadFileToString(properties);
             documentDto.setDocumentData(text);
+            Main.numberOfDocuments.incrementAndGet();
             return text;
         } catch (Exception e) {
             e.printStackTrace();
-            Main.numberOfErrors.incrementAndGet();
             return null;
         }
     }

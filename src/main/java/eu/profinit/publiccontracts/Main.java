@@ -27,6 +27,7 @@ public class Main {
 
     final static Logger logger = Logger.getLogger(Main.class);
     public static AtomicInteger numberOfErrors = new AtomicInteger();
+    public static AtomicInteger numberOfDocuments = new AtomicInteger();
 
     public static void main(String[] args) throws SQLException, IOException, NoSuchAlgorithmException, KeyManagementException, InterruptedException {
 
@@ -141,11 +142,6 @@ public class Main {
             System.exit(0);
         }
         final DatabaseService databaseService = context.getBean(DatabaseService.class);
-        if (databaseService.isDateCompleted(fromDate)) {
-            System.out.println("Year has already been loaded! If you are trying to reload current year to gain recent data, please delete the year first. This madness will never work out for anybody");
-            context.close();
-            System.exit(0);
-        }
         final ISVZService isvzService = context.getBean(ISVZService.class);
 
         final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
@@ -176,8 +172,13 @@ public class Main {
         }
         final List<Interval> intervals = DateUtils.createMonthlyIntervals(fromCal, toCal);
         for (Interval interval: intervals) {
-            final String fromDate = DateUtils.convertDateTimeToString(interval.getStart());
-            final String toDate = DateUtils.convertDateTimeToString(interval.getEnd());
+            final String fromDate = DateUtils.convertDateTimeToString(interval.getStart(), DateUtils.FORMAT.ddMMyyyy);
+            final String toDate = DateUtils.convertDateTimeToString(interval.getEnd(), DateUtils.FORMAT.ddMMyyyy);
+            if (databaseService.isDateCompleted(fromDate)) {
+                System.out.println("Month has already been loaded! If you are trying to reload current month to gain recent data, please delete the month first. This madness will never work out for anybody");
+                continue;
+            }
+            logger.info("processing interval: " + fromDate + " - " + toDate);
             final List<Thread> threads = new ArrayList<>();
             for (final List<SourceInfoDto> list : lists) {
                 final Thread t = new Thread() {
@@ -233,7 +234,6 @@ public class Main {
                                     logger.error(e.getMessage());
                                     e1.printStackTrace();
                                 }
-                                numberOfErrors.incrementAndGet();
                                 logger.error("error during fetching document " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
                             }
 
@@ -264,7 +264,9 @@ public class Main {
             final boolean after = now.isAfter(lastDayOfTheYear);
             final int numberOfSources = databaseService.loadSources().size();
             final int numberOfErrors = Main.numberOfErrors.intValue();
-            databaseService.saveRetrieval(fromDate, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors, numberOfSources - numberOfErrors);
+            final int numberOfDocuments = Main.numberOfDocuments.intValue();
+            databaseService.saveRetrieval(fromDate, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors, numberOfSources - numberOfErrors, numberOfDocuments);
+            resetCounters();
         }
     }
 
@@ -365,5 +367,10 @@ public class Main {
 //        }
 //
 //    }
+
+    private static void resetCounters() {
+        numberOfErrors = new AtomicInteger();
+        numberOfDocuments = new AtomicInteger();
+    }
 
 }

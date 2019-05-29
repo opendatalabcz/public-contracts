@@ -167,6 +167,8 @@ ALTER TABLE source ADD PRIMARY KEY (source_id);
 
 ALTER TABLE retrieval
 ADD date_id VARCHAR(20);
+ALTER TABLE retrieval
+ADD num_documents_downloaded INTEGER;
 
 CREATE TABLE error
 (

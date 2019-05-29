@@ -43,8 +43,11 @@ public class DateUtils {
      * @param date
      * @return
      */
-    public static String convertDateTimeToString(DateTime date) {
-        return DateTimeFormat.forPattern(FORMAT.ddMMyyyy).print(date);
+    public static String convertDateTimeToString(DateTime date, String format) {
+        if (format==null) {
+            format = FORMAT.ddMMyyyy;
+        }
+        return DateTimeFormat.forPattern(format).print(date);
     }
 
 }

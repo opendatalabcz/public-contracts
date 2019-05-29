@@ -28,7 +28,7 @@ public interface DatabaseService {
 
     void deleteErrors(String date) throws SQLException;
 
-    void saveRetrieval(String date, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException;
+    void saveRetrieval(String date, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords, int numberOfDocuments) throws SQLException;
 
     boolean isDateCompleted(String date) throws SQLException;
 

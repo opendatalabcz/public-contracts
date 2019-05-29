@@ -122,18 +122,19 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public void saveRetrieval(String date, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords) throws SQLException {
+    public void saveRetrieval(String date, boolean complete, Date lastDate, int numberOfErrors, int numberOfRecords, int numberOfDocuments) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM retrieval WHERE date_id = ?");
         deleteStatement.setString(1, date);
         deleteStatement.execute();
 
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (date_id, success, date , num_bad_records, num_records_inserted) VALUES (?,?,?,?,?);");
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO retrieval (date_id, success, date , num_bad_records, num_records_inserted, num_documents_downloaded) VALUES (?,?,?,?,?,?);");
         preparedStatement.setString(1, date);
         preparedStatement.setBoolean(2, true);
         preparedStatement.setTimestamp(3, new Timestamp(new Date().getTime()));
         preparedStatement.setInt(4, numberOfErrors);
         preparedStatement.setInt(5, numberOfRecords);
+        preparedStatement.setInt(6, numberOfDocuments);
         preparedStatement.executeUpdate();
 
     }
