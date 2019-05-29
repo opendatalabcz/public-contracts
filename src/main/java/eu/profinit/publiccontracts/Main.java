@@ -22,6 +22,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
 
 public class Main {
 
@@ -54,21 +55,20 @@ public class Main {
                 reloadSources(context);
                 break;
             }
-//            TODO
-//            case "reload-errors": {
-//                if (args.length != 2) {
-//                    closeAppWithWrongCommand(context);
-//                }
-//                reloadErrors(args, context);
-//                break;
-//            }
-//            case "fetch-ico": {
-//                if (args.length != 2 && args.length != 3) {
-//                        closeAppWithWrongCommand(context);
-//                }
-//                fetchICO(args, context);
-//                break;
-//            }
+            case "reload-errors": {
+                if (args.length != 3) {
+                    closeAppWithWrongCommand(context);
+                }
+                reloadErrors(args, context);
+                break;
+            }
+            case "fetch-ico": {
+                if (args.length != 2 && args.length != 3) {
+                        closeAppWithWrongCommand(context);
+                }
+                fetchICO(args, context);
+                break;
+            }
             default:
                 if (args.length != 2) {
                     closeAppWithWrongCommand(context);
@@ -79,40 +79,49 @@ public class Main {
         context.close();
     }
 
-//    TODO
-//    private static void reloadErrors(String[] args, ClassPathXmlApplicationContext context) throws SQLException, IOException, InterruptedException {
-//        final Integer year;
-//        if (args.length == 2) {
-//            try {
-//                year = Integer.parseInt(args[1]);
-//
-//            } catch (Exception e) {
-//                context.close();
-//                printWrongCommand();
-//                System.exit(0);
-//                return;
-//            }
-//            final DatabaseService databaseService = context.getBean(DatabaseService.class);
-//            final ISVZService isvzService = context.getBean(ISVZService.class);
-//
-//            final Set<String> errorList = databaseService.loadErrorUrlsForYear(year);
-//            final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
-//            final Iterator<SourceInfoDto> iterator = sourceInfoDtos.iterator();
-//            while (iterator.hasNext()) {
-//                final SourceInfoDto next = iterator.next();
-//                if (!errorList.contains(next.getUrl())) {
-//                    iterator.remove();
-//                }
-//            }
-//            databaseService.deleteErrors(year);
-//
-//            collectDataInternal(year, databaseService, isvzService, sourceInfoDtos);
-//        } else {
-//            context.close();
-//            printWrongCommand();
-//            System.exit(0);
-//        }
-//    }
+    private static void reloadErrors(String[] args, ClassPathXmlApplicationContext context) throws SQLException, IOException, InterruptedException {
+        String fromDate = args[1];
+        String toDate = args[2];
+        if (args.length == 3) {
+            Calendar fromCal = Calendar.getInstance();
+            Calendar toCal = Calendar.getInstance();
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat(DateUtils.FORMAT.MMyyyy);
+                fromCal.setTime(sdf.parse(fromDate));
+                toCal.setTime(sdf.parse(toDate));
+            } catch (Exception e) {
+                printWrongCommand();
+                context.close();
+                System.exit(0);
+                return;
+            }
+
+            DatabaseService databaseService = context.getBean(DatabaseService.class);
+            ISVZService isvzService = context.getBean(ISVZService.class);
+            List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
+
+            List<Interval> intervals = DateUtils.createMonthlyIntervals(fromCal, toCal);
+            for (Interval interval: intervals) {
+                String date = DateUtils.convertDateTimeToString(interval.getStart(), DateUtils.FORMAT.ddMMyyyy);
+
+                Set<String> errorList = databaseService.loadErrorUrlsForDate(date);
+                Iterator<SourceInfoDto> iterator = sourceInfoDtos.iterator();
+                while (iterator.hasNext()) {
+                    SourceInfoDto next = iterator.next();
+                    if (!errorList.contains(next.getUrl())) {
+                        iterator.remove();
+                    }
+                }
+                databaseService.deleteErrors(date);
+            }
+
+            collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos);
+        } else {
+            context.close();
+            printWrongCommand();
+            System.exit(0);
+        }
+    }
 
     private static void collectData(ClassPathXmlApplicationContext context, String fromDate, String toDate) throws SQLException, InterruptedException, IOException {
         Calendar fromCal = Calendar.getInstance();
@@ -331,42 +340,29 @@ public class Main {
         sr.runScript(dataReader);
     }
 
-// TODO
-//    private static void fetchICO(String[] args, ClassPathXmlApplicationContext context) throws IOException, InterruptedException {
-//        String ico = args[1];
-//        final DatabaseService databaseService = context.getBean(DatabaseService.class);
-//        final ISVZService isvzService = context.getBean(ISVZService.class);
-//
-//        for (int year = 2010; year < 2018; year++) {
-//            logger.info("Processing year " + year);
-//            try {
-//                //this is important
-//                databaseService.getSubmitter(ico);
-//            } catch (SQLException ex) {
-//                java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            DateTime now = DateTime.now();
-//            DateTime lastDayOfTheYear = new DateTime(year, 12, 31, 0, 0);
-//            boolean after = now.isAfter(lastDayOfTheYear);
-//            int numberOfSources = 0;
-//            try {
-//                final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSource(ico);
-//                numberOfSources = sourceInfoDtos.size();
-//
-//                collectDataInternal(year, databaseService, isvzService, sourceInfoDtos);
-//            } catch (SQLException ex) {
-//                java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//            int numberOfErrors = Main.numberOfErrors.intValue();
-//            try {
-//                databaseService.saveRetrieval(year, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors, numberOfSources - numberOfErrors);
-//            } catch (SQLException ex) {
-//                java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//
-//    }
+    private static void fetchICO(String[] args, ClassPathXmlApplicationContext context) throws IOException, InterruptedException {
+        String ico = args[1];
+        final DatabaseService databaseService = context.getBean(DatabaseService.class);
+        final ISVZService isvzService = context.getBean(ISVZService.class);
+
+        try {
+            //this is important
+            databaseService.getSubmitter(ico);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Calendar fromCal = Calendar.getInstance();
+        fromCal.set(2010,1,1);
+        Calendar toCal = Calendar.getInstance();
+        try {
+            final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSource(ico);
+
+            collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     private static void resetCounters() {
         numberOfErrors = new AtomicInteger();

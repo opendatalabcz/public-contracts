@@ -34,7 +34,7 @@ public interface DatabaseService {
 
     void saveError(SourceInfoDto sourceInfoDto, String message, String date, String errorClass) throws SQLException;
 
-    Set<String> loadErrorUrlsForYear(String date) throws SQLException;
+    Set<String> loadErrorUrlsForDate(String date) throws SQLException;
 
     void deleteCollectedData(Integer year) throws SQLException;
 

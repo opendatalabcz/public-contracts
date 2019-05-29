@@ -166,7 +166,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public Set<String> loadErrorUrlsForYear(String date) throws SQLException {
+    public Set<String> loadErrorUrlsForDate(String date) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final Set<String> result = new HashSet<>();
         final PreparedStatement preparedStatement = connection.prepareStatement("select url from error WHERE date_id = ? and name like '%inisterstvo%' ORDER BY ico;");
