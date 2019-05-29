@@ -27,7 +27,7 @@ You have to run the app with following arguments:
  * reload-sources - deletes and reloads urls of submitters (ETA 20 minutes). When the sources are loaded, use table _source.active_ to filter which ones are to be processed.
  * reload-errors yyyy - tries to collect data that failed before
  * fetch-ico - retrieves data for a single specific ICO number
- * yyyy - e.g. '2015' - search and save data for all submitters for 2015 (ETA 8 hours). Use table _parameter_ to filter the document types to be processed.
+ * mmyyyy mmyyyy - e.g. '012017 062017' - search and save data for active submitters for time interval from 1.1.2017 to 30.6.2017 (both sides included, end of the interval is the last day of the month). Use table _parameter_ to filter the document types to be processed.
  
 
 ## HTTPS problems
