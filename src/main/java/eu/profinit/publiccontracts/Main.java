@@ -86,7 +86,7 @@ public class Main {
             Calendar fromCal = Calendar.getInstance();
             Calendar toCal = Calendar.getInstance();
             try {
-                SimpleDateFormat sdf = new SimpleDateFormat(DateUtils.FORMAT.MMyyyy);
+                SimpleDateFormat sdf = new SimpleDateFormat(DateUtils.FORMAT.ddMMyyyy);
                 fromCal.setTime(sdf.parse(fromDate));
                 toCal.setTime(sdf.parse(toDate));
             } catch (Exception e) {
