@@ -119,6 +119,7 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <encoding>windows-1250</encoding>
                 </configuration>
             </plugin>
 
