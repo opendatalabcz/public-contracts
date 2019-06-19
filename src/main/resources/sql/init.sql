@@ -148,7 +148,7 @@ CREATE TABLE source
   url       TEXT,
   ico       TEXT,
   name      TEXT,
-  active    BOOLEAN DEFAULT TRUE,
+  active    BOOLEAN DEFAULT TRUE
 );
 
 CREATE SEQUENCE source_source_id_seq
