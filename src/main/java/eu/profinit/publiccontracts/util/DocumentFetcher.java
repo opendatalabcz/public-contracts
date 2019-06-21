@@ -12,11 +12,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Collections;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  * Class for fetching all available documents of a submitter.
  */
 public class DocumentFetcher {
+
+    final static Logger logger = Logger.getLogger(DocumentFetcher.class);
 
     /**
      * Fetches all documents for the submitter.
@@ -26,7 +29,10 @@ public class DocumentFetcher {
      * @throws IOException
      */
     public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto, PropertyManager properties) throws IOException {
+        int i = 0;
         for (ContractDto contractDto : submitterDto.getContractDtos()) {
+            logger.info(Thread.currentThread().getName() + ":contract:" + ++i + "/" + submitterDto.getContractDtos().size() +
+                    "(" + contractDto.getCode2() + "," + contractDto.getDocumentDtos().size() + ")");
             for (DocumentDto documentDto : contractDto.getDocumentDtos()) {
                 DocumentFetcher.fetchDocument(documentDto, properties);
             }
@@ -55,7 +61,7 @@ public class DocumentFetcher {
             Main.numberOfDocuments.incrementAndGet();
             return text;
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.info(e.getMessage());
             return null;
         }
     }

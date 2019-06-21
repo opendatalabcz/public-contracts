@@ -171,6 +171,7 @@ public class Main {
      * @throws SQLException
      */
     private static void collectDataInternal(Calendar fromCal, Calendar toCal, final DatabaseService databaseService, final ISVZService isvzService, List<SourceInfoDto> sourceInfoDtos) throws IOException, InterruptedException, SQLException {
+        logger.info("processing total number of sources: " + sourceInfoDtos.size());
         final List<List<SourceInfoDto>> lists = new ArrayList<>();
         final Properties properties = ResourceManager.loadProperties();
         final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
@@ -192,7 +193,10 @@ public class Main {
             for (final List<SourceInfoDto> list : lists) {
                 final Thread t = new Thread() {
                     public void run() {
+                        int i = 0;
                         for (SourceInfoDto sourceInfoDto : list) {
+                            logger.info(Thread.currentThread().getName() + ":sources:" + ++i + "/" + list.size() +
+                                    "(" + sourceInfoDto.getUrl() + ")");
                             if (sourceInfoDto.getIco().equals(" ")) {
                                 continue;
                             }

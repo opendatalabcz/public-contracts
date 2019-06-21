@@ -2,6 +2,7 @@ package eu.profinit.publiccontracts.service.impl;
 
 import eu.profinit.publiccontracts.service.DocumentDownloader;
 import eu.profinit.publiccontracts.util.PropertyManager;
+import org.apache.log4j.Logger;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
@@ -29,6 +30,8 @@ import java.util.regex.Pattern;
  */
 public class DefaultDownloader implements DocumentDownloader {
 
+    final static Logger logger = Logger.getLogger(DefaultDownloader.class);
+
     protected URL url;
 
     protected HttpURLConnection urlConnection = null;
@@ -52,7 +55,7 @@ public class DefaultDownloader implements DocumentDownloader {
         this.urlConnection = (HttpURLConnection) url.openConnection();
         int responseCode = urlConnection.getResponseCode();
         if (responseCode != 200) {
-            throw new IllegalArgumentException(url.toString() + " cannot access data: error " + responseCode);
+            throw new IllegalArgumentException("error: " + url.toString() + " cannot access data: error " + responseCode);
         }
         return urlConnection;
     }
@@ -73,12 +76,12 @@ public class DefaultDownloader implements DocumentDownloader {
                 String contentFileName = getContentFileName();
                 try (BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream())) {
                     String text = parseText(in);
-                    System.out.println("downloaded: \"" + contentFileName + "\" from: " + url.toString());
+                    logger.info("downloaded: \"" + contentFileName + "\" from: " + url.toString());
                     return text;
                 }
             }
         }
-        throw new IllegalArgumentException(url.toString() + " does not have supported format: " + contentType);
+        throw new IllegalArgumentException("error: " + url.toString() + " does not have supported format: " + contentType);
     }
 
     /**
