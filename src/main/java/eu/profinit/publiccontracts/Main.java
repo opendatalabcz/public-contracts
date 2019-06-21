@@ -193,9 +193,10 @@ public class Main {
             for (final List<SourceInfoDto> list : lists) {
                 final Thread t = new Thread() {
                     public void run() {
+                        String threadName = Thread.currentThread().getName();
                         int i = 0;
                         for (SourceInfoDto sourceInfoDto : list) {
-                            logger.info(Thread.currentThread().getName() + ":sources:" + ++i + "/" + list.size() +
+                            logger.info(threadName + ":sources:" + ++i + "/" + list.size() +
                                     "(" + sourceInfoDto.getUrl() + ")");
                             if (sourceInfoDto.getIco().equals(" ")) {
                                 continue;
@@ -263,6 +264,7 @@ public class Main {
                                 continue;
                             }
                         }
+                        logger.info(threadName + ":done");
                     }
                 };
                 t.start();
