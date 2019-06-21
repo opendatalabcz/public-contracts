@@ -33,7 +33,7 @@ public class DateUtils {
             fromCal.set(Calendar.DAY_OF_MONTH, curCal.getActualMaximum(Calendar.DAY_OF_MONTH));
             DateTime toDate = new DateTime(curCal);
             intervals.add(new Interval(fromDate, toDate));
-            curCal.add(Calendar.MONTH,1);
+            curCal.add(Calendar.DAY_OF_MONTH,1);
         }
         return intervals;
     }
