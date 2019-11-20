@@ -13,15 +13,29 @@ import eu.profinit.publiccontracts.service.ISVZService;
 import eu.profinit.publiccontracts.util.DocumentFetcher;
 import eu.profinit.publiccontracts.util.PropertyManager;
 import eu.profinit.publiccontracts.util.SubmitterTransformer;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.rendering.ImageType;
+import org.apache.pdfbox.rendering.PDFRenderer;
+import org.apache.tika.exception.TikaException;
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.AutoDetectParser;
+import org.apache.tika.parser.ParseContext;
+import org.apache.tika.parser.Parser;
+import org.apache.tika.parser.ocr.TesseractOCRConfig;
+import org.apache.tika.parser.pdf.PDFParserConfig;
+import org.apache.tika.sax.BodyContentHandler;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.xml.sax.SAXException;
 
+import javax.imageio.ImageIO;
 import javax.xml.bind.JAXBException;
-import java.io.IOException;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.*;
@@ -174,6 +188,68 @@ public class TestForDevelopers {
         }
     }
 
+    @Test
+    public void tikaPdfReadTest() throws TikaException, SAXException, IOException {
+        Parser parser = new AutoDetectParser();
+        Metadata metadata = new Metadata();
+        BodyContentHandler handler = new BodyContentHandler(Integer.MAX_VALUE);
+
+        TesseractOCRConfig config = new TesseractOCRConfig();
+        config.setLanguage("ces");
+        PDFParserConfig pdfConfig = new PDFParserConfig();
+        pdfConfig.setExtractInlineImages(true);
+
+        // To parse images in files those lines are needed
+        ParseContext parseContext = new ParseContext();
+        parseContext.set(TesseractOCRConfig.class, config);
+        parseContext.set(PDFParserConfig.class, pdfConfig);
+        parseContext.set(Parser.class, parser); // need to add this to make sure
+        parseContext.set(Parser.class, parser); // need to add this to make sure
+        // recursive parsing happens!
+
+        FileInputStream stream = new FileInputStream("C:\\Users\\mvancl\\Documents\\temp\\diplomka\\dokumenty\\e-zakazky\\2e9ebf7e-0a64-47e7-80d4-2970b80738d8\\P14V00000001\\smlouva o dílo, plošina.pdf");
+        parser.parse(stream, handler, metadata, parseContext);
+        String text = handler.toString();
+        System.out.println(text);
+    }
+
+    @Test
+    public void tikaPdfToImageReadTest() throws TikaException, SAXException, IOException {
+
+        PDDocument document = PDDocument.load(new File("C:\\Users\\mvancl\\Documents\\temp\\diplomka\\dokumenty\\e-zakazky\\2e9ebf7e-0a64-47e7-80d4-2970b80738d8\\P14V00000001\\smlouva o dílo, plošina.pdf"));
+        PDFRenderer pdfRenderer = new PDFRenderer(document);
+        for (int page = 0; page < document.getNumberOfPages(); ++page) {
+            BufferedImage bim = pdfRenderer.renderImageWithDPI(
+                    page, 300, ImageType.RGB);
+
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            ImageIO.write(bim, "jpeg", os);
+            InputStream is = new ByteArrayInputStream(os.toByteArray());
+
+            Parser parser = new AutoDetectParser();
+            Metadata metadata = new Metadata();
+            BodyContentHandler handler = new BodyContentHandler(Integer.MAX_VALUE);
+
+            TesseractOCRConfig config = new TesseractOCRConfig();
+            config.setLanguage("ces");
+            PDFParserConfig pdfConfig = new PDFParserConfig();
+            pdfConfig.setExtractInlineImages(true);
+
+            // To parse images in files those lines are needed
+            ParseContext parseContext = new ParseContext();
+            parseContext.set(TesseractOCRConfig.class, config);
+            parseContext.set(PDFParserConfig.class, pdfConfig);
+            parseContext.set(Parser.class, parser); // need to add this to make sure
+            // recursive parsing happens!
+
+            parser.parse(is, handler, metadata, parseContext);
+            String text = handler.toString();
+            System.out.println(text);
+
+        }
+        document.close();
+
+    }
 
     private PropertyManager getPropertyManagerStub() {
         PropertyManager propertyManager = new PropertyManager();
@@ -189,4 +265,5 @@ public class TestForDevelopers {
         String profilBody = Resources.toString(resource, Charsets.UTF_8);
         return profilBody;
     }
+
 }

@@ -1,690 +1,552 @@
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
+Česká republika — Ministerstvo životního prostředí
 
-1/9 
+Eguica, a. s.
 
-Česká republika – Ministerstvo životního prostředí 
+SMLOUVA NA PLNĚNÍ VEŘEJNÉ ZAKÁZKY
+S NÁZVEM
 
-●     ●     ● 
+„Služby podpory analýz, návrhů a realizace nových agendových ISVS“
 
-Equica, a. s. 
+1/9
 
- 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
- 
+Tato smlouva na plnění veřejné zakázky (dále jen „Smlouva“) je uzavřená níže uvedeného dne,
 
- 
+měsíce a roku ve smyslu ustanovení $ 1746 odst. 2 a násl. zákona č. 89/2012 Sb., občanský zákoník,
 
- 
+ve znění pozdějších předpisů (dále jen „Občanský zákoník“),
 
- 
+mezi těmito smluvními stranami:
 
- 
+Česká republika — Ministerstvo životního prostředí
 
-SMLOUVA NA PLNĚNÍ VEŘEJNÉ ZAKÁZKY 
+se sídlem:
+jednající:
 
-S NÁZVEM 
+IČO:
 
-„Služby podpory analýz, návrhů a realizace nových agendových ISVS“ 
+bankovní spojení:
+číslo účtu:
 
- 
+Eguica, a. s.
 
-  
+se sídlem:
+zastoupená:
 
+IČO:
 
+DIČ:
 
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
+bankovní spojení:
+číslo účtu:
 
-2/9 
+Vršovická 1442/65, 100 10 Praha 10
 
-Tato smlouva na plnění veřejné zakázky (dále jen „Smlouva“) je uzavřená níže uvedeného dne, 
+Ing. Jana Vodičková, ředitelka odboru informatiky
+00164801
 
-měsíce a roku ve smyslu ustanovení § 1746 odst. 2 a násl. zákona č. 89/2012 Sb., občanský zákoník, 
+ČNB Praha 1
 
-ve znění pozdějších předpisů (dále jen „Občanský zákoník“), 
+7628001/0710
 
- 
+(dále jen „Objednatel“)
 
-mezi těmito smluvními stranami: 
+na straně jedné
 
- 
+Rubeška 215/1, 190 00 Praha 9 — Vysočany
 
-Česká republika – Ministerstvo životního prostředí 
+Bc. Vladimír Matějíček, obchodní ředitel, na základě plné moci
+26490951
 
-se sídlem:  Vršovická 1442/65, 100 10 Praha 10 
+CZ26490951 (je plátcem DPH)
 
-jednající:  Ing. Jana Vodičková, ředitelka odboru informatiky 
+Komerční banka Praha 1
 
-IČO:  00164801 
+27-7727020207/0100
 
-bankovní spojení:  ČNB Praha 1 
+zapsaná v obchodním rejstříku vedeném městským soudem v Praze, sp. zn. B7407
 
-číslo účtu:  7628001/0710 
+zástupce pro věcná jednání:
 
- 
+Bc. Vladimír Matějíček, obchodní ředitel
 
-(dále jen „Objednatel“) 
+(dále jen „Poskytovatel“)
 
-na straně jedné 
+na straně druhé
 
- 
+(Objednatel a Poskytovatel dále jednotlivě také jako „Smluvní strana“
 
-A 
+a společně jako „Smluvní strany“).
 
- 
+2/9
 
-Equica, a. s. 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-se sídlem: Rubeška 215/1, 190 00 Praha 9 – Vysočany 
+Smluvní strany se dohodly na následující úpravě práv a povinností, jak jsou uvedeny dále v této
 
-zastoupená: Bc. Vladimír Matějíček, obchodní ředitel, na základě plné moci  
+Smlouvě:
 
-IČO: 26490951 
+1. ÚVODNÍ USTANOVENÍ A PŘEDMĚT SMLOUVY
 
-DIČ: CZ26490951 (je plátcem DPH) 
+L,
 
-bankovní spojení: Komerční banka Praha 1 
+1.2.
 
-číslo účtu:  27-7727020207/0100 
+1.3.
 
-zapsaná v obchodním rejstříku vedeném městským soudem v Praze, sp. zn. B7407 
+1.4.
 
-zástupce pro věcná jednání: Bc. Vladimír Matějíček, obchodní ředitel 
+Tato Smlouva je uzavírána na základě výsledků zadávacího řízení na veřejnou zakázku
+malého rozsahu na služby s názvem „Služby podpory analýz, návrhů a realizace nových
+agendových ISVS“, systémové číslo na profilu zadavatele E-ZAK: P18V00000356,
+systémové číslo v el. nástroji Gemin.cz: T002/18/V00055638 (dále jen „Veřejná zakázka“),
+za účelem realizace Veřejné zakázky. Nabídka Poskytovatele podaná v rámci zadávacího
+řízení na Veřejnou zakázku byla vyhodnocena jako nejvýhodnější.
 
- 
+Předmětem Smlouvy je závazek Poskytovatele k poskytnutí služeb podpory analýz, návrhů
 
-(dále jen „Poskytovatel“) 
+F
+I
 
-na straně druhé 
+a realizace nových agendových ISVS (dále jen „Plnění“), a jedná se zejména o tyto služby:
+o © pomoc při tvorbě business požadavků na plánovaná řešení a produkty;
 
- 
+o © podpora při realizaci průzkumů trhu a jejich vyhodnocení;
 
-(Objednatel a Poskytovatel dále jednotlivě také jako „Smluvní strana“ 
+o © spolupráce na tvorbě studií proveditelnosti;
 
-a společně jako „Smluvní strany“). 
+o © supervize projektů v oblasti ICT;
 
- 
+o. podpora ověřování vlastností a funkcí jednotlivých SW produktů/IS dodávaných
+a implementovaných třetími stranami do prostředí Objednatele;
 
-  
+o © dohled nad technickou realizací a integrací SW produktů/IS do prostředí Objednatele;
 
+o © pomoc s komunikací a organizací práce dodavatelů SW produktů/IS do prostředí
+Objednatele;
 
+o. dohled nad dodržováním kvality v rámci dodávek SW produktů/IS a dokumentace
+— uživatelské, administrátorské a provozní;
 
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
+o © podpora při plánování interních auditů a při jejich realizaci v oblasti
+ICT a kybernetické bezpečnosti;
 
-3/9 
+o © dodávka specializovaných služeb voblasti správy elektronických dokumentů
+a elektronických bezpečnostních prvků — dle Nařízení elDAS a zákonů i norem
+souvisejících;
 
-Smluvní strany se dohodly na následující úpravě práv a povinností, jak jsou uvedeny dále v této 
+o © role oponenta (oponentury) při jednání Objednatele s dodavateli SW produktů/IS.
 
-Smlouvě: 
+Plnění dle této Smlouvy bude Poskytovatelem realizováno v maximálním rozsahu
 
- 
+do 180 člověkodnů (tzn. max. 180 x 8 hodin, čili max. 1 440 člověkohodin) s tím, že tento
 
-1. ÚVODNÍ USTANOVENÍ A PŘEDMĚT SMLOUVY 
+rozsah nemusí být Objednatelem zcela vyčerpán.
 
-1.1. Tato Smlouva je uzavírána na základě výsledků zadávacího řízení na veřejnou zakázku 
+Objednatel se zavazuje zaplatit Poskytovateli za řádně a včas poskytnuté Plnění odměnu
 
-malého rozsahu na služby s názvem „Služby podpory analýz, návrhů a realizace nových 
+ve výši a způsobem stanoveným dle čl. 5. této Smlouvy.
 
-agendových ISVS“, systémové číslo na profilu zadavatele E-ZAK: P18V00000356, 
+2. MÍSTO A TERMÍNY POSKYTOVÁNÍ PLNĚNÍ
 
-systémové číslo v el. nástroji Gemin.cz: T002/18/V00055638 (dále jen „Veřejná zakázka“), 
+2.1.
 
-za účelem realizace Veřejné zakázky. Nabídka Poskytovatele podaná v rámci zadávacího 
+2.2.
 
-řízení na Veřejnou zakázku byla vyhodnocena jako nejvýhodnější. 
+Místem poskytování Plnění je sídlo Objednatele uvedené u identifikace Smluvních stran
+v úvodu této Smlouvy.
 
-1.2. Předmětem Smlouvy je závazek Poskytovatele k poskytnutí služeb podpory analýz, návrhů 
+Realizace Plnění bude zahájena ihned po nabytí účinnosti této Smlouvy dle čl. 8. odst.
+8.7. této Smlouvy.
 
-a realizace nových agendových ISVS (dále jen „Plnění“), a jedná se zejména o tyto služby: 
+3/9
 
-o pomoc při tvorbě business požadavků na plánovaná řešení a produkty; 
+23
 
-o podpora při realizaci průzkumů trhu a jejich vyhodnocení; 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-o spolupráce na tvorbě studií proveditelnosti; 
+Realizace Plnění bude probíhat v průběhu 18 měsíců od nabytí účinnosti této Smlouvy,
+ato nazákladě písemných (emailová korespondence, datová schránka) objednávek
+zaslaných Objednatelem Poskytovateli.
 
-o supervize projektů v oblasti ICT; 
+PRÁVA A POVINNOSTI POSKYTOVATELE
 
-o podpora ověřování vlastností a funkcí jednotlivých SW produktů/IS dodávaných 
+Du;
 
-a implementovaných třetími stranami do prostředí Objednatele; 
+3.2.
 
-o dohled nad technickou realizací a integrací SW produktů/IS do prostředí Objednatele; 
+3.3.
 
-o pomoc s komunikací a organizací práce dodavatelů SW produktů/IS do prostředí 
+3.4.
 
-Objednatele; 
+3.5.
 
-o dohled nad dodržováním kvality v rámci dodávek SW produktů/IS a dokumentace 
+3.6.
 
-– uživatelské, administrátorské a provozní; 
+3.7.
 
-o podpora při plánování interních auditů a při jejich realizaci v oblasti 
+3.8.
 
-ICT a kybernetické bezpečnosti; 
+Poskytovatel je povinen při poskytování Plnění dle této Smlouvy postupovat poctivě
+a pečlivě podle svých schopností; přitom je povinen použít každého prostředku,
+kterého vyžaduje povaha obstarávané záležitosti, jakož i takového, který se shoduje s vůlí
+Objednatele.
 
-o dodávka specializovaných služeb v oblasti správy elektronických dokumentů 
+Poskytovatel je povinen poskytovat Plnění svým jménem, na svůj náklad, na vlastní
+odpovědnost a nebezpečí v ujednaných termínech. Objednatel je výlučným vlastníkem
+výsledků Plnění a je oprávněn je bez omezení využít pro svoji potřebu a pro potřebu
+rezortních organizací Objednatele.
 
-a elektronických bezpečnostních prvků – dle Nařízení eIDAS a zákonů i norem 
+Poskytovatel se zavazuje nahradit Objednateli případnou škodu, která mu vznikne
+v důsledku porušení povinností Poskytovatele, i škodu, která vznikne v důsledku činnosti
+Poskytovatele na majetku či zdraví osob, a to bez omezení výše náhrady této škody.
+Poskytovatel současně odpovídá za škody, které způsobili Objednateli či třetím osobám
+v souvislosti s poskytováním Plnění zaměstnanci Poskytovatele, jeho poddodavatelé
+či osoby v obdobném postavení porušením svých povinností při plnění této Smlouvy.
 
-souvisejících; 
+Poskytovatel je povinen bez zbytečného odkladu oznámit Objednateli všechny okolnosti,
+které zjistil nebo měl zjistit při poskytování Plnění, a které mohou mít vliv na poskytované
+Plnění či změnu pokynů nebo zájmů Objednatele.
 
-o role oponenta (oponentury) při jednání Objednatele s dodavateli SW produktů/IS.  
+Zjistí-li Poskytovatel při plnění této Smlouvy překážky, které znemožňují řádné
+poskytování Plnění dohodnutým způsobem, oznámí to písemně neprodleně Objednateli,
+se kterým se dohodne na odstranění daných překážek.
 
-1.3. Plnění dle této Smlouvy bude Poskytovatelem realizováno v maximálním rozsahu 
+Poskytovatel je povinen bez zbytečného odkladu Objednateli vracet podklady a materiály,
+které od něj převzal při začátku nebo během plnění této Smlouvy.
 
-do 180 člověkodnů (tzn. max. 180 x 8 hodin, čili max. 1 440 člověkohodin) s tím, že tento 
+Poskytovatel je povinen zachovávat mlčenlivost o všech údajích, které jsou obsaženy
+v dodaných podkladech a materiálech, nebo o jiných skutečnostech, se kterými přišel
+při plnění této Smlouvy do styku. Tyto Objednatel bezvýhradně označuje jako citlivé,
+přičemž je možno takové informace poskytnout pouze v souladu s příslušnými právními
+předpisy nebo s výslovným písemným souhlasem Objednatele.
 
-rozsah nemusí být Objednatelem zcela vyčerpán. 
+Poskytovatel je povinen dokumenty související s poskytováním Plnění uchovávat nejméně
+po dobu 10 let, a to zejména pro účely případné kontroly realizace Veřejné zakázky
+či ověřování plnění povinností vyplývajících z podmínek daných právními předpisy
+k archivaci těchto dokumentů (např. zákon č.563/1991 Sb., o účetnictví, ve znění
+pozdějších předpisů, zákon č. 235/2004 Sb., o dani z přidané hodnoty, ve znění pozdějších
+předpisů, zákon č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších
+předpisů, atd.). Poskytovatel je povinen kdykoliv na vyžádání poskytovat požadované
+informace a dokumentaci ohledně plnění Veřejné zakázky zaměstnancům nebo
+zmocněncům Objednatele a dále pověřeným orgánům (Ministerstvo financí, Nejvyšší
+kontrolní úřad, příslušný finanční úřad a případně další oprávněné orgány státní správy).
+Dále je Poskytovatel povinen vytvořit výše uvedeným osobám podmínky k provedení
 
-1.4. Objednatel se zavazuje zaplatit Poskytovateli za řádně a včas poskytnuté Plnění odměnu 
+4/9
 
-ve výši a způsobem stanoveným dle čl. 5. této Smlouvy. 
+3,9.
 
- 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-2. MÍSTO A TERMÍNY POSKYTOVÁNÍ PLNĚNÍ 
+kontroly vztahující se k realizaci Veřejné zakázky a poskytnout jim při provádění kontroly
+součinnost. Tyto povinnosti platí ipro případné poddodavatele Poskytovatele a další
+osoby podílející se na realizaci Veřejné zakázky, přičemž Poskytovatel je povinen jejich
+součinnost a plnění povinností uvedených v tomto odstavci zajistit.
 
-2.1. Místem poskytování Plnění je sídlo Objednatele uvedené u identifikace Smluvních stran 
+Poskytovatel prohlašuje, že se v plném rozsahu seznámil s objemem a povahou Plnění
+dle této Smlouvy, jsou mu známy veškeré technické, kvalitativní i jiné podmínky nezbytné
+k poskytování Plnění dle této Smlouvy, a že disponuje takovými kapacitami a odbornými
+znalostmi, které jsou k realizaci Veřejné zakázky nezbytné.
 
-v úvodu této Smlouvy. 
+Poskytovatel bezvýhradně souhlasí se zveřejněním plného znění této Smlouvy v souladu
+se zákonem č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů,
+a dalšími příslušnými právními předpisy. Zveřejnění obsahu této Smlouvy nemůže
+být považováno za porušení povinnosti mlčenlivosti.
 
-2.2. Realizace Plnění bude zahájena ihned po nabytí účinnosti této Smlouvy dle čl. 8. odst. 
+PRÁVA A POVINNOSTI OBJEDNATELE
 
-8.7. této Smlouvy. 
+4.1.
 
+Objednatel je povinen předat včas Poskytovateli úplné, pravdivé a přehledné informace
+a podklady, jež jsou nezbytně nutné k plnění předmětu této Smlouvy, pokud z jejich
+povahy nevyplývá, že je má zajistit Poskytovatel v rámci své činnosti. Objednatel
+je povinen poskytovat Poskytovateli během plnění předmětu této Smlouvy v případě
+potřeby další součinnost v přiměřeném rozsahu.
 
+ODMĚNA A PLATEBNÍ PODMÍNKY
 
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
+5.1.
 
-4/9 
+5.2.
 
-2.3. Realizace Plnění bude probíhat v průběhu 18 měsíců od nabytí účinnosti této Smlouvy, 
+5.3.
 
-a to na základě písemných (emailová korespondence, datová schránka) objednávek 
+5.4.
 
-zaslaných Objednatelem Poskytovateli. 
+5.5.
 
- 
+Výše odměny Poskytovatele za Plnění poskytnuté podle čl. 1. odst. 1.2. této Smlouvy bude
+činit maximálně 849 600,- Kč (slovy: osm set čtyřicet devět tisíc šest set korun českých)
+bez daně z přidané hodnoty (dále jen „DPH“). DPH činí v souladu s aktuálně platnou
+a účinnou právní úpravou 21 %, tedy 178 416,- Kč (slovy: jedno sto sedmdesát osm tisíc
+čtyři sta šestnáct korun českých). Celková výše odměny tedy bude činit max. 1 028 016,-
+Kč (slovy: jeden milion dvacet osm tisíc šestnáct korun českých) včetně DPH (dále
+jen „Odměna“).
 
-3. PRÁVA A POVINNOSTI POSKYTOVATELE 
+Odměna bude Poskytovateli uhrazena na základě skutečně realizovaných (odpracovaných)
+hodin (max. 1440 hodin) dle Objednatelem odsouhlaseného výkazu práce v souladu
+s odst. 5.5. tohoto článku. Hodinová sazba činí 590,- Kč (slovy: pět set devadesát korun
+českých) bez DPH, tzn. 713,90 Kč (slovy: sedm set třináct korun českých devadesát haléřů)
+včetně DPH (dále jen „hodinová sazba“).
 
-3.1. Poskytovatel je povinen při poskytování Plnění dle této Smlouvy postupovat poctivě 
+Výše Odměny a hodinové sazby je konečná, závazná a nepřekročitelná a obsahuje všechny
+případné náklady Poskytovatele včetně jakýchkoli poplatků.
 
-a pečlivě podle svých schopností; přitom je povinen použít každého prostředku, 
+Odměnu dle odstavce 5.1. tohoto článku či hodinovou sazbu dle odst. 5.2. tohoto článku
+je možné změnit či překročit pouze v případě změny příslušných právních předpisů
+upravujících výši DPH. V takovém případě bude účtována DPH vevýši platné k datu
+uskutečnění zdanitelného plnění.
 
-kterého vyžaduje povaha obstarávané záležitosti, jakož i takového, který se shoduje s vůlí 
+Úhrada Odměny bude Objednatelem realizována měsíčně na základě daňového
+a účetního dokladu (dále jen „faktura“) vystaveného Poskytovatelem do 7 kalendářních
+dnů po posledním dni kalendářního měsíce, ve kterém bylo realizováno Plnění,
+a to až do celkové maximální výše Odměny dle odstavce 5.1. tohoto článku. Přílohou
 
-Objednatele. 
+5/9
 
-3.2. Poskytovatel je povinen poskytovat Plnění svým jménem, na svůj náklad, na vlastní 
+6.
 
-odpovědnost a nebezpečí v ujednaných termínech. Objednatel je výlučným vlastníkem 
+5.6.
 
-výsledků Plnění a je oprávněn je bez omezení využít pro svoji potřebu a pro potřebu 
+5.7.
 
-rezortních organizací Objednatele. 
+5.8.
 
-3.3. Poskytovatel se zavazuje nahradit Objednateli případnou škodu, která mu vznikne 
+5.9.
 
-v důsledku porušení povinností Poskytovatele, i škodu, která vznikne v důsledku činnosti 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-Poskytovatele na majetku či zdraví osob, a to bez omezení výše náhrady této škody. 
+faktury bude odsouhlasený měsíční výkaz Plnění. Výkaz Plnění vystaví na základě
+skutečného objemu Plnění Poskytovatel a nechá jej před zasláním faktury písemně
+odsouhlasit Objednatelem. Faktura bude obsahovat náležitosti daňového a účetního
 
-Poskytovatel současně odpovídá za škody, které způsobili Objednateli či třetím osobám 
+v
 
-v souvislosti s poskytováním Plnění zaměstnanci Poskytovatele, jeho poddodavatelé 
+dokladu podle zákona č. 563/1991 Sb., o účetnictví, ve znění pozdějších předpisů,
+a zákona č. 235/2004 Sb., o dani z přidané hodnoty, ve znění pozdějších předpisů,
+(jedná se především o označení faktury a její číslo, identifikační údaje Smluvních stran,
+předmět Smlouvy, bankovní spojení, fakturovanou částku bez/včetně DPH) a bude
+mít náležitosti obchodní listiny dle 5 435 Občanského zákoníku. Faktura bude označena
+evidenčním číslem Smlouvy přiděleným z Centrální evidence smluv: 180032 (viz také
 
-či osoby v obdobném postavení porušením svých povinností při plnění této Smlouvy. 
+záhlaví této Smlouvy).
 
-3.4. Poskytovatel je povinen bez zbytečného odkladu oznámit Objednateli všechny okolnosti, 
+Faktura bude zaslána ve dvou listinných vyhotoveních na adresu Objednatele ve tvaru:
+Ministerstvo životního prostředí, Odbor informatiky, Vršovická 1442/65, 100 10 Praha
+10, nebo v elektronické podobě do datové schránky Objednatele: 9gsaax4.
 
-které zjistil nebo měl zjistit při poskytování Plnění, a které mohou mít vliv na poskytované 
+Platba bude provedena bezhotovostním převodem na účet Poskytovatele uvedený výše
+v této Smlouvě a na faktuře. Splatnost faktury činí 21 kalendářních dnů ode dne jejího
+doručení Objednateli. Povinnost Objednatele uhradit fakturu je splněna okamžikem
+odepsání příslušné částky z účtu Objednatele. Objednatel neposkytuje zálohy.
+Platby budou probíhat výhradně v Kč (CZK), rovněž veškeré cenové údaje na faktuře
+budou v této měně.
 
-Plnění či změnu pokynů nebo zájmů Objednatele. 
+Jestliže faktura nebude obsahovat náležitosti daňového dokladu dle odst. 5.5. tohoto
+článku, nepovažuje se za řádný daňový a účetní doklad, neběží doba splatnosti
+a Objednatel je oprávněn fakturu vrátit Poskytovateli s tím, že Poskytovatel je poté
+povinen vystavit novou fakturu s novým termínem splatnosti, přičemž nová doba
+splatnosti běží teprve od okamžiku doručení nové faktury Objednateli. V takovém případě
+není Objednatel v prodlení s placením faktury.
 
-3.5. Zjistí-li Poskytovatel při plnění této Smlouvy překážky, které znemožňují řádné 
+V případě doručení jakékoliv faktury Objednateli v období od 14. 12. do 31. 12.
+příslušného kalendářního roku bude taková faktura proplacena © Objednatelem
+Poskytovateli během prvního čtvrtletí následujícího kalendářního roku s ohledem na roční
+uzávěrku a nastavení nového státního rozpočtu v Integrovaném informačním systému
+Státní pokladny. V těchto případech se pak nejedná o prodlení Objednatele s úhradou
+faktury a Poskytovatel nemá právo požadovat úhradu zákonného úroku z prodlení.
+Poskytovatel tuto podmínku bezvýhradně akceptuje.
 
-poskytování Plnění dohodnutým způsobem, oznámí to písemně neprodleně Objednateli, 
+ZÁRUKY, SMLUVNÍ POKUTY
 
-se kterým se dohodne na odstranění daných překážek. 
+6.1.
 
-3.6. Poskytovatel je povinen bez zbytečného odkladu Objednateli vracet podklady a materiály, 
+6.2.
 
-které od něj převzal při začátku nebo během plnění této Smlouvy. 
+6.3.
 
-3.7. Poskytovatel je povinen zachovávat mlčenlivost o všech údajích, které jsou obsaženy 
+Vady musí Objednatel uplatnit u Poskytovatele bez zbytečného odkladu poté,
+co se o nich dozví.
 
-v dodaných podkladech a materiálech, nebo o jiných skutečnostech, se kterými přišel 
+Poskytovatel je povinen na základě připomínek Objednatele k Plnění upravit a doplnit
+Plnění. Budou-li po předání a převzetí, resp. akceptaci Plnění zjištěny vady či nedodělky,
+je Poskytovatel povinen odstranit je do 5 kalendářních dnů od vyhotovení a zaslání
+připomínek Objednatele Poskytovateli.
 
-při plnění této Smlouvy do styku. Tyto Objednatel bezvýhradně označuje jako citlivé, 
+Je-li vadné plnění podstatným porušením této Smlouvy, má Objednatel právo
+na odstranění vady opravou nebo úpravou Plnění, na přiměřenou slevu nebo odstoupení
+od této Smlouvy.
 
-přičemž je možno takové informace poskytnout pouze v souladu s příslušnými právními 
+6/9
 
-předpisy nebo s výslovným písemným souhlasem Objednatele. 
+6.4.
 
-3.8. Poskytovatel je povinen dokumenty související s poskytováním Plnění uchovávat nejméně 
+6.5.
 
-po dobu 10 let, a to zejména pro účely případné kontroly realizace Veřejné zakázky 
+6.6.
 
-či ověřování plnění povinností vyplývajících z podmínek daných právními předpisy 
+6.7.
 
-k archivaci těchto dokumentů (např. zákon č. 563/1991 Sb., o účetnictví, ve znění 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-pozdějších předpisů, zákon č. 235/2004 Sb., o dani z přidané hodnoty, ve znění pozdějších 
+Poskytovatel neodpovídá za vady, které byly způsobeny použitím podkladů převzatých
+od Objednatele, u kterých Poskytovatel ani při vynaložení veškeré odborné péče nemohl
+zjistit jejich nevhodnost, případně na ni upozornil Objednatele, ale ten na jejich použití
+trval.
 
-předpisů, zákon č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších 
+V případě, že Poskytovatel poruší jakoukoliv povinnost stanovenou touto Smlouvou,
+má Objednatel právo požadovat po Poskytovateli uhrazení smluvní pokuty ve výši 10 000,-
+Kč (slovy: deset tisíc korun českých) za každý takový případ.
 
-předpisů, atd.). Poskytovatel je povinen kdykoliv na vyžádání poskytovat požadované 
+Pro případ prodlení Objednatele s úhradou faktury má Poskytovatel nárok na úhradu
+úroků z prodlení z dlužné částky ve výši stanovené dle příslušných právních předpisů.
+Smluvní pokuty jsou splatné do 21 kalendářních dnů ode dne doručení výzvy k jejich
+zaplacení Poskytovateli. Zaplacením smluvní pokuty dle této Smlouvy není dotčena
+povinnost Poskytovatele nahradit škodu vzniklou Objednateli porušením smluvní
+povinnosti, které se smluvní pokuta týká. Objednatel je oprávněn požadovat náhradu
+škody v plné výši bez ohledu na sjednanou smluvní pokutu.
 
-informace a dokumentaci ohledně plnění Veřejné zakázky zaměstnancům nebo 
+DOBA TRVÁNÍ SMLOUVY, MOŽNOSTI PŘEDČASNÉHO UKONČENÍ SMLOUVY
 
-zmocněncům Objednatele a dále pověřeným orgánům (Ministerstvo financí, Nejvyšší 
+74.
 
-kontrolní úřad, příslušný finanční úřad a případně další oprávněné orgány státní správy). 
+72.
 
-Dále je Poskytovatel povinen vytvořit výše uvedeným osobám podmínky k provedení 
+73.
 
+74.
 
+75.
 
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
+7.6.
 
-5/9 
+Tato Smlouva se uzavírá na dobu určitou, a to 18 kalendářních měsíců od nabytí účinnosti
+této Smlouvy, anebo do doby vyčerpání maximální výše Odměny dle článku 5. odst.
+5.1. této Smlouvy, podle toho, který okamžik nastane dříve.
 
-kontroly vztahující se k realizaci Veřejné zakázky a poskytnout jim při provádění kontroly 
+Tuto Smlouvu lze předčasně ukončit dohodou Smluvních stran, výpovědí dle Občanského
+zákoníku nebo odstoupením, vždy v písemné podobě.
 
-součinnost. Tyto povinnosti platí i pro případné poddodavatele Poskytovatele a další 
+Smluvní strany jsou oprávněny odstoupit od této Smlouvy z důvodů uvedených
+v Občanském zákoníku a dále z důvodu podstatného porušení této Smlouvy ve smyslu
+ustanovení $ 2002 Občanského zákoníku, pokud podstatné porušení této Smlouvy,
+které je důvodem pro odstoupení od Smlouvy, nebylo způsobeno okolnostmi vylučujícími
+odpovědnost dle ustanovení 8 2913 odst. 2 Občanského zákoníku (tyto vždy prokazuje
+Poskytovatel).
 
-osoby podílející se na realizaci Veřejné zakázky, přičemž Poskytovatel je povinen jejich 
+Za podstatné porušení Smlouvy ze strany Poskytovatele se považuje neplnění povinností
+spočívající zejména v nedodržení termínů stanovených touto Smlouvou nebo realizace
+předmětu Smlouvy v rozporu s ustanoveními této Smlouvy a/nebo jiných závazných
+dokumentů či předpisů nebo porušení povinnosti mlčenlivosti.
 
-součinnost a plnění povinností uvedených v tomto odstavci zajistit. 
+Objednatel je dále oprávněn odstoupit od Smlouvy, jestliže zjistí, Že Poskytovatel:
 
-3.9. Poskytovatel prohlašuje, že se v plném rozsahu seznámil s objemem a povahou Plnění 
+a) nabízel, dával, přijímal nebo zprostředkovával určité hodnoty s cílem ovlivnit chování
+nebo jednání kohokoliv, ať již státního úředníka nebo někoho jiného, přímo nebo
+nepřímo, v poptávkovém řízení nebo při provádění Smlouvy; nebo
 
-dle této Smlouvy, jsou mu známy veškeré technické, kvalitativní i jiné podmínky nezbytné 
+b)  zkresloval jakékoliv skutečnosti za účelem ovlivnění poptávkového řízení nebo
+provádění Smlouvy ke škodě Objednatele, včetně užití podvodných praktik
+k potlačení a snížení výhod volné a otevřené soutěže.
 
-k poskytování Plnění dle této Smlouvy, a že disponuje takovými kapacitami a odbornými 
+V případě ukončení této Smlouvy odstoupením ze strany Poskytovatele je Poskytovatel
+povinen činit veškerá neodkladná jednání tak, aby Objednatel neutrpěl na svých právech
+nebo oprávněných zájmech újmu, a to po dobu 30 kalendářních dnů po odstoupení
+od Smlouvy. To neplatí, pokud Objednatel Poskytovateli sdělí, že na splnění této
 
-znalostmi, které jsou k realizaci Veřejné zakázky nezbytné. 
+7/9
 
-3.10. Poskytovatel bezvýhradně souhlasí se zveřejněním plného znění této Smlouvy v souladu 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-se zákonem č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, 
+povinnosti netrvá. Poskytovatel má nárok na poměrnou část Odměny podle článku
+5. odst. 5.1. této Smlouvy za činnost řádně vykonanou po dobu 30 kalendářních
+dnů po odstoupení od Smlouvy.
 
-a dalšími příslušnými právními předpisy. Zveřejnění obsahu této Smlouvy nemůže 
+8. ZÁVĚREČNÁ USTANOVENÍ
 
-být považováno za porušení povinnosti mlčenlivosti. 
+8.1.
 
- 
+8.2.
 
-4. PRÁVA A POVINNOSTI OBJEDNATELE 
+8.3.
 
-4.1. Objednatel je povinen předat včas Poskytovateli úplné, pravdivé a přehledné informace 
+8.4.
 
-a podklady, jež jsou nezbytně nutné k plnění předmětu této Smlouvy, pokud z jejich 
+8.5.
 
-povahy nevyplývá, že je má zajistit Poskytovatel v rámci své činnosti. Objednatel 
+8.6.
 
-je povinen poskytovat Poskytovateli během plnění předmětu této Smlouvy v případě 
+8.7.
 
-potřeby další součinnost v přiměřeném rozsahu. 
+8.8.
 
- 
+Za Objednatele jsou v záležitostech této Smlouvy a poskytování Plnění oprávněni jednat:
+o © Ing. Jana Vodičková (email: jana.vodickova © mzp.cz, tel.: +420 267 122 130);
 
-5. ODMĚNA A PLATEBNÍ PODMÍNKY 
+o © Ing. David Špalt (email: david.spalt© mzp.cz, tel.: +420 267 122 947).
 
-5.1. Výše odměny Poskytovatele za Plnění poskytnuté podle čl. 1. odst. 1.2. této Smlouvy bude 
+Za Poskytovatele je v záležitostech této Smlouvy a poskytování Plnění oprávněn jednat:
 
-činit maximálně 849 600,- Kč (slovy: osm set čtyřicet devět tisíc šest set korun českých) 
+o © Bc. Vladimír Matějíček (email: vladimir.matejicek ©Aeguica.cz, tel.: +420 724 101 555).
 
-bez daně z přidané hodnoty (dále jen „DPH“). DPH činí v souladu s aktuálně platnou 
+Tyto osoby si budou sdělovat požadavky na potřebné podklady, případně pokyny dle této
+Smlouvy, a to prostřednictvím výše uvedených emailových adres, popř. telefonních čísel.
+Případnou změnu v kontaktních osobách oznámí bezodkladně jedna Smluvní strana druhé
+Smluvní straně vždy písemně; tato změna však nevyžaduje uzavření dodatku ke Smlouvě.
 
-a účinnou právní úpravou 21 %, tedy 178 416,- Kč (slovy: jedno sto sedmdesát osm tisíc 
+Otázky touto Smlouvou výslovně neupravené se řídí českým právním řádem, zejména
+příslušnými ustanoveními Občanského zákoníku.
 
-čtyři sta šestnáct korun českých). Celková výše odměny tedy bude činit max. 1 028 016,- 
+Případná neplatnost, neúčinnost, neúplnost či nejasnost některého ustanovení této
+Smlouvy nemá za následek neplatnost ostatních ustanovení této Smlouvy či Smlouvy jako
+celku, přičemž Smluvní strany bezodkladně takové ustanovení nahradí novým
+ustanovením, které nejlépe vystihne vůli Smluvních stran a bude se svým obsahem nejvíce
+blížit účelu původního ustanovení.
 
-Kč (slovy: jeden milion dvacet osm tisíc šestnáct korun českých) včetně DPH (dále 
+Tato Smlouva může být, s výjimkou odst. 8.1. tohoto článku, měněna nebo doplňována
+pouze formou písemných vzestupně číslovaných dodatků odsouhlasených a podepsaných
+oběma Smluvními stranami.
 
-jen „Odměna“). 
+Veškeré případné spory vzniklé na základě této Smlouvy budou řešeny primárně dohodou
+Smluvních stran, v případě přetrvávající neshody pak před příslušnými obecnými soudy
+České republiky.
 
-5.2. Odměna bude Poskytovateli uhrazena na základě skutečně realizovaných (odpracovaných) 
+Smluvní strany na sebe přebírají nebezpečí změny okolností v souvislosti s právy
+a povinnostmi Smluvních stran vzniklými na základě této Smlouvy. Smluvní strany vylučují
+uplatnění ustanovení 8 1765 odst. 1, 8 1766 a 8 2620 Občanského zákoníku na svůj
+smluvní vztah založený touto Smlouvou.
 
-hodin (max. 1 440 hodin) dle Objednatelem odsouhlaseného výkazu práce v souladu 
+Tato Smlouva nabývá platnosti dnem jejího podpisu oběma Smluvními stranami
+a účinnosti dnem jejího uveřejnění v Informačním systému Registr smluv (dále jen „ISRS“)
+dle podmínek stanovených zákonem č. 340/2015 Sb., o zvláštních podmínkách účinnosti
+některých smluv, uveřejňování těchto smluv a o registru smluv (zákon o registru smluv),
+ve znění pozdějších předpisů, a souvisejícími právními předpisy. Poskytovatel bezvýhradně
+souhlasí s uveřejněním celého znění této Smlouvy a příslušných metadat v ISRS
+a na profilu zadavatele E-ZAK, popř. na dalších místech, v souladu s příslušnými právními
+předpisy. Uveřejnění této Smlouvy provede Objednatel.
 
-s odst. 5.5. tohoto článku. Hodinová sazba činí 590,- Kč (slovy: pět set devadesát korun 
+Tato Smlouva je vyhotovena ve 4 stejnopisech s platností originálu, přičemž každá Smluvní
+strana obdrží 2 vyhotovení.
 
-českých) bez DPH, tzn. 713,90 Kč (slovy: sedm set třináct korun českých devadesát haléřů) 
+8/9
 
-včetně DPH (dále jen „hodinová sazba“). 
+Evidenční číslo přidělené z Centrální evidence smluv: 180032
 
-5.3. Výše Odměny a hodinové sazby je konečná, závazná a nepřekročitelná a obsahuje všechny 
+Smluvní strany prohlašují, že si Smlouvu přečetly, že porozuměly jejímu obsahu, že byla uzavřena
+po vzájemném projednání a že tuto Smlouvu uzavírají na základě své svobodné, pravé a vážné vůle,
+prosté omylu, nikoliv v tísni nebo za nápadně nevýhodných podmínek. Na důkaz toho připojují
+Smluvní strany níže své podpisy.
 
-případné náklady Poskytovatele včetně jakýchkoli poplatků. 
+Za Objednatele: Za Poskytovatele:
+V Praze, dne 10. 05. 2018 V Praze, dne 09. 05. 2018
+Ing. Jana Vodičková Bc. Vladimír Matějíček
+ředitelka odboru informatiky obchodní ředitel, na základě plné moci
+Česká republika — Ministerstvo životního Eguica, a. s.
+prostředí
 
-5.4. Odměnu dle odstavce 5.1. tohoto článku či hodinovou sazbu dle odst. 5.2. tohoto článku 
-
-je možné změnit či překročit pouze v případě změny příslušných právních předpisů 
-
-upravujících výši DPH. V takovém případě bude účtována DPH ve výši platné k datu 
-
-uskutečnění zdanitelného plnění. 
-
-5.5. Úhrada Odměny bude Objednatelem realizována měsíčně na základě daňového 
-
-a účetního dokladu (dále jen „faktura“) vystaveného Poskytovatelem do 7 kalendářních 
-
-dnů po posledním dni kalendářního měsíce, ve kterém bylo realizováno Plnění, 
-
-a to až do celkové maximální výše Odměny dle odstavce 5.1. tohoto článku. Přílohou 
-
-
-
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
-
-6/9 
-
-faktury bude odsouhlasený měsíční výkaz Plnění. Výkaz Plnění vystaví na základě 
-
-skutečného objemu Plnění Poskytovatel a nechá jej před zasláním faktury písemně 
-
-odsouhlasit Objednatelem. Faktura bude obsahovat náležitosti daňového a účetního 
-
-dokladu podle zákona č. 563/1991 Sb., o účetnictví, ve znění pozdějších předpisů, 
-
-a zákona č. 235/2004 Sb., o dani z přidané hodnoty, ve znění pozdějších předpisů, 
-
-(jedná se především o označení faktury a její číslo, identifikační údaje Smluvních stran, 
-
-předmět Smlouvy, bankovní spojení, fakturovanou částku bez/včetně DPH) a bude 
-
-mít náležitosti obchodní listiny dle § 435 Občanského zákoníku. Faktura bude označena 
-
-evidenčním číslem Smlouvy přiděleným z Centrální evidence smluv: 180032 (viz také 
-
-záhlaví této Smlouvy). 
-
-5.6. Faktura bude zaslána ve dvou listinných vyhotoveních na adresu Objednatele ve tvaru: 
-
-Ministerstvo životního prostředí, Odbor informatiky, Vršovická 1442/65, 100 10 Praha 
-
-10, nebo v elektronické podobě do datové schránky Objednatele: 9gsaax4. 
-
-5.7. Platba bude provedena bezhotovostním převodem na účet Poskytovatele uvedený výše 
-
-v této Smlouvě a na faktuře. Splatnost faktury činí 21 kalendářních dnů ode dne jejího 
-
-doručení Objednateli. Povinnost Objednatele uhradit fakturu je splněna okamžikem 
-
-odepsání příslušné částky z účtu Objednatele. Objednatel neposkytuje zálohy. 
-
-Platby budou probíhat výhradně v Kč (CZK), rovněž veškeré cenové údaje na faktuře 
-
-budou v této měně. 
-
-5.8. Jestliže faktura nebude obsahovat náležitosti daňového dokladu dle odst. 5.5. tohoto 
-
-článku, nepovažuje se za řádný daňový a účetní doklad, neběží doba splatnosti 
-
-a Objednatel je oprávněn fakturu vrátit Poskytovateli s tím, že Poskytovatel je poté 
-
-povinen vystavit novou fakturu s novým termínem splatnosti, přičemž nová doba 
-
-splatnosti běží teprve od okamžiku doručení nové faktury Objednateli. V takovém případě 
-
-není Objednatel v prodlení s placením faktury. 
-
-5.9. V případě doručení jakékoliv faktury Objednateli v období od 14. 12. do 31. 12. 
-
-příslušného kalendářního roku bude taková faktura proplacena Objednatelem 
-
-Poskytovateli během prvního čtvrtletí následujícího kalendářního roku s ohledem na roční 
-
-uzávěrku a nastavení nového státního rozpočtu v Integrovaném informačním systému 
-
-Státní pokladny. V těchto případech se pak nejedná o prodlení Objednatele s úhradou 
-
-faktury a Poskytovatel nemá právo požadovat úhradu zákonného úroku z prodlení. 
-
-Poskytovatel tuto podmínku bezvýhradně akceptuje. 
-
- 
-
-6. ZÁRUKY, SMLUVNÍ POKUTY 
-
-6.1. Vady musí Objednatel uplatnit u Poskytovatele bez zbytečného odkladu poté, 
-
-co se o nich dozví. 
-
-6.2. Poskytovatel je povinen na základě připomínek Objednatele k Plnění upravit a doplnit 
-
-Plnění. Budou-li po předání a převzetí, resp. akceptaci Plnění zjištěny vady či nedodělky, 
-
-je Poskytovatel povinen odstranit je do 5 kalendářních dnů od vyhotovení a zaslání 
-
-připomínek Objednatele Poskytovateli. 
-
-6.3. Je-li vadné plnění podstatným porušením této Smlouvy, má Objednatel právo 
-
-na odstranění vady opravou nebo úpravou Plnění, na přiměřenou slevu nebo odstoupení 
-
-od této Smlouvy. 
-
-
-
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
-
-7/9 
-
-6.4. Poskytovatel neodpovídá za vady, které byly způsobeny použitím podkladů převzatých 
-
-od Objednatele, u kterých Poskytovatel ani při vynaložení veškeré odborné péče nemohl 
-
-zjistit jejich nevhodnost, případně na ni upozornil Objednatele, ale ten na jejich použití 
-
-trval. 
-
-6.5. V případě, že Poskytovatel poruší jakoukoliv povinnost stanovenou touto Smlouvou, 
-
-má Objednatel právo požadovat po Poskytovateli uhrazení smluvní pokuty ve výši 10 000,- 
-
-Kč (slovy: deset tisíc korun českých) za každý takový případ. 
-
-6.6. Pro případ prodlení Objednatele s úhradou faktury má Poskytovatel nárok na úhradu 
-
-úroků z prodlení z dlužné částky ve výši stanovené dle příslušných právních předpisů. 
-
-6.7. Smluvní pokuty jsou splatné do 21 kalendářních dnů ode dne doručení výzvy k jejich 
-
-zaplacení Poskytovateli. Zaplacením smluvní pokuty dle této Smlouvy není dotčena 
-
-povinnost Poskytovatele nahradit škodu vzniklou Objednateli porušením smluvní 
-
-povinnosti, které se smluvní pokuta týká. Objednatel je oprávněn požadovat náhradu 
-
-škody v plné výši bez ohledu na sjednanou smluvní pokutu. 
-
- 
-
-7. DOBA TRVÁNÍ SMLOUVY, MOŽNOSTI PŘEDČASNÉHO UKONČENÍ SMLOUVY 
-
-7.1. Tato Smlouva se uzavírá na dobu určitou, a to 18 kalendářních měsíců od nabytí účinnosti 
-
-této Smlouvy, anebo do doby vyčerpání maximální výše Odměny dle článku 5. odst. 
-
-5.1. této Smlouvy, podle toho, který okamžik nastane dříve. 
-
-7.2. Tuto Smlouvu lze předčasně ukončit dohodou Smluvních stran, výpovědí dle Občanského 
-
-zákoníku nebo odstoupením, vždy v písemné podobě. 
-
-7.3. Smluvní strany jsou oprávněny odstoupit od této Smlouvy z důvodů uvedených 
-
-v Občanském zákoníku a dále z důvodu podstatného porušení této Smlouvy ve smyslu 
-
-ustanovení § 2002 Občanského zákoníku, pokud podstatné porušení této Smlouvy, 
-
-které je důvodem pro odstoupení od Smlouvy, nebylo způsobeno okolnostmi vylučujícími 
-
-odpovědnost dle ustanovení § 2913 odst. 2 Občanského zákoníku (tyto vždy prokazuje 
-
-Poskytovatel). 
-
-7.4. Za podstatné porušení Smlouvy ze strany Poskytovatele se považuje neplnění povinností 
-
-spočívající zejména v nedodržení termínů stanovených touto Smlouvou nebo realizace 
-
-předmětu Smlouvy v rozporu s ustanoveními této Smlouvy a/nebo jiných závazných 
-
-dokumentů či předpisů nebo porušení povinnosti mlčenlivosti. 
-
-7.5. Objednatel je dále oprávněn odstoupit od Smlouvy, jestliže zjistí, že Poskytovatel: 
-
-a) nabízel, dával, přijímal nebo zprostředkovával určité hodnoty s cílem ovlivnit chování 
-
-nebo jednání kohokoliv, ať již státního úředníka nebo někoho jiného, přímo nebo 
-
-nepřímo, v poptávkovém řízení nebo při provádění Smlouvy; nebo 
-
-b) zkresloval jakékoliv skutečnosti za účelem ovlivnění poptávkového řízení nebo 
-
-provádění Smlouvy ke škodě Objednatele, včetně užití podvodných praktik 
-
-k potlačení a snížení výhod volné a otevřené soutěže. 
-
-7.6. V případě ukončení této Smlouvy odstoupením ze strany Poskytovatele je Poskytovatel 
-
-povinen činit veškerá neodkladná jednání tak, aby Objednatel neutrpěl na svých právech 
-
-nebo oprávněných zájmech újmu, a to po dobu 30 kalendářních dnů po odstoupení 
-
-od Smlouvy. To neplatí, pokud Objednatel Poskytovateli sdělí, že na splnění této 
-
-
-
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
-
-8/9 
-
-povinnosti netrvá. Poskytovatel má nárok na poměrnou část Odměny podle článku 
-
-5. odst. 5.1. této Smlouvy za činnost řádně vykonanou po dobu 30 kalendářních 
-
-dnů po odstoupení od Smlouvy. 
-
- 
-
-8. ZÁVĚREČNÁ USTANOVENÍ 
-
-8.1. Za Objednatele jsou v záležitostech této Smlouvy a poskytování Plnění oprávněni jednat: 
-
-o Ing. Jana Vodičková (email: jana.vodickova@mzp.cz, tel.: +420 267 122 130);  
-
-o Ing. David Špalt (email: david.spalt@mzp.cz, tel.: +420 267 122 947). 
-
-Za Poskytovatele je v záležitostech této Smlouvy a poskytování Plnění oprávněn jednat: 
-
-o Bc. Vladimír Matějíček (email: vladimir.matejicek@equica.cz, tel.: +420 724 101 555).  
-
-Tyto osoby si budou sdělovat požadavky na potřebné podklady, případně pokyny dle této 
-
-Smlouvy, a to prostřednictvím výše uvedených emailových adres, popř. telefonních čísel. 
-
-Případnou změnu v kontaktních osobách oznámí bezodkladně jedna Smluvní strana druhé 
-
-Smluvní straně vždy písemně; tato změna však nevyžaduje uzavření dodatku ke Smlouvě. 
-
-8.2. Otázky touto Smlouvou výslovně neupravené se řídí českým právním řádem, zejména 
-
-příslušnými ustanoveními Občanského zákoníku. 
-
-8.3. Případná neplatnost, neúčinnost, neúplnost či nejasnost některého ustanovení této 
-
-Smlouvy nemá za následek neplatnost ostatních ustanovení této Smlouvy či Smlouvy jako 
-
-celku, přičemž Smluvní strany bezodkladně takové ustanovení nahradí novým 
-
-ustanovením, které nejlépe vystihne vůli Smluvních stran a bude se svým obsahem nejvíce 
-
-blížit účelu původního ustanovení. 
-
-8.4. Tato Smlouva může být, s výjimkou odst. 8.1. tohoto článku, měněna nebo doplňována 
-
-pouze formou písemných vzestupně číslovaných dodatků odsouhlasených a podepsaných 
-
-oběma Smluvními stranami. 
-
-8.5. Veškeré případné spory vzniklé na základě této Smlouvy budou řešeny primárně dohodou 
-
-Smluvních stran, v případě přetrvávající neshody pak před příslušnými obecnými soudy 
-
-České republiky. 
-
-8.6. Smluvní strany na sebe přebírají nebezpečí změny okolností v souvislosti s právy 
-
-a povinnostmi Smluvních stran vzniklými na základě této Smlouvy. Smluvní strany vylučují 
-
-uplatnění ustanovení § 1765 odst. 1, § 1766 a § 2620 Občanského zákoníku na svůj 
-
-smluvní vztah založený touto Smlouvou. 
-
-8.7. Tato Smlouva nabývá platnosti dnem jejího podpisu oběma Smluvními stranami 
-
-a účinnosti dnem jejího uveřejnění v Informačním systému Registr smluv (dále jen „ISRS“) 
-
-dle podmínek stanovených zákonem č. 340/2015 Sb., o zvláštních podmínkách účinnosti 
-
-některých smluv, uveřejňování těchto smluv a o registru smluv (zákon o registru smluv), 
-
-ve znění pozdějších předpisů, a souvisejícími právními předpisy. Poskytovatel bezvýhradně 
-
-souhlasí s uveřejněním celého znění této Smlouvy a příslušných metadat v ISRS 
-
-a na profilu zadavatele E-ZAK, popř. na dalších místech, v souladu s příslušnými právními 
-
-předpisy. Uveřejnění této Smlouvy provede Objednatel. 
-
-8.8. Tato Smlouva je vyhotovena ve 4 stejnopisech s platností originálu, přičemž každá Smluvní 
-
-strana obdrží 2 vyhotovení. 
-
- 
-
-mailto:jana.vodickova@mzp.cz
-
-
-Evidenční číslo přidělené z Centrální evidence smluv: 180032 
-
-9/9 
-
-Smluvní strany prohlašují, že si Smlouvu přečetly, že porozuměly jejímu obsahu, že byla uzavřena 
-
-po vzájemném projednání a že tuto Smlouvu uzavírají na základě své svobodné, pravé a vážné vůle, 
-
-prosté omylu, nikoliv v tísni nebo za nápadně nevýhodných podmínek. Na důkaz toho připojují 
-
-Smluvní strany níže své podpisy. 
-
- 
-
-Za Objednatele: Za Poskytovatele: 
-
-V Praze, dne 10. 05. 2018 V Praze, dne 09. 05. 2018 
-
-  
-
-Ing. Jana Vodičková 
-
-ředitelka odboru informatiky 
-
-Česká republika – Ministerstvo životního 
-prostředí 
-
-Bc. Vladimír Matějíček 
-
-obchodní ředitel, na základě plné moci 
-
-Equica, a. s. 
-
- 
-
+9/9
 
