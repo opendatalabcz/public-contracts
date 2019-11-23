@@ -4,15 +4,17 @@ import eu.profinit.publiccontracts.Main;
 import eu.profinit.publiccontracts.dto.ContractDto;
 import eu.profinit.publiccontracts.dto.DocumentDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
-import eu.profinit.publiccontracts.service.impl.DefaultDownloader;
 import eu.profinit.publiccontracts.service.DocumentDownloader;
+import eu.profinit.publiccontracts.service.impl.DefaultDownloader;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.Collections;
 import java.util.List;
-import org.apache.log4j.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Class for fetching all available documents of a submitter.
@@ -51,7 +53,7 @@ public class DocumentFetcher {
         DocumentDownloader downloader = createDownloader(documentDto, properties);
         documentDto.setDownloader(downloader.getClass().getName());
 
-        String urlString = documentDto.getUrl();
+        String urlString = checkUrlFormat(documentDto.getUrl());
         URL url = new URL(urlString);
         downloader.setUrl(url);
         try {
@@ -85,6 +87,18 @@ public class DocumentFetcher {
             }
         }
         return new DefaultDownloader();
+    }
+
+    public static String checkUrlFormat(String orig) throws MalformedURLException {
+        Pattern pattern = Pattern.compile("https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#()?&//=]*)");
+        Matcher matcher = pattern.matcher(orig);
+        if (matcher.find()) {
+            return orig;
+        }
+        if (!orig.startsWith("http")) {
+            return "https://" + orig;
+        }
+        throw new MalformedURLException(orig);
     }
 
 }

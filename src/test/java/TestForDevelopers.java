@@ -204,12 +204,11 @@ public class TestForDevelopers {
     }
 
     @Test
-    @Ignore
     public void testDocumentFetcher() {
         try {
             PropertyManager propertyManager = getPropertyManagerStub();
             DocumentDto documentDto = new DocumentDto();
-            documentDto.setUrl("https://zakazky.cuni.cz/document_download_16605.html");
+            documentDto.setUrl("www.e-zakazky.cz/stazenisouboru/02ed44b5-7dee-482f-be23-8350996f2d4e");
             String document = DocumentFetcher.fetchDocument(documentDto, propertyManager);
         } catch (IOException e) {
             e.printStackTrace();
@@ -299,6 +298,7 @@ public class TestForDevelopers {
         propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "MAX_SIZE", "104857600");
         propertyManager.putValue(PropertyManager.SUPPORTED_MIME_TYPE, "PDF", "application/pdf");
         propertyManager.putValue(PropertyManager.SUPPORTED_MIME_TYPE, "X-DOWNLOAD", "application/x-download");
+        propertyManager.putValue(PropertyManager.SUPPORTED_MIME_TYPE, "WORD", "application/msword");
         return propertyManager;
     }
 

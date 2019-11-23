@@ -181,9 +181,11 @@ public class DefaultDownloader implements DocumentDownloader {
     protected static String parseFileExtension(String fileName) {
         Pattern pattern = Pattern.compile("\\.(\\w*)$");
         Matcher matcher = pattern.matcher(fileName);
-        matcher.find();
-        String fileExtension = matcher.group(1);
-        return fileExtension.toLowerCase();
+        if (matcher.find()) {
+            String fileExtension = matcher.group(1);
+            return fileExtension.toLowerCase();
+        }
+        return "unknown_extension";
     }
 
 
@@ -193,13 +195,13 @@ public class DefaultDownloader implements DocumentDownloader {
      */
     protected String getContentFileName() {
         String contentDisposition = urlConnection.getHeaderField("Content-Disposition");
-        Pattern pattern = Pattern.compile("filename=[\"]?([^;\"]*)[\";]?");
+        Pattern pattern = Pattern.compile("filename.*=[\"']?([^;\"]*)[\";]?");
         Matcher matcher = pattern.matcher(contentDisposition);
-        matcher.find();
-        String fileName = matcher.group(1);
-        return fileName;
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return "unknown_name";
     }
-
 
     public HttpURLConnection getUrlConnection() throws IOException {
         if (urlConnection == null) {
