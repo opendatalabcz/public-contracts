@@ -280,6 +280,14 @@ public class Main {
         }
     }
 
+    /**
+     * Initializing procedure for processing the documents.
+     *
+     * @param context
+     * @throws SQLException
+     * @throws IOException
+     * @throws InterruptedException
+     */
     private static void processDocuments(ClassPathXmlApplicationContext context) throws SQLException, IOException, InterruptedException {
         final DatabaseService databaseService = context.getBean(DatabaseService.class);
 
@@ -288,6 +296,15 @@ public class Main {
         processDocumentsInternal(databaseService, documentDtos);
     }
 
+    /**
+     * The procedure that downloads and processes documents.
+     *
+     * @param databaseService
+     * @param documentDtos documents to be processed
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws SQLException
+     */
     private static void processDocumentsInternal(final DatabaseService databaseService, List<DocumentDto> documentDtos) throws IOException, InterruptedException, SQLException {
         logger.info("processing total number of documents: " + documentDtos.size());
         final List<List<DocumentDto>> lists = new ArrayList<>();

@@ -101,6 +101,15 @@ public class DocumentFetcher {
         return new DefaultDownloader();
     }
 
+    /**
+     * Checks the URL format with regular expression.
+     * Corrects the URL with:
+     *  protocol (https)
+     *
+     * @param orig oroginal URL
+     * @return corrected URL
+     * @throws MalformedURLException
+     */
     public static String checkUrlFormat(String orig) throws MalformedURLException {
         Pattern pattern = Pattern.compile("https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#()?&//=]*)");
         Matcher matcher = pattern.matcher(orig);

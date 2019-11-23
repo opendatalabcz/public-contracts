@@ -10,7 +10,7 @@ import java.net.URL;
 
 /**
  * Extends the {@link DefaultDownloader} with web crawling for the final link to the document.
- * Usable for E-ZAK sources, eg. https://ezak.mzp.cz/profile_display_2.html
+ * Usable for Gemin sources, eg. https://www.gemin.cz/profil/technicka-inspekce-ceske-republiky
  */
 public class GeminDownloader extends EZakDownloader {
 
