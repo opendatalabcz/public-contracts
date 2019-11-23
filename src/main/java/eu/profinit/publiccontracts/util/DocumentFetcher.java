@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
  */
 public class DocumentFetcher {
 
-    final static Logger logger = Logger.getLogger(DocumentFetcher.class);
+    static final Logger logger = Logger.getLogger(DocumentFetcher.class);
 
     /**
      * Fetches all documents for the submitter.
@@ -55,7 +55,9 @@ public class DocumentFetcher {
         URL url = new URL(urlString);
         downloader.setUrl(url);
         try {
-            URLConnection urlConnection = downloader.retrieveURLConnection();
+            downloader.retrieveURLConnection();
+            documentDto.setMimeType(downloader.getMimeType());
+            documentDto.setFileSize(downloader.getContentLength());
             String text = downloader.downloadFileToString(properties);
             documentDto.setDocumentData(text);
             Main.numberOfDocuments.incrementAndGet();

@@ -205,8 +205,10 @@ CREATE TABLE document
   type         TEXT,
   version      INTEGER,
   date_upload  TIMESTAMP,
+  mime_type    TEXT,
+  file_size    INTEGER,
   data         TEXT,
-  downloder    TEXT
+  downloader   TEXT
 );
 
 CREATE SEQUENCE document_document_id_seq

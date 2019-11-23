@@ -10,6 +10,7 @@ import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadav
 import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ZakazkaStructure;
 import eu.profinit.publiccontracts.service.ISVZCrawlerService;
 import eu.profinit.publiccontracts.service.ISVZService;
+import eu.profinit.publiccontracts.service.impl.DefaultDownloader;
 import eu.profinit.publiccontracts.util.DocumentFetcher;
 import eu.profinit.publiccontracts.util.PropertyManager;
 import eu.profinit.publiccontracts.util.SubmitterTransformer;
@@ -189,6 +190,34 @@ public class TestForDevelopers {
     }
 
     @Test
+    public void testDocumentFetcherVhodneUverejneni() {
+        try {
+            PropertyManager propertyManager = getPropertyManagerStub();
+            DocumentDto documentDto = new DocumentDto();
+            String referenceDocument = readResourceFile("reference/test_document_vhodneuverejneni_1950922.txt");
+            documentDto.setUrl("https://www.vhodne-uverejneni.cz/index.php?m=xenorders&h=orderdocument&a=detail&document=1950922");
+            String document = DocumentFetcher.fetchDocument(documentDto, propertyManager);
+            assert referenceDocument.equals(document);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    @Ignore
+    public void testDocumentFetcher() {
+        try {
+            PropertyManager propertyManager = getPropertyManagerStub();
+            DocumentDto documentDto = new DocumentDto();
+            documentDto.setUrl("https://zakazky.cuni.cz/document_download_16605.html");
+            String document = DocumentFetcher.fetchDocument(documentDto, propertyManager);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    @Ignore
     public void tikaPdfReadTest() throws TikaException, SAXException, IOException {
         Parser parser = new AutoDetectParser();
         Metadata metadata = new Metadata();
@@ -214,9 +243,10 @@ public class TestForDevelopers {
     }
 
     @Test
+    @Ignore
     public void tikaPdfToImageReadTest() throws TikaException, SAXException, IOException {
 
-        PDDocument document = PDDocument.load(new File("C:\\Users\\mvancl\\Documents\\temp\\diplomka\\dokumenty\\e-zakazky\\2e9ebf7e-0a64-47e7-80d4-2970b80738d8\\P14V00000001\\smlouva o dílo, plošina.pdf"));
+        PDDocument document = PDDocument.load(new File("C:\\Users\\mvancl\\Documents\\temp\\diplomka\\dokumenty\\vhodne-uverejneni\\zakladni-skola-velke-hamry-skolni-541-prispevkova-organizace\\odborne-ucebny-v-zs-velke-hamry-stavebni-prace-ucebny-a-remeslna-dilna\\Kupní smlouva STAVO-UNION.pdf"));
         PDFRenderer pdfRenderer = new PDFRenderer(document);
         for (int page = 0; page < document.getNumberOfPages(); ++page) {
             BufferedImage bim = pdfRenderer.renderImageWithDPI(
@@ -251,10 +281,22 @@ public class TestForDevelopers {
 
     }
 
+    @Test
+    @Ignore
+    public void parseFromPdfThroughImageTest() throws IOException {
+        FileInputStream stream = new FileInputStream("C:\\Users\\mvancl\\Documents\\temp\\diplomka\\dokumenty\\vhodne-uverejneni\\zakladni-skola-velke-hamry-skolni-541-prispevkova-organizace\\odborne-ucebny-v-zs-velke-hamry-stavebni-prace-ucebny-a-remeslna-dilna\\Kupní smlouva STAVO-UNION.pdf");
+        DefaultDownloader downloader = new DefaultDownloader();
+        String text = downloader.parseFromPdfThroughImage(stream);
+        System.out.println(text);
+    }
+
     private PropertyManager getPropertyManagerStub() {
         PropertyManager propertyManager = new PropertyManager();
         propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "ezak", "eu.profinit.publiccontracts.service.impl.EZakDownloader");
         propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "nen.nipez.cz", "eu.profinit.publiccontracts.service.impl.NenNipezDownloader");
+        propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "gemin", "eu.profinit.publiccontracts.service.impl.GeminDownloader");
+        propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "vhodne-uverejneni", "eu.profinit.publiccontracts.service.impl.VhodneUverejneniDownloader");
+        propertyManager.putValue(PropertyManager.DOWNLOAD_RULE, "MAX_SIZE", "104857600");
         propertyManager.putValue(PropertyManager.SUPPORTED_MIME_TYPE, "PDF", "application/pdf");
         propertyManager.putValue(PropertyManager.SUPPORTED_MIME_TYPE, "X-DOWNLOAD", "application/x-download");
         return propertyManager;

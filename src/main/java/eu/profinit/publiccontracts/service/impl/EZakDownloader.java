@@ -54,7 +54,7 @@ public class EZakDownloader extends DefaultDownloader {
      * @return link to the document
      * @throws IOException
      */
-    private String searchForDocumentLink() throws IOException {
+    protected String searchForDocumentLink() throws IOException {
         Document document = Jsoup.connect(url.toString())
                 .timeout(0).get();
         Element element = document.getElementById("actual_document_table");

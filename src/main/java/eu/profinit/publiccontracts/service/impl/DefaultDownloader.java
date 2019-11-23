@@ -33,9 +33,9 @@ import java.util.regex.Pattern;
  */
 public class DefaultDownloader implements DocumentDownloader {
 
-    final static Logger logger = Logger.getLogger(DefaultDownloader.class);
+    static final Logger logger = Logger.getLogger(DefaultDownloader.class);
 
-    final static String OCR_LANGUAGE = "ces";
+    static final String OCR_LANGUAGE = "ces";
 
     protected URL url;
 
@@ -65,6 +65,31 @@ public class DefaultDownloader implements DocumentDownloader {
         return urlConnection;
     }
 
+
+    /**
+     * Gets the mime type of target document
+     * @return mime type
+     * @throws IOException
+     */
+    @Override
+    public String getMimeType() throws IOException {
+        String contentType = getUrlConnection().getContentType();
+        if (contentType != null) {
+            contentType = contentType.toLowerCase();
+        }
+        return contentType;
+    }
+
+    /**
+     * Gets the content length of target document
+     * @return content length
+     * @throws IOException
+     */
+    @Override
+    public int getContentLength() throws IOException {
+        return getUrlConnection().getContentLength();
+    }
+
     /**
      * Downloads file from the URL connection and extracts its text content.
      * Uses {@link PropertyManager} to filter the supported mime types.
@@ -74,24 +99,28 @@ public class DefaultDownloader implements DocumentDownloader {
      */
     @Override
     public String downloadFileToString(PropertyManager properties) throws IOException {
-        String contentType = getUrlConnection().getContentType();
-        if (contentType != null) {
-            contentType = contentType.toLowerCase();
-            if (properties.containsValue(PropertyManager.SUPPORTED_MIME_TYPE, contentType)) {
-                String contentFileName = getContentFileName();
+        String text = null;
+        String mimeType = getMimeType();
+        String contentFileName = getContentFileName();
+        String threadName = Thread.currentThread().getName();
+        int fileSize = getContentLength();
+        logger.info(threadName + ":document:\"" + contentFileName + "\"(" + mimeType + ")[" +  fileSize + "] link: " + url.toString());
+        if (properties.containsValue(PropertyManager.SUPPORTED_MIME_TYPE, mimeType)) {
+            if (fileSize < Integer.parseInt(properties.getValue(PropertyManager.DOWNLOAD_RULE, "MAX_SIZE"))) {
                 try (BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream())) {
-                    String text = null;
-                    if ("application/pdf".equals(contentType)) {
+                    if ("application/pdf".equals(mimeType)) {
                         text = parseFromPdfThroughImage(in);
                     } else {
                         text = parseText(in);
                     }
-                    logger.info("downloaded: \"" + contentFileName + "\" from: " + url.toString());
-                    return text;
                 }
+            } else {
+                logger.warn(threadName + ":document: file too big (" + fileSize + ") link:" + url.toString());
             }
+        } else {
+            logger.warn(threadName + ":document: unsupported type (" + mimeType + ") link:" + url.toString());
         }
-        throw new IllegalArgumentException("error: " + url.toString() + " does not have supported format: " + contentType);
+        return text;
     }
 
     /**
@@ -100,7 +129,7 @@ public class DefaultDownloader implements DocumentDownloader {
      * @return the content of the file extracted with OCR
      * @throws IOException
      */
-    public String parseFromPdfThroughImage(BufferedInputStream in) throws IOException {
+    public String parseFromPdfThroughImage(InputStream in) throws IOException {
         StringBuilder builder = new StringBuilder();
         PDDocument document = PDDocument.load(in);
         PDFRenderer pdfRenderer = new PDFRenderer(document);

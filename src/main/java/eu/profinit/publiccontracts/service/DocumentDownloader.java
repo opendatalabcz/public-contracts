@@ -13,6 +13,10 @@ public interface DocumentDownloader {
 
     URLConnection retrieveURLConnection() throws IOException;
 
+    String getMimeType() throws IOException;
+
+    int getContentLength() throws IOException;
+
     String downloadFileToString(PropertyManager properties) throws IOException;
 
     void setUrl(URL url);

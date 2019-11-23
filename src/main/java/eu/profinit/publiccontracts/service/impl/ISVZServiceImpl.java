@@ -31,7 +31,7 @@ public class ISVZServiceImpl implements ISVZService {
     private RestTemplate restTemplate;
 
     /**
-     * Gets the {@link ProfilStructure} of a profile from urlPrefix for a specific yesr.
+     * Gets the {@link ProfilStructure} of a profile from urlPrefix for a specific year.
      * @param urlPrefix of the data source
      * @param fromDate desired start date for the XML data
      * @param toDate desired end date for the XML data

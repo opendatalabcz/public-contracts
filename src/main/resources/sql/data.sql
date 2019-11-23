@@ -1,9 +1,18 @@
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (1, 'download_rule', 'nen.nipez.cz', 'eu.profinit.publiccontracts.service.impl.NenNipezDownloader', True, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (2, 'download_rule', 'ezak', 'eu.profinit.publiccontracts.service.impl.EZakDownloader', True, '');
-INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (3, 'supported_mime_type', 'X-DOWNLOAD', 'application/x-download', True, '');
-INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (4, 'supported_mime_type', 'WORD_01', 'application/msword', True, '');
-INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (5, 'supported_mime_type', 'WORD_02', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', True, '');
-INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (6, 'supported_mime_type', 'PDF', 'application/pdf', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (3, 'download_rule', 'zakazky', 'eu.profinit.publiccontracts.service.impl.EZakDownloader', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (5, 'download_rule', 'gemin', 'eu.profinit.publiccontracts.service.impl.GeminDownloader', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (6, 'supported_mime_type', 'X-DOWNLOAD', 'application/x-download', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (7, 'supported_mime_type', 'WORD_01', 'application/msword', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (8, 'supported_mime_type', 'WORD_02', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (9, 'supported_mime_type', 'EXCEL', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (10, 'supported_mime_type', 'EXCEL', 'application/vnd.ms-excel', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (11, 'supported_mime_type', 'PDF', 'application/pdf', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (12, 'max_filesize', 'MAX_SIZE', '26214400', True, 'in bytes (25 MB)');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (13, 'supported_mime_type', 'ZIP', 'application/zip', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (14, 'download_rule', 'vhodne-uverejneni', 'eu.profinit.publiccontracts.service.impl.VhodneUverejneniDownloader', True, '');
+
+
 
 UPDATE source SET active = False;
 

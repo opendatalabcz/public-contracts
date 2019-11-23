@@ -284,20 +284,25 @@ public class DatabaseServiceImpl implements DatabaseService {
             final Timestamp documentUploadDate = document.getDocumentUploadDate();
             final String documentData = document.getDocumentData();
             final String downloader = document.getDownloader();
-            saveDocument(contractId, url, documentType, documentVersion, documentUploadDate, documentData, downloader);
+            final String mimeType = document.getMimeType();
+            final int fileSize = document.getFileSize();
+            saveDocument(contractId, url, documentType, documentVersion, documentUploadDate, documentData, downloader, mimeType, fileSize);
         }
     }
 
-    private void saveDocument(long contractId, String url, String documentType, int documentVersion, Timestamp documentUploadDate, String documentData, String downloader) throws SQLException {
+    private void saveDocument(long contractId, String url, String documentType, int documentVersion, Timestamp documentUploadDate, String documentData, String downloader, String mimeType, int fileSize) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO document (url, type, version, date_upload, data, downloader) VALUES (?,?,?,?,?,?);");
+        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO document (contract_id, url, type, version, date_upload, data, downloader, mime_type, file_size) VALUES (?,?,?,?,?,?,?,?,?);");
         preparedStatement.setQueryTimeout(5);
-        preparedStatement.setString(1, url);
-        preparedStatement.setString(2, documentType);
-        preparedStatement.setInt(3, documentVersion);
-        preparedStatement.setTimestamp(4, documentUploadDate);
-        preparedStatement.setString(5, documentData);
-        preparedStatement.setString(6, downloader);
+        preparedStatement.setLong(1, contractId);
+        preparedStatement.setString(2, url);
+        preparedStatement.setString(3, documentType);
+        preparedStatement.setInt(4, documentVersion);
+        preparedStatement.setTimestamp(5, documentUploadDate);
+        preparedStatement.setString(6, documentData);
+        preparedStatement.setString(7, downloader);
+        preparedStatement.setString(8, mimeType);
+        preparedStatement.setInt(9, fileSize);
         preparedStatement.executeUpdate();
     }
 
