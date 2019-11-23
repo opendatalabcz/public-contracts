@@ -20,14 +20,11 @@ import java.util.Map;
  */
 public class PropertyManager {
 
-    public static String SUPPORTED_MIME_TYPE = "supported_mime_type";
-    public static String DOWNLOAD_RULE = "download_rule";
+    public static final String SUPPORTED_MIME_TYPE = "supported_mime_type";
+    public static final String DOWNLOAD_RULE = "download_rule";
+    public static final String APPLICATION = "application";
 
     private Map<String, Map<String,String>> properties = new HashMap<>();
-
-    public PropertyManager() {
-
-    }
 
     public void putValue(String category, String key, String value) {
         Map<String, String> categoryMap = getCategory(category);

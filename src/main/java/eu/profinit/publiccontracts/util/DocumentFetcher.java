@@ -23,6 +23,10 @@ public class DocumentFetcher {
 
     static final Logger logger = Logger.getLogger(DocumentFetcher.class);
 
+    private DocumentFetcher() {
+        // hiding implicit construcotr
+    }
+
     /**
      * Fetches all documents for the submitter.
      * @param submitterDto submitter object
@@ -30,7 +34,7 @@ public class DocumentFetcher {
      * @return list of document objects
      * @throws IOException
      */
-    public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto, PropertyManager properties) throws IOException {
+    public static List<DocumentDto> fetchDocuments(SubmitterDto submitterDto, PropertyManager properties) {
         int i = 0;
         for (ContractDto contractDto : submitterDto.getContractDtos()) {
             logger.info(Thread.currentThread().getName() + ":contract:" + ++i + "/" + submitterDto.getContractDtos().size() +
@@ -49,23 +53,31 @@ public class DocumentFetcher {
      * @return text content of the document
      * @throws IOException
      */
-    public static String fetchDocument(DocumentDto documentDto, PropertyManager properties) throws IOException {
+    public static String fetchDocument(DocumentDto documentDto, PropertyManager properties) {
         DocumentDownloader downloader = createDownloader(documentDto, properties);
         documentDto.setDownloader(downloader.getClass().getName());
 
-        String urlString = checkUrlFormat(documentDto.getUrl());
-        URL url = new URL(urlString);
-        downloader.setUrl(url);
         try {
+            String urlString = checkUrlFormat(documentDto.getUrl());
+            URL url = new URL(urlString);
+            downloader.setUrl(url);
             downloader.retrieveURLConnection();
             documentDto.setMimeType(downloader.getMimeType());
             documentDto.setFileSize(downloader.getContentLength());
-            String text = downloader.downloadFileToString(properties);
-            documentDto.setDocumentData(text);
-            Main.numberOfDocuments.incrementAndGet();
-            return text;
+            if (properties.containsKey(PropertyManager.APPLICATION, "SKIP_DOWNLOADING")) {
+                documentDto.setProcessed(false);
+                documentDto.setToProcess(true);
+            } else {
+                String text = downloader.downloadFileToString(properties);
+                documentDto.setDocumentData(text);
+                documentDto.setProcessed(text != null);
+                documentDto.setToProcess(false);
+                Main.numberOfDocuments.incrementAndGet();
+                return text;
+            }
+            return null;
         } catch (Exception e) {
-            logger.info(e.getMessage());
+            logger.warn(Thread.currentThread().getName() + ":" + e.getMessage());
             return null;
         }
     }

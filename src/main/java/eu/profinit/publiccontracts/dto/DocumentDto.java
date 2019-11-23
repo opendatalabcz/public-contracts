@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 public class DocumentDto {
 
+    private Long documentId;
+
     private String url;
 
     private String documentType;
@@ -19,6 +21,18 @@ public class DocumentDto {
     private String mimeType;
 
     private int fileSize;
+
+    private boolean toProcess;
+
+    private boolean processed;
+
+    public Long getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(Long documentId) {
+        this.documentId = documentId;
+    }
 
     public String getUrl() {
         return url;
@@ -82,5 +96,21 @@ public class DocumentDto {
 
     public void setFileSize(int fileSize) {
         this.fileSize = fileSize;
+    }
+
+    public boolean isToProcess() {
+        return toProcess;
+    }
+
+    public void setToProcess(boolean toProcess) {
+        this.toProcess = toProcess;
+    }
+
+    public boolean isProcessed() {
+        return processed;
+    }
+
+    public void setProcessed(boolean processed) {
+        this.processed = processed;
     }
 }

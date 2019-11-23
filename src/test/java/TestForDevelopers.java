@@ -210,7 +210,7 @@ public class TestForDevelopers {
             DocumentDto documentDto = new DocumentDto();
             documentDto.setUrl("www.e-zakazky.cz/stazenisouboru/02ed44b5-7dee-482f-be23-8350996f2d4e");
             String document = DocumentFetcher.fetchDocument(documentDto, propertyManager);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

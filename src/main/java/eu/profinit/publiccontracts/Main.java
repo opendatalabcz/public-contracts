@@ -1,6 +1,7 @@
 package eu.profinit.publiccontracts;
 
 import eu.profinit.publiccontracts.db.DatabaseConnectionFactory;
+import eu.profinit.publiccontracts.dto.DocumentDto;
 import eu.profinit.publiccontracts.dto.SourceInfoDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
 import eu.profinit.publiccontracts.generated.isvz.mmr.schemas.vz_z_profilu_zadavatele.v100.ProfilStructure;
@@ -26,7 +27,7 @@ import java.util.logging.Level;
 
 public class Main {
 
-    final static Logger logger = Logger.getLogger(Main.class);
+    static final Logger logger = Logger.getLogger(Main.class);
     public static AtomicInteger numberOfErrors = new AtomicInteger();
     public static AtomicInteger numberOfDocuments = new AtomicInteger();
 
@@ -67,6 +68,10 @@ public class Main {
                         closeAppWithWrongCommand(context);
                 }
                 fetchICO(args, context);
+                break;
+            }
+            case "process-documents": {
+                processDocuments(context);
                 break;
             }
             default:
@@ -239,17 +244,7 @@ public class Main {
                                 continue;
                             }
 
-                            try {
-                                DocumentFetcher.fetchDocuments(submitterDto, propertyManager);
-                            } catch (Exception e) {
-                                try {
-                                    databaseService.saveError(sourceInfoDto, e.getMessage(), fromDate, e.getClass().toString());
-                                } catch (SQLException e1) {
-                                    logger.error(e.getMessage());
-                                    e1.printStackTrace();
-                                }
-                                logger.error("error during fetching document " + sourceInfoDto.getName() + ", " + sourceInfoDto.getIco() + ", " + sourceInfoDto.getUrl() + "\n" + e.getMessage());
-                            }
+                            DocumentFetcher.fetchDocuments(submitterDto, propertyManager);
 
                             try {
                                 databaseService.saveSubmitter(submitterDto, fromDate);
@@ -281,6 +276,57 @@ public class Main {
             final int numberOfErrors = Main.numberOfErrors.intValue();
             final int numberOfDocuments = Main.numberOfDocuments.intValue();
             databaseService.saveRetrieval(fromDate, after, (after ? lastDayOfTheYear.toDate() : now.toDate()), numberOfErrors, numberOfSources - numberOfErrors, numberOfDocuments);
+            resetCounters();
+        }
+    }
+
+    private static void processDocuments(ClassPathXmlApplicationContext context) throws SQLException, IOException, InterruptedException {
+        final DatabaseService databaseService = context.getBean(DatabaseService.class);
+
+        final List<DocumentDto> documentDtos = databaseService.loadDocuments();
+
+        processDocumentsInternal(databaseService, documentDtos);
+    }
+
+    private static void processDocumentsInternal(final DatabaseService databaseService, List<DocumentDto> documentDtos) throws IOException, InterruptedException, SQLException {
+        logger.info("processing total number of documents: " + documentDtos.size());
+        final List<List<DocumentDto>> lists = new ArrayList<>();
+        final Properties properties = ResourceManager.loadProperties();
+        final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
+        final int numberOfThreads = Integer.parseInt(numberOfThreadsString);
+        final PropertyManager propertyManager = PropertyManager.createProperties(databaseService.loadProperties());
+        for (int i = 0; i < numberOfThreads; i++) {
+            lists.add(documentDtos.subList((i * documentDtos.size() / numberOfThreads), ((i + 1) * documentDtos.size() / numberOfThreads)));
+        }
+        final List<Thread> threads = new ArrayList<>();
+        for (final List<DocumentDto> list : lists) {
+            final Thread t = new Thread() {
+                public void run() {
+                    String threadName = Thread.currentThread().getName();
+                    int i = 0;
+                    for (DocumentDto documentDto : list) {
+                        logger.info(threadName + ":document:" + ++i + "/" + list.size() +
+                                "(" + documentDto.getUrl() + ")");
+
+                        DocumentFetcher.fetchDocument(documentDto, propertyManager);
+                        try {
+                            databaseService.saveDocument(null, documentDto);
+                        } catch (SQLException e) {
+                            logger.error(e.getMessage());
+                        }
+                    }
+                    logger.info(threadName + ":done");
+                }
+            };
+            t.start();
+            threads.add(t);
+
+            for (Thread thread : threads) {
+                thread.join();
+            }
+            final DateTime now = DateTime.now();
+            final int numberOfDocuments = Main.numberOfDocuments.intValue();
+            databaseService.saveRetrieval(null, true, now.toDate(), 0,0, numberOfDocuments);
             resetCounters();
         }
     }

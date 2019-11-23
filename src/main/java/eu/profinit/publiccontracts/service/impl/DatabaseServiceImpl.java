@@ -107,6 +107,32 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
+    public List<DocumentDto> loadDocuments() throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final List<DocumentDto> result = new ArrayList<>();
+        final PreparedStatement preparedStatement =
+                connection.prepareStatement("SELECT document_id, url, type, version, date_upload, data, downloader, mime_type, file_size, to_process, processed " +
+                                                 "FROM document WHERE to_process = True;");
+        final ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            final DocumentDto documentDto = new DocumentDto();
+            documentDto.setDocumentId(resultSet.getLong("document_id"));
+            documentDto.setUrl(resultSet.getString("url"));
+            documentDto.setDocumentType(resultSet.getString("type"));
+            documentDto.setDocumentVersion(resultSet.getInt("version"));
+            documentDto.setDocumentUploadDate(resultSet.getTimestamp("date_upload"));
+            documentDto.setDocumentData(resultSet.getString("data"));
+            documentDto.setDownloader(resultSet.getString("downloader"));
+            documentDto.setMimeType(resultSet.getString("mime_type"));
+            documentDto.setFileSize(resultSet.getInt("file_size"));
+            documentDto.setToProcess(resultSet.getBoolean("to_process"));
+            documentDto.setProcessed(resultSet.getBoolean("processed"));
+            result.add(documentDto);
+        }
+        return result;
+    }
+
+    @Override
     public void deleteSources() throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
         final PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM source;");
@@ -278,6 +304,26 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     private void saveDocuments(long contractId, List<DocumentDto> documentDtos) throws SQLException {
         for (DocumentDto document : documentDtos) {
+            saveDocument(contractId, document);
+        }
+    }
+
+    private void updateDocument(long documentId, String documentData, boolean toProcess, boolean processed) throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final PreparedStatement preparedStatement =
+                connection.prepareStatement("UPDATE document " +
+                                                "SET data=?, to_process=?, processed=? " +
+                                                "WHERE document_id = ?;");
+        preparedStatement.setQueryTimeout(5);
+        preparedStatement.setString(1, documentData);
+        preparedStatement.setBoolean(2, toProcess);
+        preparedStatement.setBoolean(3, processed);
+        preparedStatement.setLong(4, documentId);
+        preparedStatement.executeUpdate();
+    }
+
+    public void saveDocument(Long contractId, DocumentDto document) throws SQLException {
+        if (document.getDocumentId() == null) {
             final String url = document.getUrl();
             final String documentType = document.getDocumentType();
             final int documentVersion = document.getDocumentVersion();
@@ -286,13 +332,20 @@ public class DatabaseServiceImpl implements DatabaseService {
             final String downloader = document.getDownloader();
             final String mimeType = document.getMimeType();
             final int fileSize = document.getFileSize();
-            saveDocument(contractId, url, documentType, documentVersion, documentUploadDate, documentData, downloader, mimeType, fileSize);
+            final boolean toProcess = document.isToProcess();
+            final boolean processed = document.isProcessed();
+            saveDocument(contractId, url, documentType, documentVersion, documentUploadDate, documentData, downloader, mimeType, fileSize, toProcess, processed);
+        } else {
+            updateDocument(document.getDocumentId(), document.getDocumentData(), document.isToProcess(), document.isProcessed());
         }
     }
 
-    private void saveDocument(long contractId, String url, String documentType, int documentVersion, Timestamp documentUploadDate, String documentData, String downloader, String mimeType, int fileSize) throws SQLException {
+    private void saveDocument(long contractId, String url, String documentType, int documentVersion, Timestamp documentUploadDate,
+                              String documentData, String downloader, String mimeType, int fileSize, boolean toProcess, boolean processed) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO document (contract_id, url, type, version, date_upload, data, downloader, mime_type, file_size) VALUES (?,?,?,?,?,?,?,?,?);");
+        final PreparedStatement preparedStatement =
+                connection.prepareStatement("INSERT INTO document (contract_id, url, type, version, date_upload, data, downloader, mime_type, file_size, to_process, processed)" +
+                                                "VALUES (?,?,?,?,?,?,?,?,?,?,?);");
         preparedStatement.setQueryTimeout(5);
         preparedStatement.setLong(1, contractId);
         preparedStatement.setString(2, url);
@@ -303,6 +356,8 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.setString(7, downloader);
         preparedStatement.setString(8, mimeType);
         preparedStatement.setInt(9, fileSize);
+        preparedStatement.setBoolean(10, toProcess);
+        preparedStatement.setBoolean(11, processed);
         preparedStatement.executeUpdate();
     }
 

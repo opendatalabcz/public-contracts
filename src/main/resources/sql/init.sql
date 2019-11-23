@@ -208,7 +208,9 @@ CREATE TABLE document
   mime_type    TEXT,
   file_size    INTEGER,
   data         TEXT,
-  downloader   TEXT
+  downloader   TEXT,
+  to_process   BOOLEAN,
+  processed    BOOLEAN
 );
 
 CREATE SEQUENCE document_document_id_seq

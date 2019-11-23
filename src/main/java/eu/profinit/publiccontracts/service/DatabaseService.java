@@ -1,5 +1,6 @@
 package eu.profinit.publiccontracts.service;
 
+import eu.profinit.publiccontracts.dto.DocumentDto;
 import eu.profinit.publiccontracts.dto.ParameterDto;
 import eu.profinit.publiccontracts.dto.SourceInfoDto;
 import eu.profinit.publiccontracts.dto.SubmitterDto;
@@ -23,6 +24,10 @@ public interface DatabaseService {
     List<SourceInfoDto> loadSource(String ico) throws SQLException;
 
     List<ParameterDto> loadProperties() throws SQLException;
+
+    List<DocumentDto> loadDocuments() throws SQLException;
+
+    void saveDocument(Long contractId, DocumentDto documentDto) throws SQLException;
 
     void deleteSources() throws SQLException;
 
