@@ -16,8 +16,6 @@ import org.joda.time.Interval;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.*;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -31,7 +29,7 @@ public class Main {
     public static AtomicInteger numberOfErrors = new AtomicInteger();
     public static AtomicInteger numberOfDocuments = new AtomicInteger();
 
-    public static void main(String[] args) throws SQLException, IOException, NoSuchAlgorithmException, KeyManagementException, InterruptedException {
+    public static void main(String[] args) throws SQLException, IOException, InterruptedException {
 
         if (args.length == 0) {
             printWrongCommand();
@@ -40,95 +38,99 @@ public class Main {
 
         final ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
 
-        final String command = args[0];
-        switch (command) {
-            case "init": {
-                if (args.length > 1) {
-                    closeAppWithWrongCommand(context);
-                }
-                initDatabase(context);
-                break;
-            }
-            case "reload-sources": {
-                if (args.length > 1) {
-                    closeAppWithWrongCommand(context);
-                }
-                reloadSources(context);
-                break;
-            }
-            case "reload-errors": {
-                if (args.length != 3) {
-                    closeAppWithWrongCommand(context);
-                }
-                reloadErrors(args, context);
-                break;
-            }
-            case "fetch-ico": {
-                if (args.length != 2 && args.length != 3) {
+        try {
+            final String command = args[0];
+            switch (command) {
+                case "init": {
+                    if (args.length > 1) {
                         closeAppWithWrongCommand(context);
+                    }
+                    initDatabase(context);
+                    break;
                 }
-                fetchICO(args, context);
-                break;
-            }
-            case "process-documents": {
-                processDocuments(context);
-                break;
-            }
-            default:
-                if (args.length != 2) {
-                    closeAppWithWrongCommand(context);
+                case "reload-sources": {
+                    if (args.length > 1) {
+                        closeAppWithWrongCommand(context);
+                    }
+                    reloadSources(context);
+                    break;
                 }
-                collectData(context, args[0], args[1]);
-                break;
+                case "reload-errors": {
+                    reloadErrors(args, context);
+                    break;
+                }
+                case "fetch-ico": {
+                    fetchICO(args, context);
+                    break;
+                }
+                case "process-documents": {
+                    processDocuments(context);
+                    break;
+                }
+                default:
+                    collectData(context, args);
+                    break;
+            }
+        } catch (IllegalArgumentException e) {
+            closeAppWithWrongCommand(context);
+        } finally {
+            context.close();
         }
-        context.close();
     }
 
     private static void reloadErrors(String[] args, ClassPathXmlApplicationContext context) throws SQLException, IOException, InterruptedException {
+        boolean skipFetching = false;
+        if (args.length == 4 && "-skipFetching".equals(args[3])) {
+            skipFetching = true;
+        } else if (args.length != 3) {
+            throw new IllegalArgumentException("Bad parameters were given to the program.");
+        }
+
         String fromDate = args[1];
         String toDate = args[2];
-        if (args.length == 3) {
-            Calendar fromCal = Calendar.getInstance();
-            Calendar toCal = Calendar.getInstance();
-            try {
-                SimpleDateFormat sdf = new SimpleDateFormat(DateUtils.FORMAT.ddMMyyyy);
-                fromCal.setTime(sdf.parse(fromDate));
-                toCal.setTime(sdf.parse(toDate));
-            } catch (Exception e) {
-                printWrongCommand();
-                context.close();
-                System.exit(0);
-                return;
-            }
 
-            DatabaseService databaseService = context.getBean(DatabaseService.class);
-            ISVZService isvzService = context.getBean(ISVZService.class);
-            List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
-
-            List<Interval> intervals = DateUtils.createMonthlyIntervals(fromCal, toCal);
-            for (Interval interval: intervals) {
-                String date = DateUtils.convertDateTimeToString(interval.getStart(), DateUtils.FORMAT.ddMMyyyy);
-
-                Set<String> errorList = databaseService.loadErrorUrlsForDate(date);
-                Iterator<SourceInfoDto> iterator = sourceInfoDtos.iterator();
-                while (iterator.hasNext()) {
-                    SourceInfoDto next = iterator.next();
-                    if (!errorList.contains(next.getUrl())) {
-                        iterator.remove();
-                    }
-                }
-                databaseService.deleteErrors(date);
-            }
-
-            collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos);
-        } else {
-            context.close();
-            printWrongCommand();
-            System.exit(0);
+        Calendar fromCal = Calendar.getInstance();
+        Calendar toCal = Calendar.getInstance();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(DateUtils.FORMAT.ddMMyyyy);
+            fromCal.setTime(sdf.parse(fromDate));
+            toCal.setTime(sdf.parse(toDate));
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Bad parameters were given to the program.");
         }
+
+        DatabaseService databaseService = context.getBean(DatabaseService.class);
+        ISVZService isvzService = context.getBean(ISVZService.class);
+        List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
+
+        List<Interval> intervals = DateUtils.createMonthlyIntervals(fromCal, toCal);
+        for (Interval interval: intervals) {
+            String date = DateUtils.convertDateTimeToString(interval.getStart(), DateUtils.FORMAT.ddMMyyyy);
+
+            Set<String> errorList = databaseService.loadErrorUrlsForDate(date);
+            Iterator<SourceInfoDto> iterator = sourceInfoDtos.iterator();
+            while (iterator.hasNext()) {
+                SourceInfoDto next = iterator.next();
+                if (!errorList.contains(next.getUrl())) {
+                    iterator.remove();
+                }
+            }
+            databaseService.deleteErrors(date);
+        }
+
+        collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos, skipFetching);
     }
 
-    private static void collectData(ClassPathXmlApplicationContext context, String fromDate, String toDate) throws SQLException, InterruptedException, IOException {
+    private static void collectData(ClassPathXmlApplicationContext context, String[] args) throws SQLException, InterruptedException, IOException {
+        boolean skipFetching = false;
+        if (args.length == 3 && "-skipFetching".equals(args[2])) {
+            skipFetching = true;
+        } else if (args.length != 2) {
+            throw new IllegalArgumentException("Bad parameters were given to the program.");
+        }
+        String fromDate = args[0];
+        String toDate = args[1];
+
         Calendar fromCal = Calendar.getInstance();
         Calendar toCal = Calendar.getInstance();
         try {
@@ -160,7 +162,7 @@ public class Main {
 
         final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSources();
 
-        collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos);
+        collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos, skipFetching);
     }
 
     /**
@@ -175,7 +177,7 @@ public class Main {
      * @throws InterruptedException
      * @throws SQLException
      */
-    private static void collectDataInternal(Calendar fromCal, Calendar toCal, final DatabaseService databaseService, final ISVZService isvzService, List<SourceInfoDto> sourceInfoDtos) throws IOException, InterruptedException, SQLException {
+    private static void collectDataInternal(Calendar fromCal, Calendar toCal, final DatabaseService databaseService, final ISVZService isvzService, List<SourceInfoDto> sourceInfoDtos, boolean skipFetching) throws IOException, InterruptedException, SQLException {
         logger.info("processing total number of sources: " + sourceInfoDtos.size());
         final List<List<SourceInfoDto>> lists = new ArrayList<>();
         final Properties properties = ResourceManager.loadProperties();
@@ -244,7 +246,9 @@ public class Main {
                                 continue;
                             }
 
-                            DocumentFetcher.fetchDocuments(submitterDto, propertyManager);
+                            if (!skipFetching) {
+                                DocumentFetcher.fetchDocuments(submitterDto, propertyManager);
+                            }
 
                             try {
                                 databaseService.saveSubmitter(submitterDto, fromDate);
@@ -410,6 +414,13 @@ public class Main {
     }
 
     private static void fetchICO(String[] args, ClassPathXmlApplicationContext context) throws IOException, InterruptedException {
+        boolean skipFetching = false;
+        if (args.length == 3 && "-skipFetching".equals(args[2])) {
+            skipFetching = true;
+        } else if (args.length != 2) {
+            throw new IllegalArgumentException("Bad parameters were given to the program.");
+        }
+
         String ico = args[1];
         final DatabaseService databaseService = context.getBean(DatabaseService.class);
         final ISVZService isvzService = context.getBean(ISVZService.class);
@@ -426,7 +437,7 @@ public class Main {
         try {
             final List<SourceInfoDto> sourceInfoDtos = databaseService.loadSource(ico);
 
-            collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos);
+            collectDataInternal(fromCal, toCal, databaseService, isvzService, sourceInfoDtos, skipFetching);
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

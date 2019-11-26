@@ -92,32 +92,8 @@ public class SubmitterTransformer {
         final CenaType cenaCelkemDleSmlouvyDPH = supplier.getCenaCelkemDleSmlouvyDPH();
         final Double price = cenaCelkemDleSmlouvyDPH == null ? null : cenaCelkemDleSmlouvyDPH.getValue().doubleValue();
         supplierDto.setPrice(price);
-
-//        final List<SubdodavatelStructure> subsuppliers = supplier.getSubdodavatel();
-//        final List<SubSupplierDto> subSupplierDtos = transformSubSuppliers(subsuppliers);
-//        supplierDto.setSubSupplierDtos(subSupplierDtos);
         return supplierDto;
     }
-
-//    private static List<SubSupplierDto> transformSubSuppliers(List<SubdodavatelStructure> subsuppliers) {
-//        final List<SubSupplierDto> subSupplierDtos = new ArrayList<>();
-//        for (SubdodavatelStructure subsupplier : subsuppliers) {
-//            final SubSupplierDto subSupplierDto = transformSubSupplier(subsupplier);
-//            subSupplierDtos.add(subSupplierDto);
-//        }
-//        return subSupplierDtos;
-//    }
-
-//    private static SubSupplierDto transformSubSupplier(SubdodavatelStructure subsupplier) {
-//        final SubSupplierDto subSupplierDto = new SubSupplierDto();
-//        final IcoType icoSub = subsupplier.getIcoSub();
-//        final String subsupplierIco = icoSub == null ? null : icoSub.getValue();
-//        subSupplierDto.setIco(subsupplierIco);
-//        final SubjektObchodniJmenoType nazevSub = subsupplier.getNazevSub();
-//        final String subsupplierName = nazevSub == null ? null : nazevSub.getValue();
-//        subSupplierDto.setName(subsupplierName);
-//        return subSupplierDto;
-//    }
 
     private static List<CandidateDto> transformCandidates(List<UcastnikZRStructure> candidates) {
         final List<CandidateDto> candidateDtos = new ArrayList<>();
@@ -159,6 +135,8 @@ public class SubmitterTransformer {
         documentDto.setDocumentVersion(documentVersion);
         final Timestamp timestamp = new Timestamp(document.getCasVlozeniNaProfil().getValue().toGregorianCalendar().getTimeInMillis());
         documentDto.setDocumentUploadDate(timestamp);
+        documentDto.setToProcess(true);
+        documentDto.setProcessed(false);
         return documentDto;
     }
 }
