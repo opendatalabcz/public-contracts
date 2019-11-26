@@ -308,35 +308,21 @@ public class DatabaseServiceImpl implements DatabaseService {
         }
     }
 
-    private void updateDocument(long documentId, String documentData, boolean toProcess, boolean processed) throws SQLException {
-        final Connection connection = databaseConnectionFactory.getConnection();
-        final PreparedStatement preparedStatement =
-                connection.prepareStatement("UPDATE document " +
-                                                "SET data=?, to_process=?, processed=? " +
-                                                "WHERE document_id = ?;");
-        preparedStatement.setQueryTimeout(5);
-        preparedStatement.setString(1, documentData);
-        preparedStatement.setBoolean(2, toProcess);
-        preparedStatement.setBoolean(3, processed);
-        preparedStatement.setLong(4, documentId);
-        preparedStatement.executeUpdate();
-    }
-
     public void saveDocument(Long contractId, DocumentDto document) throws SQLException {
+        final String url = document.getUrl();
+        final String documentType = document.getDocumentType();
+        final int documentVersion = document.getDocumentVersion();
+        final Timestamp documentUploadDate = document.getDocumentUploadDate();
+        final String documentData = document.getDocumentData();
+        final String downloader = document.getDownloader();
+        final String mimeType = document.getMimeType();
+        final int fileSize = document.getFileSize();
+        final boolean toProcess = document.isToProcess();
+        final boolean processed = document.isProcessed();
         if (document.getDocumentId() == null) {
-            final String url = document.getUrl();
-            final String documentType = document.getDocumentType();
-            final int documentVersion = document.getDocumentVersion();
-            final Timestamp documentUploadDate = document.getDocumentUploadDate();
-            final String documentData = document.getDocumentData();
-            final String downloader = document.getDownloader();
-            final String mimeType = document.getMimeType();
-            final int fileSize = document.getFileSize();
-            final boolean toProcess = document.isToProcess();
-            final boolean processed = document.isProcessed();
             saveDocument(contractId, url, documentType, documentVersion, documentUploadDate, documentData, downloader, mimeType, fileSize, toProcess, processed);
         } else {
-            updateDocument(document.getDocumentId(), document.getDocumentData(), document.isToProcess(), document.isProcessed());
+            updateDocument(document.getDocumentId(), documentData, downloader, mimeType, fileSize, toProcess, processed);
         }
     }
 
@@ -360,6 +346,24 @@ public class DatabaseServiceImpl implements DatabaseService {
         preparedStatement.setBoolean(11, processed);
         preparedStatement.executeUpdate();
     }
+
+    private void updateDocument(long documentId, String documentData, String downloader, String mimeType, int fileSize, boolean toProcess, boolean processed) throws SQLException {
+        final Connection connection = databaseConnectionFactory.getConnection();
+        final PreparedStatement preparedStatement =
+                connection.prepareStatement("UPDATE document " +
+                        "SET data=?, downloader=?, mime_type=?, file_size=?, to_process=?, processed=? " +
+                        "WHERE document_id = ?;");
+        preparedStatement.setQueryTimeout(5);
+        preparedStatement.setString(1, documentData);
+        preparedStatement.setString(2, downloader);
+        preparedStatement.setString(3, mimeType);
+        preparedStatement.setInt(4, fileSize);
+        preparedStatement.setBoolean(5, toProcess);
+        preparedStatement.setBoolean(6, processed);
+        preparedStatement.setLong(7, documentId);
+        preparedStatement.executeUpdate();
+    }
+
 
     private long saveContract(long submitterId, String code1, String code2, String name, String state, String kind, String date) throws SQLException {
         final Connection connection = databaseConnectionFactory.getConnection();
