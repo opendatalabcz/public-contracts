@@ -8,7 +8,7 @@ INSERT INTO parameter (parameter_id, category, param_key, param_value, active, d
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (9, 'supported_mime_type', 'EXCEL_01', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', True, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (10, 'supported_mime_type', 'EXCEL_02', 'application/vnd.ms-excel', True, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (11, 'supported_mime_type', 'PDF', 'application/pdf', True, '');
-INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (12, 'max_filesize', 'MAX_SIZE', '26214400', True, 'in bytes (25 MB)');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (12, 'download_rule', 'MAX_SIZE', '26214400', True, 'in bytes (25 MB)');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (13, 'supported_mime_type', 'ZIP_01', 'application/zip', True, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (14, 'download_rule', 'vhodne-uverejneni', 'eu.profinit.publiccontracts.service.impl.VhodneUverejneniDownloader', True, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (15, 'application', 'SKIP_DOWNLOADING', '', True, '');
