@@ -341,15 +341,14 @@ public class Main {
             };
             t.start();
             threads.add(t);
-
-            for (Thread thread : threads) {
-                thread.join();
-            }
-            final DateTime now = DateTime.now();
-            final int numberOfDocuments = Main.numberOfDocuments.intValue();
-            databaseService.saveRetrieval(null, true, now.toDate(), 0,0, numberOfDocuments);
-            resetCounters();
         }
+        for (Thread thread : threads) {
+            thread.join();
+        }
+        final DateTime now = DateTime.now();
+        final int numberOfDocuments = Main.numberOfDocuments.intValue();
+        databaseService.saveRetrieval(null, true, now.toDate(), 0,0, numberOfDocuments);
+        resetCounters();
     }
 
     private static void closeAppWithWrongCommand(ClassPathXmlApplicationContext context) {
