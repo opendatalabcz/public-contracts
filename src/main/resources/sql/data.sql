@@ -11,9 +11,10 @@ INSERT INTO parameter (parameter_id, category, param_key, param_value, active, d
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (12, 'download_rule', 'MAX_SIZE', '26214400', True, 'in bytes (25 MB)');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (13, 'supported_mime_type', 'ZIP_01', 'application/zip', True, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (14, 'download_rule', 'vhodne-uverejneni', 'eu.profinit.publiccontracts.service.impl.VhodneUverejneniDownloader', True, '');
-INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (15, 'application', 'SKIP_DOWNLOADING', '', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (15, 'application', 'SKIP_DOWNLOADING', '', False, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (16, 'supported_mime_type', 'ODT', 'application/vnd.oasis.opendocument.text', True, '');
 INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (17, 'supported_mime_type', 'ZIP_02', 'application/x-zip-compressed', True, '');
+INSERT INTO parameter (parameter_id, category, param_key, param_value, active, description) VALUES (18, 'download_rule', 'URL_AWAITING', '', True, '');
 
 
 UPDATE source SET active = False;

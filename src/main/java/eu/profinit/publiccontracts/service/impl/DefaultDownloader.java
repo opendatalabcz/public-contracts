@@ -2,6 +2,7 @@ package eu.profinit.publiccontracts.service.impl;
 
 import eu.profinit.publiccontracts.service.DocumentDownloader;
 import eu.profinit.publiccontracts.util.PropertyManager;
+import org.apache.http.client.HttpResponseException;
 import org.apache.log4j.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
@@ -22,6 +23,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.Duration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,6 +40,8 @@ public class DefaultDownloader implements DocumentDownloader {
     static final String OCR_LANGUAGE = "ces";
 
     protected URL url;
+
+    protected PropertyManager properties;
 
     protected HttpURLConnection urlConnection = null;
 
@@ -56,11 +60,30 @@ public class DefaultDownloader implements DocumentDownloader {
      * @throws IOException, {@link IllegalArgumentException}
      */
     @Override
-    public URLConnection retrieveURLConnection() throws IOException {
+    public URLConnection retrieveURLConnection() throws IOException, InterruptedException {
         this.urlConnection = (HttpURLConnection) url.openConnection();
         int responseCode = urlConnection.getResponseCode();
         if (responseCode != 200) {
-            throw new IllegalArgumentException("error: " + url.toString() + " cannot access data: error " + responseCode);
+            String threadName = Thread.currentThread().getName();
+            if (properties.containsKey(PropertyManager.DOWNLOAD_RULE, "URL_AWAITING")) {
+                while (responseCode == 429) {
+                    Duration duration = Duration.ofMinutes(1);
+                    logger.info(threadName + ":waiting " + duration +" link: " + url.toString());
+                    Thread.sleep(duration.toMillis());
+                    this.urlConnection = (HttpURLConnection) url.openConnection();
+                    responseCode = urlConnection.getResponseCode();
+                }
+                while (responseCode == 403) {
+                    Duration duration = Duration.ofHours(1);
+                    logger.info(threadName + ":waiting " + duration +" link: " + url.toString());
+                    Thread.sleep(duration.toMillis());
+                    this.urlConnection = (HttpURLConnection) url.openConnection();
+                    responseCode = urlConnection.getResponseCode();
+                }
+            }
+            if (responseCode != 200) {
+                throw new HttpResponseException(responseCode, "error: " + url.toString() + " cannot access data: error " + responseCode);
+            }
         }
         return urlConnection;
     }
@@ -72,7 +95,7 @@ public class DefaultDownloader implements DocumentDownloader {
      * @throws IOException
      */
     @Override
-    public String getMimeType() throws IOException {
+    public String getMimeType() throws IOException, InterruptedException {
         String contentType = getUrlConnection().getContentType();
         if (contentType != null) {
             contentType = contentType.toLowerCase();
@@ -86,19 +109,18 @@ public class DefaultDownloader implements DocumentDownloader {
      * @throws IOException
      */
     @Override
-    public int getContentLength() throws IOException {
+    public int getContentLength() throws IOException, InterruptedException {
         return getUrlConnection().getContentLength();
     }
 
     /**
      * Downloads file from the URL connection and extracts its text content.
      * Uses {@link PropertyManager} to filter the supported mime types.
-     * @param properties
      * @return text content of the file from the URL
      * @throws IOException, {@link IllegalArgumentException}
      */
     @Override
-    public String downloadFileToString(PropertyManager properties) throws IOException {
+    public String downloadFileToString() throws IOException, InterruptedException {
         String text = null;
         String mimeType = getMimeType();
         String contentFileName = getContentFileName();
@@ -203,7 +225,7 @@ public class DefaultDownloader implements DocumentDownloader {
         return "unknown_name";
     }
 
-    public HttpURLConnection getUrlConnection() throws IOException {
+    public HttpURLConnection getUrlConnection() throws IOException, InterruptedException {
         if (urlConnection == null) {
             urlConnection = (HttpURLConnection) retrieveURLConnection();
         }
@@ -213,5 +235,10 @@ public class DefaultDownloader implements DocumentDownloader {
     @Override
     public void setUrl(URL url) {
         this.url = url;
+    }
+
+    @Override
+    public void setProperties(PropertyManager properties) {
+        this.properties = properties;
     }
 }

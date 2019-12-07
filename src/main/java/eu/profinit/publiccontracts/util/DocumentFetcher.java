@@ -68,7 +68,7 @@ public class DocumentFetcher {
                 documentDto.setProcessed(false);
                 documentDto.setToProcess(true);
             } else {
-                String text = downloader.downloadFileToString(properties);
+                String text = downloader.downloadFileToString();
                 documentDto.setDocumentData(text);
                 documentDto.setProcessed(text != null);
                 documentDto.setToProcess(false);
@@ -90,15 +90,16 @@ public class DocumentFetcher {
      */
     public static DocumentDownloader createDownloader(DocumentDto documentDto, PropertyManager properties) {
         String url = documentDto.getUrl();
-        DocumentDownloader downloader;
+        DocumentDownloader downloader = null;
         if (properties.containsKey(PropertyManager.DOWNLOAD_RULE, url)) {
             String downloaderClassName = properties.getValue(PropertyManager.DOWNLOAD_RULE, url);
             downloader = (DocumentDownloader) ResourceManager.createClassInstance(downloaderClassName);
-            if (downloader != null) {
-                return downloader;
-            }
         }
-        return new DefaultDownloader();
+        if (downloader == null) {
+            downloader = new DefaultDownloader();
+        }
+        downloader.setProperties(properties);
+        return downloader;
     }
 
     /**
