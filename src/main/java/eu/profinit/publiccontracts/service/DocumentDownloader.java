@@ -11,14 +11,16 @@ import java.net.URLConnection;
  */
 public interface DocumentDownloader {
 
-    URLConnection retrieveURLConnection() throws IOException;
+    URLConnection retrieveURLConnection() throws IOException, InterruptedException;
 
-    String getMimeType() throws IOException;
+    String getMimeType() throws IOException, InterruptedException;
 
-    int getContentLength() throws IOException;
+    int getContentLength() throws IOException, InterruptedException;
 
-    String downloadFileToString(PropertyManager properties) throws IOException;
+    String downloadFileToString() throws IOException, InterruptedException;
 
     void setUrl(URL url);
+
+    void setProperties(PropertyManager properties);
 
 }

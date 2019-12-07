@@ -295,25 +295,30 @@ public class Main {
         final String numberOfThreadsString = properties.getProperty("public-contract.thread.number");
         final int numberOfThreads = Integer.parseInt(numberOfThreadsString);
         final PropertyManager propertyManager = PropertyManager.createProperties(databaseService.loadProperties());
-        for (int i = 0; i < numberOfThreads; i++) {
-            lists.add(documentDtos.subList((i * documentDtos.size() / numberOfThreads), ((i + 1) * documentDtos.size() / numberOfThreads)));
+        for (int i = 0; i < documentDtos.size(); i+=10) {
+            lists.add(documentDtos.subList(i, i + 10 > documentDtos.size() ? documentDtos.size() : i + 10));
         }
+        AtomicInteger partition = new AtomicInteger(0);
         final List<Thread> threads = new ArrayList<>();
-        for (final List<DocumentDto> list : lists) {
+        for (int thread = 0; thread < numberOfThreads; thread++) {
             final Thread t = new Thread() {
                 public void run() {
                     String threadName = Thread.currentThread().getName();
-                    int i = 0;
-                    for (DocumentDto documentDto : list) {
-                        logger.info(threadName + ":document:" + ++i + "/" + list.size() +
-                                "(" + documentDto.getUrl() + ")");
-
-                        DocumentFetcher.fetchDocument(documentDto, propertyManager);
-                        try {
-                            databaseService.saveDocument(null, documentDto);
-                        } catch (SQLException e) {
-                            logger.error(e.getMessage());
+                    int part = partition.getAndIncrement();
+                    while (part < lists.size()) {
+                        List<DocumentDto> list = lists.get(part);
+                        int i = 0;
+                        for (DocumentDto documentDto : list) {
+                            logger.info(threadName + ":part:" + part + "/" + lists.size() + ":document:" + ++i + "/" + list.size() +
+                                    "(" + documentDto.getUrl() + ")");
+                            DocumentFetcher.fetchDocument(documentDto, propertyManager);
+                            try {
+                                databaseService.saveDocument(null, documentDto);
+                            } catch (SQLException e) {
+                                logger.error(e.getMessage());
+                            }
                         }
+                        part = partition.getAndIncrement();
                     }
                     logger.info(threadName + ":done");
                 }
