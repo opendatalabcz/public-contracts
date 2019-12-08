@@ -25,10 +25,14 @@ Adding "/XMLdataVZ?od=DDMMYYY&do=DDMMYYY" will result in xml representation of s
 You have to run the app with following arguments:
  * init - runs the [init.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/init.sql) and [data.sql](https://github.com/opendatalabcz/public-contracts/blob/master/src/main/resources/sql/data.sql) scripts. Cannot be executed multiple times.
  * reload-sources - deletes and reloads urls of submitters (ETA 20 minutes). When the sources are loaded, use table _source.active_ to filter which ones are to be processed.
- * reload-errors yyyy - tries to collect data that failed before
- * fetch-ico - retrieves data for a single specific ICO number
- * mmyyyy mmyyyy - e.g. '012017 062017' - search and save data for active submitters for time interval from 1.1.2017 to 30.6.2017 (both sides included, end of the interval is the last day of the month). Use table _parameter_ to filter the document types to be processed.
- 
+ * reload-errors yyyy [-skipFetching]- tries to collect data that failed before
+ * fetch-ico ico [-skipFetching]- retrieves data for a single specific ICO number
+ * mmyyyy mmyyyy [-skipFetching]- e.g. '012017 062017' - search and save data for active submitters for time interval from the first day of the first given month to the last day of the second given month (both sides included, eg. 1.1.2017-30.6.2017). Use table _parameter_ to filter the document types to be processed.
+  * process-documents - processes (downloads and extracts) documents saved in the database to be processed by the _document.to_process_ flag
+  
+Optional parameters:
+ * -skipFetching - suppresses the processing of document (downloading and extraction), so only the documents links are scrapped and saved to the database with the flag _document.to_process_
+
 
 ## HTTPS problems
 I have run to several problems with https and java.
