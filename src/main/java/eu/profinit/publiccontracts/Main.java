@@ -398,7 +398,7 @@ public class Main {
         System.out.println("'reload-sources' - deletes and reloads urls of submitters (ETA 20 minutes)");
         System.out.println("'reload-errors yyyy [-skipFetching]' - tries to collect data that failed before");
         System.out.println("'fetch-ico ico [-skipFetching]' - collect all years for selected ico");
-        System.out.println("'yyyy [-skipFetching]' - e.g. '2015' - search and save data for all submitters for 2015");
+        System.out.println("'mmyyyy mmyyyy [-skipFetching]' - e.g. '012017 062017' - search and save data for active submitters for time interval from the first day of the first given month to the last day of the second given month");
         System.out.println("'process-documents' - processes (downloads and extracts) documents flagged in the database to be processed");
         System.out.println("Paramaters:");
         System.out.println("-skipFetching - suppresses the processing of document (downloading and extraction), so only the documents links are scrapped");
