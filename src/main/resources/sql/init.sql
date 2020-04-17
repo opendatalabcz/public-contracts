@@ -240,3 +240,44 @@ CREATE TABLE parameter (
   description   TEXT,
   PRIMARY KEY(parameter_id)
 )
+
+CREATE TABLE subject_item (
+  item_id       BIGINT NOT NULL,
+  contract_id   BIGINT,
+  item_desc     TEXT,
+  embedding     DOUBLE PRECISION[],
+  PRIMARY KEY(item_id)
+);
+
+CREATE SEQUENCE subject_item_item_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+ALTER SEQUENCE subject_item_item_id_seq OWNED BY subject_item.item_id;
+
+ALTER TABLE ONLY subject_item ALTER COLUMN item_id SET DEFAULT nextval(
+    'subject_item_item_id_seq' :: REGCLASS);
+
+ALTER TABLE ONLY subject_item
+ADD CONSTRAINT fk_subject_item_contract FOREIGN KEY (contract_id) REFERENCES contract (contract_id);
+
+
+CREATE TABLE user_profile (
+  user_id   SERIAL,
+  PRIMARY KEY(user_id)
+);
+
+CREATE TABLE interest_item (
+  item_id       SERIAL,
+  user_id       INT,
+  item_desc     TEXT,
+  embedding     DOUBLE PRECISION[],
+  PRIMARY KEY(item_id)
+);
+
+ALTER TABLE ONLY interest_item
+ADD CONSTRAINT fk_interest_item_user_profile FOREIGN KEY (user_id) REFERENCES user_profile (user_id);
+
