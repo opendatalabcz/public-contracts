@@ -36,3 +36,5 @@ WHERE ico IN (
 '00024341', --MZ
 '00025429' --MS
 )
+
+COPY cpv_code("code", "name", "id", "parent_id") FROM 'CPV_codes.txt' DELIMITER E'\t' HEADER CSV;

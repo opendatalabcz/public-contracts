@@ -281,3 +281,24 @@ CREATE TABLE interest_item (
 ALTER TABLE ONLY interest_item
 ADD CONSTRAINT fk_interest_item_user_profile FOREIGN KEY (user_id) REFERENCES user_profile (user_id);
 
+CREATE TABLE cpv_code (
+  id        INT NOT NULL,
+  code      TEXT,
+  name      TEXT,
+  parent_id INT,
+  PRIMARY KEY(id)
+);
+
+ALTER TABLE ONLY cpv_code
+ADD CONSTRAINT fk_cpv_code_cpv_code FOREIGN KEY (parent_id) REFERENCES cpv_code (id);
+
+CREATE TABLE contract_cpv (
+  contract_id   BIGINT,
+  cpv_id        INT,
+  PRIMARY KEY(contract_id, cpv_id)
+);
+
+ALTER TABLE ONLY contract_cpv
+ADD CONSTRAINT fk_contract_cpv_contract FOREIGN KEY (contract_id) REFERENCES contract (contract_id);
+ALTER TABLE ONLY contract_cpv
+ADD CONSTRAINT fk_contract_cpv_cpv_code FOREIGN KEY (cpv_id) REFERENCES cpv_code (id);
