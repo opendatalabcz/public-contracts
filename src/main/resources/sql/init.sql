@@ -1,5 +1,19 @@
 ALTER TABLE entity ALTER COLUMN is_public DROP NOT NULL;
 
+ALTER TABLE entity ADD COLUMN address TEXT;
+ALTER TABLE entity ADD COLUMN latitude FLOAT;
+ALTER TABLE entity ADD COLUMN longitude FLOAT;
+
+CREATE TABLE entity_subject(
+  subject_id    SERIAL,
+  entity_id     INTEGER NOT NULL,
+  description   TEXT,
+  PRIMARY KEY(subject_id)
+);
+
+ALTER TABLE ONLY entity_subject
+ADD CONSTRAINT fk_entity_subject_entity FOREIGN KEY (entity_id) REFERENCES entity (entity_id);
+
 CREATE TABLE submitter
 (
   submitter_id BIGINT NOT NULL,
