@@ -1,13 +1,14 @@
 ALTER TABLE entity ALTER COLUMN is_public DROP NOT NULL;
 
 ALTER TABLE entity ADD COLUMN address TEXT;
-ALTER TABLE entity ADD COLUMN latitude FLOAT;
-ALTER TABLE entity ADD COLUMN longitude FLOAT;
+ALTER TABLE entity ADD COLUMN latitude DOUBLE PRECISION;
+ALTER TABLE entity ADD COLUMN longitude DOUBLE PRECISION;
 
 CREATE TABLE entity_subject(
   subject_id    SERIAL,
   entity_id     INTEGER NOT NULL,
   description   TEXT,
+  embedding     DOUBLE PRECISION [],
   PRIMARY KEY(subject_id)
 );
 
@@ -281,6 +282,9 @@ ADD CONSTRAINT fk_subject_item_contract FOREIGN KEY (contract_id) REFERENCES con
 
 CREATE TABLE user_profile (
   user_id   SERIAL,
+  address   TEXT,
+  latitude  FLOAT,
+  longitude FLOAT,
   PRIMARY KEY(user_id)
 );
 
@@ -300,6 +304,7 @@ CREATE TABLE cpv_code (
   code      TEXT,
   name      TEXT,
   parent_id INT,
+  embedding DOUBLE PRECISION [],
   PRIMARY KEY(id)
 );
 
